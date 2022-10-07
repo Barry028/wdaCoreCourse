@@ -30,7 +30,7 @@
   &__heading {
     text-align: center;
     color: #fff;
-    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+    text-shadow: 4px 4px 0px rgba($dark, 0.2);
   }
 
   &__input {
@@ -45,7 +45,7 @@
       border: solid 2px #303233;
       color: #303233;
       outline: none;
-      box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.1);
+      box-shadow: 4px 4px 0px 0px rgba($dark, 0.1);
     }
   }
 }

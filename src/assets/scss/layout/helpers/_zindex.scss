@@ -1,12 +1,14 @@
+@charset "utf-8";
 
+//  Layout -> zindex 
+// --------------------------------------------------
 
-
-@for $i from 0 through 25 {
-  .t-zindex-#{$i} {
-    z-index: #{$i} !important;
+@each $name, $value in $z-indexes {
+  .t-zindex-#{$name} {
+    z-index: #{$value} !important;
   }
 
-  %t-zindex-#{$i} {
-    z-index: #{$i} !important;
+  %t-zindex-#{$name} {
+    z-index: #{$value} !important;
   }
 }

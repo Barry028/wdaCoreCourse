@@ -1,7 +1,7 @@
 "use strict";
 
 // Class definition
-var JsMenu = function(element, options) {
+const JsMenu = function(element, options) {
     ////////////////////////////
     // ** Private Variables  ** //
     ////////////////////////////
@@ -951,7 +951,7 @@ JsMenu.initGlobalHandlers = function() {
     });
 
     // Resize handler
-    window.addEventListener('resize', JsUtils.throttleMenu(function() {
+    window.addEventListener('resize', JsUtils.throttleTime(function() {
         // Locate and update Offcanvas instances on window resize
         var elements = document.querySelectorAll('[data-tu-menu="true"]');
 

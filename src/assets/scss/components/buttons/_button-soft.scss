@@ -1,10 +1,9 @@
 @charset "utf-8";
 
-/**
-//   Components -> Buttons -> soft
+//  Components -> Buttons -> Buttons soft
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-// Buttons inverse Colors
+// 
+// Buttons soft Colors
 @each $color,
 $value in $element-colors {
   .btn.btn--soft--#{$color} {

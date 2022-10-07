@@ -3,11 +3,11 @@ window.JsUtilsElementDataStore = {};
 window.JsUtilsElementDataStoreID = 0;
 window.JsUtilsDelegatedEventHandlers = {};
 
-var JsUtils = (function() {
+const JsUtils = (function() {
   var resizeHandlers = [];
   var flag = true;
-  var start = null;
-  var timer = null;
+  var start;
+  var timer;
   var _windowResizeHandler = function() {
     var _runResizeHandlers = function() {
       // reinitialize other subscribed elements
@@ -22,26 +22,12 @@ var JsUtils = (function() {
   };
   var resizeHandlers = [];
 
-
   return {
     ////////////////////////////
     // **     Resize       ** //
     ////////////////////////////
     init: function(settings) {
       _windowResizeHandler();
-    },
-
-    filterBoolean: function(val) {
-      // Convert string boolean
-      if (val === true || val === 'true') {
-        return true;
-      }
-
-      if (val === false || val === 'false') {
-        return false;
-      }
-
-      return val;
     },
 
     addResizeHandler: function(callback) {
@@ -55,13 +41,10 @@ var JsUtils = (function() {
         }
       }
     },
-    /**
-     * Trigger window resize handlers.
-     */
+
     runResizeHandlers: function() {
       _runResizeHandlers();
     },
-
     resize: function() {
       if (typeof(Event) === 'function') {
         // modern browsers
@@ -74,7 +57,6 @@ var JsUtils = (function() {
         window.dispatchEvent(evt);
       }
     },
-
     ////////////////////////////
     // **     fetch        ** //
     ////////////////////////////
@@ -100,8 +82,6 @@ var JsUtils = (function() {
           });
       });
     },
-
-
     ////////////////////////////
     // **     Selectors    ** //
     ////////////////////////////
@@ -139,16 +119,12 @@ var JsUtils = (function() {
       parentNode ? (parentNode = parentNode || parentNode[0]) : (parentNode = document);
       return parentNode.querySelector("" + selector + "");
     },
-    QuerySelector: function() {
-
-    },
     getUniqueId: function(prefix) {
-      return prefix + Math.floor(Math.random() * new Date()
-        .getTime());
+      return prefix + Math.floor(Math.random() * new Date().getTime());
     },
-    /////////////////////////////
+    ///////////////////////
     // **   objects   ** //
-    ////////////////////////////
+    ///////////////////////
     isset: function(obj, keys) {
       var stone;
       keys = keys || "";
@@ -168,9 +144,11 @@ var JsUtils = (function() {
       } while (keys.length);
       return true;
     },
+
     isArray: function(obj) {
       return Object.prototype.toString.call(obj) === "[object Array]";
     },
+
     isCollectionContains: function(collection, searchText) {
       for (var i = 0; i < collection.length; i++) {
         if (collection[i].innerText.toLowerCase().indexOf(searchText) > -1) {
@@ -179,11 +157,23 @@ var JsUtils = (function() {
       }
       return false;
     },
+
     isFunction: function(obj) {
       return Object.prototype.toString.call(obj) === "[object Function]";
     },
+
     isArrayLike: function(obj) {
       return (obj instanceof Object && typeof obj.length === "number" && obj.length >= 0);
+    },
+
+    filterBoolean: function(val) {
+      if (val === true || val === 'true') {
+        return true
+      }
+      if (val === false || val === 'false') {
+        return false
+      }
+      return val;
     },
     /////////////////////////////
     // **   Arrays Tools   ** //
@@ -339,51 +329,42 @@ var JsUtils = (function() {
       }
       return out;
     },
-    getHighestZindex: function(el) {
-      var position, value;
-
-      while (el && el !== document) {
-        // Ignore z-index if position is set to a value where z-index is ignored by the browser
-        // This makes behavior of this function consistent across browsers
-        // WebKit always returns auto if the element is positioned
-        position = JsUtils.css(el, 'position');
-
-        if (position === "absolute" || position === "relative" || position === "fixed") {
-          // IE returns 0 when zIndex is not specified
-          // other browsers return a string
-          // we ignore the case of nested elements with an explicit value of 0
-          // <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
-          value = parseInt(JsUtils.css(el, 'z-index'));
-
-          if (!isNaN(value) && value !== 0) {
-            return value;
-          }
-        }
-
-        el = el.parentNode;
-      }
-
-      return 1;
-    },
-    /////////////////////////////
-    // **   throttle debounce   ** //
-    ////////////////////////////
+    ///////////////////////////////////
+    // **   Throttle & Debounce   ** //
+    ///////////////////////////////////
+    // JsUtils.throttle(function() {}, 250);
     throttle: function(callback, delay) {
       var delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 250;
-      var timer;
+      var timer = null;
       var timeStamp = new Date();
+
       return function() {
+        // console.log(args)
         // console.log("throttle");
         var _this = this;
-        var args = arguments; // console.log(_this)
+        var args = arguments;
+        // console.log(_this)
         if (new Date() - timeStamp > delay) {
           timeStamp = new Date();
+
           timer = setTimeout(function() {
             callback.apply(_this, args);
           }, delay);
         }
       };
     },
+    // JsUtils.throttleTime(timer,function() {},250);
+    throttleTime: function(timer, func, delay) {
+      if (timer) {
+        return;
+      }
+
+      timer = setTimeout(function() {
+        func();
+        timer = undefined;
+      }, delay);
+    },
+    // JsUtils.debounce(function() {}, 250);
     debounce: function(callback, delay) {
       var delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
       var timer;
@@ -400,6 +381,13 @@ var JsUtils = (function() {
         }, delay);
       };
     },
+    // JsUtils.debounceTime(timer,function() {},250);
+    debounceTime: function(timer, func, delay) {
+      clearTimeout(timer)
+      timer = setTimeout(func, delay);
+    },
+
+    // JsUtils.hasFixedPositionedParent();
     hasFixedPositionedParent: function(el) {
       var position;
       while (el && el !== document) {
@@ -410,6 +398,9 @@ var JsUtils = (function() {
         el = el.parentNode;
       }
       return false;
+    },
+    trim: function(string) {
+      return string.trim();
     },
     /////////////////////////////
     // **   sleep   ** //
@@ -439,6 +430,7 @@ var JsUtils = (function() {
       }
       el.dispatchEvent(event);
     },
+    //  JsUtils.triggerEvent()
     triggerEvent: function(node, eventName) {
       var doc;
       if (node.ownerDocument) {
@@ -481,6 +473,7 @@ var JsUtils = (function() {
         node.fireEvent("on" + eventName, event);
       }
     },
+
     index: function(el) {
       var c = el.parentNode.children,
         i = 0;
@@ -496,6 +489,14 @@ var JsUtils = (function() {
         el.parentNode.removeChild(el);
       }
     },
+    // JsUtils.empty() //e,要被刪除的子節點的父節點
+    empty: function(el) {
+      console.log(el.firstElementChild)
+      while (el.firstChild) {
+        el.removeChild(el.firstChild);
+      }
+    },
+    // JsUtils.find() //e,要被刪除的子節點的父節點
     find: function(parent, query) {
       if (parent !== null) {
         return parent.querySelector(query);
@@ -503,6 +504,7 @@ var JsUtils = (function() {
         return null;
       }
     },
+
     findAll: function(parent, query) {
       if (parent !== null) {
         return parent.querySelectorAll(query);
@@ -510,6 +512,7 @@ var JsUtils = (function() {
         return null;
       }
     },
+
     parents: function(elem, selector) {
       // Set up a parent array
       var parents = []; // Push each parent element to the array
@@ -524,6 +527,7 @@ var JsUtils = (function() {
       } // Return our parent array
       return parents;
     },
+
     // JsUtils.children(document.getElementById("city_lv1"),'li')
     children: function(el, selector, log) {
       if (!el || !el.childNodes) {
@@ -614,6 +618,7 @@ var JsUtils = (function() {
         }
       };
     },
+
     eventTriggered: function(e) {
       if (e.currentTarget.dataset.triggered) {
         return true;
@@ -623,6 +628,7 @@ var JsUtils = (function() {
         return false;
       }
     },
+
     outerWidth: function(el, margin) {
       var width;
       if (margin === true) {
@@ -634,13 +640,13 @@ var JsUtils = (function() {
         return width;
       }
     },
+
     offset: function(el) {
       var rect, win;
       if (!el) {
         return;
       }
-      if (!el.getClientRects()
-        .length) {
+      if (!el.getClientRects().length) {
         return {
           top: 0,
           left: 0
@@ -654,9 +660,11 @@ var JsUtils = (function() {
         right: window.innerWidth - (el.offsetLeft + el.offsetWidth)
       };
     },
+
     height: function(el) {
       return JsUtils.css(el, "height");
     },
+
     outerHeight: function(el, withMargin) {
       var height = el.offsetHeight;
       var style;
@@ -668,11 +676,12 @@ var JsUtils = (function() {
         return height;
       }
     },
+
     visible: function(el) {
       return !(el.offsetWidth === 0 && el.offsetHeight === 0);
     },
     /////////////////////////////
-    // **   attr   ** //
+    // **      attr        ** //
     ////////////////////////////
     attr: function(el, name, value) {
       if (el == undefined) {
@@ -690,18 +699,22 @@ var JsUtils = (function() {
       }
       return el.getAttribute(name) ? true : false;
     },
+
     removeAttr: function(el, name) {
       if (el == undefined) {
         return;
       }
       el.removeAttribute(name);
     },
-    /////////////////////////////
-    // **   animate   ** //
-    ////////////////////////////
+
+    ///////////////////////
+    // **   Animate   ** //
+    ///////////////////////
+    // JsUtils.easing()
     easing: function(t, b, c, d) {
       return c * (0.5 - Math.cos(t / d * Math.PI) / 2) + b;
     },
+
     animate: function(from, to, duration, update, easing, done) {
       var easings = {};
       var easing;
@@ -737,6 +750,7 @@ var JsUtils = (function() {
       var start = window.performance && window.performance.now ? window.performance.now() : +new Date();
       return rAF(loop);
     },
+
     // fadeToggle fadeIn fadeOut
     // fade.slide('fadeToggle', document.getElementById('a1'), 400, function () {
     //   console.log('fadeToggle');
@@ -852,12 +866,7 @@ var JsUtils = (function() {
     //   }
     //   return requestAnimationFrame(slideAnimations);
     // },
-    /**
-     * Checks whether the element has given classes
-     * @param {object} el jQuery element object
-     * @param {string} Classes string
-     * @returns {boolean}
-     */
+
     slide: function(el, dir, speed, callback, recalcMaxHeight) {
       if (!el || (dir == 'up' && JsUtils.visible(el) === false) || (dir == 'down' && JsUtils.visible(el) === true)) {
         return;
@@ -951,6 +960,63 @@ var JsUtils = (function() {
     slideDown: function(el, speed, callback) {
       JsUtils.slide(el, 'down', speed, callback);
     },
+    //////////////////////////
+    // **      Css      ** //
+    /////////////////////////
+
+    css: function(el, styleProp, value, important) {
+      if (!el) {
+        return;
+      }
+
+      if (value !== undefined) {
+        if (important === true) {
+          el.style.setProperty(styleProp, value, 'important');
+        } else {
+          el.style[styleProp] = value;
+        }
+      } else {
+        var defaultView = (el.ownerDocument || document).defaultView;
+
+        // W3C standard way:
+        if (defaultView && defaultView.getComputedStyle) {
+          // sanitize property name to css notation
+          // (hyphen separated words eg. font-Size)
+          styleProp = styleProp.replace(/([A-Z])/g, "-$1").toLowerCase();
+
+          return defaultView.getComputedStyle(el, null).getPropertyValue(styleProp);
+        } else if (el.currentStyle) { // IE
+          // sanitize property name to camelCase
+          styleProp = styleProp.replace(/\-(\w)/g, function(str, letter) {
+            return letter.toUpperCase();
+          });
+
+          value = el.currentStyle[styleProp];
+
+          // convert other units to pixels on IE
+          if (/^\d+(em|pt|%|ex)?$/i.test(value)) {
+            return (function(value) {
+              var oldLeft = el.style.left,
+                oldRsLeft = el.runtimeStyle.left;
+
+              el.runtimeStyle.left = el.currentStyle.left;
+              el.style.left = value || 0;
+              value = el.style.pixelLeft + "px";
+              el.style.left = oldLeft;
+              el.runtimeStyle.left = oldRsLeft;
+
+              return value;
+            })(value);
+          }
+
+          return value;
+        }
+      }
+    },
+
+    getBody: function() {
+      return document.getElementsByTagName('body')[0];
+    },
 
     hasClasses: function(el, classes) {
       if (!el) {
@@ -1013,9 +1079,11 @@ var JsUtils = (function() {
         }
       }
     },
-    /////////////////////////////
+
+    //////////////////////////
     // **   actualCss   ** //
-    ////////////////////////////
+    /////////////////////////
+
     actualCss: function(el, prop, cache) {
       var css = "";
       if (el instanceof HTMLElement === false) {
@@ -1037,74 +1105,70 @@ var JsUtils = (function() {
         return parseFloat(el.getAttribute("tu-hidden-" + prop));
       }
     },
+
     actualHeight: function(el, cache) {
       return JsUtils.actualCss(el, "height", cache);
     },
+
     actualWidth: function(el, cache) {
       return JsUtils.actualCss(el, "width", cache);
     },
-    css: function(el, styleProp, value, important) {
-      if (!el) {
-        return;
-      }
-      if (value !== undefined) {
-        if (important === true) {
-          el.style.setProperty(styleProp, value, "important");
-        } else {
-          el.style[styleProp] = value;
-        }
-      } else {
-        var defaultView = (el.ownerDocument || document)
-          .defaultView;
-        if (defaultView && defaultView.getComputedStyle) {
-          styleProp = styleProp.replace(/([A-Z])/g, "-$1")
-            .toLowerCase();
-          return defaultView.getComputedStyle(el, null)
-            .getPropertyValue(styleProp);
-        } else if (el.currentStyle) {
-          styleProp = styleProp.replace(/\-(\w)/g, function(str, letter) {
-            return letter.toUpperCase();
-          });
-          value = el.currentStyle[styleProp];
-          if (/^\d+(em|pt|%|ex)?$/i.test(value)) {
-            return (function(value) {
-              var oldLeft = el.style.left,
-                oldRsLeft = el.runtimeStyle.left;
-              el.runtimeStyle.left = el.currentStyle.left;
-              el.style.left = value || 0;
-              value = el.style.pixelLeft + "px";
-              el.style.left = oldLeft;
-              el.runtimeStyle.left = oldRsLeft;
-              return value;
-            })(value);
-          }
-          return value;
-        }
-      }
-    },
+
     show: function(el, display) {
       if (typeof el !== "undefined") {
         el.style.display = display ? display : "block";
       }
     },
+
     hide: function(el) {
       if (typeof el !== "undefined") {
         el.style.display = "none";
       }
     },
+
+    animateClass: function(el, animationName, callback) {
+      var animation;
+      var animations = {
+        animation: 'animationend',
+        OAnimation: 'oAnimationEnd',
+        MozAnimation: 'mozAnimationEnd',
+        WebkitAnimation: 'webkitAnimationEnd',
+        msAnimation: 'msAnimationEnd',
+      };
+
+      for (var t in animations) {
+        if (el.style[t] !== undefined) {
+          animation = animations[t];
+        }
+      }
+
+      JsUtils.addClass(el, animationName);
+
+      JsUtils.one(el, animation, function() {
+        JsUtils.removeClass(el, animationName);
+      });
+
+      if (callback) {
+        JsUtils.one(el, animation, callback);
+      }
+    },
+
     /////////////////////////////
     // **   eventHandles   ** //
     ////////////////////////////
+
     addEvent: function(el, type, handler, one) {
       if (typeof el !== "undefined" && el !== null) {
         el.addEventListener(type, handler);
       }
     },
+
     removeEvent: function(el, type, handler) {
       if (el !== null) {
         el.removeEventListener(type, handler);
       }
     },
+
     on: function(element, selector, event, handler) {
       if (element === null) {
         return;
@@ -1125,6 +1189,7 @@ var JsUtils = (function() {
       JsUtils.addEvent(element, event, window.JsUtilsDelegatedEventHandlers[eventId]);
       return eventId;
     },
+
     off: function(element, event, eventId) {
       if (!element || !window.JsUtilsDelegatedEventHandlers[eventId]) {
         return;
@@ -1132,6 +1197,7 @@ var JsUtils = (function() {
       JsUtils.removeEvent(element, event, window.JsUtilsDelegatedEventHandlers[eventId]);
       delete window.JsUtilsDelegatedEventHandlers[eventId];
     },
+
     one: function onetime(el, type, callback) {
       el.addEventListener(type, function callee(e) {
         // remove event
@@ -1158,6 +1224,7 @@ var JsUtils = (function() {
 
       return hash;
     },
+
     transitionEnd: function(el, callback) {
       var transition;
       var transitions = {
@@ -1209,14 +1276,14 @@ var JsUtils = (function() {
         JsUtils.css(el, vendors[i] + 'animation-duration', value);
       }
     },
+    
     /////////////////////////////
     // **   scroll   ** //
     ////////////////////////////
     scrollTo: function(target, offset, duration) {
       // console.log(Math.abs(target.getBoundingClientRect().top - window.innerHeight / 2) / 2)
       var duration = duration ? duration : 300;
-      var targetPos = target ? JsUtils.offset(target)
-        .top : 0;
+      var targetPos = target ? JsUtils.offset(target).top : 0;
       var scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
       var from, to;
       if (offset) {
@@ -1231,31 +1298,33 @@ var JsUtils = (function() {
       });
     },
 
-    each: function(array, callback) {
-      return [].slice.call(array).map(callback);
-    },
     setHTML: function(el, html) {
       el.innerHTML = html;
     },
+
+    getHTML: function(el) {
+      if (el) {
+        return el.innerHTML;
+      }
+    },
+
+    insertAfter: function(newNode, refNode) {
+      return refNode.parentNode.insertBefore(newNode, refNode.nextSibling);
+    },
+
     isRTL: function() {
       return (document.querySelector('html').getAttribute("direction") === 'rtl');
     },
+
     scrollTop: function(offset, duration) {
       JsUtils.scrollTo(null, offset, duration);
     },
+
     getScroll: function(element, method) {
       method = "scroll" + method;
       return element == window || element == document ? self[method == "scrollTop" ? "pageYOffset" : "pageXOffset"] || (browserSupportsBoxModel && document.documentElement[method]) || document.body[method] : element[method];
     },
-    getDocumentHeight: function() {
-      var body = document.body;
-      var html = document.documentElement;
-      return Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-    },
-    getScrollTop: function() {
-      return (document.scrollingElement || document.documentElement)
-        .scrollTop;
-    },
+
     /////////////////////////////
     // **   get Values ** //
     ////////////////////////////
@@ -1272,10 +1341,48 @@ var JsUtils = (function() {
         height: view[val + "Height"]
       };
     },
+
     getViewportWidth: function() {
-      return this.getViewPort()
-        .width;
+      return this.getViewPort().width;
     },
+
+    getDocumentHeight: function() {
+      var body = document.body;
+      var html = document.documentElement;
+      return Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+    },
+
+    getScrollTop: function() {
+      return (document.scrollingElement || document.documentElement).scrollTop;
+    },
+
+    getHighestZindex: function(el) {
+      var position, value;
+
+      while (el && el !== document) {
+        // Ignore z-index if position is set to a value where z-index is ignored by the browser
+        // This makes behavior of this function consistent across browsers
+        // WebKit always returns auto if the element is positioned
+        position = JsUtils.css(el, 'position');
+
+        if (position === "absolute" || position === "relative" || position === "fixed") {
+          // IE returns 0 when zIndex is not specified
+          // other browsers return a string
+          // we ignore the case of nested elements with an explicit value of 0
+          // <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
+          value = parseInt(JsUtils.css(el, 'z-index'));
+
+          if (!isNaN(value) && value !== 0) {
+            return value;
+          }
+        }
+
+        el = el.parentNode;
+      }
+
+      return 1;
+    },
+
     getResponsiveValue: function(value, defaultValue) {
       var width = this.getViewPort().width;
       var result;
@@ -1305,6 +1412,7 @@ var JsUtils = (function() {
       }
       return result;
     },
+
     getSelectorMatchValue: function(value) {
       var result = null;
       value = JsUtils.parseJson(value);
@@ -1322,6 +1430,7 @@ var JsUtils = (function() {
       }
       return result;
     },
+
     getConditionalValue: function(value) {
       var value = JsUtils.parseJson(value);
       var result = JsUtils.getResponsiveValue(value);
@@ -1333,6 +1442,7 @@ var JsUtils = (function() {
       }
       return result;
     },
+
     getCssVariableValue: function(variableName) {
       var hex = getComputedStyle(document.documentElement)
         .getPropertyValue(variableName);
@@ -1343,31 +1453,30 @@ var JsUtils = (function() {
     },
 
     getBreakpoint: function(breakpoint) {
-      var value = this.getCssVariableValue("--bs-" + breakpoint);
+      var value = this.getCssVariableValue("--tu-" + breakpoint);
       if (value) {
         value = parseInt(value.trim());
       }
       return value;
     },
+
     isInViewport: function(element) {
       var rect = element.getBoundingClientRect();
       return (rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth));
     },
+
     isBreakpointUp: function(mode) {
       var width = this.getViewPort()
         .width;
       var breakpoint = this.getBreakpoint(mode);
       return width >= breakpoint;
     },
+
     isBreakpointDown: function(mode) {
       var width = this.getViewPort()
         .width;
       var breakpoint = this.getBreakpoint(mode);
       return width < breakpoint;
-    },
-
-    getViewportWidth: function() {
-      return this.getViewPort().width;
     },
 
     /////////////////////////////
@@ -1376,6 +1485,7 @@ var JsUtils = (function() {
     datePad: function(n) {
       return n > 9 ? n : "0" + n;
     },
+
     parseJson: function(value) {
       if (typeof value === "string") {
         value = value.replace(/'/g, '"');
@@ -1416,16 +1526,56 @@ var JsUtils = (function() {
       }
       return '"' + target + '"';
     },
+
     // JsUtils.snakeToCamel('background-color')
     snakeToCamel: function(string) {
       return string.replace(/(\-\w)/g, function(val) {
         return val[1].toUpperCase();
       });
     },
+
     // JsUtils.getRandomInt(0,100)
     getRandomInt: function(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     },
+
+    stringBind: function(srting, data) {
+      return srting.replace(/@\((\w+)\)@/gi, function(match, key) {
+        // @(val)@
+        return typeof data[key] === "undefined" ? "" : data[key];
+      });
+    },
+
+    // JsUtils.numOfComma()
+    numOfComma: function(num) {
+      num = "" + num; //數字轉換為字符串
+      var len = num.length,
+        commaNum = parseInt((len - 1) / 3),
+        leftNum = len % 3 == 0 ? 3 : len % 3,
+        result = "";
+      if (len <= 3) { //長度小於3
+        result = num;
+      } else {
+        result = num.slice(0, leftNum);
+        for (var i = commaNum; i >= 1; i--) {
+          result += "," + num.slice(len - i * 3, len - (i - 1) * 3);
+        }
+      }
+      return result;
+    },
+
+    numberString: function(nStr) {
+      nStr += '';
+      var x = nStr.split('.');
+      var x1 = x[0];
+      var x2 = x.length > 1 ? '.' + x[1] : '';
+      var rgx = /(\d+)(\d{3})/;
+      while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+      }
+      return x1 + x2;
+    },
+
     // JsUtils.trim.all(' background-color ')
     // trim: function(string) {
     //   return {
@@ -1440,9 +1590,7 @@ var JsUtils = (function() {
     //     })()
     //   };
     // },
-    trim: function(string) {
-      return string.trim();
-    },
+
     /**
      *  按照一定順序的屬性對資料進行分組
      *  JsUtils.groupByProps(arrayOcj, 'count'); 
@@ -1484,103 +1632,91 @@ var JsUtils = (function() {
       }
       return zipData;
     },
+
     //  const str2 = JsUtils.replaceAll('Hello World 222',"222", "1")
     replaceAll: function(strings, search, replacement) {
       return strings.replace(new RegExp(search, "g"), replacement);
     },
 
-    /////////////////////////////
+    contains: function(strings, target, str, separator) {
+      return separator ?
+        (separator + target + separator).indexOf(separator + str + separator) > -1 : //需要判斷分隔符
+        target.indexOf(str) > -1; //不需判斷分隔符
+    },
+    // each: function(array, callback) {
+    //   return [].slice.call(array).map(callback);
+    // },
+    //////////////////////
     // **   Colors   ** //
-    ////////////////////////////
+    //////////////////////
     colorLighten: function(color, amount) {
       const addLight = function(color, amount) {
         let cc = parseInt(color, 16) + amount;
-        let c = cc > 255 ? 255 : cc;
-        c = c.toString(16)
-          .length > 1 ? c.toString(16) : `0${c.toString(16)}`;
+        let c = (cc > 255) ? 255 : (cc);
+        c = (c.toString(16).length > 1) ? c.toString(16) : `0${c.toString(16)}`;
         return c;
-      };
-      color = color.indexOf("#") >= 0 ? color.substring(1, color.length) : color;
+      }
+
+      color = (color.indexOf("#") >= 0) ? color.substring(1, color.length) : color;
       amount = parseInt((255 * amount) / 100);
-      return (color = `#${addLight(color.substring(0, 2), amount)}${addLight(
-        color.substring(2, 4),
-        amount
-      )}${addLight(color.substring(4, 6), amount)}`);
+
+      return color = `#${addLight(color.substring(0,2), amount)}${addLight(color.substring(2,4), amount)}${addLight(color.substring(4,6), amount)}`;
     },
+
     colorDarken: function(color, amount) {
       const subtractLight = function(color, amount) {
         let cc = parseInt(color, 16) - amount;
-        let c = cc < 0 ? 0 : cc;
-        c = c.toString(16)
-          .length > 1 ? c.toString(16) : `0${c.toString(16)}`;
-        return c;
-      };
-      color = color.indexOf("#") >= 0 ? color.substring(1, color.length) : color;
-      amount = parseInt((255 * amount) / 100);
-      return (color = `#${subtractLight(
-        color.substring(0, 2),
-        amount
-      )}${subtractLight(color.substring(2, 4), amount)}${subtractLight(
-        color.substring(4, 6),
-        amount
-      )}`);
-    },
-    // isHexColor(code) {
-    //   return /^#[0-9A-F]{6}$/i.test(code);
-    // },
+        let c = (cc < 0) ? 0 : (cc);
+        c = (c.toString(16).length > 1) ? c.toString(16) : `0${c.toString(16)}`;
 
-    // Throttle function: Input as function which needs to be throttled and delay is the time interval in milliseconds
-    throttleMenu: function(timer, func, delay) {
-      // If setTimeout is already scheduled, no need to do anything
-      if (timer) {
-        return;
+        return c;
       }
 
-      // Schedule a setTimeout after delay seconds
-      timer = setTimeout(function() {
-        func();
+      color = (color.indexOf("#") >= 0) ? color.substring(1, color.length) : color;
+      amount = parseInt((255 * amount) / 100);
 
-        // Once setTimeout function execution is finished, timerId = undefined so that in <br>
-        // the next scroll event function execution can be scheduled by the setTimeout
-        timer = undefined;
-      }, delay);
+      return color = `#${subtractLight(color.substring(0,2), amount)}${subtractLight(color.substring(2,4), amount)}${subtractLight(color.substring(4,6), amount)}`;
     },
 
+
+    isHexColor(code) {
+      return /^#[0-9A-F]{6}$/i.test(code);
+    },
+
+    /////////////////////
+    // **   dates   ** //
+    /////////////////////
     chineseYearFormat: function(date, format) {
       const day = JsUtils.datePad(date.getDate());
       const month = JsUtils.datePad(date.getMonth() + 1);
       const year = date.getFullYear() - 1911;
       return "" + year + "/" + month + "/" + day + "";
     },
+
     chineseYearTimeFormat: function(date, format) {
       const day = JsUtils.datePad(date.getDate());
       const month = JsUtils.datePad(date.getMonth() + 1);
       const year = date.getFullYear() - 1911;
       const hour = JsUtils.datePad(date.getHours());
       const minute = JsUtils.datePad(date.getMinutes());
-      
+
       return "" + year + "/" + month + "/" + day + " " + hour + ":" + minute
     },
+
     yearFormat: function(date, format) {
       const day = JsUtils.datePad(date.getDate());
       const month = JsUtils.datePad(date.getMonth() + 1);
       const year = date.getFullYear();
       return "" + year + "/" + month + "/" + day + "";
     },
+
     yearTimeFormat: function(date, format) {
       const day = JsUtils.datePad(date.getDate());
       const month = JsUtils.datePad(date.getMonth() + 1);
       const year = date.getFullYear();
       return "" + year + "/" + month + "/" + day + ""; + HH + "/" + mm
     },
-    // // Debounce function: Input as function which needs to be debounced and delay is the debounced time in milliseconds
-    // debounce: function(timer, func, delay) {
-    //   // Cancels the setTimeout method execution
-    //   clearTimeout(timer)
-
-    //   // Executes the func after delay time.
-    //   timer = setTimeout(func, delay);
-    // },
   };
 })();
-var JSTU = JsUtils.extend(JsUtils);
+
+const JSTU = JsUtils.extend(JsUtils);

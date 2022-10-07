@@ -1,30 +1,17 @@
 
-
-@mixin flex {
+// @include flex($justify: flex-start, $flex-wrap: wrap);
+@mixin flex(
+  $justify: center, 
+  $align-content: center, 
+  $align-items: center, 
+  $flex-dir: row, 
+  $flex-wrap: nowrap) {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-}
-
-// The 'flex' shorthand
-// - applies to: flex items
-// <positive-number>, initial, auto, or none
-@mixin flex($fg: 1, $fs: 0, $fb: auto) {
-  // Set a variable to be used by box-flex properties
-  $fg-boxflex: $fg;
-
-  // Box-Flex only supports a flex-grow value so lets grab the
-  // first item in the list and just return that.
-  @if type-of($fg) == "list" {
-    $fg-boxflex: nth($fg, 1);
-  }
-
-  -webkit-box: $fg-boxflex;
-  -moz-box: $fg-boxflex;
-  -webkit-flex: $fg $fs $fb;
-  -ms-flex: $fg $fs $fb;
-  flex: $fg $fs $fb;
+  justify-content: $justify;
+  align-content: $align-content;
+  align-items: $align-items;
+  flex-direction: $flex-dir;
+  flex-wrap: $flex-wrap;
 }
 
 @mixin center-item {
@@ -33,9 +20,9 @@
   justify-content: center;
 }
 
-@function calc-width($col) {
-  @return 100% / $col;
-}
+// @function calc-width($col) {
+//   @return 100% / $col;
+// }
 
 // .span-two {
 //     width: calculate-width(2); // spans 2 columns, width = 50%

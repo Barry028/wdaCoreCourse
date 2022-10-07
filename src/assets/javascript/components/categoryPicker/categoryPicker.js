@@ -3,47 +3,14 @@
  *
  * @ Author BarrY
  * @ Version 2.0.2
- * @ Update 2022/09/02
+ * @ Update 2022/09/22
  * @ 修正 --- 關閉視窗 BUG
  */
 
 'use strict';
-// 選取能夠 focus 的標籤
-var focusableElements = JsUtils.findAll(JsUtils.Quer('html'), 'a ,button ,input ,select');
-// console.dir(focusableElements);
-// .not('.category-del-all')
-// .not('.category-close')
-// .not('.category-close-btn')
-// .not('.category-confirm-btn');
 
+const JsCategoryPicker = function(element, config) {
 
-
-// $.CategoryPicker.init({
-//   el: '#area', // Input ID 點擊啟用
-//   elHiddenid: '.areaVal', // Input Hidden
-//   id: 'areaPicker', // Picker ID
-//   omitNum: 5, // 幾個選項以上 顯示單位 
-//   unit: '地區', // 5 個選項以上顯示 已選擇幾個的單位
-//   selectedNum: 10, // 可選擇幾個標籤
-//   data: cities.info, // 代入縣市資訊
-//   selectAll: true, // 二層選單是否要開啟第一個全選 預設 false
-//   title: '地區類別選單',
-//   confirm: function(res) {
-//     // 回傳 Input hidden
-//     if (res.length) {
-//       for (var k in res) {
-//         $('.areaVal').eq(k).val(res[k].value);
-//         $('.areaVal').eq(k).attr('name', 'area[' + res[k].uid + ']');
-//       }
-//     } else {
-//       $('.areaVal').val('');
-//       $('.areaVal').attr('name', 'area[]');
-//     }
-//   }
-// });
-
-
-var JsCategoryPicker = function JsCategoryPicker(element, config) {
   ///////////////////////////////
   // **  Private variables  ** //
   ///////////////////////////////
@@ -51,8 +18,8 @@ var JsCategoryPicker = function JsCategoryPicker(element, config) {
   var body = document.getElementsByTagName("BODY")[0];
 
   if (typeof element === "undefined" || element === null) return;
-  // var element = document.getElementById(that.element)
-  // console.log(this);
+
+
   var defaultOptions = {
     data: config.data,
     dataArray: {},
@@ -63,20 +30,16 @@ var JsCategoryPicker = function JsCategoryPicker(element, config) {
     selectAllPreTxt: config.selectAllPrefix,
     lv1Active: config.lv1Active,
     lv2Active: config.lv2Active,
-
-    // el: document.getElementById(config.el),
-    elHidden: document.getElementById(config.elHiddenid),
+    elHidden: document.getElementById(config.elHidden),
     sl: config.selectedNum,
-    oN: config.omitNum,
     id: config.id,
     title: config.title,
-    unit: config.unit,
-
   };
 
   element = document.getElementById(element);
 
   var config = Object.assign({}, that.defaultOptions, config || {});
+
   const dataArray = config.dataArray;
   const dataArraySub = config.dataArraySub;
   const selectAll = config.selectAll || true;
@@ -89,10 +52,17 @@ var JsCategoryPicker = function JsCategoryPicker(element, config) {
   const pickerID = config.id;
   const title = config.title || "地區類別選單";
   const picker = document.getElementById(pickerID);
+  const elHidden = config.elHidden || pickerID + 'Hidden';
+  // const picker = document.getElementById(pickerID);
+  // console.log(elHidden)
+  // console.log(element.id)
+  const inputId = element.id;
+
+
   ////////////////////////////
   // ** Private methods  ** //
   ////////////////////////////
-  var _construct = function _construct() {
+  const _construct = function _construct() {
     if (JsUtils.data(element).has('category')) {
       that = JsUtils.data(element).get('category');
     } else {
@@ -100,16 +70,16 @@ var JsCategoryPicker = function JsCategoryPicker(element, config) {
     }
   };
 
-  var _init = function _init() {
-
+  const _init = function _init() {
     that.uid = JsUtils.getUniqueId('category_picker');
-
     _loadDate(data);
+
+    _openClick(element);
 
     JsUtils.data(element).set('category-picker', that);
   };
 
-  var _loadDate = function(data) {
+  const _loadDate = function(data) {
     JsUtils.fetch(data, 'GET')
       .then((responseData) => {
         return _build(responseData, pickerID, title);
@@ -117,12 +87,15 @@ var JsCategoryPicker = function JsCategoryPicker(element, config) {
       .then(() => {
         return _handlers();
       })
+      .then(() => {
+        return _confirm(inputId)
+      })
       .catch((error) => {
         return console.log('資料載入失敗!!');
       });
   };
 
-  var _build = function(data, id, title) {
+  const _build = function(data, id, title) {
 
     const dataArrayLen = dataArray.length;
     const dataArraySubLen = dataArraySub.length;
@@ -141,10 +114,12 @@ var JsCategoryPicker = function JsCategoryPicker(element, config) {
         maps[newData[dataArray[0]]] = newData;
       }
       for (let j = 0; j < newArrObj.length; j++) {
+        // console.log(i)
         let dataJson = newArrObj[j];
         if (dataJson[dataArray[0]] == newData[dataArray[0]]) {
           dataJson.DATAS.push({
-            ID: prefix + prefixSub + newData.ZIPCODE,
+            ID: prefix + prefixSub + (newData.ZIPCODE || i),
+            // ID: prefix + prefixSub + i ,
             [dataArray[0]]: newData[dataArray[0]],
             [dataArraySub[0]]: newData[dataArraySub[0]],
             [dataArraySub[1]]: newData[dataArraySub[1]]
@@ -153,8 +128,7 @@ var JsCategoryPicker = function JsCategoryPicker(element, config) {
         }
       }
     }
-    console.log(newArrObj);
-
+    // console.log(newArrObj)
     const lv1_fragment = document.createDocumentFragment();
     const lv2_fragment = document.createDocumentFragment();
 
@@ -165,40 +139,59 @@ var JsCategoryPicker = function JsCategoryPicker(element, config) {
     let lv2_ul = document.createElement('ul');
     lv2_ul.id = prefix + "lv2";
     lv2_ul.className = "list-level-two-cnt";
-    // lv2_ul.setAttribute("data-parents", prefix + "lv2")
 
     for (let k = 0; k < newArrObj.length; k++) {
+
+      const lv1LiLab = newArrObj[k][dataArray[1]];
+      const lv1LiId = prefix + "lv1_" + newArrObj[k][dataArray[0]];
+      const lv2UlId = prefix + "lv2_" + newArrObj[k][dataArray[0]];
+
+      // console.log(lv2UlId)
       let lv1_li = document.createElement("li");
-      lv1_li.id = prefix + "lv1_" + newArrObj[k].CTID;
+      lv1_li.id = lv1LiId;
       lv1_li.className = "lv1 category-item";
-      lv1_li.setAttribute("data-targets", prefix + "lv2_" + newArrObj[k].CTID);
-      lv1_li.setAttribute("aria-label", newArrObj[k].CTNAME);
+      lv1_li.setAttribute("data-targets", lv2UlId);
+      lv1_li.setAttribute("aria-label", lv1LiLab);
 
-      let lv1_html = '<a href="javascript:;" class="category-item-txt">' + newArrObj[k].CTNAME + '</a>';
-
+      let lv1_html = '<a href="javascript:;" class="category-item-txt">' + lv1LiLab + '</a>';
       lv1_li.innerHTML = lv1_html;
       lv1_fragment.appendChild(lv1_li);
 
       let lv2_ul_ul = document.createElement("ul");
       lv2_ul_ul.className = "list-level-two";
-      lv2_ul_ul.id = prefix + "lv2_" + newArrObj[k].CTID;
-      lv2_ul_ul.setAttribute("data-parents", prefix + "lv1_" + newArrObj[k].CTID);
+      lv2_ul_ul.id = lv2UlId;
+      lv2_ul_ul.setAttribute("data-parents", lv1LiId);
       lv2_fragment.appendChild(lv2_ul_ul);
+
       if (selectAll === true) {
+        const lv2LiLabAll = newArrObj[k][dataArray[1]] + selectAllPreTxt;
+        const lv2InputId = prefix + prefixSub + newArrObj[k].DATAS[0][dataArray[0]];
         let lv2_liAll = document.createElement("li");
         lv2_liAll.className = "lv2 category-item";
-        lv2_liAll.setAttribute("data-parents", prefix + "lv2_" + newArrObj[k].CTID);
-        let lv2All_html = '<a href="javascript:;" class="category-item-txt">' + newArrObj[k].CTNAME + selectAllPreTxt + '</a>';
+        lv2_liAll.setAttribute("data-parents", lv2UlId);
+        var lv2All_html =
+          '<input type="checkbox" id="' + lv2InputId + '_All">' +
+          '<label class="t-checkbox-group" tabindex="0" for="' + lv2InputId + '_All">' +
+          '' + lv2LiLabAll + '' +
+          '</label>';
         lv2_liAll.innerHTML = lv2All_html;
         lv2_ul_ul.appendChild(lv2_liAll);
       }
 
       for (let m = 0; m < newArrObj[k].DATAS.length; m++) {
-        if (newArrObj[k].CTID === newArrObj[k].DATAS[m].CTID) {
+
+        const lv2LiLab = newArrObj[k].DATAS[m][dataArraySub[1]]
+        const lv2LiId = newArrObj[k].DATAS[m].ID;
+
+        if (newArrObj[k][dataArray[0]] === newArrObj[k].DATAS[m][dataArray[0]]) {
           let lv2_li = document.createElement("li");
           lv2_li.className = "lv2 category-item";
-          lv2_li.setAttribute("data-parents", prefix + "lv2_" + newArrObj[k].CTID);
-          let lv2_html = '<a href="javascript:;"  class="category-item-txt">' + newArrObj[k].DATAS[m].ZIPNAME + '</a>';
+          lv2_li.setAttribute("data-parents", lv2UlId);
+          var lv2_html =
+            '<input type="checkbox" id="' + lv2LiId + '">' +
+            '<label class="t-checkbox-group" tabindex="0" for="' + lv2LiId + '">' +
+            '' + lv2LiLab + '' +
+            '</label>';
           lv2_li.innerHTML = lv2_html;
           lv2_ul_ul.appendChild(lv2_li);
         }
@@ -216,20 +209,19 @@ var JsCategoryPicker = function JsCategoryPicker(element, config) {
 
     let modal = document.createElement('div');
     modal.id = pickerID;
-    modal.className = "category-picker";
+    modal.className = "category-picker close";
     let html = '';
     html += '   <div class="category-mask"></div>';
     html += '   <div class="category-modal">';
     html += '       <div class="category-modal-cnt">';
     html += '           <div class="category-modal-header">';
-    html += '               ' + title + '';
-    html += '               <button id="' + prefix + 'Close" type="button" class="category-close" tabindex="0" aria-label="關閉' + title + '" title="關閉' + config.title + '"></button>';
+    html += '               <h4 class="category-modal-header-txt">' + title + '</h4>';
+    html += '               <button id="' + pickerID + prefix + 'close" type="button" class="category-close" tabindex="0" aria-label="關閉' + title + '" title="關閉' + config.title + '"></button>';
     html += '           </div>';
-    html += '           <div class="category-modal-selected">';
-    html += '               <span>已選擇 ( <span class="selectedNum">0</span> )</span>';
-    html += '               <a class="category-del-all" aria-label="清空全部標籤" title="清空全部標籤" tabindex="0">清空全部標籤</a>';
+    html += '           <div id="' + pickerID + 'selectedCnt" class="category-modal-selected">';
+    html += '               <span class="selected-txt"> 已選擇 ( <span id="' + pickerID + 'catNums" class="selectedNum">0</span> )</span>';
+    html += '               <a class="selected-del-all" aria-label="清空全部標籤" title="清空全部標籤" tabindex="0">清空全部標籤</a>';
     html += '           </div>';
-    html += '           <div class="category-picker-selectedbox"></div>';
     html += '           <div class="category-modal-body">';
     html += '               ' + lv1_ul_Html + ' ';
     html += '               ' + lv2_ul_Html + ' ';
@@ -241,96 +233,301 @@ var JsCategoryPicker = function JsCategoryPicker(element, config) {
     html += '       </div>';
     html += '   </div>';
 
-
     modal.innerHTML = html;
     document.getElementsByTagName("BODY")[0].appendChild(modal);
     document.getElementById("" + prefix + "lv1_1").classList.add(lv1Active);
     document.querySelector("[data-parents='" + prefix + "lv1_1']").classList.add(lv2Active);
 
-
-    // var products = [{
-    //   name: "Mathematics",
-    //   category: "Subject"
-    // }, {
-    //   name: "Cow",
-    //   category: "Animal"
-    // }, {
-    //   name: "Science",
-    //   category: "Subject"
-    // }];
-
-    // var groupByCategory = products.reduce(function(group, product) {
-    //   var _group$category;
-
-    //   var category = product.name;
-
-    //   group[category] = (_group$category = group[name]) != null ? _group$category : [];
-    //   group[category].push(product);
-    //   return group;
-    // }, {});
-
-    // console.log(groupByCategory);
-
-
-
-    var groupByCategory = JsUtils.groupByProps(data, 'CTID');
-
-    console.log(groupByCategory);
-
+    let newInput = document.createElement("input");
+    newInput.type = 'hidden';
+    newInput.id = elHidden;
+    newInput.value = '';
+    JsUtils.insertAfter(newInput, document.getElementById(inputId))
+    // var groupByCategory = JsUtils.groupByProps(data, 'CTID');
   };
 
+  const _keydown = function(element) {
+    var element = document.getElementById(pickerID);
+    var focusableEls = JsUtils.makeArray(element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])'));
+    var firstFocusableEl = focusableEls[0];
+    var lastFocusableEl = focusableEls[focusableEls.length - 1];
+    let currentFocus = null;
+    firstFocusableEl.focus();
 
-  var _handlers = function() {
-    const pickerLv1 = document.getElementById(prefix + "lv1");
-    const pickerSub = document.getElementById(prefix + "lv2");
+    element.addEventListener('keydown', function(e) {
+      let lv1Cnt = element.getElementsByClassName('list-level-one')[0];
+      let lv2Cnt = element.getElementsByClassName('list-level-two--focus')[0];
+      console.log(e)
+      switch (e.keyCode) {
+        case 37: // 左
+          if (e.target.className === 't-checkbox-group') {
+            lv1Cnt.querySelector('.category-item--active .category-item-txt').focus();
+            e.preventDefault();
+          }
+          break;
+        case 38: // 上
 
-    JsUtils.addEvent(pickerLv1, 'click', function(event) {
-      event.preventDefault();
-      const targetItem = event.target;
-      if (targetItem.tagName === "LI") {
-        pickerLv1.querySelector("." + lv1Active).classList.remove(lv1Active);
-        let targetItemID = targetItem.getAttribute("id");
-        targetItem.classList.add(lv1Active);
-        pickerSub.querySelector("." + lv2Active).classList.remove(lv2Active);
-        pickerSub.querySelector(".list-level-two[data-parents=" + targetItemID + "]").classList.add(lv2Active);
-        return this
+          break;
+        case 39: // 右
+          if (e.target.className === 'category-item-txt') {
+            lv2Cnt.querySelector('.t-checkbox-group').focus();
+            e.preventDefault();
+          }
+          break;
+        case 40: // 下
+
+          break;
+        case 27: // ESC
+          _close()
+          break;
+        case 13: // ENTER
+          if (e.target.className === 't-checkbox-group') {
+            e.target.click();
+            e.preventDefault();
+          }
+          break;
+        case 32: // 空白
+          if (e.target.className === 't-checkbox-group') {
+            e.target.click();
+            e.preventDefault();
+          }
+          break;
+        case 9: // TAB
+          if (e.shiftKey) {
+            if (document.activeElement === firstFocusableEl) {
+              lastFocusableEl.focus();
+              e.preventDefault();
+            }
+          } else {
+            if (document.activeElement === lastFocusableEl) {
+              firstFocusableEl.focus();
+              e.preventDefault();
+            }
+          }
+          break;
       }
     });
+  }
 
+  // 開啟選單
+  const _openClick = function(element) {
     JsUtils.addEvent(element, 'click', function(event) {
       event.preventDefault();
       _open(pickerID)
       return this
     });
-    var closeBtn = document.getElementById(prefix + 'Close')
+  };
+
+  // 確認按鈕
+  const _confirm = function(inputId) {
+    const confirmBtn = document.getElementsByClassName('category-confirm-btn')[0];
+    const selectedCnt = document.getElementById(pickerID + 'selectedCnt');
+    const input = document.getElementById(inputId);
+    JsUtils.addEvent(confirmBtn, 'click', function(event) {
+      input.innerHTML = '';
+      selectedCnt.querySelectorAll('.selected-label').forEach(function(item, index) {
+        let copyItem = item.cloneNode(true);
+        let copyItemHtml = copyItem.innerHTML;
+        input.appendChild(copyItem)
+      });
+      _close();
+    });
+  };
+
+  const _handlers = function() {
+    const pickerLv1Cnt = document.getElementById(prefix + "lv1");
+    const pickerSubCnt = document.getElementById(prefix + "lv2");
+    const checkedBoxInps = pickerSubCnt.getElementsByTagName("input");
+    const checkedBoxInpsLen = checkedBoxInps.length;
+    const selectedCnt = document.getElementById(pickerID + "selectedCnt");
+
+    // picker Lv1 Cnt click
+    JsUtils.addEvent(pickerLv1Cnt, 'click', function(event) {
+      event.preventDefault();
+      const targetItem = event.target;
+      if (targetItem.tagName === "A") {
+
+        // console.dir(targetItem)
+        pickerLv1Cnt.querySelector("." + lv1Active).classList.remove(lv1Active);
+        let targetItemID = targetItem.parentElement.getAttribute("id");
+        targetItem.parentElement.classList.add(lv1Active);
+        pickerSubCnt.querySelector("." + lv2Active).classList.remove(lv2Active);
+        pickerSubCnt.querySelector(".list-level-two[data-parents=" + targetItemID + "]").classList.add(lv2Active);
+        return this
+      }
+    });
+
+    // close click
+    const closeBtn = document.getElementById(pickerID + prefix + 'close');
     JsUtils.addEvent(closeBtn, 'click', function(event) {
       event.preventDefault();
       _close(closeBtn)
       return this
     });
 
+    // input Lv2 Cnt checked
+    for (let i = 0; i < checkedBoxInpsLen; i++) {
+      JsUtils.addEvent(checkedBoxInps[i], 'change', function(event) {
+        const picker = document.getElementById(pickerID);
+        const targetItem = event.target;
+        // const lv1TarId = targetItem.parentElement.getAttribute("data-targets");
+        const liParId = targetItem.parentElement.getAttribute("data-parents");
+        const thisID = targetItem.id;
+        const thisText = targetItem.nextElementSibling.textContent;
+        const catNums = document.getElementById(pickerID + 'catNums');
+        let item =
+          '<label class="selected-label" data-group="' + liParId + '" data-paren-id="' + thisID + '" data-name="' + thisText + '" tabindex="0" aria-label="' + thisText + '" >' +
+          '  <span>' + thisText + '</span>' +
+          '  <a aria-label="close" class="selected-label-close"></a>' +
+          '</label>';
+        let labs = selectedCnt.getElementsByClassName("selected-label");
+        if (picker.querySelectorAll('[data-paren-id=' + thisID + ']').length === 0) {
+          selectedCnt.innerHTML += item;
+        } else {
+          picker.querySelector('[data-paren-id=' + thisID + ']').remove();
+        }
+
+        if (picker.querySelectorAll('[data-group=' + liParId + ']').length != 0) {
+          picker.querySelector('[data-targets=' + liParId + '] .category-item-txt').classList.add('category-item-txt--has')
+        } else {
+          picker.querySelector('[data-targets=' + liParId + '] .category-item-txt').classList.remove('category-item-txt--has')
+        }
+
+        _labelClcik();
+        _update();
+
+      });
+    }
+
+
+    // .indeterminate = true
+    // 上方標籤區域 label click funcs
+    const _labelClcik = function() {
+      let picker = document.getElementById(pickerID);
+      let labels = picker.getElementsByClassName("selected-label-close")
+      for (let i = 0; i < labels.length; i++) {
+        JsUtils.addEvent(labels[i], 'click', function(event) {
+          event.preventDefault();
+          const targetItem = event.target;
+          let liTems = targetItem.parentElement;
+          let pId = liTems.attributes['data-paren-id'].nodeValue;
+          let gId = liTems.attributes['data-group'].nodeValue;
+          if (/All/gi.test(pId)) {
+            checkAll(pId);
+            _update();
+            return _del(this_label, lv2_Select)
+          } else {
+            let this_label = event.target.parentElement;
+            let lv2_Select = this_label.getAttribute("data-paren-id");
+            _update();
+            if (picker.querySelectorAll('[data-group=' + gId + ']').length == 1) {
+              picker.querySelector('[data-targets=' + gId + '] .category-item-txt').classList.remove('category-item-txt--has')
+            }
+            return _del(this_label, lv2_Select)
+          }
+        });
+      }
+    }
+
+    // 第二層選單 全選項目設定
+    // selectAll
+    if (selectAll) {
+      let pickerSubUl = pickerSubCnt.getElementsByTagName('ul');
+      let pickerSubUlLen = pickerSubUl.length;
+      let labels = document.getElementsByClassName("selected-label-close")
+      // 右邊選單全選設定
+      for (let i = 0; i < pickerSubUlLen; i++) {
+        JsUtils.addEvent(pickerSubUl[i].firstElementChild, 'change', function(event) {
+          event.preventDefault();
+          const targetItem = event.target;
+          if (targetItem.tagName === "INPUT") {
+            checkAll(targetItem)
+            _update()
+          }
+        });
+      }
+
+      var checkAll = function checkAll(el) {
+        const picker = document.getElementById(pickerID);
+
+        if (typeof el === 'string') {
+          var el = picker.querySelector('#' + el);
+          var parId = el.parentElement.getAttribute("data-parents");
+          var labs = document.querySelectorAll('[data-group="' + parId + '"]');
+          el.click()
+          _update()
+        }
+        const thisUl = JsUtils.parents(el, '.list-level-two')[0];
+        const thisLi = thisUl.getElementsByTagName('li');
+        const thisLen = thisLi.length;
+        for (let x = 1; x < thisLen; x++) {
+          var checkBox = thisLi[x];
+          var allInput = JsUtils.children(checkBox, 'input')[0];
+          if (el.type === "checkbox" && el.checked) {
+            var parId = el.parentElement.getAttribute("data-parents");
+            var labs = document.querySelectorAll('[data-group="' + parId + '"]');
+            labs.forEach(function(element, index) {
+              var parID = element.getAttribute("data-paren-id");
+              if (!/All/gi.test(parID)) {
+                element.remove();
+              }
+            });
+            allInput.indeterminate = true;
+            allInput.checked = true;
+            allInput.disabled = true;
+            _update()
+          } else {
+            allInput.indeterminate = false;
+            allInput.checked = false;
+            allInput.disabled = false;
+            let inputID = allInput.id;
+            _update()
+          }
+        }
+      }
+    }
   };
 
-  var _open = function() {
-    // console.log(pickerID)
-    let picker = document.getElementById(pickerID);
+  const _update = function() {
+    const picker = document.getElementById(pickerID);
+    const catNums = document.getElementById(pickerID + 'catNums');
+    const selectedCnt = document.getElementById(pickerID + 'selectedCnt');
+    let num = picker.querySelectorAll('input[type="checkbox"]:checked').length;;
+    catNums.textContent = num;
+    for (let i = 0; i < num; i++) {
+      let labId = picker.querySelectorAll('input[type="checkbox"]:checked')[i].getAttribute('id');
+      if (!picker.querySelectorAll('[data-paren-id="' + labId + '"]')) {
+        picker.querySelectorAll('.selected-label')[i].remove();
+      }
+    }
+  };
 
+  const _open = function() {
+    let picker = document.getElementById(pickerID);
     picker.classList.add("show");
-    // picker.classList.remove("close");
-    // JsUtils.fadeIn(picker)
+    _keydown(picker);
   };
 
-  var _close = function() {
+  const _close = function() {
     let picker = document.getElementById(pickerID);
-
     picker.classList.remove("show");
-    // picker.classList.add("close");
-    
-    // JsUtils.fadeOut(picker)
-
+    element.focus();
   };
 
-  var _getOption = function(name) {
+  const _del = function(select, label) {
+    let picker = document.getElementById(pickerID);
+    console.log(label)
+    if (label) {
+      picker.querySelector('[data-paren-id="' + label + '"]').remove()
+      picker.querySelector('#' + label).checked = false;
+    } else {
+
+    }
+    _update()
+  };
+
+  const _getOption = function(name) {
+
     if (that.element.hasAttribute('data-tu-category-' + name) === true) {
       let attr = that.element.getAttribute('data-tu-category-' + name);
       let value = JsUtils.getResponsiveValue(attr);
@@ -353,7 +550,7 @@ var JsCategoryPicker = function JsCategoryPicker(element, config) {
     }
   };
 
-  var _destroy = function() {
+  const _destroy = function() {
     JsUtils.data(that.element).remove('JsCategoryPicker');
   };
 
@@ -366,9 +563,11 @@ var JsCategoryPicker = function JsCategoryPicker(element, config) {
   that.open = function() {
     return _open();
   };
+
   that.close = function() {
     return _close();
   };
+
   that.getElement = function() {
     return that.element;
   };
@@ -377,621 +576,66 @@ var JsCategoryPicker = function JsCategoryPicker(element, config) {
     return _destroy();
   };
 
-
   // Event API
   that.on = function(name, handler) {
     console.log(this)
-    return JsEventHandler.on(the.element, name, handler);
+    return JsEventHandler.on(that.element, name, handler);
   }
 
   that.one = function(name, handler) {
     console.log(this)
-    return JsEventHandler.one(the.element, name, handler);
+    return JsEventHandler.one(that.element, name, handler);
   }
 
   that.off = function(name) {
     console.log(this)
-    return JsEventHandler.off(the.element, name);
+    return JsEventHandler.off(that.element, name);
   }
 
   that.trigger = function(name, event) {
     console.log(this)
-    return JsEventHandler.trigger(the.element, name, event, the, event);
+    return JsEventHandler.trigger(that.element, name, event, the, event);
   }
-
-  // Static
-  JsCategoryPicker.getInstance = function(element) {
-    if (element && JsUtils.data(element).has('category')) {
-      return JsUtils.data(element).get('category');
-    } else {
-      return null;
-    }
-  };
-
-  // Create
-  JsCategoryPicker.createInstances = function() {
-    var selector = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '[data-tu-category="true"]';
-    var body = document.getElementsByTagName("BODY")[0]; // Initialize Menus
-
-    var elements = body.querySelectorAll(selector);
-    var category;
-
-    if (elements && elements.length > 0) {
-      for (var i = 0, len = elements.length; i < len; i++) {
-        category = new JsCategoryPicker(elements[i]);
-      }
-    }
-  };
-
-  // Global
-
-  JsCategoryPicker.init = function() {
-    JsCategoryPicker.createInstances();
-  };
-  // On document ready
-
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', JsCategoryPicker.init);
-  } else {
-
-    JsCategoryPicker.init();
-
-  }
-  // Webpack support
-
-
-  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    module.exports = JsCategoryPicker;
-  }
-
-
-
 }
-// return {
-//   init: function((config) {
 
 
 
-//       $(window).on('load', function(e) {
-
-//         var picker = $('#' + id);
-
-//         elHidden.each(function() {
-//           var val = $(this).val();
-//           picker.find('input[value="' + val + '"]').click();
-
-//         });
-
-//         var selected = [];
-//         var strSelected = '';
-//         var lum = picker.find('.category-picker-selectedbox-item').length;
-
-//         picker.find('.category-picker-selectedbox-item').each(function() {
-//           var _this = $(this)
-//           var name = _this.data('name');
-//           var id = _this.data('id');
-//           var uid = _this.data('uid');
-
-//           selected.push({
-//             name: name,
-//             value: id,
-//             uid: uid
-//           });
-//           strSelected += name + '、';
-//         });
-
-//         strSelected = strSelected.substring(0, strSelected.length - 1);
-
-//         if (el.is('input')) {
-//           if (lum >= oN) {
-//             el.val('已經選擇 ' + lum + ' 個' + unit);
-//             // console.log(strSelected.length)
-//           } else {
-//             el.val(strSelected);
-//           }
-//         } else {
-//           if (strSelected == '') {
-//             el.text('');
-//             el.val('');
-//           } else {
-//             el.text(strSelected);
-//             el.val(strSelected);
-//           }
-//         }
-//       });
-
-//       // 產生 HTML
-//       this._bulid(data, id, title);
-
-//       // slAll == true 開啟第一個是全選
-//       if (slAll == true) {
-//         this.slAll(id);
-//       }
-//       // 打開選單
-//       var off = true;
-//       if (el.is('input')) {
-//         this.open(id, el, off, elHidden);
-//       }
-//       // 寬度 < 576 px
-//       this.sizeModal(id);
-
-//       // 第一層 點擊
-//       this.clickLv1(id);
-
-//       // 第二層 點擊
-//       this.clickLv2(id, data, sl, config);
-
-//       // 刪除所有標籤
-//       this.delAllTags(id);
-
-//       // 刪除標籤
-//       this.delTags(id);
-
-//       // 關閉選單
-//       this.close(id, el, off);
-
-//       // 儲存選單內容
-//       this.confirmC(id, el, off, unit, oN, config);
-
-//       // Enter 鍵盤 事件
-//       this._keypress(id);
-
-
-//     },
-
-//     _bulid: function(data, id, title) {
-//       var lv_1_parent = '';
-//       var lv_2_parent = '';
-//       for (var k in data) {
-
-//         // 第 1 層 台北市全區、新北市全區等等...
-//         lv_1_parent += '<ul class="list-level-one" data-parent="' + data[k].id + '"></ul>';
-
-//         // 第 2 層 內容
-//         for (var i in data[k].children) {
-//           lv_2_parent += '<ul class="list-level-two" data-parent="' + data[k].children[i].id + '">';
-//           lv_2_parent += '    <h2 class="category-item--title">' + data[k].children[i].name + '</h2>';
-//           lv_2_parent += '</ul>';
-//         }
-//       }
-
-//       var html = '';
-
-//       html += '<div class="category-picker" id="' + id + '" tabindex="-1">';
-//       html += '   <div class="category-mask"></div>';
-//       html += '   <div class="category-modal" >';
-//       html += '       <div class="category-modal-cnt">';
-//       html += '           <div class="category-modal-header">';
-//       html += '               ' + title + '';
-//       html += '               <button type="button" class="category-close" tabindex="0" aria-label="關閉' + title + '" title="關閉' + title + '"></button>';
-//       html += '           </div>';
-//       html += '           <div class="category-modal-selected">';
-//       html += '               <span>已選擇 ( <span class="selectedNum">0</span> )</span>';
-//       html += '               <a class="category-del-all" aria-label="清空全部標籤" title="清空全部標籤" tabindex="0">清空全部標籤</a>';
-//       html += '           </div>';
-//       html += '           <div class="category-picker-selectedbox"></div>';
-//       html += '           <div class="category-modal-body">';
-//       html += '               ' + lv_1_parent + ' ';
-//       html += '               ' + lv_2_parent + ' ';
-//       html += '           </div>';
-//       html += '           <div class="category-modal-footer">';
-//       html += '               <button class="btn btn--border--primary category-close-btn" tabindex="0" aria-label="關閉" title="關閉">關閉</button>';
-//       html += '               <button class="btn btn--primary category-confirm-btn" tabindex="0" aria-label="確定" title="確定">確定</button>';
-//       html += '           </div>';
-//       html += '       </div>';
-//       html += '   </div>';
-//       html += '</div>';
-
-//       // 新增 選擇器 至頁面中
-//       body.append(html);
-
-//       // 宣告
-//       var picker = $('#' + id);
-
-//       // 代入 [date.js] 資料 並且產生 HTML
-//       var n = 0;
-
-//       for (var k in data) {
-//         var lv_1_son = '';
-
-//         for (var i in data[k].children) {
-//           n++;
-
-//           lv_1_son += '<li class="lv1 category-item" data-id="' + data[k].children[i].id + '" aria-label="' + data[k].children[i].name + '" title="' + data[k].children[i].name + '" for="' + data[k].children[i].uid + '" tabindex="0">' + data[k].children[i].name + '</li>';
-
-//           var lv_2_son = '';
-
-//           for (var j in data[k].children[i].children) {
-
-//             var value = data[k].children[i].children[j].id;
-//             var name = data[k].children[i].children[j].name;
-//             var uid = data[k].children[i].children[j].uid;
-//             var pid = data[k].children[i].children[j].pid;
-
-//             lv_2_son += '<li class="category-item" tabindex="0">';
-//             lv_2_son += '   <input type="checkbox" class="lv2 chk-inp" value="' + value + '" data-pid="' + pid + '" data-uid="' + uid + '" data-name="' + name + '" id="' + uid + '">';
-//             lv_2_son += '   <label  class="chk-lab" aria-label="' + name + '" title="' + name + '" for="' + uid + '" >';
-//             lv_2_son += '       <i class="box"></i>';
-//             lv_2_son += '       <font>' + name + '</font>';
-//             lv_2_son += '   </label>';
-//             lv_2_son += '</li>';
-//           }
-//           picker.find('.list-level-two').eq(n - 1).append(lv_2_son);
-//         }
-//         picker.find('.list-level-one').eq(k).append(lv_1_son);
-//       }
-//     },
-
-//     _keypress: function(id) {
-//       var picker = $('#' + id);
-//       // 鍵盤輸入事件 
-//       picker.find('.category-item').bind('keypress', function(event) {
-//         var code = event.keyCode || event.which;
-//         var _this = $(this);
-//         if (code == 13) {
-//           if (_this.parent('.list-level-two').length) {
-//             _this.find('input').click();
-//           } else if (_this.parent('.list-level-one').length) {
-//             _this.click();
-//           }
-
-//         }
-//       });
-//     },
-
-//     open: function(id, el, off, elHidden) {
-
-//       var picker = $('#' + id);
-
-//       // 點擊 / 輸入時 Input 顯示選單
-//       el.on('click keypress', function() {
-
-//         picker.removeClass('close');
-//         picker.find('.list-level-one').eq(0).addClass('list-tree-show');
-
-//         if (picker.find('input.lv2').is(':checked')) {
-//           //
-//         } else {
-//           elHidden.each(function() {
-//             var val = $(this).val();
-//             picker.find('input[value="' + val + '"]').click();
-
-//           });
-//         }
-
-//         setTimeout(function() {
-//           // 彈窗顯示
-//           picker.addClass('show');
-//           // 預設第一層 focus
-//           picker.find('.lv1.category-item.active').focus();
-//         }, 100);
-
-//         focusableElements.attr('tabindex', '-1');
-//         body.addClass('category-picker-body');
-
-//       });
-
-//     },
-
-//     close: function(id, el, off) {
-//       // 找 Picker ID
-//       var picker = $('#' + id);
-
-//       var selected = [];
-//       var strSelected = '';
-
-
-//       // 點選 關閉 按鈕
-//       picker.find('.category-close , .category-close-btn').on('click', function() {
-//         colseAction();
-//       });
-
-
-
-//       // 鍵盤 ESC 鍵關閉彈窗
-//       picker.on('keydown', function(event) {
-//         var code = event.keyCode || event.which;
-//         if (event.keyCode === 27) {
-//           colseAction();
-//         }
-//       });
-
-
-//       function colseAction() {
-
-//         picker.addClass('close');
-
-//         setTimeout(function() {
-//           // 彈窗隱藏
-//           picker.removeClass('show');
-//           // 輸入框焦點
-//           el.focus();
-//         }, 100);
-
-//         focusableElements.attr('tabindex', '');
-
-//         body.removeClass('category-picker-body');
-
-//         picker.find('.lv2').prop('checked', false);
-//         picker.find('.lv2:not(:checked)').prop('disabled', false);
-//         picker.find('.selectedNum').text(0);
-//         picker.find('.category-picker-selectedbox').empty();
-
-//         off = true;
-//       }
-//     },
-
-//     confirmC: function(id, el, off, unit, oN, config) {
-//       // 找 Picker ID
-//       var picker = $('#' + id);
-
-//       // 點擊 確認 按鈕
-//       picker.find('.category-confirm-btn').on('click', function() {
-
-//         var selected = [];
-//         var strSelected = '';
-//         var lum = picker.find('.category-picker-selectedbox-item').length;
-
-//         picker.find('.category-picker-selectedbox-item').each(function() {
-//           var _this = $(this)
-//           var name = _this.data('name');
-//           var id = _this.data('id');
-//           var uid = _this.data('uid');
-
-//           selected.push({
-//             name: name,
-//             value: id,
-//             uid: uid
-//           });
-//           strSelected += name + '、';
-//         });
-
-//         strSelected = strSelected.substring(0, strSelected.length - 1);
-
-//         if (el.is('input')) {
-//           if (lum >= oN) {
-//             el.val('已經選擇 ' + lum + ' 個' + unit);
-//             // console.log(strSelected.length)
-//           } else {
-//             el.val(strSelected);
-//           }
-//         } else {
-//           if (strSelected == '') {
-//             el.text('');
-//             el.val('');
-//           } else {
-//             el.text(strSelected);
-//             el.val(strSelected);
-//           }
-//         }
-
-//         config.confirm(selected);
-
-//         off = true;
-
-//         setTimeout(function() {
-//           el.focus();
-//           picker.removeClass('show')
-//           focusableElements.attr('tabindex', '');
-//         }, 100);
-
-//         picker.addClass('close');
-//         body.removeClass('category-picker-body');
-//       });
-//     },
-
-//     delAllTags: function(id) {
-//       var picker = $('#' + id);
-
-//       // 清除全部標籤按鈕 點擊事件
-//       picker.find('.category-del-all').on('click', function() {
-
-//         delAllTagAction()
-//       });
-
-//       // 清除全部標籤按鈕 鍵盤事件
-//       picker.find('.category-del-all').bind('keypress', function(event) {
-//         var code = event.keyCode || event.which;
-//         if (code == 13) {
-//           event.preventDefault();
-//           delAllTagAction();
-//         }
-//       });
-
-//       function delAllTagAction() {
-
-//         picker.find('.lv2').prop('checked', false);
-//         picker.find('.lv2').parent('.category-item').removeClass('active');
-//         picker.find('.lv2:not(:checked)').prop('disabled', false);
-//         picker.find('.category-picker-selectedbox .category-picker-selectedbox-item').hide(200, function() {
-//           $(this).remove();
-//         })
-//         picker.find('.list-level-one').find('.lv1.category-item').removeClass('selected')
-//         picker.find('.selectedNum').text(0);
-//       }
-//     },
-
-//     delTags: function(id) {
-//       var picker = $('#' + id);
-
-//       // 單個標籤 清除 點擊事件
-//       picker.on('click', '.category-picker-selectedbox-item-del-this', function() {
-//         var _this = $(this);
-//         var se_value = _this.parent().data('id');
-//         var se_lum = picker.find('.category-picker-selectedbox-item').length;
-//         var se_pid = _this.parent().data('pid');
-//         var se_uid = _this.parent().data('uid');
-
-
-//         picker.find('.lv2').each(function() {
-//           var __this = $(this);
-//           if (__this.val() == se_value) {
-
-//             __this.parent('.category-item').removeClass('active');
-//             __this.prop('checked', false);
-
-//             var chk_pid = __this.data('pid');
-
-//             if (chk_pid == se_pid) {
-//               var parents = __this.parent().parent().data('parent');
-//               var inp_pid = $('input[data-pid="' + chk_pid + '"]').parent('.active').length;
-
-//               if (inp_pid == 0) {
-//                 $('[data-id="' + parents + '').removeClass('selected');
-//               }
-//             }
-
-//             if (__this.parent().parent().first('.category-item').find('.lv2')) {
-//               __this.parent('.category-item').nextAll()
-//                 .find('.lv2')
-//                 .prop("checked", false);
-//             }
-//           }
-//         });
-
-//         _this.parent().hide(200, function() {
-//           $(this).remove();
-//         });
-
-//         picker.find('.lv2:not(:checked)').prop('disabled', false);
-//         picker.find('.selectedNum').text(se_lum - 1);
-
-//       });
-
-//       // 鍵盤清除標籤事件
-//       picker.on('keypress', '.category-picker-selectedbox-item', function(event) {
-//         var code = event.keyCode || event.which;
-//         var _this = $(this);
-//         if (code == 13) {
-
-//           event.preventDefault();
-//           _this.find('.category-picker-selectedbox-item-del-this').click();
-
-//         }
-//       });
-//     },
-
-//     sizeModal: function(id) {
-//       var picker = $('#' + id);
-//       var width = $(window).width();
-//       // 選單預設選取第一個分類
-
-//       // 螢幕寬度大於 576 的時候，選單預設
-//       if (width >= 576) {
-//         picker.find('.list-level-two').eq(0).addClass('list-tree-show');
-//         picker.find('.lv1').eq(0).addClass('active');
-//       }
-
-//       // 顯示第 2 層分類標題能夠移動到 上一層
-//       picker.find('.category-item--title').on('click', function() {
-//         var _this = $(this);
-//         if (_this.parent().hasClass('list-tree-show')) {
-//           _this.parent().removeClass('list-tree-show');
-//         }
-//       });
-//     },
-
-//     clickLv1: function(id) {
-//       var picker = $('#' + id);
-//       // 選單第一層分類被點擊時
-//       picker.find('.lv1').on('click', function() {
-//         var _this = $(this);
-//         var value = _this.data('id');
-
-//         picker.find('.list-level-two').each(function(index) {
-//           if ($(this).data('parent') == value) {
-//             picker.find('.list-level-two').removeClass('list-tree-show');
-//             picker.find('.list-level-two').eq(index).addClass('list-tree-show')
-//           }
-//         });
-
-//         picker.find('.lv1').removeClass('active');
-//         _this.addClass('active');
-
-//       });
-//     },
-
-//     clickLv2: function(id, data, sl, config) {
-//       var picker = $('#' + id);
-//       // 第二層選項發生變化的時候
-//       var max = sl - 1;
-
-//       picker.find('.lv2').on('change', function() {
-//         var _this = $(this);
-//         var value = _this.val();
-//         var name = _this.data('name');
-//         var uid = _this.data('uid');
-//         var pid = _this.data('pid');
-//         var lum = picker.find('.category-picker-selectedbox-item').length;
-
-//         _this.parent('.category-item').toggleClass("active");
-//         // 
-//         if (_this.prop('checked')) {
-//           var item = '<label class="category-picker-selectedbox-item" data-id="' + value + '" data-pid="' + pid + '" data-uid="' + uid + '" data-name="' + name + '" aria-label="' + name + '" title="' + name + '" tabindex="0" >\
-//                                 <span>' + name + '</span>\
-//                                 <a class="category-picker-selectedbox-item-del-this"></a>\
-//                             </label>';
-//           // 第二層選項 被 Ckecked 的時候 產生標籤在上方
-//           picker.find('.category-picker-selectedbox').append(item);
-
-//           // 數量超過的時候，所有 CheckBox 變成 disabled
-//           if (lum == max) {
-//             picker.find('.lv2:not(:checked)').prop('disabled', true);
-//           }
-//           // 如果第二層分類裡面有被 Checked 則第一層的文字變色提示裡面有選取
-//           if (picker.find('.lv2:checked').length > 0) {
-//             picker.find('.list-level-one.list-tree-show').find('.lv1.category-item.active').addClass('selected');
-//           }
-//           // 已選取的數字增加
-//           picker.find('.selectedNum').text(lum + 1);
-
-//         } else {
-//           // 已選取的數字增加
-//           picker.find('.category-picker-selectedbox-item').each(function(index) {
-//             if ($(this).data('id') == value) {
-//               picker.find('.category-picker-selectedbox-item').eq(index).remove()
-//             }
-//           });
-//           // 當第二層的選項 Checked == 0 得時候 父層選單文字顏色移除
-//           for (var k in data) {
-//             for (var i in data[k].children) {
-//               if (picker.find('[data-parent="' + data[k].children[i].id + '"]').find('.lv2:checked').length == 0) {
-//                 $('[data-id="' + data[k].children[i].id + '"]').removeClass('selected');
-//               }
-//             }
-//           }
-
-//           picker.find('.lv2:not(:checked)').prop('disabled', false);
-//           // 已選取的數字減少
-//           picker.find('.selectedNum').text(lum - 1);
-//         }
-//       });
-//     },
-
-//     slAll: function(id) {
-//       var picker = $('#' + id);
-//       picker.find('ul.list-level-two').each(function() {
-//         var _this = $(this);
-//         _this.find('.category-item').first().find('.lv2').click(function() {
-//           var __this = $(this);
-//           if (this.checked) {
-//             __this.parent('.category-item').nextAll()
-//               .find('.lv2:checked')
-//               .click();
-//             __this.parent('.category-item').nextAll()
-//               .find('.lv2')
-//               .prop("checked", true)
-//               .prop("disabled", true);
-//           } else {
-//             __this.parent('.category-item').nextAll()
-//               .find('.lv2')
-//               .prop("checked", false);
-//           }
-//         });
-//       });
-//     },
-
-
-
-//   };
+// Static
+JsCategoryPicker.getInstance = function(element) {
+  if (element && JsUtils.data(element).has('category')) {
+    return JsUtils.data(element).get('category');
+  } else {
+    return null;
+  }
+};
+
+// Create
+JsCategoryPicker.createInstances = function() {
+  var selector = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '[data-tu-category="true"]';
+  var body = document.getElementsByTagName("BODY")[0]; // Initialize Menus
+
+  var elements = body.querySelectorAll(selector);
+  var category;
+
+  if (elements && elements.length > 0) {
+    for (var i = 0, len = elements.length; i < len; i++) {
+      category = new JsCategoryPicker(elements[i]);
+    }
+  }
+};
+
+// Global
+JsCategoryPicker.init = function() {
+  JsCategoryPicker.createInstances();
+};
+
+// On document ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', JsCategoryPicker.init);
+} else {
+  JsCategoryPicker.init();
+}
+// Webpack support
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  module.exports = JsCategoryPicker;
+}

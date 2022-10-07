@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+// 
+//  Mixins > Background Variant
+// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+@mixin bg-variant($parent, $color) {
+  #{$parent} {
+    background-color: $color !important;
+  }
+
+  a#{$parent},
+  button#{$parent} {
+    @include hover-focus {
+      background-color: darken($color, 10%) !important;
+    }
+  }
+}
+
+@mixin bg-gradient-variant($parent, $color) {
+  #{$parent} {
+    background: $color linear-gradient(180deg, mix($body-bg, $color, 15%), $color) repeat-x !important;
+  }
+}
+
+@mixin cover-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+// @include bg-gradient-circles($primary, $primary-300); shade-color($primary, 60%); tint-color($primary, 90%);
+@mixin bg-gradient-circles($color, $color2) {
+  background-image: repeating-radial-gradient(circle at 15% center, rgba($white, 0) 0%, rgba($white, 0) 10%, rgba($color, 0.16) 10%, rgba($color, 0.16) 16%), linear-gradient(to right, $color2, $color);
+}

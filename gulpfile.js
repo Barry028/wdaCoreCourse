@@ -36,17 +36,15 @@ const iconfont = require('gulp-iconfont');
 const consolidate = require('gulp-consolidate');
 const lodash = require('lodash');
 
-const svgicons2svgfont = require('gulp-svgicons2svgfont');
-
+// const svgicons2svgfont = require('gulp-svgicons2svgfont');
 // const fontName = 't-slim-icon';
 // const className = 't-slim-ic';
-const fontName = 't-duotune';
-const className = 't-duotune';
-// templates Path
-const fontPath = './src/iconfont/templates/';
-const template = 'iconfonts';
-
-const timestamp = Math.round(Date.now() / 1000);
+// const fontName = 't-duotune';
+// const className = 't-duotune';
+// // templates Path
+// const fontPath = './src/iconfont/templates/';
+// const template = 'iconfonts';
+// const timestamp = Math.round(Date.now() / 1000);
 
 const purgecss = require('gulp-purgecss');
 
@@ -65,18 +63,58 @@ function scssTask() {
     .pipe(sass()) // expanded nested compact compressed
     .pipe(
       postcss([
-        // cssnano(),
+        // // cssnano(),
+        // cssnano({ preset: '' }),
+        // autoprefixer({ browsers: ['last 4 version'] }),
         postcssPresetEnv( /* pluginOptions */ )
       ]))
     .pipe(sass().on('error', sass.logError))
+    // .pipe(purgecss({
+    //   content: ['src/Job/**/*.html',
+    //     'src/Recruit/**/*.html',
+    //     'src/*.html'
+    //   ],
+    //   extractors: [{
+    //     extractor: content => {
+    //       return content.match(/[A-Za-z0-9-_:\/]+/g) || []
+    //       // return content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []                        
+    //       // return content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
+    //       //return content.match(/[\w-/:]+(?<!:)/g) || [];
+    //     },
+    //     extensions: ['css', 'php', 'html']
+    //   }],
+    //   safelist: {
+    //     standard: [/^[^-]*mt-*/, /^[^-]*bg-opacity-*/, /^[^-]*bg-white/]
+    //   }
+    // }))
     // .pipe(sourcemaps.write('./')) // 生成 sourcemaps 文件 (.map)
     .pipe(sourcemaps.write('.', {
-      sourceRoot: '../src/scss/'
+      sourceRoot: '../scss/'
       // 寫入 Sourcemaps 到當前資料夾(以下下列 dest('assets/css')為基準點，
       // SourceRoot：以匯出的資料夾為基準點找他原本的 scss 資料夾位置。
     }))
     .pipe(dest('./src/assets/css/'));
 }
+
+gulp.task("purgeSass", function() {
+  return Observable.return(
+    purge()
+  );
+});
+function purgeSass() {
+  return src('./src/assets/css/*.css')
+  .pipe(purgecss({
+      content: [
+        './src/Job/**/*.html',
+        './src/Recruit/**/*.html',
+        './src/*.html'
+      ],
+  }))
+  .pipe(rename({
+      suffix: ".min"
+  }))
+  .pipe(dest('./src/assets/css/'));
+};
 
 // BABELES5 非同步 
 gulp.task("babelEs5", function() {
@@ -84,6 +122,7 @@ gulp.task("babelEs5", function() {
     babelEs5()
   );
 });
+
 
 // 編譯 ES6 轉 5 
 function babelEs5() {
@@ -173,7 +212,7 @@ function watchTask() {
   watch(['./src/scss/*.scss', './javascript/*.js'], series(
     scssTask,
     babelEs5,
-    babelEs5Polyfills
+    purgeSass
     // browsersyncReload
   ));
 }
@@ -181,5 +220,5 @@ function watchTask() {
 exports.default = series(
   scssTask,
   babelEs5,
-  babelEs5Polyfills
+  purgeSass
 );

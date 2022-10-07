@@ -40,7 +40,7 @@
       &:disabled~.form-check-label {
         cursor: $cursor-disabled;
         @include opacity(0.65);
-        @include box-shadow(none);
+        box-shadow: none;;
       }
 
       + {
@@ -78,7 +78,7 @@
     &:disabled~.form-check-label {
       cursor: $cursor-disabled;
       @include opacity(0.65);
-      @include box-shadow(none);
+      box-shadow: none;;
     }
 
     + {
@@ -106,6 +106,6 @@
   &:disabled~.form-check-label {
     cursor: $cursor-disabled;
     @include opacity(0.65);
-    @include box-shadow(none);
+    box-shadow: none;;
   }
 }

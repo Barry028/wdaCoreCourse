@@ -204,6 +204,7 @@ svg {
   height: auto;
   max-width: 100%;
   vertical-align: middle;
+  
 }
 @mixin pixel-text-shadow-outer($color: $grey-100, $size: 2px) {
   text-shadow: $size $size $color,

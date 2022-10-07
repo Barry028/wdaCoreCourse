@@ -18,8 +18,8 @@
             border: 1px solid $grey-200;
             border-radius: 100%;
             margin-right: .25rem;
-            width: pxTorem(18px);
-            height: pxTorem(18px);
+            width: PxRem(18px);
+            height: PxRem(18px);
 
             &:hover {
                 border-color: lighten($secondary, 20%);
@@ -31,8 +31,8 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%) scale(0);
-                height: pxTorem(9px);
-                width: pxTorem(9px);
+                height: PxRem(9px);
+                width: PxRem(9px);
                 background-color: $secondary;
                 border-radius: 100%;
                 opacity: 0.08;
@@ -41,22 +41,22 @@
             }
 
             &.rad--md {
-                width: pxTorem(22px);
-                height: pxTorem(22px);
+                width: PxRem(22px);
+                height: PxRem(22px);
 
                 &:after {
-                    width: pxTorem(12px);
-                    height: pxTorem(12px);
+                    width: PxRem(12px);
+                    height: PxRem(12px);
                 }
             }
 
             &.rad--lg {
-                width: pxTorem(24px);
-                height: pxTorem(24px);
+                width: PxRem(24px);
+                height: PxRem(24px);
 
                 &:after {
-                    width: pxTorem(16px);
-                    height: pxTorem(16px);
+                    width: PxRem(16px);
+                    height: PxRem(16px);
                 }
             }
         }

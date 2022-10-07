@@ -1,0 +1,27 @@
+// Badge
+// =========================================================
+
+$badge-font-weight:                  $font-weight-bold !default;
+$badge-font-size:                    $font-size-xxs !default;
+$badge-font-family:                  $font-family-monospace !default;
+$badge-font-weight:                  $font-weight-bold !default;
+$badge-color:                        $white !default;
+$badge-padding-y:                    0.375rem !default;
+$badge-padding-x:                    0.375rem !default;
+$badge-border-radius:                $border-radius-sm !default;
+
+$badge-line-height:                  1!default;
+// Custom variable
+$badge-size-sm:                      1.5rem !default;
+$badge-font-size-sm:                 0.85rem !default;
+
+// Custom variable
+$badge-size-lg:                      2rem !default;
+$badge-font-size-lg:                 1rem !default;
+$badge-size:                         1.75rem !default;
+
+$badge-color:                        $grey !default;
+$badge-bg-color:                     $default-dark !default;
+
+$badge-transition:                   $btn-transition !default;
+$badge-focus-width:                  $input-btn-focus-width !default;

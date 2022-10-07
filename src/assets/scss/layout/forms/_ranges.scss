@@ -23,7 +23,7 @@ input[type="range"] {
     -webkit-appearance: none;
     width: 20px; /* 1 */
     height: 40px;
-    background: #fff;
+    background: $white;
     box-shadow: -200px 0 0 200px dodgerblue; /* 2 */
     border: 2px solid #999; /* 1 */
 }
@@ -34,7 +34,7 @@ input[type="range"] {
 }
 
 ::-moz-range-thumb {
-    background: #fff;
+    background: $white;
     height: 40px;
     width: 20px;
     border: 3px solid #999;
@@ -48,7 +48,7 @@ input[type="range"] {
 }
 
 ::-ms-thumb { 
-    background: #fff;
+    background: $white;
     border: 2px solid #999;
     height: 40px;
     width: 20px;

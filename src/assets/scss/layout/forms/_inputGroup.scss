@@ -1,10 +1,12 @@
-
 /*  INPUT ICON
 ----------------------------------------  */
-.input-icon-rt {
+.t-input-icon-rt {
   cursor: pointer;
-  color: lightgrey;
-  font-size: 1rem;
+  color: $lightgrey;
+  border-radius: inherit;
+
+  // font-size: 1rem;
+  width: 100%;
 
   @include absolute($R: 1rem, $T: 50%);
 
@@ -15,10 +17,12 @@
   }
 }
 
-.input-group {
+.t-input-group {
   position: relative;
+  border-radius: inherit;
+  width: 100%;
 
-  >i:first-of-type {
+  > i:first-of-type {
     color: $lightgrey;
     font-size: 1.25rem;
 
@@ -26,20 +30,24 @@
 
     transform: translateY(-50%);
     transition: $transition-base;
+    z-index: 1;
   }
 
   .t-form-control {
     padding-left: 4rem;
 
     &:focus {
-      +i {
+      + i {
         color: $primary;
       }
     }
   }
 }
 
-.input-group-txt {
+.t-input-group-txt {
+  border-radius: inherit;
+  width: 100%;
+
   .input-txt {
     font-size: 1rem;
 

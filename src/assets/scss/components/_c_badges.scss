@@ -1,0 +1,134 @@
+//
+//  Components -> Badges
+// --------------------------------------------------
+.t-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $badge-padding-y $badge-padding-x;
+  font-size: $badge-font-size;
+  font-family: $badge-font-family;
+  font-weight: $badge-font-weight;
+  color: contrast-color($badge-bg-color, $grey-900, $white);
+  line-height: $badge-line-height;
+  white-space: nowrap;
+  text-align: center;
+  background-color: $badge-bg-color;
+  border-radius: $badge-border-radius;
+  margin-bottom: 0;
+  user-select: none;
+  transition: $transition;
+
+  @each $name, $value in $element-colors {
+    &.t-badge-#{$name} {
+      color: color-contrast($value, $dark, $white, $min-contrast-ratio);
+      background-color: $value;
+    }
+
+    &.t-badge-darken-#{$name} {
+      color: theme-light-color($name);
+      background-color: theme-inverse-color($name);
+    }
+
+    &.t-badge-light-#{$name} {
+      color: theme-inverse-color($name);
+      background-color: theme-light-color($name);
+    }
+  }
+
+  // Fixed size
+  &.t-badge--circle,
+  &.t-badge--square {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: $badge-size;
+    min-width: $badge-size;
+    padding: 0 0.1rem;
+  }
+
+  // Circle
+  &.t-badge--circle {
+    border-radius: 50%;
+    padding: 0;
+    min-width: unset;
+    width: $badge-size;
+  }
+
+  // Sizes
+  &.t-badge--sm {
+    min-width: $badge-size-sm;
+    font-size: $badge-font-size-sm;
+
+    &.badge--circle {
+      width: $badge-size-sm;
+      height: $badge-size-sm;
+    }
+  }
+
+  &.t-badge--lg {
+    min-width: $badge-size-lg;
+    font-size: $badge-font-size-lg;
+
+    &.t-badge--circle {
+      width: $badge-size-lg;
+      height: $badge-size-lg;
+    }
+  }
+
+  &.t-badge--rounded {
+    border-radius: 50%;
+  }
+
+  &:not(:last-child) {
+    margin-right: .5rem;
+  }
+
+  &:empty {
+    padding: 0;
+    width: 1rem;
+    height: 1rem;
+
+    &.lg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    &.sm {
+      width: .75rem;
+      height: .75rem;
+    }
+  }
+
+  @include link {
+    text-decoration: none;
+  }
+
+
+  @include link-btn {
+    text-decoration: none;
+  }
+
+
+  @include hover {
+    opacity: 0.88;
+
+    @include scale(1.05);
+  }
+
+
+  > .active & {
+    background-color: $link;
+    color: $white;
+  }
+
+  .btn & {
+    position: relative;
+    top: -1px;
+  }
+
+  .btn-xs &,
+  .btn-group-xs > .btn & {
+    top: 0;
+    padding: .125rem .25rem;
+  }
+}

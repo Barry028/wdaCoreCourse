@@ -6,6 +6,16 @@ $input-label-field-size: 0.875rem;
 $input-label-field-top: 0.625rem;
 $input-label-field-left: 1.5rem;
 $input-control-padding: 2.25rem 1.25rem 0.875rem 1.25rem;
+$input-placeholder: $grey-200;
+
+[data-required] {
+  &:before {
+    content: '* ';
+    font-size: 1.25rem;
+    display: inline-flex;
+    color: $danger;
+  }
+}
 
 %t-form-control {
   background-color: $white;
@@ -17,7 +27,9 @@ $input-control-padding: 2.25rem 1.25rem 0.875rem 1.25rem;
   padding: $input-btn-padding-y $input-btn-padding-x;
   transition: $transition-input;
 
-  @include placeholder;
+  @include placeholder {
+    color: $input-placeholder;
+  }
 }
 
 .t-form-control {
@@ -64,10 +76,13 @@ $input-control-padding: 2.25rem 1.25rem 0.875rem 1.25rem;
 
   @at-root select#{&} {
     appearance: none;
+
     @include svg-bg-icon(arrow-bottom, $primary, right 1rem center, 1.25rem 50%);
+
     cursor: pointer;
     padding-right: 3.5rem;
     user-select: none;
+    width: fit-content;
 
     &::-ms-expand {
       display: none;
@@ -92,10 +107,10 @@ $input-control-padding: 2.25rem 1.25rem 0.875rem 1.25rem;
 }
 
 .t-form {
-
+  
   &.t-form-input-field {
     .t-form-group {
-      >label {
+      > label {
         font-size: $input-label-field-size;
         position: absolute;
         top: $input-label-field-top;
@@ -116,10 +131,10 @@ $input-control-padding: 2.25rem 1.25rem 0.875rem 1.25rem;
     position: relative;
     margin: 0 0.5rem 1.5rem;
 
-    >label {
+    > label {
       display: block;
       font-weight: 500;
-      margin-bottom: .625rem;
+      margin-bottom: .75rem;
     }
   }
 
@@ -130,6 +145,7 @@ $input-control-padding: 2.25rem 1.25rem 0.875rem 1.25rem;
 
   .t-form-col {
     position: relative;
+
     @include in-bk-mid;
   }
 
@@ -145,51 +161,21 @@ $input-control-padding: 2.25rem 1.25rem 0.875rem 1.25rem;
 
   .t-form-group {
     flex: 1 1 auto;
-        margin-right: 0.75rem;
+    margin-right: 0.75rem;
   }
 }
 
-[data-required]{
-  &:after{
-    content: '* ';
-    font-size: 1.25rem;
-    position: absolute;
-    left: 0.125rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: $danger;
+.t-form-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  > .t-form-group {
+    max-width: 100%;
+    flex: 0 0 auto;
+    width: auto;
   }
 }
-.shell {
-  position: relative;
-  line-height: 1;
-  span {
-  position: absolute;
-  left: 3px;
-  top: 1px;
-  color: $lightgrey;
-  pointer-events: none;
-  z-index: -1;
-    i { 
-        color: transparent;
-        opacity: 0;
-        visibility: hidden;
-    }
-  }
-}
-// :invalid {
-//   outline: 1px solid red;
-// }
-[data-tu-mask],
-.shell span {
-  font-size: 1rem;
-  font-family: monospace;
-  padding-right: 0.75rem 1.8125rem;
-  background-color: transparent;
-  text-transform: uppercase;
-}
-
-
 
 // li {
 //   line-height: 2;
@@ -204,7 +190,6 @@ $input-control-padding: 2.25rem 1.25rem 0.875rem 1.25rem;
 // input {
 //   border: none;
 // }
-
 
 // textarea {
 //   appearance: none;

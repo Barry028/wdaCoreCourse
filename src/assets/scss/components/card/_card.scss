@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /*------------------------------------
   Card
 ------------------------------------*/
@@ -8,7 +10,6 @@
 
     &:hover {
       box-shadow: $card-box-shadow;
-
     }
   }
 }
@@ -26,16 +27,16 @@
   margin-bottom: $card-subtitle-margin-y;
 }
 
-.t-card-title {
-  margin-bottom: 0;
-  color: $dark;
-  font-size: 1.25rem;
-  text-align: center;
+// .t-card-title {
+//   // margin-bottom: 0;
+//   // color: $dark;
+//   // font-size: 1.25rem;
+//   // text-align: center;
 
-  &:not(:last-child) {
-    margin-bottom: $card-title-margin-y;
-  }
-}
+//   &:not(:last-child) {
+//     margin-bottom: $card-title-margin-y;
+//   }
+// }
 
 .t-card-header-title {
   margin-bottom: 0;
@@ -75,10 +76,9 @@
   }
 }
 
-@each $color,
-$value in $element-colors {
+@each $color, $value in $element-colors {
   .t-card-link.link-#{$color} {
-    @if $link-shade-percentage !=0 {
+    @if $link-shade-percentage != 0 {
       &::after {
         background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='#{$value}' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z'/></svg>"));
       }
@@ -121,7 +121,10 @@ $value in $element-colors {
 
   &:hover,
   &:focus {
-    transform: translateY($card-transition-translateY) !important; // !important need to override the aos.js animation properties
+    transform: translateY($card-transition-translateY) !important;
+
+    // !important need to override the aos.js animation properties
+ 
   }
 }
 
@@ -130,11 +133,13 @@ $value in $element-colors {
 
   .t-card-transition-zoom-item {
     overflow: hidden;
+
     @include border-radius($card-border-radius);
+
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0)
+    -moz-transform: translate3d(0, 0, 0);
   }
 
   .t-card-img {
@@ -153,32 +158,31 @@ $value in $element-colors {
   .t-card {
     box-shadow: none;
 
-    +.t-card {
+    + .t-card {
       border-left: $card-border-width solid $card-border-color;
     }
   }
 }
 
 .t-card-sm {
-
-  >.t-card-body,
-  >.t-card-header,
-  >.t-card-footer,
-  >.t-card-img-overlay,
-  >.t-collapse .t-card-body {
+  > .t-card-body,
+  > .t-card-header,
+  > .t-card-footer,
+  > .t-card-img-overlay,
+  > .t-collapse .t-card-body {
     padding: $card-spacer-y-sm $card-spacer-x-sm;
   }
 
   .t-card-table {
-    >tbody>tr:first-child>td {
+    > tbody > tr:first-child > td {
       padding-top: $card-spacer-y-sm;
     }
 
-    >tbody>tr:last-child>td {
+    > tbody > tr:last-child > td {
       padding-bottom: $card-spacer-y-sm;
     }
 
-    > :not(caption)>*>* {
+    > :not(caption) > * > * {
       padding-right: $card-spacer-x-sm;
       padding-left: $card-spacer-x-sm;
     }
@@ -186,43 +190,42 @@ $value in $element-colors {
 }
 
 .t-card-lg {
-
-  >.t-card-body,
-  >.t-card-header,
-  >.t-card-footer,
-  >.t-card-img-overlay,
-  >.t-collapse .t-card-body {
-    padding: $card-spacer-y-lg $card-spacer-x-lg;
+  > .t-card-body,
+  > .t-card-header,
+  > .t-card-footer,
+  > .t-card-img-overlay,
+  > .t-collapse .t-card-body {
+    padding: calc(1.5 * var(--#{$prefix}card-padding-y)) calc(1.5 * var(--#{$prefix}card-padding-x));
 
     @include media-breakpoint-down(md) {
-      padding: calc($card-spacer-y-lg / 1.5) calc($card-spacer-x-lg / 1.5);
+      padding: calc(1.5 * var(--#{$prefix}card-padding-y)) calc(1.5 * var(--#{$prefix}card-padding-x));
     }
   }
 
   .t-card-table {
-    >tbody>tr:first-child>td {
+    > tbody > tr:first-child > td {
       padding-top: $card-spacer-y-lg;
 
       @include media-breakpoint-down(md) {
-        padding-top: calc($card-spacer-y-lg / 1.5);
+        padding-top: calc(1.5 * var(--#{$prefix}card-padding-y));
       }
     }
 
-    >tbody>tr:last-child>td {
+    > tbody > tr:last-child > td {
       padding-bottom: $card-spacer-y-lg;
 
       @include media-breakpoint-down(md) {
-        padding-bottom: calc($card-spacer-y-lg / 1.5);
+        padding-bottom: calc(1.5 * var(--#{$prefix}card-padding-y));
       }
     }
 
-    > :not(caption)>*>* {
+    > :not(caption) > * > * {
       padding-right: $card-spacer-x-lg;
       padding-left: $card-spacer-x-lg;
 
       @include media-breakpoint-down(md) {
-        padding-right: calc($card-spacer-x-lg / 1.5);
-        padding-left: calc($card-spacer-x-lg / 1.5);
+        padding-right: calc(1.5 * var(--#{$prefix}card-padding-x));
+        padding-left: calc(1.5 * var(--#{$prefix}card-padding-x));
       }
     }
   }
@@ -286,7 +289,7 @@ $value in $element-colors {
     padding-left: 0;
   }
 
-  >.t-card-img-top {
+  > .t-card-img-top {
     @include border-bottom-radius($card-border-radius);
   }
 
@@ -317,15 +320,15 @@ $value in $element-colors {
     margin-bottom: 0;
   }
 
-  table>tbody>tr:first-child>td {
+  table > tbody > tr:first-child > td {
     padding-top: $card-spacer-y;
   }
 
-  table>tbody>tr:last-child>td {
+  table > tbody > tr:last-child > td {
     padding-bottom: $card-spacer-y;
   }
 
-  table> :not(caption)>*>* {
+  table > :not(caption) > * > * {
     padding-right: $card-spacer-x;
     padding-left: $card-spacer-x;
   }
@@ -342,6 +345,7 @@ $value in $element-colors {
 // Alert
 .t-card-alert {
   @include border-radius(0);
+
   margin-bottom: 0;
 }
 
