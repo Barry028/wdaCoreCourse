@@ -16,7 +16,6 @@
 @mixin focus {
   &:focus,
   &.focus,
-  &:focus-within,
   &:focus-visible {
     @content;
   }
@@ -64,5 +63,29 @@
   &:focus,
   &:active {
     @content;
+  }
+}
+
+@mixin not-last-child {
+  &:not(:last-child) {
+    @content;
+  }
+}
+
+@mixin not-first-child {
+  &:not(:first-child) {
+    margin-right: .75rem;
+  }
+}
+
+@mixin not-last-type {
+  &:not(:last-of-type) {
+    @content;
+  }
+}
+
+@mixin not-first-type {
+  &:not(:first-of-type) {
+    margin-right: .75rem;
   }
 }

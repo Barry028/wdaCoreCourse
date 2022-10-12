@@ -4,8 +4,14 @@
 // Options [root: null , 
 //          rootMargin: "20px 0 0 0" , 
 //          threshold: [0, 1]]
+// 生成快捷導航欄 (Just ID) --> 針對所選對象統一集結且監聽 --> 小封裝 
+// Elements 監聽並且更動的變動對象(正常來說就 Target) || 
+// prevElement 在此函式裡面代表所監聽對象之同級上一個 ( IntersectionObserver 監聽是看觀察對象有沒有碰撞 ，算不出 scroll 所以改監聽上一個對象碰撞事件) ||
+// Options [root: null , 
+//          rootMargin: "20px 0 0 0" , 
+//          threshold: [0, 1]]
 
-const JsBuildNav = function(elements, container) {
+const JsBuildSideNav = function(elements, container) {
 
   const that = this;
   const body = document.getElementsByTagName("BODY")[0];
@@ -13,7 +19,6 @@ const JsBuildNav = function(elements, container) {
   if (typeof elements === "undefined" || elements === null) {
     return;
   }
-
   // 不支援 IntersectionObserver 時，退出
   if (!("IntersectionObserver" in window) &&
     !("IntersectionObserverEntry" in window) &&
@@ -30,16 +35,8 @@ const JsBuildNav = function(elements, container) {
     navTag: 'div',
     navItemTag: 'a',
     navItemClass: 'observer-nav-item',
-    navItemClasPre: ''
+    navItemClasPre: []
   };
-  ///////////////////////////////
-  // **   ObserverOptions   ** //
-  ///////////////////////////////
-  // ObserverOptions = {
-  //   root: null,
-  //   rootMargin: '0px 0px -20px 0px', // 0px 0px -200px 0px
-  //   threshold: ''
-  // }
 
   container = JsUtils.deepExtend(that, defaultContainer, container);
 
@@ -48,49 +45,25 @@ const JsBuildNav = function(elements, container) {
   lastScrollTop = document.scrollingElement.scrollTop;
   navItemClasPre = container.navItemClasPre || defaultContainer.navItemClasPre;
 
-
-
-  const scrollHandler = entries =>
-    entries.forEach(entry => {
-      const section = entry.target;
-      const sectionId = section.id;
-      const sectionLink = document.querySelector(`a[href="#${sectionId}"]`);
-
-      if (entry.intersectionRatio > 0) {
-        section.classList.add("visible");
-        sectionLink.classList.add("visible");
-      } else {
-        section.classList.remove("visible");
-        sectionLink.classList.remove("visible");
-      }
-    });
-
-
-
   // 導航元素創建，如果沒有
-  if (document.getElementById(nav) == null) {
+  if (!nav) {
     let _NewNavTag = container.navTag || defaultContainer.navTag;
     let _NewNavClass = container.navClass || defaultContainer.navClass;
     container.nav = document.createElement(_NewNavTag);
     container.nav.id = nav;
     container.nav.className = _NewNavClass;
-    body.appendChild(container.nav);
+    body.appendChild(nav);
   }
-  // var ObserverOptions
-  var lastScrollTop = document.scrollingElement.scrollTop;
-  var observer = new IntersectionObserver(function(entries) {
+
+
+  const observer = new IntersectionObserver(function(entries, observer) {
     if (container.isAvoid) return;
     entries.reverse().forEach(function(entry) {
       if (entry.isIntersecting) {
-        // console.log(entry.target.isActived)
         entry.target.active()
       } else if (entry.target.isActived) {
-        // console.log(entry.target.isActived)
         entry.target.unactive()
       }
-      // else {
-      //   entry.target.unactive()
-      // }
     });
     lastScrollTop = document.scrollingElement.scrollTop;
   });
@@ -99,25 +72,16 @@ const JsBuildNav = function(elements, container) {
   const _NewNavItemClass = container.navItemClass || defaultContainer.navItemClass;
   const _Nav = document.getElementById(nav);
 
-
   listenElements.forEach(function(item, index) {
     let id = item.id || 'elObserver-00' + (index + 1);
     item.id = id;
     let eleNav = document.createElement('a');
     eleNav.href = '#' + id;
-    const sections = Array.from(item.parentElement.id);
-    if (navItemClasPre !== '') {
-      eleNav.className = _NewNavItemClass + ' ' + _NewNavItemClass + '-' + navItemClasPre[index];
-    } else {
-      eleNav.className = _NewNavItemClass;
-    }
-
+    eleNav.className = _NewNavItemClass + ' ' + _NewNavItemClass + '-' + navItemClasPre[index];
     eleNav.innerHTML = item.textContent;
-
     _Nav.appendChild(eleNav);
 
     item.active = function() {
-      let item = this.parentElement;
       // 對應的導航元素高亮
       eleNav.parentElement.querySelectorAll('.active').forEach(function(eleActive) {
         item.isActived = false;
@@ -128,7 +92,6 @@ const JsBuildNav = function(elements, container) {
     };
 
     item.unactive = function() {
-      // let item = this.parentElement;
       // 對應的導航元素高亮
       if (document.scrollingElement.scrollTop > lastScrollTop) {
         listenElements[index + 1] && listenElements[index + 1].active();

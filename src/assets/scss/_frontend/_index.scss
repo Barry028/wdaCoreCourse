@@ -1,27 +1,29 @@
 @charset "utf-8";
 
-main {
-  &.t-wrapper {
-    position: relative;
+.t-wrapper {
+  position: relative;
 
-    section:last-of-type {
-      padding-bottom: 12rem;
-    }
+  section:last-of-type {
+    // padding-bottom: 12rem;
+ 
   }
 }
+
 .t-form-legend-secondary {
-      font-size: 2rem;
-      padding: 1.5rem 2.5rem;
-      float: none;
-      width: auto;
-      font-weight: 700;
-      color: $white;
-      text-shadow: custome-box-shadow-v2(12, 0.5, $dark);
-      @include stroke(0.5px, $dark);
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      background-image: t-svg(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185.339' height='62.714'%3E%3Cpath  d='m22.524.173 156.564 3.41a4.752 4.752 0 0 1 2.262.586 3.979 3.979 0 0 1 1.5 1.492 4.835 4.835 0 0 1 .611 2.17 7.068 7.068 0 0 1-.4 2.625L168.7 52.923a9.1 9.1 0 0 1-1.316 2.481 10.631 10.631 0 0 1-1.99 2.039 9.865 9.865 0 0 1-2.4 1.4 7.356 7.356 0 0 1-2.558.547L7.7 62.555a7.171 7.171 0 0 1-2.856-.494A5.493 5.493 0 0 1 2.75 60.59a5.1 5.1 0 0 1-1.129-2.231 6.147 6.147 0 0 1 .038-2.771L12.821 7.637a8.838 8.838 0 0 1 1.315-2.953A10.437 10.437 0 0 1 16.4 2.291 10.543 10.543 0 0 1 19.3.706a9.083 9.083 0 0 1 3.224-.533Z' fill='#{$secondary}'/%3E%3C/svg%3E"));
+  font-size: 2rem;
+  padding: 1.5rem 2.5rem;
+  float: none;
+  width: auto;
+  font-weight: 700;
+  color: $white;
+  text-shadow: custome-box-shadow-r(12, 0.5, $dark);
+
+  @include stroke(0.5px, $dark);
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: t-svg(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185.339' height='62.714'%3E%3Cpath  d='m22.524.173 156.564 3.41a4.752 4.752 0 0 1 2.262.586 3.979 3.979 0 0 1 1.5 1.492 4.835 4.835 0 0 1 .611 2.17 7.068 7.068 0 0 1-.4 2.625L168.7 52.923a9.1 9.1 0 0 1-1.316 2.481 10.631 10.631 0 0 1-1.99 2.039 9.865 9.865 0 0 1-2.4 1.4 7.356 7.356 0 0 1-2.558.547L7.7 62.555a7.171 7.171 0 0 1-2.856-.494A5.493 5.493 0 0 1 2.75 60.59a5.1 5.1 0 0 1-1.129-2.231 6.147 6.147 0 0 1 .038-2.771L12.821 7.637a8.838 8.838 0 0 1 1.315-2.953A10.437 10.437 0 0 1 16.4 2.291 10.543 10.543 0 0 1 19.3.706a9.083 9.083 0 0 1 3.224-.533Z' fill='#{$secondary}'/%3E%3C/svg%3E"));
 }
 
 %t-card-before {
@@ -35,6 +37,7 @@ main {
   z-index: -1;
   background: linear-gradient(290deg, #FF476D 0%, #FBB861 100%);
   transition: $transition-base;
+
   // transform: rotate(4deg) scale(1.16, 1.16);
 }
 
@@ -108,8 +111,6 @@ main {
       margin-bottom: 2rem;
     }
 
-
-
     .t-hero-search-imgs {
       position: absolute;
       right: -3rem;
@@ -165,15 +166,14 @@ main {
         size: 4rem;
         repeat: no-repeat;
         position: center;
-      }
-
-      ;
+      };
       width: 100%;
       height: 100%;
     }
 
     .t-card-body {
       padding-top: 6rem;
+      padding-bottom: 1rem;
     }
   }
 }
@@ -238,7 +238,7 @@ main {
   .t-abouts-heading {
     position: relative;
     font-size: 3rem;
-    text-shadow: custome-box-shadow(12, 0.25, $secondary-300);
+    text-shadow: custome-box-shadow-r(12, 0.25, $secondary-300);
 
     &::before {
       content: attr(data-title);
@@ -309,7 +309,7 @@ main {
       padding-left: 1rem;
       transition: $transition-base;
 
-      @include shd--hv--ver_2;
+      @include shadow--hv--ver_2;
 
       &:not(:last-of-type) {
         margin-bottom: 1.25rem;
@@ -423,7 +423,6 @@ main {
   pointer-events: none;
 }
 
-
 .t-teachers {
   position: relative;
   background-color: $whereas;
@@ -444,6 +443,7 @@ main {
     // pointer-events: none;
     // top: -20%;
     // height: 120%;
+ 
   }
 
   .t-teachers-cards {

@@ -583,6 +583,32 @@ $department-colors: map-merge(("pei": $info,
 ), $department-colors);
 
 
+//== Element Soft Colors
+$card-theme-colors: () !default;
+$card-theme-colors: map-merge((
+	"primary":     $primary,
+	"secondary":   $secondary,
+	"tertiary":    $tertiary,
+	"quaternary":  $quaternary,
+	"success":     $success,
+	"danger":      $danger,
+	"warning":     $warning,
+	"info":        $info,
+), $card-theme-colors);
+
+
+//== Element Soft Colors
+$toggle-theme-colors: () !default;
+$toggle-theme-colors: map-merge((
+	"primary":     $primary,
+	"secondary":   $secondary,
+	"tertiary":    $tertiary,
+	"quaternary":  $quaternary,
+	"success":     $success,
+	"danger":      $danger,
+	"warning":     $warning,
+	"info":        $info,
+), $toggle-theme-colors);
 
 
 

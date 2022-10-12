@@ -64,7 +64,7 @@
     .t-avatar.menu-primary {
       .menu-item {
         .menu-link {
-          @include pointer($iconColor: $primary, $fontColor: $primary-800, $hoverBg: $primary-50);
+          @include menu-pointer($iconColor: $primary, $fontColor: $primary-800, $hoverBg: $primary-50);
         }
       }
     }
@@ -163,22 +163,22 @@
         font-size: 80%;
 
         @include teacher {
-          @include pointer($iconColor: $primary, $fontColor: $primary-800, $hoverBg: $primary-50);
+          @include menu-pointer($iconColor: $primary, $fontColor: $primary-800, $hoverBg: $primary-50);
         }
 
 
         @include unit {
-          @include pointer($iconColor: $tertiary, $fontColor: $tertiary-800, $hoverBg: $tertiary-50);
+          @include menu-pointer($iconColor: $tertiary, $fontColor: $tertiary-800, $hoverBg: $tertiary-50);
         }
 
 
         @include branch {
-          @include pointer($iconColor: $info, $fontColor: $info-800, $hoverBg: $info-50);
+          @include menu-pointer($iconColor: $info, $fontColor: $info-800, $hoverBg: $info-50);
         }
 
 
         @include admin {
-          @include pointer($iconColor: $quaternary, $fontColor: $quaternary-800, $hoverBg: $quaternary-50);
+          @include menu-pointer($iconColor: $quaternary, $fontColor: $quaternary-800, $hoverBg: $quaternary-50);
         }
       }
     }

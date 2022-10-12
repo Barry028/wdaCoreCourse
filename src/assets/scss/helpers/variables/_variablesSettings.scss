@@ -108,13 +108,9 @@ $body-color: $gray-900 !default;
 $body-text-align: null !default;
 
 // Links
-//
-// Style anchor elements.
-
-$link-color: $primary !default;
 // $link-decoration:                         underline !default;
-$link-shade-percentage: 20% !default;
-$link-hover-color: shift-color($link-color, $link-shade-percentage) !default;
+$link-shade-percentage: 40% !default;
+$link-hover-color: shift-color($link-color, $link-shade-percentage) ;
 $link-hover-decoration: null !default;
 
 $stretched-link-pseudo-element: after !default;

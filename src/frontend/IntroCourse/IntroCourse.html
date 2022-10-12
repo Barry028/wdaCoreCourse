@@ -20,41 +20,64 @@
   <main id="web" class="t-wrapper">
     <!-- Header -->
     <header id="tHeader" class="t-header">
-      <div class="container">
-        <div class="row justify-content-between align-items-center">
-          <!-- <img src="../../assets/images/wda-logo.svg" alt="aa" id="imas"> -->
-          <!-- <canvas id="output"></canvas> -->
-          <div class="col-4 t-header-brand">
-            <!-- <img src=""  alt="勞動部勞動力發展署" width="164" height="26"> -->
-            <a class="t-header-logo" href="../index/index.html">
-              <picture class="t-header-logo-sub" id="a1">
-                <!-- <canvas id="output11"></canvas> -->
-                <img id="imas11" src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/wda-logo.svg" alt="勞動部勞動力發展署" class="t-lazy-load" width="164" height="26">
-                <!-- <canvas id="output11"></canvas> -->
-                <!-- <canvas id="output11"></canvas> -->
-                <source type="image/svg+xml" srcset="../../assets/images/wda-logo.svg" />
-                <source type="image/webp" srcset="../../assets/images/wda-logo.webp" />
-              </picture>
-              <picture class="t-header-logo-main">
-                <img src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/wda-core-logo.svg" alt="關鍵就業力課程" class="t-lazy-load" width="214" height="42">
-                <source type="image/svg+xml" srcset="../../assets/images/wda-core-logo.svg" />
-                <source type="image/webp" srcset="../../assets/images/wda-core-logo.webp" />
-              </picture>
-            </a>
+      <section class="t-header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-12">
+              <ul class="t-header-top-lf-list">
+                <li class="t-header-top-list-item">
+                  <a href="#U" title="上方功能區塊, 快速鍵: Alt+U " id="AU" accesskey="U" name="U" class="quicklink t-header-top-list-link">:::</a>
+                </li>
+                <li class="t-header-top-list-item active">
+                  <a href="javascript:;" class="t-header-top-list-link">關鍵就業力課程</a>
+                </li>
+                <li class="t-header-top-list-item">
+                  <a href="javascript:;" class="t-header-top-list-link">勞動力發展署</a>
+                </li>
+                <li class="t-header-top-list-item">
+                  <a href="javascript:;" class="t-header-top-list-link">勞動力發展署</a>
+                </li>
+              </ul>
+              <ul class="t-header-top-rf-list">
+                <li class="t-header-top-list-item">
+                  <a href="javascript:;" class="t-header-top-list-link" data-bs-toggle="modal" data-bs-target="#accesskeyInfo">::: 網站導覽</a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <input class="t-pixel-burger-input" type="checkbox" id="BurgerMenu" hidden>
-          <label class="t-pixel-burger t-pixel-burger-rt w-12" for="BurgerMenu" data-active-type="close">
-            <i class="t-burger-line" aria-hidden="true"></i>
-          </label>
-          <nav class="col-auto t-header-nav-bar ml-auto">
-            <a class="t-header-nav-bar-link" href="javascript:;">最新訊息</a>
-            <a class="t-header-nav-bar-link" href="javascript:;">課程需求刊登</a>
-            <a class="t-header-nav-bar-link" href="javascript:;">課程介紹</a>
-            <a class="t-header-nav-bar-link" href="javascript:;">師資介紹</a>
-          </nav>
-          <a class="col-auto t-header-nav-bar-hightlight btn btn--primary" href="javascript:;">登入</a>
         </div>
-      </div>
+      </section>
+      <section class="t-header-main">
+        <nav class="navbar navbar-expand-md">
+          <div class="container">
+            <!-- <img src="../../assets/images/wda-logo.svg" alt="aa" id="imas"> -->
+            <!-- <canvas id="output"></canvas> -->
+            <div class=" t-header-brand">
+              <!-- <img src=""  alt="勞動部勞動力發展署" width="164" height="26"> -->
+              <a class="t-header-logo" href="../index/index.html">
+                <picture class="t-header-logo-sub" id="a1">
+                  <!-- <canvas id="output11"></canvas> -->
+                  <img id="imas11" src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/wda-logo.svg" alt="勞動部勞動力發展署" class="t-lazy-load" width="164" height="26">
+                  <source type="image/svg+xml" srcset="../../assets/images/wda-logo.svg" />
+                  <source type="image/webp" srcset="../../assets/images/wda-logo.webp" />
+                </picture>
+                <picture class="t-header-logo-main">
+                  <img src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/wda-core-logo.svg" alt="關鍵就業力課程" class="t-lazy-load" width="214" height="42">
+                  <source type="image/svg+xml" srcset="../../assets/images/wda-core-logo.svg" />
+                  <source type="image/webp" srcset="../../assets/images/wda-core-logo.webp" />
+                </picture>
+              </a>
+            </div>
+            <nav class="t-header-nav-bar ml-auto">
+              <a class="t-header-nav-bar-link" href="javascript:;">最新訊息</a>
+              <a class="t-header-nav-bar-link" href="javascript:;">課程需求刊登</a>
+              <a class="t-header-nav-bar-link" href="javascript:;">課程介紹</a>
+              <a class="t-header-nav-bar-link" href="javascript:;">師資介紹</a>
+            </nav>
+            <a class="t-header-nav-bar-hightlight btn btn--primary" href="javascript:;">登入</a>
+          </div>
+        </nav>
+      </section>
     </header>
     <!-- breadcrumbs -->
     <section id="tBreadcrumbs" class="t-breadcrumbs-section">
@@ -76,7 +99,7 @@
       <div class="container">
         <div class="row justify-content-between align-items-center">
           <div class="col-sm-12">
-            <div class="t-tab t-tab-v1 t-tab-cnts bg-white">
+            <div class="t-tab t-tab-line-bottom t-tab-cnts bg-white">
               <input id="item_1" type="radio" name="tabsV1" class="hide" checked="">
               <input id="item_2" type="radio" name="tabsV1" class="hide">
               <input id="item_3" type="radio" name="tabsV1" class="hide">
@@ -91,7 +114,7 @@
                   知識職能 KC
                 </label>
               </div>
-              <div class="t-tab-contents tab-sliding">
+              <div class="t-tab-contents">
                 <div id="tab_content_1" class="t-tab-content py-8 px-4">
                   <div class="row justify-content-between align-items-top px-4">
                     <div class="col-sm-2">
@@ -102,17 +125,17 @@
                       </picture>
                     </div>
                     <div class="col-sm-10 t-txt-left pl-4">
-                      <h2 class="t-course-heading txt-bg-underline-primary t-relative mb-4">目標任務</h2>
+                      <h2 class="t-course-heading t-relative mb-4" data-grad-under="info">目標任務</h2>
                       <p class="t-course-para">
                         工作意義與工作熱情自我認知與職涯發展專業精神與自律自制。
                       </p>
                     </div>
-                    <div class="t-pattern-diagonal-lines-md t-text-dark opt--20 h-4 opt-12 my-4"></div>
+                    <div class="t-pattern-diagonal-lines-md t-t-fc-dark opt--20 h-4 opt-12 my-4"></div>
                     <div class="col-sm-12 t-txt-left">
-                      <h2 class="txt-bg-underline-secondary t-relative mb-2 t-course-heading">課程單元</h2>
+                      <h2 class="t-relative mb-2 t-course-heading" data-grad-under="secondary">課程單元</h2>
                     </div>
                   </div>
-                  <div class="t-tab t-tab-v2 t-tab-course" id="tCourseCotent">
+                  <div class="t-tab t-tab-card t-tab-course" id="tCourseCotent">
                     <input id="item_1_1" type="radio" name="tabsV1_1" class="hide" checked="">
                     <input id="item_2_2" type="radio" name="tabsV1_1" class="hide">
                     <input id="item_3_3" type="radio" name="tabsV1_1" class="hide">
@@ -133,21 +156,21 @@
                         <font class="t-tab-nav-item-txt-sm">(3小時)</font>
                       </label>
                     </div>
-                    <div class="t-tab-contents tab-sliding">
+                    <div class="t-tab-contents">
                       <div id="tab_content_1_1" class="t-tab-content py-10 t-txt-left">
-                        <h2 class="txt-bg-underline-quaternary t-relative mb-8 t-course-heading">課程大綱</h2>
+                        <h2 class="t-relative mb-8 t-course-heading" data-grad-under="quaternary">課程大綱</h2>
                         <div class="row justify-content-between align-items-top">
                           <div class="col-sm-9 t-txt-left">
-                            <figure class="row flex-row t-course-card">
-                              <div class="col-sm-6 mb-6 mb-lg-0">
-                                <div class="t-absolute t-pattern-cross-dots-sm text-primary mb-6 w-60 h-80"> </div>
+                            <figure class="row flex-row t-course-card t-card-bg-primary">
+                              <div class="col-sm-4 mb-6 mb-lg-0">
+                                <div class="t-absolute t-pattern-cross-dots-sm t-fc-primary mb-6 w-40 h-40"></div>
                                 <img class="img-fluid t-zindex-1 t-relative" src="../../assets/images/course-v1-1.png" alt="Image Description" width="534" height="516">
                               </div>
-                              <div class="col-sm-6">
+                              <div class="col-sm-8">
                                 <figcaption class="teachers-list-item-caption">
                                   <h3 class="t-course-card-title">工作意義與工作熱情</h3>
                                   <div class="t-pattern-diagonal-stripes-sm mb-6 t-course-subhr">
-                                    <h4 class="t-course-card-subtitle text-lightgrey bg-white t-inline-flex ">課程子綱</h4>
+                                    <h4 class="t-course-card-subtitle t-fc-lightgrey bg-white t-inline-flex ">課程子綱</h4>
                                   </div>
                                   <ul class="t-course-list list-checked list-checked-soft-bg-primary list-checked-lg">
                                     <li class="list-checked-item">
@@ -163,16 +186,16 @@
                                 </figcaption>
                               </div>
                             </figure>
-                            <figure class="row flex-row t-course-card">
-                              <div class="col-sm-6 mb-6 mb-lg-0">
-                                <div class="t-absolute t-pattern-diagonal-stripes-sm text-quaternary mb-6 w-60 h-80 opt-28"> </div>
+                            <figure class="row flex-row t-course-card t-card-bg-secondary">
+                              <div class="col-sm-4 mb-6 mb-lg-0">
+                                <div class="t-absolute t-pattern-diagonal-stripes-sm t-fc-quaternary mb-6 w-40 h-40 opt-28"> </div>
                                 <img class="img-fluid t-zindex-1 t-relative" src="../../assets/images/course-v1-1.png" alt="Image Description" width="534" height="516">
                               </div>
-                              <div class="col-sm-6">
+                              <div class="col-sm-8">
                                 <figcaption class="teachers-list-item-caption">
                                   <h3 class="t-course-card-title">職場環境與正向價值觀</h3>
                                   <div class="t-pattern-diagonal-stripes-sm mb-6 t-course-subhr">
-                                    <h4 class="t-course-card-subtitle text-lightgrey bg-white t-inline-flex ">課程子綱</h4>
+                                    <h4 class="t-course-card-subtitle t-fc-lightgrey bg-white t-inline-flex ">課程子綱</h4>
                                   </div>
                                   <ul class="t-course-list list-checked list-checked-soft-bg-primary list-checked-lg">
                                     <li class="list-checked-item">
@@ -188,16 +211,17 @@
                                 </figcaption>
                               </div>
                             </figure>
-                            <figure class="row flex-row t-course-card">
-                              <div class="col-sm-6 mb-7 mb-lg-0">
-                                <div class="t-absolute t-pattern-dots-sm text-tertiary opt-28 mb-6 w-60 h-80"> </div>
+                            <figure class="row flex-row t-course-card t-card-bg-tertiary">
+                              <div class="col-sm-4 mb-7 mb-lg-0">
+                                <div class="t-absolute t-pattern-dots-sm t-fc-tertiary opt-28 mb-6 w-40 h-
+                                40"> </div>
                                 <img class="img-fluid t-zindex-1 t-relative" src="../../assets/images/course-v1-1.png" alt="Image Description" width="534" height="516">
                               </div>
-                              <div class="col-sm-6">
+                              <div class="col-sm-8">
                                 <figcaption class="teachers-list-item-caption">
                                   <h3 class="t-course-card-title">績效意識與工作效能</h3>
                                   <div class="t-pattern-diagonal-stripes-sm mb-6 t-course-subhr">
-                                    <h4 class="t-course-card-subtitle text-lightgrey bg-white t-inline-flex ">課程子綱</h4>
+                                    <h4 class="t-course-card-subtitle t-fc-lightgrey bg-white t-inline-flex ">課程子綱</h4>
                                   </div>
                                   <ul class="t-course-list list-checked list-checked-soft-bg-primary list-checked-lg">
                                     <li class="list-checked-item">
@@ -213,16 +237,16 @@
                                 </figcaption>
                               </div>
                             </figure>
-                            <figure class="row flex-row t-course-card">
-                              <div class="col-sm-6 mb-7 mb-lg-0">
-                                <div class="t-absolute  opt-28 t-pattern-checks-sm text-secondary mb-6 w-60 h-80"> </div>
+                            <figure class="row flex-row t-course-card t-card-bg-quaternary">
+                              <div class="col-sm-4 mb-7 mb-lg-0">
+                                <div class="t-absolute  opt-28 t-pattern-checks-sm t-fc-secondary mb-6 w-40 h-40"> </div>
                                 <img class="img-fluid t-zindex-1 t-relative" src="../../assets/images/course-v1-1.png" alt="Image Description" width="534" height="516">
                               </div>
-                              <div class="col-sm-6">
+                              <div class="col-sm-8">
                                 <figcaption class="teachers-list-item-caption">
                                   <h3 class="t-course-card-title">績效呈現與工作認同</h3>
                                   <div class="t-pattern-diagonal-stripes-sm mb-6 t-course-subhr">
-                                    <h4 class="t-course-card-subtitle text-lightgrey bg-white t-inline-flex ">課程子綱</h4>
+                                    <h4 class="t-course-card-subtitle t-fc-lightgrey bg-white t-inline-flex ">課程子綱</h4>
                                   </div>
                                   <ul class="t-course-list list-checked list-checked-soft-bg-primary list-checked-lg">
                                     <li class="list-checked-item">
@@ -237,17 +261,17 @@
                                   </ul>
                                 </figcaption>
                             </figure>
-                            <div class="t-pattern-diagonal-lines-md t-text-dark opt--20 h-4 opt-24 my-8 mt-10"></div>
-                            <h2 class="txt-bg-underline-tertiary t-relative mb-8 t-course-heading">成就指標</h2>
+                            <div class="t-pattern-diagonal-lines-md t-t-fc-dark opt--20 h-4 opt-24 my-8 mt-10"></div>
+                            <h2 class="t-relative mb-8 t-course-heading" data-grad-under="tertiary">成就指標</h2>
                             <figure class="row flex-row t-course-card shd-none">
                               <div class="col-12">
-                                <div class="t-absolute t-pattern-cross-dots-sm text-primary mb-6 w-60 h-80">
+                                <div class="t-absolute t-pattern-cross-dots-sm t-fc-primary mb-6 w-60 h-80">
                                 </div>
                                 <img class="img-fluid t-zindex-1 t-relative" src="../../assets/images/course_v2-2.png" alt="Image Description" width="534" height="516">
                               </div>
                             </figure>
                           </div>
-                          <div class="col-sm-3">
+                                                    <div class="col-sm-3">
                             <div class="hr-lines-v1 h-100" id="hrLine"></div>
                             <div id="listenList" class="observer-nav">
                               <img src="../../assets/images/3d-rockets.png" class="float-rocket" id="floatRocket">
@@ -266,12 +290,7 @@
                       </div>
                     </div>
                     <div id="tab_content_2_2" class="t-tab-content">
-                      <!--    <figure class="position-absolute top-0 end-0 zi-n1 d-none d-md-block mt-10 me-n10" style="width: 4rem;">
-                            <img class="img-fluid" src="../../assets/images/svgs/components/curved-shape-55.svg" alt="Image Description">
-                          </figure>
-                          <figure class="position-absolute bottom-0 start-0 zi-n1 ms-n10 mb-n10" style="width: 15rem;">
-                            <img class="img-fluid" src="../../assets/images/svgs/components/arrow-down-69.svg" alt="Image Description">
-                          </figure> -->
+                      <!--  -->
                     </div>
                   </div>
                 </div>
@@ -434,13 +453,12 @@
       </svg>
     </defs>
   </svg>
-  <!-- Vendor -->
-  <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- popper -->
+  <script src="../../assets/vendor/@popperjs/core/dist/umd/popper.js"></script>
+  <!-- Bootstrap v5.2.0  -->
+  <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.js"></script>
   <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
   <!-- Utils -->
-  <script src="../../assets/javascript/js-template.js"></script>
-  <script src="../../assets/javascript/expansions.js"></script>
-  <script src="../../assets/javascript/polyfills/turboframe_polyfills_bundle.min.js"></script>
   <script src="../../assets/javascript/turboframes_justJavascript/turboframe_JsEventHandler.js"></script>
   <script src="../../assets/javascript/turboframes_justJavascript/turboframe_JsUtils.js"></script>
   <!-- Custom -->
@@ -449,10 +467,11 @@
   <script src="../../assets/javascript/components/JsImagePlaceholder.js"></script>
   <script src="../../assets/javascript/components/JsDarkMode.js"></script>
   <script src="../../assets/javascript/components/JsTuScrolltop.js"></script>
+  <script src="../../assets/javascript/observer/JsImagesLazyLoad.js"></script>
   <script src="../../assets/javascript/components/categoryPicker/categoryPicker.js"></script>
   <!-- observer -->
-  <script src="../../assets/javascript/observer/JsImagesLazyLoad.js"></script>
-  <script src="../../assets/javascript/observer/JsBuildSideNav.js"></script>
+  <!-- <script src="../../assets/javascript/observer/JsImagesLazyLoad.js"></script> -->
+  <script src="../../assets/javascript/observer/JsBuildNav.js"></script>
   <script src="../../assets/javascript/observer/JsScrollStickyObserver.js"></script>
   <script>
   var nameArr = ["林大明", "陳小華", "林大明", "林小美", "陳曉潔", "林大明", "陳小華", "林大明", "林小美", "陳曉潔", "林大明", "陳小華", "林大明", "林小美", "陳曉潔", "林大明", "陳小華", "林大明", "林小美", "陳曉潔"];
@@ -538,7 +557,7 @@
     stopClassName: "is-absolute",
     callback: {
       root: "tCourseCotent",
-      rootMargin: '0px',
+      rootMargin: '20px',
       threshold: [1, 0.5, 0]
     }
   });

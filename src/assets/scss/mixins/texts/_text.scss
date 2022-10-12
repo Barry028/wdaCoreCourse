@@ -14,7 +14,7 @@
 }
 
 @mixin titleComic($color: $dark) {
-  shadow-shadow: -1px -1px 0 $color, 0 -1px 0 $color, 1px -1px 0 $color, -1px 0 0 $color, 1px 0 0 $color, -1px 1px 0 $color, 0 1px 0 $color, 1px 1px 0 $color, -2px -2px 0 $color, -1px -2px 0 $color, 0 -2px 0 $color, 1px -2px 0 $color, 2px -2px 0 $color, 2px -1px 0 $color, 2px 0 0 $color, 2px 1px 0 $color, 2px 2px 0 $color, 1px 2px 0 $color, 0 2px 0 $color, -1px 2px 0 $color, -2px 2px 0 $color, -2px 1px 0 $color, -2px 0 0 $color, -2px -1px 0 $color;
+  text-shadow: -1px -1px 0 $color, 0 -1px 0 $color, 1px -1px 0 $color, -1px 0 0 $color, 1px 0 0 $color, -1px 1px 0 $color, 0 1px 0 $color, 1px 1px 0 $color, -2px -2px 0 $color, -1px -2px 0 $color, 0 -2px 0 $color, 1px -2px 0 $color, 2px -2px 0 $color, 2px -1px 0 $color, 2px 0 0 $color, 2px 1px 0 $color, 2px 2px 0 $color, 1px 2px 0 $color, 0 2px 0 $color, -1px 2px 0 $color, -2px 2px 0 $color, -2px 1px 0 $color, -2px 0 0 $color, -2px -1px 0 $color;
 }
 
 @mixin text-before-square($background: $dark, $width: 10rem, $height: 10rem, $border-radius: 0.25rem) {

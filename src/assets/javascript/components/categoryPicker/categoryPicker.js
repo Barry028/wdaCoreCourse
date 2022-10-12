@@ -324,7 +324,8 @@ const JsCategoryPicker = function(element, config) {
     const selectedCnt = document.getElementById(pickerID + 'selectedCnt');
     const input = document.getElementById(inputId);
     JsUtils.addEvent(confirmBtn, 'click', function(event) {
-      input.innerHTML = '';
+      input.innerHTML += '';
+      input.querySelector('input').classList.add('t-absolute')
       selectedCnt.querySelectorAll('.selected-label').forEach(function(item, index) {
         let copyItem = item.cloneNode(true);
         let copyItemHtml = copyItem.innerHTML;
