@@ -240,7 +240,7 @@
     border-radius: 50%;
     width: 1.25rem;
     height: 1.25rem;
-    background-color: $white;
+    background-color: _var("white", $white);
     opacity: .36;
 
     &::before {

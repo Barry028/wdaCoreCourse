@@ -4,7 +4,7 @@
 // --------------------------------------------------
 
 .t-panel {
-  background-color: $white;
+  background-color: _var("white", $white);
   border: transparent 2px solid;
   border-radius: $border-radius;
 }

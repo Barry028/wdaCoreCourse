@@ -95,6 +95,7 @@ $t-list-txts-sm-border-width:       0.0625rem;
 
   .t-list-txts-item {
     position: relative;
+    margin-bottom: 0.25rem;
 
     &:not(:last-child) {
       margin-right: 2rem;

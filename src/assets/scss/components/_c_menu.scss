@@ -1,5 +1,3 @@
-
-
 // Menu group
 .menu-group {
   display: flex;
@@ -12,6 +10,20 @@
   padding: 0;
   margin: 0;
   list-style: none;
+
+  @include data-scroll($dark, 1px solid rgba(_var("white-rgb", $white), 0.24));
+
+  // @include scrollbar-color(rgba(_var("white-rgb", $white), 0.24), rgba(_var("white-rgb", $white), 0.48));
+  @include md-min {
+    // grid-area: nav;
+    // place-self: center;
+    // display: grid;
+    // grid-auto-flow: column;
+    // grid-auto-columns: max-content;
+    // gap: 0.5rem;
+    // list-style: none;
+    overflow: auto;
+  }
 }
 
 // Sub menu
@@ -28,6 +40,11 @@
 .menu-item.menu-item {
   display: block;
   padding: 0;
+  flex: 0 0 auto;
+  user-select: none;
+
+
+  @include menu-arrow($size: 0.625rem, $color: $white, $pr: 2.5rem, $right: 0.75rem);
 
   // Menu Link
   .menu-link {
@@ -62,6 +79,25 @@
       }
     }
 
+    .svg-icon {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:first-child {
+        margin-right: 0.5rem;
+      }
+
+      &:last-child:not(:first-child) {
+        margin-right: 0rem;
+        margin-left: 0.5rem;
+      }
+
+      // &:not(:first-child)
+   
+    }
+
     // Menu Icon
     .menu-bullet {
       flex-shrink: 0;
@@ -86,6 +122,7 @@
     }
 
     // Menu Arrow
+
     .menu-arrow {
       display: flex;
       align-items: stretch;
@@ -101,12 +138,7 @@
         width: 100%;
         content: ' ';
 
-        @include svg-bg-icon(arrow-start, $text-muted);
-
-        /*rtl:begin:remove*/
-        @include svg-bg-icon(arrow-end, $text-muted);
-
-        /*rtl:end:remove*/
+        @include svg-bg-icon(arrow-end, $white);
       }
     }
   }
@@ -135,23 +167,20 @@
 }
 
 // Responsive
-@each $direction in up,
-down {
+@each $direction in up, down {
   @each $breakpoint in map-keys($grid-breakpoints) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    @if $infix and $direction==down {
-      $infix: $infix + "-"+ $direction;
+    @if $infix and $direction == down {
+      $infix: $infix + "-" + $direction;
     }
 
     @include media-breakpoint-direction($direction, $breakpoint) {
-
       // Accordion arrow
       .menu-item.menu#{$infix}-accordion {
-
         &.showing:not(.menu-dropdown),
         &.show:not(.hiding):not(.menu-dropdown) {
-          >.menu-link {
+          > .menu-link {
             .menu-arrow:after {
               @include menu-link-arrow-rotate(90deg, -90deg);
             }
@@ -168,23 +197,21 @@ down {
         z-index: get($menu, dropdown, z-index);
 
         // Dropdown show
-        .show.menu-dropdown>&,
+        .show.menu-dropdown > &,
         &.menu.show,
         &.show[data-popper-placement] {
           display: flex;
 
           // Animation
-          @if get($menu, dropdown, animation)==true {
+          @if get($menu, dropdown, animation) == true {
             // Move up
-            animation: menu-sub-dropdown-animation-fade-in #{get($menu, dropdown, animation-speed)} ease 1,
-            menu-sub-dropdown-animation-move-up #{get($menu, dropdown, animation-speed)} ease 1;
+            animation: menu-sub-dropdown-animation-fade-in #{get($menu, dropdown, animation-speed)} ease 1, menu-sub-dropdown-animation-move-up #{get($menu, dropdown, animation-speed)} ease 1;
 
             // Move down
             &[data-popper-placement='top'],
             &[data-popper-placement='top-start'],
             &[data-popper-placement='top-end'] {
-              animation: menu-sub-dropdown-animation-fade-in #{get($menu, dropdown, animation-speed)} ease 1,
-              menu-sub-dropdown-animation-move-down #{get($menu, dropdown, animation-speed)} ease 1;
+              animation: menu-sub-dropdown-animation-fade-in #{get($menu, dropdown, animation-speed)} ease 1, menu-sub-dropdown-animation-move-down #{get($menu, dropdown, animation-speed)} ease 1;
             }
           }
         }
@@ -194,7 +221,7 @@ down {
       .menu-sub#{$infix}-accordion {
         display: none;
 
-        .show:not(.menu-dropdown)>&,
+        .show:not(.menu-dropdown) > &,
         &.show {
           display: flex;
         }
@@ -207,10 +234,9 @@ down {
 
       // Reset link left & right paddings of level 1 menu links
       .menu#{$infix}-fit {
-        >.menu-item {
-
-          >.menu-content,
-          >.menu-link {
+        > .menu-item {
+          > .menu-content,
+          > .menu-link {
             padding-left: 0 !important;
             padding-right: 0 !important;
           }
@@ -225,11 +251,14 @@ down {
       .menu#{$infix}-row {
         flex-direction: row;
 
-        >.menu-item {
+        // width:           fill-available
+        > .menu-item {
           display: flex;
           align-items: center;
 
-          >.menu-link {
+          // width: fill-available;
+
+          > .menu-link {
             .menu-arrow:after {
               @include menu-link-arrow-rotate(90deg, -90deg);
             }
@@ -263,7 +292,6 @@ down {
 
 // Menu indention
 @include menu-link-indention(get($menu, accordion, indention), get($menu, link, self, padding-x));
-
 
 // Menu animations
 @keyframes menu-sub-dropdown-animation-fade-in {

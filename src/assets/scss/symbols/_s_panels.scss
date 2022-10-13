@@ -12,57 +12,111 @@
   }
 }
 
+.t-panel-main-header {
+  width: 100%;
+  display: flex;
+  background-color: $danger-50;
+  border: 2px solid $danger-100;
+  border-radius: $border-radius;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: $danger-800;
+  box-shadow: 0.25rem 0.25rem 0 rgba($danger-200, 0.6);
+  align-items: center;
+  justify-content: space-between;
+
+  .btn--pointer.btn--pointer.btn--pointer {
+    padding-left: 1rem;
+    padding-right: 2rem;
+  }
+}
+
+@mixin wave-svg($color1, $color2, $color3) {
+  background-image: t-svg(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 600'%3E%3Cpath fill='#{$color1}' d='m0 492 180 10 180 12 180-10 180 10 180-8v95H0Z'/%3E%3Cpath fill='#{$color2}' d='m0 544 180 1 180 11 180 3 180-24 180-3v69H0Z'/%3E%3Cpath fill='#{$color3}' d='m0 561 180 18 180-8 180 5 180-27 180 32v20H0Z'/%3E%3C/svg%3E"));
+}
+
+.mask.t-mask-panel-v1 {
+  height: 20%;
+  top: auto;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+  opacity: 0.12;
+
+  @include teacher {
+    @include wave-svg($primary-200, $primary-400, $primary-600);
+  }
+
+
+  @include unit {
+    @include wave-svg($tertiary-200, $tertiary-400, $tertiary-600);
+  }
+
+
+  @include branch {
+    @include wave-svg($secondary-200, $secondary-400, $secondary-600);
+  }
+
+
+  @include admin {
+    @include wave-svg($quaternary-200, $quaternary-400, $quaternary-600);
+  }
+}
+
 .t-panel {
   position: relative;
   transition: $transition;
 
-  @include sm-min {
-    display: flex;
-    flex-direction: row;
-  }
+  // margin-bottom: 1rem;
 
+  // @include sm-min {
+  //   display: flex;
+  //   flex-direction: row;
+  // }
 
   .t-panel-heading {
     display: flex;
     width: 100%;
-    padding: 0.875rem 0.25rem 0.875rem 1.625rem;
+    padding: 0.875rem 0.25rem 0.875rem 1.25rem;
     align-items: center;
     border-bottom: 0.1875rem solid $border;
 
-    @include sm-min {
-      width: 25%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      border-bottom: none;
-      border-right: 0.125rem solid $border;
-      padding: 0.5rem;
-    }
-
+    // @include sm-min {
+    //   width: 25%;
+    //   display: flex;
+    //   flex-direction: column;
+    //   justify-content: center;
+    //   text-align: center;
+    //   border-bottom: none;
+    //   border-right: 0.125rem solid $border;
+    //   padding: 0.5rem;
+    // }
 
     .svg-icon {
       color: $primary;
       margin-right: 0.75rem;
 
-      @include sm-min {
-        margin-right: 0;
-        margin-bottom: .5rem;
-      }
+      // @include sm-min {
+      //   margin-right: 0;
+      //   margin-bottom: .5rem;
+      // }
+
     }
 
     .t-panel-heading-txt {
       position: relative;
       display: flex;
       align-items: center;
-      font-weight: 700;
-      font-size: 1.25rem;
+      font-weight: 500;
+      font-size: 1.125rem;
       width: 100%;
 
-      @include sm-min {
-        flex-direction: column;
-      }
-
+      // @include sm-min {
+      //   flex-direction: column;
+      // }
 
       &::after {
         content: attr(data-title);
@@ -87,10 +141,9 @@
 
     @extend .t-flex;
 
-    @include sm-min {
-      width: 75%;
-    }
-
+    // @include sm-min {
+    //   width: 75%;
+    // }
 
     .t-panel-main-fuild {
       display: flex;
@@ -175,6 +228,15 @@
     color: $primary-900;
 
     @include stroke(0.25rem, rgba($primary-600, 0.2));
+
+    @include teacher {
+      @include stroke(0.25rem, rgba($tertiary-600, 0.2));
+    }
+  }
+  .t-panel-sub-title  {
+    color: $grey-600;
+    font-size: 95%;
+    margin-top: 0.5rem;
   }
 
   .t-panel-footer {
@@ -182,7 +244,7 @@
     width: 100%;
     justify-content: end;
 
-    > .btn {
+    >.btn {
       padding-left: 3rem;
       padding-right: 3rem;
 
@@ -196,82 +258,26 @@
     margin-bottom: 0.625rem;
   }
 
-  &.t-panel-mini {
-    box-shadow: $shadow-card;
-    border-color: rgba($white, 0.24);
-    margin-bottom: 3rem;
-
-    @include hover {
-      @include scale(1.0625);
-
-      box-shadow: $shadow-card-hover;
-    }
-
-
-    .t-panel-main-heading {
-      // @include text-shadow-v3(2px, 2px, 2px, $secondary, -2px, -2px, 2px, $primary);
-      // @include text-shaded($size: 1px, $shadow: $primary, $through: 10);
-      @include text-shadow-v2($white, rgba($dark, 0.24));
-    }
-
-    .t-panel-main {
-      padding: 1.125rem 1.25rem;
-    }
-
-    .t-symbol {
-      position: absolute;
-      right: 0.75rem;
-      top: -2rem;
-
-      .svg-icon {
-        background-size: 120% 120%;
-        border-radius: $border-radius-xl;
-      }
-
-      .t-symbol-label {
-        border: 0.125rem solid rgba($white, 0.24);
-        box-shadow: $t-card-box-shadow $primary-300, $t-card-box-shadow-du $primary-200;
-      }
-    }
-
-    .t-badge {
-      position: absolute;
-      right: 0.5rem;
-      bottom: 0.5rem;
-
-      big {
-        font-weight: 900;
-      }
-    }
-
-    .t-panel-main-heading {
-      font-size: 1.0625rem;
-      font-weight: 700;
-      letter-spacing: .03125rem;
-      margin-bottom: .5rem;
-    }
-
-    .t-panel-mini-link {
-      font-size: 1.875rem;
-      letter-spacing: .125rem;
-      font-weight: 900;
-      line-height: 1.25;
-      text-decoration: none;
-
-      @include stroke(0.25rem, rgba($primary-600, 0.2));
-    }
-  }
-
   .t-panel-top {
     padding: 1.5rem 1rem 0.875rem;
     border-bottom: 0.25rem solid $primary-400;
     text-align: center;
+
+    @include teacher {
+      border-top: 0.25rem solid $tertiary-600;
+      border-bottom: 0.125rem solid $tertiary-400;
+    }
   }
 
   .t-panel-bottom {
     background-color: $primary-25;
     border-radius: 0 0 $border-radius $border-radius;
     padding: 0.75rem 1rem 1rem 1rem;
+
+    @include teacher {
+      background-color: $tertiary-50;
+
+    }
 
     .t-definition-list {
       margin-bottom: 0.375rem;

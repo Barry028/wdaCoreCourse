@@ -36,6 +36,13 @@ $footer-color: $white;
     -webkit-mask-repeat: repeat-x;
     -webkit-mask-position: -2px 6px;
     -webkit-mask-size: auto;
+
+    @include sm {
+      top: -14%;
+    }
+        @include xs {
+      top: -10%;
+    }
   }
 
   .btn {
@@ -44,7 +51,7 @@ $footer-color: $white;
   }
 
   .t-custom-footer-bd {
-    border-bottom: 2px dotted rgba($white, 0.16);
+    border-bottom: 2px dotted rgba(_var("white-rgb", $white), 0.16);
   }
 
   .t-custom-footer-logo {}

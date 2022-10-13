@@ -4,7 +4,7 @@
 .observer-nav {
   position: relative;
   display: block;
-  background: $white;
+  background: _var("white", $white);
   border-radius: $border-radius;
   padding: 1.5rem 1.25rem;
   width: 100%;
@@ -123,7 +123,7 @@
   &.active.active.active {
     // background-color: $primary-700;
     color: $white;
-    border: 2px solid $grey-50;
+    border: 2px solid _var("grey-50", $grey-50);
     box-shadow: 2px 2px 4px rgba($dark, 0.16);
     font-size: 112.5%;
   }

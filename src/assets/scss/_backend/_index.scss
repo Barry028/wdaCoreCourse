@@ -55,7 +55,7 @@
     }
 
     dd {
-      color: $white;
+      color: _var("white", $white);
     }
   }
 }
@@ -91,7 +91,7 @@
   .backend-page-header {
     position: relative;
     background-color: lighten($primary-100, 4%);
-    color: $dark;
+    color: _var("dark", $dark);
     margin: 0;
     padding: 2.25rem 2.25rem 4.125rem 2.25rem;
     overflow: hidden;
@@ -107,7 +107,7 @@
 
     &.backend-page-header-dark {
       background-color: $neutral-900;
-      color: $white;
+      color: _var("white", $white);
 
       .backend-page-title {
         @include gradient-x($primary, $primary-400);
@@ -260,7 +260,7 @@
 
     .top-nav-link {
       display: block;
-      background-color: $white;
+      background-color: _var("white", $white);
       border-radius: 16px;
       border: 2px solid rgba($secondary-500, .06);
       box-shadow: 0 0.375rem 0.5rem 0 rgba($grey-800, .12);
@@ -309,7 +309,7 @@
         background-color: $secondary-600;
         border: 2px solid rgba($secondary-500, .20);
         box-shadow: 0 .5rem 0.875rem 0 rgba($grey-800, .48);
-        color: $white;
+        color: _var("white", $white);
         font-weight: 700;
         transform: scale(1.0625);
       }

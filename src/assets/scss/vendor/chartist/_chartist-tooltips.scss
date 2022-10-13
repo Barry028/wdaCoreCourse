@@ -2,6 +2,7 @@
   position: absolute;
   display: inline-block;
   border-radius: $tooltip-border-radius;
+  border: 2px solid $primary-100;
   opacity: 0;
   min-width: 2rem;
   padding: .125rem .5rem .375rem;

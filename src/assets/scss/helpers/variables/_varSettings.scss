@@ -94,18 +94,21 @@ $enable-custom-buttons-soft:              true !default;
 $enable-custom-buttons-stroke:            true !default;
 
 ////////////////////////////////////////////////////////////////////////////////
-$color-contrast-dark:             $black;
-$color-contrast-light:            $white;
+
 
 $theme-color-interval:            8%     !default;
 $theme-color-interval-sec:        12%    !default;
-$yiq-contrasted-threshold:        204    !default;
 
+$yiq-contrasted-threshold:        204    !default;
 $yiq-text-dark:                   $dark  !default;
 $yiq-text-light:                  $white !default;
+
+
+
+$contrast-color-threshold:        55%;
 $min-contrast-ratio:              4.5    !default; // 4.5
 $max-contrast-ratio:              7      !default; // 7
-$color-contrast-dark:             $dark  !default;
+$color-contrast-dark:             $black  !default;
 $color-contrast-light:            $white !default;
 
 $theme-colors-rgb:                map-loop($theme-colors, to-rgb, "$value") !default;

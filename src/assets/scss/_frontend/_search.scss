@@ -2,12 +2,12 @@
 
 .t-search-bar-section {
   position: relative;
-  background-color: $white;
+  background-color: _var("white", $white);
   box-shadow: 0 2px 16px rgba($dark, 0.12);
   padding: 3rem 2rem;
 
   .t-form {
-    background-color: $grey-50;
+    background-color: _var("grey-50", $grey-50);
     border-radius: $border-radius;
     padding: 1.25rem 2rem;
   }
@@ -47,7 +47,7 @@ $primarycolour: rgb(230,190,190);
   .teachers-list-cnt {}
 
   .teachers-list-tools {
-    background-color: $white;
+    background-color: _var("white", $white);
     border-radius: $border-radius;
     border-bottom: 2px solid $grey-100;
     padding: 0.875rem 1.5rem;
@@ -58,7 +58,7 @@ $primarycolour: rgb(230,190,190);
     }
 
     .t-form-control {
-      background-color: $grey-50;
+      background-color: _var("grey-50", $grey-50);
     }
   }
 
@@ -67,15 +67,15 @@ $primarycolour: rgb(230,190,190);
 
     .teachers-list-item {
       // padding: 1rem 2rem;
-      background-color: $white;
+      background-color: _var("white", $white);
       border: 2px solid transparent;
       border-radius: $border-radius;
-      box-shadow: 0 0.25rem 1rem $grey-50;
+      box-shadow: 0 0.25rem 1rem _var("grey-50", $grey-50);
       padding: 2rem 1.75rem 1.5rem;
       transition: $transition-base;
 
       &:hover {
-        background-color: rgba($white, 0.5);
+        background-color: rgba(_var("white-rgb", $white), 0.5);
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         box-shadow: 0 0.25rem 1rem $grey-200;
@@ -186,7 +186,7 @@ $primarycolour: rgb(230,190,190);
           }
 
           .teachers-list-item-dls {
-            background-color: $grey-50;
+            background-color: _var("grey-50", $grey-50);
             border-radius: $border-radius;
             padding: 0.5rem;
             display: flex;

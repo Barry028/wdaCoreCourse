@@ -6,7 +6,8 @@
   padding: 0.375rem 0.75rem 0.875rem;
   background-color: rgba($grey-100, 0.12);
 
-  @each $color, $value in $element-colors {
+  @each $color,
+  $value in $element-colors {
     &.table--#{$color} {
       background-color: rgba($value, 0.08);
     }
@@ -55,7 +56,7 @@
     //     }
     //   }
     // }
- 
+
   }
 
   &.t-table-responsive--data {
@@ -103,7 +104,7 @@
             vertical-align: middle;
 
             // margin: 0 .25rem;
-         
+
           }
 
           .btn--xs {
@@ -221,7 +222,7 @@
 
                   font {
                     // font-size: 0;
-                 
+
                   }
 
                   i {
@@ -351,6 +352,7 @@
 
       td {
         // white-space: nowrap;
+        white-space: normal;
 
         &:empty {
           &:after {
@@ -382,7 +384,7 @@
         //     width: 12rem;
         //   }
         // }
-     
+
       }
 
       .tool-td {

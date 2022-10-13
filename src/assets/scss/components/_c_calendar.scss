@@ -3,7 +3,7 @@
 // --------------------------------------------------
 .t-calendar-date {
   font-size: 0;
-  background-color: $white;
+  background-color: _var("white", $white);
   border-radius: $calendar-border-radius;
   box-shadow: $calendar-shadow;
   overflow: hidden;
@@ -30,7 +30,7 @@
 
   .t-month {
     background-color: $calendar-color;
-    border-bottom: $calendar-border-width dashed rgba($white, 0.38);
+    border-bottom: $calendar-border-width dashed rgba(_var("white-rgb", $white), 0.38);
     box-shadow: 0 $calendar-shadow-width 0 darken($calendar-color, 20%);
     color: $white;
     font-size: .75rem;
@@ -39,7 +39,7 @@
   }
 
   .t-date {
-    color: $dark;
+    color: _var("dark", $dark);
     font-size: 1.125rem;
     line-height: 1;
     letter-spacing: 2px;

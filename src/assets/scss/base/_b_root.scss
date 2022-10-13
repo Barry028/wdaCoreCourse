@@ -5,31 +5,54 @@
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 $darkClass: "js_dark__mode" !default;
 $darkMode: true !default;
-$properties: (
-  "default": var(--tu-default), 
-  "body-color": var(--tu-dark), 
-  "body-bg": var(--tu-white));
+
+$theme-colors-dark-rgb: map-loop($theme-colors-dark, to-rgb, "$value") !default;
+
+$properties: ("tu-default": var(--tu-default), "tu-body-color": var(--tu-dark), "tu-body-bg": var(--tu-white));
 
 @mixin darkMode($darkMode: true) {
   @if $darkMode {
     @media (prefers-color-scheme: dark) {
+      $mode: dark;
+
       @content;
     }
   }
   @else {
     @media (prefers-color-scheme: light) {
+      $mode: default;
+
       @content;
     }
   }
 }
 
+// @debug map-loop($theme-colors-dark, to-rgb, "$value");
 @mixin themeMode {
   @each $theme, $map in $themes {
     @if $theme == "dark" {
       @include darkMode($darkMode: true) {
         #{&}[data-theme="dark"]:root {
+          $mode: default;
+
           @each $key, $value in $map {
             --#{$variable-prefix}#{$key}: #{$value};
+          }
+
+          @each $color, $value in $theme-colors-dark-rgb {
+            --#{$variable-prefix}#{$color}-rgb: #{$value};
+          }
+
+          @each $color, $value in $primarys-dark {
+            --#{$variable-prefix}primary-#{$color}: #{$value};
+          }
+
+          @each $color, $value in $grays-dark {
+            --#{$variable-prefix}gray-#{$color}: #{$value};
+          }
+
+          @each $color, $value in $greys-dark {
+            --#{$variable-prefix}grey-#{$color}: #{$value};
           }
 
           @content;
@@ -38,8 +61,26 @@ $properties: (
     }
     @else {
       #{&}:root {
+        $mode: dark;
+
         @each $key, $value in $map {
           --#{$variable-prefix}#{$key}: #{$value};
+        }
+
+        @each $color, $value in $theme-colors-rgb {
+          --#{$variable-prefix}#{$color}-rgb: #{$value};
+        }
+
+        @each $color, $value in $primarys {
+          --#{$variable-prefix}primary-#{$color}: #{$value};
+        }
+
+        @each $color, $value in $grays {
+          --#{$variable-prefix}gray-#{$color}: #{$value};
+        }
+
+        @each $color, $value in $greys {
+          --#{$variable-prefix}grey-#{$color}: #{$value};
         }
 
         @content;
@@ -54,6 +95,7 @@ $properties: (
   }
 }
 
+
 :root {
   // @each $color,
   // $value in $theme-colors {
@@ -62,57 +104,58 @@ $properties: (
   // @each $key, $value in $properties {
   //    --#{$key}: #{$value};
   //  }
-  @each $color, $value in $greys {
-    --#{$variable-prefix}grey-#{$color}: #{$value};
+  // @each $color, $value in $greys {
+  //   --#{$variable-prefix}grey-#{$color}: #{$value};
+  // }
+
+  // @each $color, $value in $grays {
+  //   --#{$variable-prefix}gray-#{$color}: #{$value};
+  // }
+  // @each $color, $value in $neutrals {
+  //   --#{$variable-prefix}neutral-#{$color}: #{$value};
+  // }
+  // Breakpoints
+  @each $breakpoint, $value in $grid-breakpoints {
+    --#{$variable-prefix}#{$breakpoint}:#{$value};
   }
 
-  @each $color, $value in $grays {
-    --#{$variable-prefix}gray-#{$color}: #{$value};
-  }
-  @each $color, $value in $neutrals {
-    --#{$variable-prefix}neutral-#{$color}: #{$value};
-  }
-    // Breakpoints
-    @each $breakpoint, $value in $grid-breakpoints {
-        --#{$variable-prefix}#{$breakpoint}:#{$value};
-    }
- //  ////////////////////////////////////////////////////////////////////////////////
- //  @each $color, $value in $primarys {
- //    --#{$variable-prefix}primary-#{$color}: #{$value};
- //  }
+  //  ////////////////////////////////////////////////////////////////////////////////
+  //  @each $color, $value in $primarys {
+  //    --#{$variable-prefix}primary-#{$color}: #{$value};
+  //  }
 
- //  @each $color, $value in $secondarys {
- //    --#{$variable-prefix}secondary-#{$color}: #{$value};
- //  }
+  //  @each $color, $value in $secondarys {
+  //    --#{$variable-prefix}secondary-#{$color}: #{$value};
+  //  }
 
- //  @each $color, $value in $tertiarys {
- //    --#{$variable-prefix}tertiary-#{$color}: #{$value};
- //  }
+  //  @each $color, $value in $tertiarys {
+  //    --#{$variable-prefix}tertiary-#{$color}: #{$value};
+  //  }
 
- //  @each $color, $value in $quaternarys {
- //    --#{$variable-prefix}quaternary-#{$color}: #{$value};
- //  }
+  //  @each $color, $value in $quaternarys {
+  //    --#{$variable-prefix}quaternary-#{$color}: #{$value};
+  //  }
 
- //  @each $color, $value in $successs {
- //    --#{$variable-prefix}success-#{$color}: #{$value};
- //  }
+  //  @each $color, $value in $successs {
+  //    --#{$variable-prefix}success-#{$color}: #{$value};
+  //  }
 
- //  @each $color, $value in $dangers {
- //    --#{$variable-prefix}danger-#{$color}: #{$value};
- //  }
+  //  @each $color, $value in $dangers {
+  //    --#{$variable-prefix}danger-#{$color}: #{$value};
+  //  }
 
- //  @each $color, $value in $warnings {
- //    --#{$variable-prefix}warning-#{$color}: #{$value};
- //  }
+  //  @each $color, $value in $warnings {
+  //    --#{$variable-prefix}warning-#{$color}: #{$value};
+  //  }
 
- //  @each $color, $value in $infos {
- //    --#{$variable-prefix}info-#{$color}: #{$value};
- //  }
-  
- //  ////////////////////////////////////////////////////////////////////////////////
- //  @each $color, $value in $theme-colors-rgb {
- //    --#{$variable-prefix}#{$color}-rgb: #{$value};
- //  }
+  //  @each $color, $value in $infos {
+  //    --#{$variable-prefix}info-#{$color}: #{$value};
+  //  }
+
+  //  ////////////////////////////////////////////////////////////////////////////////
+  // @each $color, $value in $theme-colors-rgb {
+  //   --#{$variable-prefix}#{$color}-rgb: #{$value};
+  // }
 
   --#{$variable-prefix}body-color-rgb: #{to-rgb($body-color)};
   --#{$variable-prefix}body-bg-rgb: #{to-rgb($body-bg)};
@@ -146,8 +189,6 @@ $properties: (
   // // stylelint-enable custom-property-empty-line-before
 }
 
-
-
 // .card {
 //   background-color: #fff;
 
@@ -169,11 +210,6 @@ $properties: (
 //   line-height: 1.25;
 //   margin-bottom: 0.5em;
 // }
-
-
-
-
-
 
 // :where(html) {
 //   --font-sans: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;

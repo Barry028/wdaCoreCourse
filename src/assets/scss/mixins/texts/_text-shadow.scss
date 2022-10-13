@@ -98,7 +98,7 @@ $color2: $primary) {
   $shadow;
 }
 
-// @include outline($color: $white,$outline: 0.125rem);
+// @include outline($color: $white, $outline: 0.125rem);
 @mixin outline($color: $white, $outline: 0.125rem) {
   text-shadow: #{$outline} #{$outline} 0 $color,
   -#{$outline} -#{$outline} 0 $color,

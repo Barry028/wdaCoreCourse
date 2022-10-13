@@ -7,7 +7,7 @@
     @include toggle-label;
     width: 8em;
     height: 3em;
-    background: $white;
+    background: _var("white", $white);
     transition: $transition;
     &:before {
       // moving square

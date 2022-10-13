@@ -63,7 +63,7 @@
 
       // select,
       // .hd-select {
-      //   background-color: $white;
+      //   background-color: _var("white", $white);
       //   border-radius: 4px;
       //   font-size: .875rem;
       //   padding: 0.25rem 2rem 0.25rem 0.5rem;
@@ -80,7 +80,7 @@
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 .dashboard-card-main {
     position: relative;
-    background-color: $white;
+    background-color: _var("white", $white);
     margin-bottom: 1.25rem;
     box-shadow: $shadow-card;
 
@@ -142,7 +142,7 @@
 
         .dashboard-card-header-title {
             display: block;
-            color: $dark;
+            color: _var("dark", $dark);
             font-size: 1rem;
             margin-bottom: .5rem;
             padding-right: 1rem;
@@ -176,7 +176,7 @@
 
             .dashboard-card-subtitle {
                 display: block;
-                color: $dark;
+                color: _var("dark", $dark);
                 font-size: 1rem;
                 font-weight: 500;
                 text-transform: uppercase;
@@ -239,7 +239,7 @@
 
     .dashboard-card-header {
         border-bottom: none;
-        color: $white;
+        color: _var("white", $white);
 
         .dashboard-card-header-lt {
             position: relative;
@@ -247,7 +247,7 @@
 
             i,
             .hd-icon {
-                color: $white;
+                color: _var("white", $white);
             }
         }
 
@@ -256,7 +256,7 @@
             z-index: 1;
 
             .t-form-btn {
-                background-color: $white;
+                background-color: _var("white", $white);
             }
         }
 
@@ -266,7 +266,7 @@
     }
 
     .dashboard-card-body {
-        background-color: $white;
+        background-color: _var("white", $white);
         border-radius: $card-inner-border-radius;
         margin-top: -1.5rem;
     }

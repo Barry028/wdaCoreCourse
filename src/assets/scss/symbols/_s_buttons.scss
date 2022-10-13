@@ -22,7 +22,7 @@
 
   .svg-icon {
     stroke: rgba($dark, 0.08);
-    color: $grey-50;
+    color: _var("grey-50", $grey-50);
     pointer-events: none;
   }
 
@@ -47,7 +47,7 @@
 
 .t-star {
   cursor: pointer;
-  color: $grey-50;
+  color: _var("grey-50", $grey-50);
   transition: $transition-fast;
 
   > * {

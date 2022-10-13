@@ -15,7 +15,7 @@
   float: none;
   width: auto;
   font-weight: 700;
-  color: $white;
+  color: _var("white", $white);
   text-shadow: custome-box-shadow-r(12, 0.5, $dark);
 
   @include stroke(0.5px, $dark);
@@ -71,7 +71,7 @@
 
     .swiper-slide {
       img {
-        border: 0.5rem solid $grey-50;
+        border: 0.5rem solid _var("grey-50", $grey-50);
         border-radius: $border-radius-lg;
         box-shadow: 0.25rem 0.25rem 1rem $grey-200;
       }
@@ -101,7 +101,7 @@
 
   .t-hero-search {
     position: relative;
-    background-color: $white;
+    background-color: _var("white", $white);
     border-radius: $border-radius;
     box-shadow: $box-shadow-lg;
     padding: 3.5rem 2rem 2.25rem 2rem;
@@ -118,7 +118,7 @@
     }
 
     .t-form-control {
-      background-color: $grey-50;
+      background-color: _var("grey-50", $grey-50);
       font-size: 1.125rem;
       padding: 0.75rem 1.25rem;
     }
@@ -295,125 +295,7 @@
     box-shadow: 0.5rem 0.5rem $grey-100;
   }
 
-  .t-news-list {
-    position: relative;
-    margin-top: 3.5rem;
 
-    .t-news-list-item {
-      position: relative;
-      background-color: $grey-50;
-      border-radius: $border-radius-lg;
-      font-size: 0;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      padding-left: 1rem;
-      transition: $transition-base;
-
-      @include shadow--hv--ver_2;
-
-      &:not(:last-of-type) {
-        margin-bottom: 1.25rem;
-      }
-
-      &:hover {
-        background-color: $danger-100;
-
-        .t-news-icon {
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cg data-name='Group 209546' transform='translate(-4 -31)'%3E%3Crect width='60' height='60' fill='%23ff5042' data-name='Rectangle 35' opacity='.2' rx='8' transform='translate(4 31)'/%3E%3Cpath fill='%23ff5042' d='M50.6 51a3.9 3.9 0 0 1 0 1.3l-5.7 22.5a3.7 3.7 0 0 1-3.6 2.9H19.4a3.8 3.8 0 0 1-3.6-5l7-22.5a3.7 3.7 0 0 1 3.6-2.6H47a3.7 3.7 0 0 1 3.5 2.3 3.3 3.3 0 0 1 .3 1.1Z' data-name='Vector' opacity='.4'/%3E%3Cpath fill='%23ff5042' d='M52.3 73.7a3.7 3.7 0 0 1-3.7 4h-7.3a3.7 3.7 0 0 0 3.6-2.9l5.7-22.5a3.9 3.9 0 0 0 0-1.3ZM30.1 52.9a1.8 1.8 0 0 1-.3 0 1.3 1.3 0 0 1-.9-1.6l1.7-7.2a1.3 1.3 0 0 1 1.6-.9 1.3 1.3 0 0 1 .9 1.5L31.3 52a1.2 1.2 0 0 1-1.2 1Z' data-name='Vector'/%3E%3Cg data-name='Group'%3E%3Cpath fill='%23ff5042' d='M41.3 52.9a.7.7 0 0 1-.3 0 1.3 1.3 0 0 1-1-1.5l1.6-7.3a1.3 1.3 0 0 1 1.5-1 1.3 1.3 0 0 1 1 1.6l-1.6 7.2a1.2 1.2 0 0 1-1.2 1Z' data-name='Vector'/%3E%3C/g%3E%3Cg data-name='Group'%3E%3Cpath fill='%23ff5042' d='M40.2 62.3H26.8a1.3 1.3 0 0 1-1.2-1.3 1.3 1.3 0 0 1 1.2-1.3h13.4a1.3 1.3 0 0 1 1.2 1.3 1.3 1.3 0 0 1-1.2 1.3Z' data-name='Vector'/%3E%3C/g%3E%3Cg data-name='Group'%3E%3Cpath fill='%23ff5042' d='M38.5 69H25.2a1.3 1.3 0 0 1-1.3-1.3 1.3 1.3 0 0 1 1.3-1.3h13.3a1.3 1.3 0 0 1 1.3 1.3 1.3 1.3 0 0 1-1.3 1.2Z' data-name='Vector'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-          transform: scale(1.25);
-        }
-
-        .t-news-txt {
-          color: $danger;
-        }
-
-        .t-news-date {
-          background-color: $white;
-        }
-      }
-    }
-
-    .t-news-cnt {
-      border-radius: inherit;
-      display: flex;
-      flex-flow: row;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 0 2rem;
-
-      @media all and (max-width: $screen-sm-min) {
-        display: block;
-        width: 100%;
-        padding: 1rem 0 0 0;
-      }
-
-      .t-news-icon {
-        width: 3rem;
-        height: 3rem;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cg data-name='Group 209547' transform='translate(-4 -31)'%3E%3Crect width='48' height='48' fill='%23979797' data-name='Rectangle 35' opacity='.2' rx='8' transform='translate(4 31)'/%3E%3Cpath fill='%23979797' d='M41.3 47a3.1 3.1 0 0 1 0 1l-4.6 18a3 3 0 0 1-2.9 2.3H16.3a3 3 0 0 1-2.8-3.9l5.6-18a3 3 0 0 1 2.8-2.1h16.4a3 3 0 0 1 2.8 1.8 2.7 2.7 0 0 1 .2 1Z' data-name='Vector' opacity='.4'/%3E%3Cpath fill='%23979797' d='M42.7 65.2a3 3 0 0 1-3 3.1h-5.9a3 3 0 0 0 3-2.2l4.4-18a3.1 3.1 0 0 0 .1-1V47ZM24.9 48.5a1.5 1.5 0 0 1-.2 0 1 1 0 0 1-.8-1.2l1.4-5.8a1 1 0 0 1 1.2-.7 1 1 0 0 1 .8 1.2l-1.4 5.7a1 1 0 0 1-1 .8Z' data-name='Vector'/%3E%3Cg data-name='Group'%3E%3Cpath fill='%23979797' d='M33.8 48.5a.6.6 0 0 1-.2 0 1 1 0 0 1-.7-1.2l1.2-5.8a1 1 0 0 1 1.2-.8A1 1 0 0 1 36 42l-1.3 5.8a1 1 0 0 1-1 .8Z' data-name='Vector'/%3E%3C/g%3E%3Cg data-name='Group'%3E%3Cpath fill='%23979797' d='M33 56H22.2a1 1 0 0 1-1-1 1 1 0 0 1 1-1h10.6a1 1 0 0 1 1 1 1 1 0 0 1-1 1Z' data-name='Vector'/%3E%3C/g%3E%3Cg data-name='Group'%3E%3Cpath fill='%23979797' d='M31.6 61.3H20.9a1 1 0 0 1-1-1 1 1 0 0 1 1-1h10.7a1 1 0 0 1 1 1 1 1 0 0 1-1 1Z' data-name='Vector'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-      }
-
-      .t-news-label {
-        position: absolute;
-        right: .5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 4rem;
-        user-select: none;
-
-        .new-icons {
-          width: 4rem;
-          height: 4rem;
-        }
-      }
-
-      .t-news-date {
-        background-color: $grey-100;
-        border-radius: 1rem;
-        color: $dark;
-        padding: 0.375rem 1rem;
-        margin-right: .5rem;
-        margin-left: 1rem;
-        user-select: none;
-        white-space: nowrap;
-
-        .date-year {
-          font-size: .875rem;
-          color: $grey-500;
-        }
-
-        .date-month {
-          font-size: 1.25rem;
-          font-weight: 500;
-        }
-
-        .date-day {
-          font-size: .875rem;
-          color: $grey-500;
-          margin-left: .5rem;
-        }
-      }
-
-      .t-news-txt {
-        width: 80%;
-        color: $dark;
-        font-size: 1.125rem;
-        margin-left: 1rem;
-        margin-right: 1rem;
-      }
-
-      .t-news-unit {
-        font-size: .75rem;
-        color: $grey;
-        white-space: nowrap;
-      }
-    }
-  }
 }
 
 .t-teachers-svg {

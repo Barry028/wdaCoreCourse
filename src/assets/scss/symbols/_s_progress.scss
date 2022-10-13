@@ -37,7 +37,9 @@
 
   .t-progress-txt {
     font-size: 0.875rem;
-
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
     strong {
       color: $primary-600;
       font-size: 125%;
@@ -51,7 +53,7 @@
 //   height: .5rem;
 //   border-radius: $border-radius-sm;
 //   overflow: hidden;
-//   background-color: $grey-50;
+//   background-color: _var("grey-50", $grey-50);
 //   margin: .5rem 0;
 
 //   .t-progress-bar {

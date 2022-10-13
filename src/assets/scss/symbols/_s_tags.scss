@@ -15,7 +15,7 @@
       user-select: none;
       vertical-align: middle;
       white-space: nowrap;
-      background: $white;
+      background: _var("white", $white);
       border: 2px solid rgba($value, 0.24);
       color: $value;
 
@@ -41,7 +41,7 @@
   border-radius: $border-radius-sm;
   border: $white 1.5px solid;
   background-color: $grey-100;
-  color: $dark;
+  color: _var("dark", $dark);
   padding: .625rem 1.125rem;
   font-size: 1rem;
   font-weight: 500;
@@ -51,11 +51,11 @@
 
   @include hover {
     background-color: $grey-600;
-    color: $grey-50;
+    color: _var("grey-50", $grey-50);
     transform: scale(1.05);
 
     .t-list-tag-close {
-      color: $white;
+      color: _var("white", $white);
     }
   }
 

@@ -5,43 +5,43 @@
 .js-bar-chart,
 .js-donut-chart,
 .js-pie-chart {
-    position: relative;
+  position: relative;
 }
 
 .js-donut-chart {
-    .ct-label {
-        font-size: .75rem;
-        fill: $white;
-        stroke: rgba($dark, 0.84);
-        paint-order: stroke;
-        stroke-width: 10;
-        pointer-events: none;
-        stroke-linejoin: bevel;
-        vector-effect: non-scaling-stroke;
-        text-anchor: middle;
-        opacity: .88;
-        stroke-linejoin: round;
-    }
+  .ct-label {
+    font-size: .75rem;
+    fill: $white;
+    stroke: rgba($dark, 0.84);
+    paint-order: stroke;
+    stroke-width: 10;
+    pointer-events: none;
+    stroke-linejoin: bevel;
+    vector-effect: non-scaling-stroke;
+    text-anchor: middle;
+    opacity: .88;
+    stroke-linejoin: round;
+  }
 
-    .js-donut-chart-label {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        font-weight: 700;
-    }
+  .js-donut-chart-label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+  }
 }
 
 .ct-series {
-    cursor: pointer;
+  cursor: pointer;
 
-    &:hover {
-        opacity: .72;
-        transition: $transition-base;
-    }
+  &:hover {
+    opacity: .72;
+    transition: $transition-base;
+  }
 }
 
 .ct-area,
 .ct-line {
-    pointer-events: none;
+  pointer-events: none;
 }

@@ -3,7 +3,6 @@
 //  Symbols  Images
 // --------------------------------------------------
 
-
 %img-overlay-after {
   content: '';
 
@@ -45,10 +44,10 @@
 %img-overlay-before-hover {
   border-color: $primary-400;
   background-color: rgba($dark, 0.36);
-    backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+
   @include scale(1.125);
 }
-
 
 //////////////////////////////////////////////////////////////////////
 
@@ -58,7 +57,7 @@
   overflow: hidden;
   margin: 0;
   padding: 0;
-  color: $white;
+  color: _var("white", $white);
   transition: $transition-mask;
 
   &.t-card-mask-gradient-bottom-left {
@@ -70,7 +69,7 @@
   &:after {
     content: "";
     position: absolute;
-    background-color: $white;
+    background-color: _var("white", $white);
     transform: scaleX(0);
     transition: $transition-mask;
     z-index: 2;
@@ -111,7 +110,7 @@
     &:after {
       content: "";
       position: absolute;
-      background-color: $white;
+      background-color: _var("white", $white);
       transform: scaleY(0);
       transform-origin: 0;
       transition: all 600ms ease;
@@ -281,6 +280,13 @@
     @extend %img-overlay-before;
   }
 
+  @include teacher {
+    &:before {
+      border: $tertiary-200 0.1875rem solid;
+    }
+  }
+
+
   &:after {
     @extend %img-overlay-after;
   }
@@ -298,7 +304,6 @@
     }
 
     &:before {
-      
       @extend %img-overlay-before-hover;
     }
   }

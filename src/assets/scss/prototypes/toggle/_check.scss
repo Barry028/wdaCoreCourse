@@ -46,7 +46,7 @@
       top: 0;
       height: 0.25rem;
       border-radius: 0.125rem;
-      background: $white;
+      background: _var("white", $white);
       transition: $transition;
     }
 

@@ -10,6 +10,11 @@
     @include ribbon($background: $value);
   }
 }
+@each $color, $value in $element-colors {
+  .t-ribbon-r-#{$color} {
+    @include ribbon-r($background: $value);
+  }
+}
 
 // Ribbon Styles
 @each $color, $value in $element-colors {

@@ -9,7 +9,7 @@
 }
 
 .img-outline {
-  outline: 0.1875rem solid rgba($white, 0.66);
+  outline: 0.1875rem solid rgba(_var("white-rgb", $white), 0.66);
   outline-offset: -0.5rem;
 }
 

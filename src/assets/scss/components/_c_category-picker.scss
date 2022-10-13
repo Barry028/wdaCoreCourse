@@ -124,7 +124,7 @@ $category-footer-shadow: 0 -2px 4px rgba($dark, 0.12);
       width: 100%;
       max-width: 60rem;
       pointer-events: auto;
-      background-color: $white;
+      background-color: _var("white", $white);
       border-radius: $border-radius-lg;
       outline: 0;
       box-shadow: $category-cnt-shadow;
@@ -151,7 +151,7 @@ $category-footer-shadow: 0 -2px 4px rgba($dark, 0.12);
           height: $category-header-close-size;
           overflow: hidden;
           cursor: pointer;
-          background-color: $white;
+          background-color: _var("white", $white);
           background-position: 50%;
           background-repeat: no-repeat;
           background-size: contain;
@@ -178,7 +178,7 @@ $category-footer-shadow: 0 -2px 4px rgba($dark, 0.12);
 
       .category-modal-selected {
         position: relative;
-        background-color: $grey-50;
+        background-color: _var("grey-50", $grey-50);
         padding: $category-selected-padding;
         display: flex;
         align-items: center;
@@ -212,7 +212,7 @@ $category-footer-shadow: 0 -2px 4px rgba($dark, 0.12);
           border-radius: $border-radius-lg;
           border: $white 1px solid;
           background-color: $grey-100;
-          color: $dark;
+          color: _var("dark", $dark);
           padding: .625rem 1.125rem;
 
           // margin-bottom: .5rem;
@@ -224,7 +224,7 @@ $category-footer-shadow: 0 -2px 4px rgba($dark, 0.12);
 
           @include hover {
             background-color: $grey-600;
-            color: $grey-50;
+            color: _var("grey-50", $grey-50);
             transform: scale(1.05);
           }
 
@@ -254,18 +254,18 @@ $category-footer-shadow: 0 -2px 4px rgba($dark, 0.12);
 
       .category-modal-body {
         position: relative;
-        border-top: 2px solid $grey-50;
+        border-top: 2px solid _var("grey-50", $grey-50);
         min-height: 50vh;
         overflow: hidden;
 
         .list-level-one {
-          border-right: 2px solid $grey-50;
+          border-right: 2px solid _var("grey-50", $grey-50);
           top: 0;
           bottom: 0;
           position: absolute;
           overflow-x: hidden;
           overflow-y: auto;
-          background-color: $white;
+          background-color: _var("white", $white);
           -webkit-overflow-scrolling: touch;
           -ms-scroll-chaining: none;
           overscroll-behavior: contain;
@@ -303,14 +303,14 @@ $category-footer-shadow: 0 -2px 4px rgba($dark, 0.12);
 
         .category-item {
           position: relative;
-          border-bottom: 1px solid $grey-50;
+          border-bottom: 1px solid _var("grey-50", $grey-50);
           cursor: pointer;
           transition: $transition-base;
           user-select: none;
 
           .category-item-txt {
             display: block;
-            color: $dark;
+            color: _var("dark", $dark);
             font-size: 1.25rem;
             font-weight: 700;
             padding: $category-item-padding-v1;
@@ -350,7 +350,7 @@ $category-footer-shadow: 0 -2px 4px rgba($dark, 0.12);
 
             .category-item {
               position: relative;
-              border-bottom: 1px solid $grey-50;
+              border-bottom: 1px solid _var("grey-50", $grey-50);
 
               @include flex($justify: center, $align-content: center, $align-items: center, $flex-dir: row, $flex-wrap: nowrap);
 
@@ -366,7 +366,7 @@ $category-footer-shadow: 0 -2px 4px rgba($dark, 0.12);
                 &:checked {
                   &:disabled {
                     + .t-checkbox-group {
-                      background-color: $grey-50;
+                      background-color: _var("grey-50", $grey-50);
                     }
                   }
 
@@ -375,7 +375,7 @@ $category-footer-shadow: 0 -2px 4px rgba($dark, 0.12);
                     color: $primary-900;
 
                     &:before {
-                      border: 1px solid rgba($white, 0.48);
+                      border: 1px solid rgba(_var("white-rgb", $white), 0.48);
                     }
 
                     &:after {
@@ -389,7 +389,7 @@ $category-footer-shadow: 0 -2px 4px rgba($dark, 0.12);
                 &:indeterminate {
                   + .t-checkbox-group {
                     &:before {
-                      border: 1px solid rgba($white, 0.48);
+                      border: 1px solid rgba(_var("white-rgb", $white), 0.48);
                     }
 
                     &:after {
@@ -414,8 +414,8 @@ $category-footer-shadow: 0 -2px 4px rgba($dark, 0.12);
 
               .t-checkbox-group {
                 position: relative;
-                background: $white;
-                color: $dark;
+                background: _var("white", $white);
+                color: _var("dark", $dark);
                 padding: $category-item-padding-v2;
                 display: flex;
                 cursor: pointer;

@@ -17,7 +17,7 @@
       width: 3em;
       height: 3em;
       border-radius: 1.5em;
-      background: $white;
+      background: _var("white", $white);
       box-shadow: 0 0.375em 0.375em rgba($dark, 0.2), 0 0 0 0.1875em #dddddd;
       transition: 0.25s ease-in-out;
     }

@@ -4,6 +4,10 @@
   @return map-get($theme-colors, $key);
 }
 
+@function theme-color-dark($key: "primary") {
+  @return map-get($theme-colors-dark, $key);
+}
+
 @function theme-inverse-color($key: "primary") {
   @return get($theme-inverse-colors, $key);
 }

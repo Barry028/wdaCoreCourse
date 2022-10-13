@@ -16,7 +16,7 @@
 }
 
 .t-bg-grad-v4 {
-  background-image: radial-gradient(50% 74% at 50% 20%, rgba($green, 0.24) 0%, rgba($white, 0) 100%);
+  background-image: radial-gradient(50% 74% at 50% 20%, rgba($green, 0.24) 0%, rgba(_var("white-rgb", $white), 0) 100%);
 }
 
 .t-bg-grad-v5 {

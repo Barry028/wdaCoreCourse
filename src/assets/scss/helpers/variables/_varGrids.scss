@@ -59,9 +59,9 @@ $container-max-widths: (
 
 // Content Spacing
 $content-spacing: (
-  desktop: 2rem, 
-  tablet-and-mobile: 1.5rem,
-    mobile:       2.25rem) !default;
+  desktop: 1.5rem, 
+  tablet-and-mobile: 1.125rem,
+  mobile: 1.375rem) !default;
 
 
 // Header
@@ -83,7 +83,7 @@ $header-config: (
 // Grid columns
 
 $grid-columns:                12     !default;
-$grid-gutter-width:           1.5rem !default;
+$grid-gutter-width:           1.25rem !default;
 $grid-row-columns:            6      !default;
 
 $container-padding-x: $grid-gutter-width !default;

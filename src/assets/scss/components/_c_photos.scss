@@ -54,7 +54,7 @@ img {
 }
 
 .t-polaroid {
-  background-color: $white;
+  background-color: _var("white", $white);
   padding: 1rem;
   box-shadow: 0 0.25rem 1rem rgba($dark, 0.2);
 }

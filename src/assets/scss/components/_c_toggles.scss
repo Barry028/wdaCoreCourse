@@ -2,7 +2,7 @@
 //  Components -> Toggles 
 // --------------------------------------------------
 .toggle {
-  background: $white;
+  background: _var("white", $white);
   border-radius: 4px;
   border: rgba(60, 60, 60, 0.125) 1px solid;
   display: inline-block;

@@ -6,7 +6,7 @@ samp {
   font-size: $font-size-xs;
   margin: 0.5rem 0;
 }
-
+// filter: brightness(1) contrast(1)  grayscale(1)  invert(1) saturate(1) hue-rotate(0)
 a {
   &:not([data-decoration]):not([class*='btn']) {
     cursor: pointer;

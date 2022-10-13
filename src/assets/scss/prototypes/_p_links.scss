@@ -88,7 +88,7 @@
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 
   &:hover {
-    color: $white;
+    color: _var("white", $white);
     box-shadow: inset 4rem 0 0 0 rgba($info, 0.48);
   }
 }
@@ -96,12 +96,12 @@
 // <a href="#" data-link="growing">this link</a>
 [data-link="growing"] {
   text-decoration: none;
-  color: $dark;
+  color: _var("dark", $dark);
   font-weight: 700;
   position: relative;
 
   &:hover {
-    color: $white;
+    color: _var("white", $white);
     box-shadow: inset 200px 0 0 0 $info;
   }
 
@@ -139,7 +139,7 @@
 
 // <a href="#" data-link="under-v2">this link</a>
 [data-link="under-v2"] {
-  color: $dark;
+  color: _var("dark", $dark);
   position: relative;
   text-decoration: none;
 
@@ -149,7 +149,7 @@
     width: 100%;
     height: .25rem;
     border-radius: .25rem;
-    background-color: $dark;
+    background-color: _var("dark", $dark);
     bottom: 0;
     left: 0;
     transform-origin: right;

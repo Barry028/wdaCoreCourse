@@ -20,7 +20,7 @@ const postcss_html = require('gulp-html-postcss');
 const reporter = require('gulp-reporter');
 const autoprefixer = require('autoprefixer');
 const sugarss = require('sugarss');
-
+const webp = require('gulp-webp');
 
 const cssnano = require('cssnano');
 // 合併檔案
@@ -47,6 +47,25 @@ const lodash = require('lodash');
 // const timestamp = Math.round(Date.now() / 1000);
 
 const purgecss = require('gulp-purgecss');
+
+
+
+function webpFun() {
+  return gulp.src(['./src/assets/images/*.{jpg,png}',
+    './src/assets/images/*/*.{jpg,png}',
+  ])
+    .pipe(webp())
+    .pipe(gulp.dest('./dist/image/'))
+}
+
+
+gulp.task("webp", function() {
+  return Observable.return(
+    webpFun()
+  );
+});
+
+
 
 // SASS 非同步 
 gulp.task("sass", function() {
@@ -212,7 +231,9 @@ function watchTask() {
   watch(['./src/scss/*.scss', './javascript/*.js'], series(
     scssTask,
     babelEs5,
-    purgeSass
+    purgeSass,
+    webpFun
+
     // browsersyncReload
   ));
 }
@@ -220,5 +241,6 @@ function watchTask() {
 exports.default = series(
   scssTask,
   babelEs5,
-  purgeSass
+  purgeSass,
+  webpFun
 );

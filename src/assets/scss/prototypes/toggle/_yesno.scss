@@ -34,7 +34,7 @@
       content: "No";
       top: 0.75em;
       left: 5.3em;
-      color: $white;
+      color: _var("white", $white);
     }
   }
   input {
@@ -45,7 +45,7 @@
       @include before-after;
       height: 0.25em;
       border-radius: 0.125em;
-      background: $white;
+      background: _var("white", $white);
       transition: $transition;
     }
     &:before {
@@ -76,7 +76,7 @@
     background: $info;
     &:before {
       // Yes
-      color: $white;
+      color: _var("white", $white);
     }
     &:after {
       // No

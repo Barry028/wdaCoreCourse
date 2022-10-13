@@ -8,7 +8,7 @@
 //  Dashboard Card 卡片
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 .dashboard-card {
-  background-color: $white;
+  background-color: _var("white", $white);
   box-shadow: $shadow-card;
   border-radius: $card-border-radius;
   margin-bottom: 1.25rem;
@@ -75,17 +75,17 @@
 
           @include btn-hover {
             background-color: rgba($info, .24);
-            color: $white;
+            color: _var("white", $white);
           }
 
           @include btn-active {
             background-color: rgba($info, .48);
-            color: $white;
+            color: _var("white", $white);
           }
 
           &[aria-expanded="true"] {
             background-color: rgba($info, .60);
-            color: $white;
+            color: _var("white", $white);
           }
         }
 
@@ -119,7 +119,7 @@
 
         .dashboard-card-list-inline-item-txt {
           font-size: 1rem;
-          color: $dark;
+          color: _var("dark", $dark);
           @include title;
         }
       }
@@ -208,7 +208,7 @@
 
       label {
         background-color: $grey;
-        color: $white;
+        color: _var("white", $white);
         border-radius: 3rem;
         font-size: 0;
         font-weight: 500;
@@ -262,7 +262,7 @@
   select.t-form-control {
     background-color: $default;
     background-position: right 0.5rem center;
-    border-color: rgba($white, .24);
+    border-color: rgba(_var("white-rgb", $white), .24);
     font-size: .875rem;
     padding: $input-btn-padding-y-xs 1.25rem $input-btn-padding-y-xs $input-btn-padding-x-xs;
   }

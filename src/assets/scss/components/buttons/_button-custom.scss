@@ -10,8 +10,8 @@
     @include button-variant($value);
 
       &.btn--pointer[class*='btn--#{$color}'] {
-        position: relative;
-        @include button-pointer(color-yiq($value) , 1.5rem, 1.5rem);
+
+        @include button-pointer(color-contrast($value) , 1.5rem, 1.5rem);
       }
   }
 }

@@ -73,7 +73,7 @@
   .btn.btn--block {
     @include btn-hover {
       background-color: $primary-600;
-      color: $white;
+      color: _var("white", $white);
     }
   }
 

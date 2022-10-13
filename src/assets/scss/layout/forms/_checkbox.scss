@@ -160,7 +160,7 @@ $checkbox-w-lg: 0.625rem;
 
         .check_mark {
           background-color: $primary;
-          border-color: rgba($white, 0.66);
+          border-color: rgba(_var("white-rgb", $white), 0.66);
 
           &:after {
             opacity: 1;
@@ -211,7 +211,7 @@ $checkbox-w-lg: 0.625rem;
 
       .check_mark {
         background-color: $primary;
-        border-color: rgba($white, 0.66);
+        border-color: rgba(_var("white-rgb", $white), 0.66);
 
         &:after {
           opacity: 1;

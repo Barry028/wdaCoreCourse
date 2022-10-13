@@ -43,12 +43,12 @@
       }
 
       .map-table {
-        background-color: rgba($white, 0.88);
+        background-color: rgba(_var("white-rgb", $white), 0.88);
       }
 
       .map-course-btn {
-        background-color: $white;
-        color: $dark;
+        background-color: _var("white", $white);
+        color: _var("dark", $dark);
       }
     }
   }
@@ -61,7 +61,7 @@
   }
 
   .map-table {
-    background-color: $white;
+    background-color: _var("white", $white);
     border-radius: 8px;
     position: absolute;
     left: 3.75rem;

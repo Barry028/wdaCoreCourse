@@ -17,8 +17,70 @@
   transition: left ease;
   z-index: 2;
 
+  .bt-header-top {
+    background-color: _var("dark", $dark);
+    color: _var("white", $white);
+    text-align-last: justify;
+    text-align: justify;
+
+    @media (max-width: $screen-sm-min) {
+      display: none;
+    }
+
+    .bt-header-top-lf-list {
+      display: inline-flex;
+    }
+
+    .bt-header-top-rf-list {
+      display: inline-flex;
+    }
+
+    .bt-header-top-list-item {
+      position: relative;
+      padding: 0.375rem 0;
+      display: flex;
+      align-items: center;
+
+      &.active {
+        .bt-header-top-list-link {
+          // color: $primary-100;
+          color: _var("primary-100", $primary-100);
+        }
+      }
+
+      &:not(:last-child) {
+        margin-right: 1.25rem;
+
+        &:after {
+          content: '';
+          position: absolute;
+          right: -0.625rem;
+          top: 50%;
+          transform: translate(0, -50%);
+          width: 1px;
+          height: 50%;
+          background-color: rgba(_var("white-rgb", $white), 0.24);
+        }
+      }
+
+      .bt-header-top-list-link {
+        display: block;
+        color: currentColor;
+        font-size: 0.8125rem;
+
+        &:hover {
+          @include opacity(0.66);
+        }
+      }
+    }
+  }
+
+  &.is-fix {
+    @include mask-filter-v2($white, 0.3125rem, 0.0625rem);
+  }
+
   [data-user-img] {
-    border: 2px solid rgba($white, 0.24);
+    border: 2px solid rgba(_var("white-rgb", $white), 0.24);
     border-radius: $border-radius;
 
     img {
@@ -47,15 +109,23 @@
     padding-bottom: .75rem;
   }
 
-  &.bt-header-fix {
-    position: fixed;
-    z-index: 101;
-    max-width: $backWeb-max-width;
+  .navbar-toggler {
+    line-height: 1;
+    background-color: transparent;
+    cursor: pointer;
+    color: $navbar-toggler-color;
+    border: $border-width solid transparent;
+
+    @include md-min {
+      display: none;
+    }
   }
 
   .bt-header-main {
     display: flex;
-    padding: 1rem 2rem;
+    background-color: _var("white", $white);;
+    flex-wrap: wrap;
+    padding: 0.5rem 0.75rem;
 
     .bt-header-menu {
       display: inline-flex;
@@ -76,12 +146,21 @@
 
   .bt-header-navs {
     padding: 0.25rem 0.75rem;
-
-    // border-radius: $border-radius;
-    // border-radius: 200px/4px;
+    display: flex;
+    flex-wrap: wrap;
     white-space: nowrap;
 
     @include btStyleBd;
+
+    // @include md {
+    //   display: none;
+    // }
+    @include md-min {
+      .collapse:not(.show) {
+        display: flex;
+      }
+    }
+
 
     @include teacher {
       @include gradient-directional($start-color: $primary, $end-color: $primary-800, $deg: 45deg);
@@ -134,13 +213,15 @@
       }
 
       .menu-link {
-        background-color: rgba($white, 0.04);
-        border-color: rgba($white, 0.08);
-        padding: 0.625rem 1.25rem;
-        color: $white;
+        background-color: rgba(_var("white-rgb", $white), 0.04);
+        border-color: rgba(_var("white-rgb", $white), 0.08);
+        padding: 0.5rem 1.125rem;
+        color: _var("white", $white);
+        font-size: .875rem;
+        flex: 0 0 auto;
 
         @include hover {
-          background-color: rgba($white, 0.2);
+          background-color: rgba(_var("white-rgb", $white), 0.2);
         }
 
 
@@ -182,6 +263,10 @@
         }
       }
     }
+  }
+
+  .navbar-expand-custom {
+    padding: 0 1.5rem;
   }
 }
 
@@ -257,7 +342,7 @@
 
   .bt-breadcrumbs-item {
     position: relative;
-    color: $dark;
+    color: _var("dark", $dark);
     font-size: 1rem;
 
     &.active {
@@ -308,261 +393,6 @@
 
       &:hover {
         color: $secondary-200;
-      }
-    }
-  }
-}
-
-.bt-section {
-  background-color: $white;
-
-  @include btStyleBd;
-
-  padding: 2rem 3rem;
-
-  @include teacher {
-    .bt-section-header {
-      border-bottom: 0.25rem solid $primary-200;
-
-      .bt-section-heading {
-        &:first-letter {
-          color: $primary-700;
-        }
-      }
-
-      .bt-section-para {
-        color: $grey;
-      }
-    }
-
-    .t-legend {
-      background-color: $primary-700;
-    }
-
-    .bt-form-cnt {
-      background: rgba($primary-50, 0.4);
-      border: 0.2rem dotted $primary-100;
-
-      .t-form-label {
-        background-color: $primary-100;
-        border-left: 0.25rem solid $primary-300;
-
-        &:before {
-          border-left: 1.125rem solid $primary-100;
-        }
-      }
-    }
-
-    .bt-section-result {}
-  }
-
-
-  @include unit {
-    .bt-section-header {
-      border-bottom: 0.25rem solid $tertiary-200;
-
-      .bt-section-heading {
-        &:first-letter {
-          color: $tertiary-700;
-        }
-      }
-
-      .bt-section-para {
-        color: $grey;
-      }
-    }
-
-    .t-legend {
-      background-color: $tertiary-700;
-    }
-
-    .bt-form-cnt {
-      background: rgba($tertiary-50, 0.4);
-      border: 0.2rem dotted $tertiary-100;
-
-      .t-form-label {
-        background-color: $tertiary-100;
-        border-left: 0.25rem solid $tertiary-300;
-
-        &:before {
-          border-left: 1.125rem solid $tertiary-100;
-        }
-      }
-    }
-
-    .bt-section-result {}
-  }
-
-
-  @include branch {
-    .bt-section-header {
-      border-bottom: 0.25rem solid $info-200;
-
-      .bt-section-heading {
-        &:first-letter {
-          color: $info-700;
-        }
-      }
-
-      .bt-section-para {
-        color: $grey;
-      }
-    }
-
-    .t-legend {
-      background-color: $info-700;
-    }
-
-    .bt-form-cnt {
-      background: rgba($info-50, 0.4);
-      border: 0.2rem dotted $info-100;
-
-      .t-form-label {
-        background-color: $info-100;
-        border-left: 0.25rem solid $info-300;
-
-        &:before {
-          border-left: 1.125rem solid $info-100;
-        }
-      }
-    }
-
-    .bt-section-result {}
-  }
-
-
-  @include admin {
-    .bt-section-header {
-      border-bottom: 0.25rem solid $quaternary-200;
-
-      .bt-section-heading {
-        &:first-letter {
-          color: $quaternary-700;
-        }
-      }
-
-      .bt-section-para {
-        color: $grey;
-      }
-    }
-
-    .t-legend {
-      background-color: $quaternary-700;
-    }
-
-    .bt-form-cnt {
-      background: rgba($quaternary-50, 0.4);
-      border: 0.2rem dotted $quaternary-100;
-
-      .t-form-label {
-        background-color: $quaternary-100;
-        border-left: 0.25rem solid $quaternary-300;
-
-        &:before {
-          border-left: 1.125rem solid $quaternary-100;
-        }
-      }
-    }
-
-    .bt-section-result {}
-  }
-
-
-  .bt-section-header {
-    padding-bottom: .75rem;
-    margin-bottom: 1rem;
-
-    .bt-section-heading {
-      font-size: 2.5rem;
-      letter-spacing: 1.25px;
-      -webkit-text-stroke: 0.8755px;
-
-      &:first-letter {
-        font-size: 150%;
-      }
-    }
-
-    .bt-section-para {
-      font-size: 1rem;
-      color: $grey;
-      margin-left: 2rem;
-    }
-  }
-
-  .t-legend {
-    border-radius: 25% 25% 0% 25% / 25% 25% 25% 25%;
-    color: $white;
-    padding: 0.75rem 1rem;
-    font-size: 1.0625rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .bt-form-cnt {
-    margin-top: 1.5rem;
-    border-radius: 2rem;
-    padding: 0.75rem 1.5rem 1.5rem 1.5rem;
-
-    .t-form-label {
-      position: relative;
-      border-radius: $border-radius;
-      margin-bottom: 0 !important;
-      font-weight: 500;
-      display: flex;
-      height: 100%;
-      padding: 1rem 1rem;
-      justify-content: center;
-
-      &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        right: -0.75rem;
-        top: 50%;
-        transform: translateY(-50%);
-        border-top: 1.125rem solid transparent;
-        border-bottom: 1.125rem solid transparent;
-      }
-    }
-  }
-}
-
-.bt-section-result {
-  margin-top: 6rem;
-  margin-bottom: 10rem;
-
-  .search-result-total {
-    position: absolute;
-    right: 2rem;
-    top: 1.25rem;
-    font-size: 1rem;
-
-    i {
-      color: saturate($success, 40%);
-      display: inline-block;
-      vertical-align: middle;
-      font-size: 1.25rem;
-      margin-right: 1rem;
-    }
-
-    label {
-      display: block;
-      background-color: $dark;
-      color: $white;
-      border-radius: 3rem;
-      font-weight: 500;
-      padding: .5rem 1rem;
-      margin: 0;
-      user-select: none;
-
-      font {
-        font-size: 1.25rem;
-        display: inline-block;
-        vertical-align: middle;
-        margin-bottom: 0.125rem;
-
-        big {
-          color: saturate($success, 40%);
-        }
       }
     }
   }

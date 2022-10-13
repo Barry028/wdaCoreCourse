@@ -7,7 +7,7 @@
     width: 7em;
     height: 0.8em;
     border-radius: 1em;
-    background: $white;
+    background: _var("white", $white);
     border: 0.2em solid #888;
     transition: $transition;
     &:before {

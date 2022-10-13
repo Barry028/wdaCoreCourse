@@ -56,6 +56,8 @@
     position: relative;
     transition: $tab-transition;
     opacity: 1;
+    font-size: 125%;
+    font-weight: 700;
     z-index: 1;
   }
 
@@ -87,12 +89,12 @@
 
     .t-tab-nav-item {
       position: relative;
-      border: 0px solid transparent;
+      border: 0 solid transparent;
       display: flex;
       justify-content: center;
       align-items: flex-start;
       flex: 1 1 auto;
-      font-size: 1rem;
+      font-size: 0.875rem;
       cursor: pointer;
       user-select: none;
       line-height: 1.375;
@@ -179,7 +181,7 @@
 
         @include focus {
           outline: none;
-          color: $dark;
+          color: _var("dark", $dark);
           background-color: $default;
           z-index: 1;
 
@@ -351,8 +353,8 @@
 
       %tab-segment-check-item {
         letter-spacing: $tab-letter-spacing;
-        color: $dark;
-        background-color: $white;
+        color: _var("dark", $dark);
+        background-color: _var("white", $white);
         box-shadow: $tab-segment-shadow $tab-segment-shadow-color;
       }
 
@@ -394,7 +396,7 @@
           flex: 1 1 auto;
           align-items: center;
           transition: $transition-base;
-          padding: .375rem 1.25rem;
+          padding: .5rem 1.25rem;
           border-radius: 0.5rem;
           color: $grey-600;
 
@@ -421,7 +423,7 @@
 
       %tab-line-check-item {
         letter-spacing: .015625rem;
-        color: $dark;
+        color: _var("dark", $dark);
       }
 
       @for $i from 1 through 5 {
@@ -465,6 +467,7 @@
       @for $i from 1 through 5 {
         >input:nth-child(#{$i}):checked~.t-tab-nav>.t-tab-nav-item:nth-child(#{$i}) {
           &:after {
+            width: 100%;
             @extend %tab-line-check-item-bottom;
           }
         }
@@ -476,7 +479,7 @@
     > .t-tab-nav {
       gap: $tab-pill-gap;
       border-radius: $border-radius-xl;
-      background-color: $white;
+      background-color: _var("white", $white);
       box-shadow: 0 0 0.125rem 0 rgba($primary, 0.12), 0 0.375rem 1.25rem 0 rgba($primary, 0.16);
       padding: $tab-pill-padding;
       border-radius: $tab-pill-border-radius;

@@ -1,9 +1,9 @@
 @charset "utf-8";
-
+@import url("https://use.typekit.net/uuf7ipj.css");
 //== Helper
 //==========================
 @import "helpers/functions";
-@import "helpers/variables/colors/varColors";
+
 @import "helpers/variables";
 @import "helpers/rfs";
 
@@ -31,6 +31,48 @@
 //==========================
 @import "components";
 
+// @include teacher{}
+@mixin teacher {
+  .user-teacher & {
+    @content;
+  }
+}
+@mixin col-md-12 {
+  .col-md-12 & {
+    @content;
+  }
+}
+@mixin col-md-9 {
+  .col-md-9 & {
+    @content;
+  }
+}
+@mixin col-md-6 {
+  .col-md-6 & {
+    @content;
+  }
+}
+// @include branch{}
+@mixin branch {
+  .user-branch & {
+    @content;
+  }
+}
+
+// @include unit{}
+@mixin unit {
+  .user-unit & {
+    @content;
+  }
+}
+
+// @include admin{}
+@mixin admin {
+  .user-admin & {
+    @content;
+  }
+}
+
 //== Symbols
 //==========================
 @import "symbols";
@@ -49,12 +91,13 @@
 
 // @import "vera";
 @import "_backend/Bsettings";
+@import "_backend/BSection";
 @import "_backend/Bheader";
 @import "_backend/BPageItems";
 
 //== Vendors
 //==========================
-// @import "vendors";
+@import "vendors";
 
 
 

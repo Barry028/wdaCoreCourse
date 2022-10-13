@@ -6,16 +6,21 @@ $enable-css-variable:                               true;
 
 // Options
 $primary:                                             #6246E4                 !default;
-$secondary:                                           #FCCA46                 !default;
-$tertiary:                                            #2DBECD                 !default;
-$quaternary:                                          #EB3C96                 !default;
-$success:                                             #73B70C                 !default;
+$secondary:                                           #FFC832                 !default;
+$tertiary:                                            #79D9E3                 !default;
+$quaternary:                                          #C20D84                 !default;
+$success:                                             #0B9B8A                 !default;
 $danger:                                              #E61E50                 !default;
-$warning:                                             #FE7F2D                 !default;
-$info:                                                #0092e4                 !default;
-$navy:                                                          #1C3879;
-$dimNavy:                                                       #414796;
-$neutral:                                                       #1E2540;
+$warning:                                             #FF6A50                 !default;
+$info:                                                #0F52BA                 !default; 
+$navy:                                                #2E3192                 !default;
+$dimNavy:                                             #103867                 !default;
+$neutral:                                             #1B0F34                 !default;
+$white:                                               #ffffff                 !default;
+$black:                                               #0f0f0f                 !default;
+$dark:                                                #121328                 !default; //  #0F69AF if(isDarkMode(),  #121328, #ffffff)
+
+
 
 $primary-25:  																				 	                   tint-color($primary, 95%);
 $primary-50:                                           tint-color($primary, 90%);
@@ -113,7 +118,7 @@ $info-700:                                             shade-color($info, 40%);
 $info-800:                                             shade-color($info, 60%);
 $info-900:                                             shade-color($info, 80%);
 
-$navy-25:  											   tint-color($navy, 95%);
+$navy-25:  											                                 tint-color($navy, 95%);
 $navy-50:                                              tint-color($navy, 90%);
 $navy-100:                                             tint-color($navy, 80%);
 $navy-200:                                             tint-color($navy, 60%);
@@ -125,7 +130,7 @@ $navy-700:                                             shade-color($navy, 40%);
 $navy-800:                                             shade-color($navy, 60%);
 $navy-900:                                             shade-color($navy, 80%);
 
-$dimNavy-25:  										   tint-color($dimNavy, 95%);
+$dimNavy-25:  										                                 tint-color($dimNavy, 95%);
 $dimNavy-50:                                           tint-color($dimNavy, 90%);
 $dimNavy-100:                                          tint-color($dimNavy, 80%);
 $dimNavy-200:                                          tint-color($dimNavy, 60%);
@@ -149,47 +154,44 @@ $neutral-700:                                          tint-color($neutral, 30%)
 $neutral-800:                                          tint-color($neutral, 20%);
 $neutral-900:                                          tint-color($neutral, 10%);
 
-    // --tu-neutral-25: #f4f4f5;
-    // --tu-neutral-50: #e9e9ec;
-    // --tu-neutral-100: #d2d3d9;
-    // --tu-neutral-200: #a5a8b3;
-    // --tu-neutral-300: #787c8c;
-    // --tu-neutral-400: #4b5166;
-    // --tu-neutral-500: #1E2540;
-    // --tu-neutral-600: #1c213b;
-    // --tu-neutral-700: #191e36;
-    // --tu-neutral-800: #171a32;
-    // --tu-neutral-900: #14172d;
+$neutral-25:                                           tint-color($neutral, 97.5%);
+$neutral-50:                                           tint-color($neutral, 95%);
+$neutral-100:                                          tint-color($neutral, 90%);
+$neutral-200:                                          tint-color($neutral, 80%);
+$neutral-300:                                          tint-color($neutral, 70%);
+$neutral-400:                                          tint-color($neutral, 60%);
+$neutral-500:                                          tint-color($neutral, 50%);
+$neutral-600:                                          tint-color($neutral, 40%);
+$neutral-700:                                          tint-color($neutral, 30%);
+$neutral-800:                                          tint-color($neutral, 20%);
+$neutral-900:                                          tint-color($neutral, 10%);
+$neutral-950:                                          tint-color($neutral, 5%);
 
-//== Black Colors
-$white:                       #ffffff;
-$gray-25:                     #f8f8f8;
-$gray-50:                     #f0f0f0;
-$gray-100:                    #e1e1e1;
-$gray-200:                    #d2d2d2;
-$gray-300:                    #c3c3c3;
-$gray-400:                    #b4b4b4;
-$gray-500:                    #a5a5a5;
-$gray-600:                    #787878;
-$gray-700:                    #4b4b4b;
-$gray-800:                    #3c3c3c;
-$gray-900:                    #2d2d2d;
-$black:                       #0f0f0f;
+$gray-25:                                              tint-color($black, 97.5%);
+$gray-50:                                              tint-color($black, 95%);
+$gray-100:                                             tint-color($black, 90%);
+$gray-200:                                             tint-color($black, 80%);
+$gray-300:                                             tint-color($black, 70%);
+$gray-400:                                             tint-color($black, 60%);
+$gray-500:                                             tint-color($black, 50%);
+$gray-600:                                             tint-color($black, 40%);
+$gray-700:                                             tint-color($black, 30%);
+$gray-800:                                             tint-color($black, 20%);
+$gray-900:                                             tint-color($black, 10%);
+$gray-950:                                             tint-color($black, 5%);
 
-//== Dark Colors
-$grey-25:                     #f5f5f7;
-$grey-50:                     #f1f1f2;
-$grey-100:                    #e3e3e5;
-$grey-200:                    #d5d5d9;
-$grey-300:                    #c7c7cc;
-$grey-400:                    #ababb3;
-$grey-500:                    #9d9da6;
-$grey-600:                    #656673;
-$grey-700:                    #575867;
-$grey-800:                    #494a5a;
-$grey-900:                    #2d2e41;
-$dark:                        #121328;
-
+$grey-25:                                              tint-color($dark, 97.5%);
+$grey-50:                                              tint-color($dark, 95%);
+$grey-100:                                             tint-color($dark, 90%);
+$grey-200:                                             tint-color($dark, 80%);
+$grey-300:                                             tint-color($dark, 70%);
+$grey-400:                                             tint-color($dark, 60%);
+$grey-500:                                             tint-color($dark, 50%);
+$grey-600:                                             tint-color($dark, 40%);
+$grey-700:                                             tint-color($dark, 30%);
+$grey-800:                                             tint-color($dark, 20%);
+$grey-900:                                             tint-color($dark, 10%);
+$grey-950:                                             tint-color($dark, 5%);
 // fusv-enable
 $blue:                        #00BFFF;
 $purple:                      #9370DB;
@@ -218,21 +220,22 @@ $dark-soft:                                                  rgba($dark, .075);
 $neutral-soft:                                               rgba($neutral, .075);
 $dimNavy-soft:                                               rgba($dimNavy, .075);
 $navy-soft:                                                  rgba($navy, .075);
+
 //== Theme Soft Colors
-$primary-light:                                             $primary-100;
-$secondary-light:                                           $secondary-100;
-$tertiary-light:                                            $tertiary-100;
-$quaternary-light:                                          $quaternary-100;
-$success-light:                                             $success-100;
-$info-light:                                                $info-100;
-$warning-light:                                             $warning-100;
-$danger-light:                                              $danger-100;
-$dark-light:                                                $grey-100;
-$grey-light:                                                $grey-50;
-$white-light:                                               $gray-25;
-$neutral-light:                                             $neutral-100;
-$dimNavy-light:                                             $dimNavy-100;
-$navy-light:                                                $navy-100;
+$primary-light:                                               $primary-100;
+$secondary-light:                                             $secondary-100;
+$tertiary-light:                                              $tertiary-100;
+$quaternary-light:                                            $quaternary-100;
+$success-light:                                               $success-100;
+$info-light:                                                  $info-100;
+$warning-light:                                               $warning-100;
+$danger-light:                                                $danger-100;
+$dark-light:                                                  $grey-100;
+$grey-light:                                                  $grey-50;
+$white-light:                                                 $gray-25;
+$neutral-light:                                               $neutral-100;
+$dimNavy-light:                                               $dimNavy-100;
+$navy-light:                                                  $navy-100;
 
 //== Theme Inverse Colors
 $primary-inverse:                                             $primary-800;
@@ -243,16 +246,13 @@ $success-inverse:                                             $success-800;
 $info-inverse:                                                $info-800;
 $warning-inverse:                                             $warning-800;
 $danger-inverse:                                              $danger-800;
-$dark-inverse:                                                $gray-800;
-$grey-inverse:                                                $grey-700;
-$white-inverse:                                               $gray-600;
+$dark-inverse:                                                $grey-800;
+$grey-inverse:                                                $grey-600;
+$white-inverse:                                               $grey-200;
 
 $neutral-inverse:                                             $neutral-800;
 $dimNavy-inverse:                                             $dimNavy-800;
 $navy-inverse:                                                $navy-800;
-$neutral-inverse:                                              if(isDarkMode(), $neutral-800, $neutral-200);
-$dimNavy-inverse:                                              if(isDarkMode(), $dimNavy-800, $dimNavy-200);
-$navy-inverse:                                                 if(isDarkMode(), $navy-800, $navy-200);
 
 
 // fusv-disable
@@ -385,8 +385,8 @@ $reddit:                #e84422;
 $linkedin:              #0E76a8;
 
 //== customs Colors
-$link:                                             darken($primary, 8%);
-$link-hover:                                       darken($primary, 16%);
+$link:                                             darken($primary, 16%);
+$link-hover:                                       darken($primary, 14%);
 $link-blue:                                        $navy;
 $link-blue-hover:                                  darken($navy, 8%);
 
@@ -435,6 +435,7 @@ $white-sand:                                       #DBD5D1;
 $cloud-dancer:                                     #F0EEE9;
 $deep-taupe:                                       #7B6660;
 
+
 $gray:                                             $gray-700;
 $lightgray:                                        $gray-500;
 $gray-light:                                       $gray-100; 
@@ -445,12 +446,12 @@ $lightgrey:                                        $grey-500;
 $grey-light:                                       $grey-100; 
 $grey-lighter:                                     $grey-50;
 
-$light:                                            #B8B8D2;
-$lighter:                                          #eaeaf2;
-$lightest:                                         #f6f6fa;
+$light:                                            $grey-100;
+$lighter:                                          $grey-50;
+$lightest:                                         $grey-25;
 
-$default:                                          #F5F5F6;
-$default-dark:                                     #E4E4EB;
+$default:                                          $grey-50;
+$default-dark:                                     $grey-100;
 
 $border:                                           $gray-50;
 $border-g:                                         $grey-50;
@@ -476,7 +477,7 @@ $facebook:              #1877f2; // 1877f2
 $twitter:               #1da1f2; // 1da1f2
 $instagram:             #e1306c; 
 
-$line:                  #00c300;
+$line:                  #1BB91F;
 $google-plus:           #dd4b39;
 $google-allo:           #fbbc05; 
 $google-duo:            #4285f4; 

@@ -7,7 +7,7 @@
 
 .search-list-tools {
   position: relative;
-  background-color: $white;
+  background-color: _var("white", $white);
   border-radius: $border-radius $border-radius 0 0;
   border-bottom: 0.25rem solid $grey-100;
   padding: 0 0.75rem;
@@ -137,7 +137,7 @@
 
     .t-form-control {
       padding: 0.5rem 2rem 0.5rem 0.75rem;
-      background-color: $grey-50;
+      background-color: _var("grey-50", $grey-50);
       background-size: 1rem 1rem;
       background-position: right .75rem center;
     }

@@ -30,7 +30,7 @@
     border-radius: $border-radius-sm;
     display: block;
     padding: 0.625rem 0.875rem;
-    background-color: $white;
+    background-color: _var("white", $white);
     transition: $transition;
     font-size: 0.9375rem;
 
@@ -58,16 +58,104 @@
 }
 
 //////////////////////////////////////////////////////////////////////
+.t-date-item {
+  border-right: 1px dotted rgba($dark, 0.12);
+  padding-right: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 0.9375rem;
+
+  .date-year {
+    font-size: 80%;
+    font-weight: 300;
+    color: $grey-500;
+  }
+
+  .date-month {
+    font-size: 102.50%;
+  }
+
+  .date-day {
+    font-weight: 300;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////
+.t-list-danger {
+  width: 100%;
+
+  @include branch {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1rem;
+  }
+
+
+  .t-list-item {
+    position: relative;
+    border-radius: $border-radius-sm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0.875rem;
+    background-color: $danger-25;
+    transition: $transition;
+    font-size: 0.9375rem;
+
+    @include hover {
+      background-color: $danger-50;
+    }
+
+
+    @include branch {
+      width: calc(50% - 0.5rem);
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: baseline;
+
+      .flex-column {
+        margin-top: 0.5rem;
+      }
+    }
+
+
+    a {
+      color: $danger-800;
+
+      @include hover {
+        color: $danger-600;
+      }
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $border;
+      margin-bottom: .75rem;
+    }
+
+    @include branch {
+      &:last-child {
+        margin-bottom: .75rem;
+      }
+
+      .t-badge {
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+      }
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////////
 
 .t-list-group-v {
-  margin-top: 1rem;
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100%;
 
   .t-list-group-item-v {
     &:not(:last-child) {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
 
     .t-list-group-v {}
@@ -143,7 +231,6 @@
     padding-left: 1.5rem;
     padding-top: 0.125rem;
 
-
     &:not(:last-child) {
       margin-bottom: 0.5rem;
     }
@@ -175,20 +262,3 @@
 }
 
 //////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

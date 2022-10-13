@@ -77,7 +77,7 @@ $input-placeholder: $grey-200;
   @at-root select#{&} {
     appearance: none;
 
-    @include svg-bg-icon(arrow-bottom, $primary, right 1rem center, 1.25rem 50%);
+    @include svg-bg-icon(arrow-bottom, $primary, right 1rem center, 0.75rem 50%);
 
     cursor: pointer;
     padding-right: 3.5rem;
@@ -195,10 +195,10 @@ $input-placeholder: $grey-200;
 //   appearance: none;
 //   position: relative;
 //   background-color: $dark--neu-background;
-//   border: 2px solid rgba($white, 0);
+//   border: 2px solid rgba(_var("white-rgb", $white), 0);
 //   border-radius: 12px;
 //   box-shadow: $dark--neu-shadows;
-//   color: rgba($white, 0.72);
+//   color: rgba(_var("white-rgb", $white), 0.72);
 //   font-size: 1.125rem;
 //   height: calc(100% + 4px);
 //   width: 100%;
@@ -218,7 +218,7 @@ $input-placeholder: $grey-200;
 //     background-color: $dark--neu-background-disabled;
 //     opacity: 0.66;
 //     box-shadow: $dark--neu-shadows-focus-disabled;
-//     border: 2px solid rgba($white, 0.02);
+//     border: 2px solid rgba(_var("white-rgb", $white), 0.02);
 //   }
 
 //   &::placeholder {

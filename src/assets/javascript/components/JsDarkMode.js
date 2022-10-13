@@ -24,7 +24,7 @@ const JsDarkMode = function(element, options) {
     var svgVan = document.getElementById('tuChangeMode')
 
     var options = JsUtils.deepExtend({}, defaultOptions, options);
-    console.log(svgVan)
+    // console.log(svgVan)
     const darkLinearGradient =
         svgVan.getAttribute("data-tu-dark-gradient") || options.dark_linearGradient || defaultOptions.dark_linearGradient;
 
@@ -70,7 +70,7 @@ const JsDarkMode = function(element, options) {
         const linearGradientArrayVal = ['userSpaceOnUse', 'data-tu-gradient', "18", "50", "62", "6"];
         const linearGradient = document.createElement("linearGradient");
         for (let i = 0; i < linearGradientArrayKey.length; i++) {
-          console.log(linearGradientArrayKey[i])
+          // console.log(linearGradientArrayKey[i])
             linearGradient.setAttribute(linearGradientArrayKey[i] , linearGradientArrayVal[i])
         }
         let linearGradients = linearGradient.outerHTML;
@@ -190,7 +190,7 @@ JsDarkMode.createInstances = function() {
 
     let elements = body.querySelectorAll(selector);
     let darkMode;
-    console.log(elements)
+    // console.log(elements)
     if (elements && elements.length > 0) {
         for (let i = 0, len = elements.length; i < len; i++) {
             darkMode = new JsDarkMode(elements[i]);

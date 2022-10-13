@@ -9,7 +9,7 @@
   font-family: $badge-font-family;
   font-weight: $badge-font-weight;
   color: contrast-color($badge-bg-color, $grey-900, $white);
-  line-height: $badge-line-height;
+  // line-height: $badge-line-height;
   white-space: nowrap;
   text-align: center;
   background-color: $badge-bg-color;
@@ -30,7 +30,7 @@
     //     height: $badge-in-box-big;
     //     line-height: $badge-in-box-big;
     //     border-radius: $border-pill;
-    //     border: $badge-border-width solid rgba($white, $badge-backdrop-border-opacity);
+    //     border: $badge-border-width solid rgba(_var("white-rgb", $white), $badge-backdrop-border-opacity);
     //     margin-left: 0.125rem;
     //     margin-right: 0.125rem;
     //     box-shadow: $badge-in-box-shadow-white;
@@ -40,19 +40,21 @@
     // }
 
     &.t-badge-#{$name} {
-      background-color: shade-color($value, 25%);
-      color: color-contrast(shade-color($value, 25%), $white, $dark);
+      background-color: shade-color($value, 10%);
+      color: color-contrast(shade-color($value, 10%), $white, $dark);
       padding-top: 0.125rem;
       padding-bottom: 0.125rem;
+      padding-right: .5rem;
 
       > big {
         background-color: rgba($dark, 0.4);
         color: $white;
-        width: 1.375rem;
-        height: 1.375rem;
+        // width: 1.375rem;
+        // height: 1.375rem;
         line-height: 1.25;
+        padding: 0.0625rem .5rem;
         border-radius: $border-pill;
-        border: $badge-border-width solid rgba($white, 0.12);
+        border: $badge-border-width solid rgba(_var("white-rgb", $white), 0.12);
         margin-left: 0.125rem;
         margin-right: 0.125rem;
         box-shadow: $badge-in-box-shadow-white;
@@ -82,7 +84,7 @@
   }
 
   &.t-badge--border {
-    border: $badge-border-width solid rgba($white, 0.12);
+    border: $badge-border-width solid rgba(_var("white-rgb", $white), 0.12);
   }
 
   // Circle

@@ -260,17 +260,17 @@
 //       user-select: none;
 
 //       &:hover {
-//         background-color: rgba($white, 0.36);
+//         background-color: rgba(_var("white-rgb", $white), 0.36);
 //         color: $primary-700;
 //       }
 
 //       &.active {
-//         color: $dark;
-//         background-color: $white;
+//         color: _var("dark", $dark);
+//         background-color: _var("white", $white);
 //         box-shadow: $shadow-tab;
 
 //         .badge {
-//           border: 1px solid rgba($white, .48);
+//           border: 1px solid rgba(_var("white-rgb", $white), .48);
 //           box-shadow: $box-shadow-xs;
 //         }
 //       }
@@ -587,12 +587,12 @@
 //     }
 
 //     >.tab-nav {
-//       background-color: $white;
+//       background-color: _var("white", $white);
 //       border-width: 1px;
 //       border-style: solid;
 //       border-color: $border-color;
 //       border-radius: 16px 16px 0 0;
-//       color: $dark;
+//       color: _var("dark", $dark);
 //       cursor: pointer;
 //       padding: 1rem 1.25rem;
 //       display: inline-block;
@@ -720,7 +720,7 @@
 //       }
 
 //       .title {
-//         color: $dark;
+//         color: _var("dark", $dark);
 //         font-size: 1.25rem;
 //         font-weight: bolder;
 //         text-align: center;
@@ -814,7 +814,7 @@
 //       }
 
 //       // .title {
-//       //     color: $dark;
+//       //     color: _var("dark", $dark);
 //       //     font-size: 1.125rem;
 //       //     font-weight: bolder;
 //       //     text-align: center;

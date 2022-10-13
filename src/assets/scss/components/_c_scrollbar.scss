@@ -11,7 +11,7 @@
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   overflow-scrolling: touch;
-  background: linear-gradient($white 30%, rgba($white, 0)) center top, linear-gradient(rgba($white, 0), white 70%) center bottom, radial-gradient(farthest-side at 50% 0, rgba($dark, 0.2), rgba($dark, 0)) center top, radial-gradient(farthest-side at 50% 100%, rgba($dark, 0.2), rgba($dark, 0)) center bottom;
+  background: linear-gradient($white 30%, rgba(_var("white-rgb", $white), 0)) center top, linear-gradient(rgba(_var("white-rgb", $white), 0), white 70%) center bottom, radial-gradient(farthest-side at 50% 0, rgba($dark, 0.2), rgba($dark, 0)) center top, radial-gradient(farthest-side at 50% 100%, rgba($dark, 0.2), rgba($dark, 0)) center bottom;
   background-repeat: no-repeat;
   background-size: 100% 1rem, 100% 2.5rem, 100% 1rem, 100% 1rem;
   background-attachment: local, local, scroll, scroll;
@@ -39,7 +39,7 @@
 //   mask: linear-gradient(90deg, $dark 95%, transparent);
 
 //   // &:after {
-//   //   @include gradient-x(rgba($white, 0.3), rgba($white, 0.6),0 ,100%);
+//   //   @include gradient-x(rgba(_var("white-rgb", $white), 0.3), rgba(_var("white-rgb", $white), 0.6),0 ,100%);
 //   //   content: '';
 //   //   position: absolute;
 //   //   right: 0;
@@ -52,7 +52,7 @@
 // .js-scrollbar {
 //   // mask: linear-gradient($dark 95%, transparent);
 //   // &:after {
-//   //   @include gradient-y(rgba($white, 0.4), rgba($white, 0.8),0 ,100%);
+//   //   @include gradient-y(rgba(_var("white-rgb", $white), 0.4), rgba(_var("white-rgb", $white), 0.8),0 ,100%);
 //   //   content: '';
 //   //   position: absolute;
 //   //   left: 0;
@@ -80,7 +80,10 @@
 // ::-webkit-scrollbar-track {
 //   background: #333;
 // }
-[data-scroll="x"] {
+// 
+// @TODO: Add docs to mixin-name!
+//
+@mixin data-scroll($color: _var("dark", $dark), $border: 2px solid rgba(_var("white-rgb", $white), 0.24)) {
   &::-webkit-scrollbar {
     height: .5rem;
   }
@@ -100,19 +103,23 @@
     }
 
     &::-webkit-scrollbar-track {
-      background-color: rgba($grey, 0);
+      background-color: rgba($color, 0);
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: rgba($grey, 0.24);
-      border: 2px solid $white;
+      background-color: rgba($color, 0.24);
+      border: $border;
       visibility: visible;
 
       &:hover {
-        background-color: rgba($grey, 0.66);
+        background-color: rgba($color, 0.66);
       }
     }
   }
+}
+
+[data-scroll="x"] {
+  @include data-scroll($dark, 2px solid rgba(_var("white-rgb", $white), 0.24));
 }
 
 // [data-scroll="x"] {

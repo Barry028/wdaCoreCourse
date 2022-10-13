@@ -3,7 +3,7 @@
 // --------------------------------------------------
 .current-clock {
     position: relative;
-    background-color: $white;
+    background-color: _var("white", $white);
     border-radius: $clock-border-radius;
     box-shadow: $clock-shadow;
     font-family: $font-family-clock;
@@ -23,7 +23,7 @@
     .current-clock--heading {
         display: block;
         background-color: $clock-color;
-        border-bottom: $clock-border-width dashed rgba($white, 0.38);
+        border-bottom: $clock-border-width dashed rgba(_var("white-rgb", $white), 0.38);
         box-shadow: 0 $clock-shadow-width 0 darken($clock-color, 20%);
         color: $white;
         font-size: $clock-heading-font-size;
@@ -36,29 +36,29 @@
 
         &.dark--clock {
             .flip-card {
-                background-color: $white;
+                background-color: _var("white", $white);
                 box-shadow: 0 0 6px rgba($dark, 0.48);
                 color: $white;
 
                 &:before {
-                    background-color: rgba($white, 0.24);
+                    background-color: rgba(_var("white-rgb", $white), 0.24);
                 }
 
                 .digital {
                     &:before,
                     &:after {
-                        background-color: $dark;
+                        background-color: _var("dark", $dark);
                     }
 
                     &:before {
-                        border-bottom: solid 1px rgba($white, 0.12);
+                        border-bottom: solid 1px rgba(_var("white-rgb", $white), 0.12);
                     }
                 }
 
                 &.down {
                     &.go {
                         .front:before {
-                            box-shadow: 0 -2px 6px rgba($white, 0.3);
+                            box-shadow: 0 -2px 6px rgba(_var("white-rgb", $white), 0.3);
                         }
                     }
                 }
@@ -66,7 +66,7 @@
                 &.up {
                     &.go {
                         .front:after {
-                            box-shadow: 0 2px 6px rgba($white, 0.3);
+                            box-shadow: 0 2px 6px rgba(_var("white-rgb", $white), 0.3);
                         }
                     }
                 }
@@ -75,12 +75,12 @@
 
         &.light--clock {
             .flip-card {
-                background-color: $dark;
+                background-color: _var("dark", $dark);
                 box-shadow: 0 0 6px rgba($grey-100, 0.48);
-                color: $dark;
+                color: _var("dark", $dark);
 
                 &:before {
-                    background-color: rgba($white, 0.48);
+                    background-color: rgba(_var("white-rgb", $white), 0.48);
                 }
 
                 .digital {

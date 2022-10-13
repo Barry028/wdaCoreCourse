@@ -17,12 +17,12 @@
 }
 
 .btn {
-  border: $btn-border-width solid $grey-50;
-  color: $grey-800;
+  border: $btn-border-width solid _var("grey-50", $grey-50);
+  color: _var("grey-800", $grey-800);
 
   @extend %btn;
 
-  @include gradient-bg($white);
+  @include gradient-bg(_var("white", $white));
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-radius);
 
   @include button-icon-rotate;
@@ -32,11 +32,11 @@
   // @include button-scale-sm;
 
   @include btn-hover {
-    color: $primary-700;
+    color: _var("primary-700", $primary-700);
     text-decoration: none;
-    border-color: $primary-100;
+    border-color: _var("primary-100", $primary-100);
 
-    @include gradient-bg($primary-100);
+    @include gradient-bg(_var("primary-100", $primary-100));
 
     box-shadow: $t-btn-box-shadow-hover rgba($primary-700, 0.24);
   }
@@ -49,11 +49,11 @@
 
 
   @include btn-active {
-    border-color: $primary-200;
-    color: $primary-900;
+    border-color: _var("primary-200", $primary-200);
+    color: _var("primary-900", $primary-900);
     box-shadow: $t-btn-box-shadow-active rgba($primary-800, 0.54);
 
-    @include gradient-bg($primary-100);
+    @include gradient-bg(_var("primary-100", $primary-100));
 
     @include btn-focus {
       @if $enable-shadows {
@@ -126,7 +126,7 @@
       @include absolute-y-center;
 
       right: 0;
-      border-left: 1px solid rgba($white, 0.66);
+      border-left: 1px solid rgba(_var("white-rgb", $white), 0.66);
       display: block;
       width: 2.5rem;
       text-align: center;
@@ -144,7 +144,7 @@
         @include absolute-y-center;
 
         right: 0;
-        border-left: 1px solid rgba($white, 0.66);
+        border-left: 1px solid rgba(_var("white-rgb", $white), 0.66);
         display: block;
         width: 2rem;
         text-align: center;
@@ -163,7 +163,7 @@
         @include absolute-y-center;
 
         right: 0;
-        border-left: 1px solid rgba($white, 0.66);
+        border-left: 1px solid rgba(_var("white-rgb", $white), 0.66);
         display: block;
         width: 3.5rem;
         text-align: center;
@@ -182,7 +182,7 @@
         @include absolute-y-center;
 
         right: 0;
-        border-left: 1px solid rgba($white, 0.66);
+        border-left: 1px solid rgba(_var("white-rgb", $white), 0.66);
         display: block;
         width: 4.5rem;
         text-align: center;
@@ -247,7 +247,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      background-color: rgba($white, 0.66);
+      background-color: rgba(_var("white-rgb", $white), 0.66);
       height: 100%;
       width: 100%;
     }
@@ -260,7 +260,7 @@
       display: inline-block;
       height: 28px;
       width: 28px;
-      border: 3px solid rgba($white, 0.33);
+      border: 3px solid rgba(_var("white-rgb", $white), 0.33);
       border-top-color: $white;
       border-radius: 50%;
       animation: loading-btn--fade-in 0.33s ease, loading-btn--rotation 0.66s linear 0s infinite;
@@ -287,7 +287,8 @@
       margin-right: 0.5rem;
     }
 
-    &:last-child {
+    &:last-child:last-child {
+      margin-right: 0;
       margin-left: 0.5rem;
     }
   }

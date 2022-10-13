@@ -19,7 +19,7 @@
       top: -0.25em;
       left: 0;
       border-radius: 2em;
-      background: $white;
+      background: _var("white", $white);
       transition: $transition;
       box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.5);
     }

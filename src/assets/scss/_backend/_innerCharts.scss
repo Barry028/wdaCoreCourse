@@ -206,7 +206,7 @@
     .img-container {
       margin-bottom: .75rem;
       border-radius: 8px;
-      background-color: rgba($white, .36);
+      background-color: rgba(_var("white-rgb", $white), .36);
       @include opacity(.66);
     }
   }

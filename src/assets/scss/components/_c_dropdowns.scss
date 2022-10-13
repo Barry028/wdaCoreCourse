@@ -54,7 +54,7 @@
 //       content: '';
 //       width: .8125rem;
 //       height: .8125rem;
-//       background: $white;
+//       background: _var("white", $white);
 //       position: absolute;
 //       top: -.375rem;
 //       right: .875rem;
@@ -151,7 +151,7 @@
 //       //   background-color: $dropdown-link-hover-bg;
 
 //       //   .dropdown-item-icon {
-//       //     color: rgba($white, 0.76);
+//       //     color: rgba(_var("white-rgb", $white), 0.76);
 //       //   }
 
 //       //   .dropdown-item-text {

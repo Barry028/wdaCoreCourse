@@ -27,7 +27,7 @@
       top: -0.25rem;
       left: 0;
       border-radius: 2rem;
-      background: $white;
+      background: _var("white", $white);
       transition: $transition;
       box-shadow: 0 0.25rem 0.5rem rgba($dark, 0.24);
       z-index: 1;
@@ -51,7 +51,7 @@
       width: 0.5rem;
       height: 1rem;
       left: 1.25rem;
-      background: $white;
+      background: _var("white", $white);
     }
 
     &:after {

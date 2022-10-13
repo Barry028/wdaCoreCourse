@@ -4,13 +4,12 @@
 // https://get.foundation
 // Licensed under MIT Open Source
 $black: #0f0f0f !default;
-$dark: #121328 !default;
+$dark:  #121328 !default;
 $white: #fff !default;
-$threshold: 55%;
-
+// $contrast-color-threshold:        80%;
 // contrast-color($badge-bg-color, $dark, $white);
-@function contrast-color($color, $dark, $light) {
-  @return if(lightness($color) < $threshold, $light, $dark);
+@function contrast-color($color, $dark ,$white) {
+  @return if(lightness($color) < $contrast-color-threshold , $white, $dark);
 }
 
 // $contrast-warnings: true !default;
@@ -162,7 +161,10 @@ $threshold: 55%;
 // A list of pre-calculated numbers of pow(divide((divide($value, 255) + .055), 1.055), 2.4). (from 0 to 255)
 // stylelint-disable-next-line scss/dollar-variable-default, scss/dollar-variable-pattern
 
-@function color-contrast($background, $color-contrast-dark: $color-contrast-dark, $color-contrast-light: $color-contrast-light, $min-contrast-ratio: $min-contrast-ratio) {
+@function color-contrast($background, 
+  $color-contrast-dark: $color-contrast-dark, 
+  $color-contrast-light: $color-contrast-light,
+  $min-contrast-ratio: $min-contrast-ratio) {
   $foregrounds: $color-contrast-light, $color-contrast-dark, $white, $dark;
   $max-ratio: 0;
   $max-ratio-color: null;
