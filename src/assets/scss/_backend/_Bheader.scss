@@ -79,36 +79,6 @@
     @include mask-filter-v2($white, 0.3125rem, 0.0625rem);
   }
 
-  [data-user-img] {
-    border: 2px solid rgba(_var("white-rgb", $white), 0.24);
-    border-radius: $border-radius;
-
-    img {
-      border-radius: inherit;
-    }
-  }
-
-  [data-user-name] {
-    font-size: 1.0625rem;
-    display: flex;
-    flex-flow: column;
-    align-items: flex-start;
-    margin-left: .75rem;
-
-    &:before {
-      content: attr(data-permissions);
-      font-size: 0.875rem;
-      font-weight: 500;
-      opacity: 0.66;
-    }
-  }
-
-  [data-tu-menu-trigger="click"],
-  [data-tu-menu-trigger="hover"] {
-    padding-top: .75rem;
-    padding-bottom: .75rem;
-  }
-
   .navbar-toggler {
     line-height: 1;
     background-color: transparent;
@@ -163,22 +133,27 @@
 
 
     @include teacher {
-      @include gradient-directional($start-color: $primary, $end-color: $primary-800, $deg: 45deg);
+
+      @include gradient-x-three-colors(adjust-hue($primary-600 , 30deg) -20% 0 , tint-color($primary, 0%), 50%, adjust-hue($primary-600 , 30deg ) 120%);
+      // @include gradient-directional($start-color: $primary, $end-color: $primary-800, $deg: 45deg);
     }
 
 
     @include unit {
-      @include gradient-directional($start-color: $tertiary, $end-color: $tertiary-800, $deg: 45deg);
+       @include gradient-x-three-colors(adjust-hue($tertiary-700 , 30deg) -20% 0 , tint-color($tertiary-600, 0%), 50%, adjust-hue($tertiary-700 , 30deg ) 120%);
+      // @include gradient-directional($tertiary-700, $tertiary-800, 45deg);
     }
 
 
     @include branch {
-      @include gradient-directional($start-color: $info, $end-color: $info-800, $deg: 45deg);
+       @include gradient-x-three-colors(adjust-hue($info-700 , 30deg) -20% 0 , tint-color($info, 0%), 50%, adjust-hue($info-700 , 30deg ) 120%);
+      // @include gradient-directional($start-color: $info, $end-color: $info-800, $deg: 45deg);
     }
 
 
     @include admin {
-      @include gradient-directional($start-color: $quaternary, $end-color: $quaternary-800, $deg: 45deg);
+       @include gradient-x-three-colors(adjust-hue($quaternary-600 , 30deg) -20% 0 , tint-color($quaternary, 0%), 50%, adjust-hue($quaternary-600 , 30deg ) 120%);
+      // @include gradient-directional($start-color: $quaternary, $end-color: $quaternary-800, $deg: 45deg);
     }
 
 

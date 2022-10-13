@@ -17,7 +17,7 @@ $footer-color: $white;
 
 .t-custom-footer {
   position: relative;
-  background-color: $footer-bg;
+  background-color: $neutral;
   color: $footer-color;
   padding: 2rem 2.5rem;
   text-align: left;
@@ -26,7 +26,7 @@ $footer-color: $white;
 
   &::before {
     content: "";
-    background-color: #1e1d41;
+    background-color: $neutral;
     position: absolute;
     left: 0;
     top: -20%;
@@ -40,7 +40,9 @@ $footer-color: $white;
     @include sm {
       top: -14%;
     }
-        @include xs {
+
+
+    @include xs {
       top: -10%;
     }
   }
@@ -54,11 +56,15 @@ $footer-color: $white;
     border-bottom: 2px dotted rgba(_var("white-rgb", $white), 0.16);
   }
 
-  .t-custom-footer-logo {}
+  .t-custom-footer-logo {
+    a {
+      display: block;
+    }
+  }
 
   .t-footer-list {
     margin: 1rem 0;
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
 
     li {
       position: relative;
@@ -70,6 +76,9 @@ $footer-color: $white;
 
       a {
         color: $primary-200;
+        @include hover {
+          color: $secondary-200;
+        }
       }
 
       &::before {
@@ -84,10 +93,30 @@ $footer-color: $white;
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
-        opacity: 0.30;
+        opacity: 0.36;
       }
     }
   }
 
-  .t-footer-list-end {}
+  .t-footer-logos {
+    display: flex;
+    flex: 0 0 auto;
+    margin-right: .75rem;
+
+    .t-footer-list-end {}
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
