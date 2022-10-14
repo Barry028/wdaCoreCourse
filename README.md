@@ -26,7 +26,7 @@ backend/ ...
 #### 選單使用 
 
 ``` html
-		<!-- JsMenu -->
+  <!-- JsMenu -->
   <script src="../../assets/javascript/components/JsMenu.js"></script>
 ```
 
