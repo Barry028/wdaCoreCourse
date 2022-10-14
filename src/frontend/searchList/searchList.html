@@ -20,41 +20,64 @@
   <main id="web" class="t-wrapper">
     <!-- Header -->
     <header id="tHeader" class="t-header">
-      <div class="container">
-        <div class="row justify-content-between align-items-center">
-          <!-- <img src="../../assets/images/wda-logo.svg" alt="aa" id="imas"> -->
-          <!-- <canvas id="output"></canvas> -->
-          <div class="col-4 t-header-brand">
-            <!-- <img src=""  alt="勞動部勞動力發展署" width="164" height="26"> -->
-            <a class="t-header-logo" href="../index/index.html">
-              <picture class="t-header-logo-sub" id="a1">
-                <!-- <canvas id="output11"></canvas> -->
-                <img id="imas11" src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/wda-logo.svg" alt="勞動部勞動力發展署" class="t-lazy-load" width="164" height="26">
-                <!-- <canvas id="output11"></canvas> -->
-                <!-- <canvas id="output11"></canvas> -->
-                <source type="image/svg+xml" srcset="../../assets/images/wda-logo.svg" />
-                <source type="image/webp" srcset="../../assets/images/wda-logo.webp" />
-              </picture>
-              <picture class="t-header-logo-main">
-                <img src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/wda-core-logo.svg" alt="關鍵就業力課程" class="t-lazy-load" width="214" height="42">
-                <source type="image/svg+xml" srcset="../../assets/images/wda-core-logo.svg" />
-                <source type="image/webp" srcset="../../assets/images/wda-core-logo.webp" />
-              </picture>
-            </a>
+      <section class="t-header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-12">
+              <ul class="t-header-top-lf-list">
+                <li class="t-header-top-list-item">
+                  <a href="#U" title="上方功能區塊, 快速鍵: Alt+U " id="AU" accesskey="U" name="U" class="quicklink t-header-top-list-link">:::</a>
+                </li>
+                <li class="t-header-top-list-item active">
+                  <a href="javascript:;" class="t-header-top-list-link">關鍵就業力課程</a>
+                </li>
+                <li class="t-header-top-list-item">
+                  <a href="javascript:;" class="t-header-top-list-link">勞動力發展署</a>
+                </li>
+                <li class="t-header-top-list-item">
+                  <a href="javascript:;" class="t-header-top-list-link">勞動力發展署</a>
+                </li>
+              </ul>
+              <ul class="t-header-top-rf-list">
+                <li class="t-header-top-list-item">
+                  <a href="javascript:;" class="t-header-top-list-link" data-bs-toggle="modal" data-bs-target="#accesskeyInfo">::: 網站導覽</a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <input class="t-pixel-burger-input" type="checkbox" id="BurgerMenu" hidden>
-          <label class="t-pixel-burger t-pixel-burger-rt w-12" for="BurgerMenu" data-active-type="close">
-            <i class="t-burger-line" aria-hidden="true"></i>
-          </label>
-          <nav class="col-auto t-header-nav-bar ml-auto">
-            <a class="t-header-nav-bar-link" href="javascript:;">最新訊息</a>
-            <a class="t-header-nav-bar-link" href="javascript:;">課程需求刊登</a>
-            <a class="t-header-nav-bar-link" href="javascript:;">課程介紹</a>
-            <a class="t-header-nav-bar-link" href="javascript:;">師資介紹</a>
-          </nav>
-          <a class="col-auto t-header-nav-bar-hightlight btn btn--primary" href="javascript:;">登入</a>
         </div>
-      </div>
+      </section>
+      <section class="t-header-main">
+        <nav class="navbar navbar-expand-md">
+          <div class="container">
+            <!-- <img src="../../assets/images/wda-logo.svg" alt="aa" id="imas"> -->
+            <!-- <canvas id="output"></canvas> -->
+            <div class=" t-header-brand">
+              <!-- <img src=""  alt="勞動部勞動力發展署" width="164" height="26"> -->
+              <a class="t-header-logo" href="../index/index.html">
+                <picture class="t-header-logo-sub" id="a1">
+                  <!-- <canvas id="output11"></canvas> -->
+                  <img id="imas11" src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/wda-logo.svg" alt="勞動部勞動力發展署" class="t-lazy-load" width="164" height="26">
+                  <source type="image/svg+xml" srcset="../../assets/images/wda-logo.svg" />
+                  <source type="image/webp" srcset="../../assets/images/wda-logo.webp" />
+                </picture>
+                <picture class="t-header-logo-main">
+                  <img src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/wda-core-logo.svg" alt="關鍵就業力課程" class="t-lazy-load" width="214" height="42">
+                  <source type="image/svg+xml" srcset="../../assets/images/wda-core-logo.svg" />
+                  <source type="image/webp" srcset="../../assets/images/wda-core-logo.webp" />
+                </picture>
+              </a>
+            </div>
+            <nav class="t-header-nav-bar ml-auto">
+              <a class="t-header-nav-bar-link" href="javascript:;">最新訊息</a>
+              <a class="t-header-nav-bar-link" href="javascript:;">課程需求刊登</a>
+              <a class="t-header-nav-bar-link" href="javascript:;">課程介紹</a>
+              <a class="t-header-nav-bar-link" href="javascript:;">師資介紹</a>
+            </nav>
+            <a class="t-header-nav-bar-hightlight btn btn--primary" href="javascript:;">登入</a>
+          </div>
+        </nav>
+      </section>
     </header>
     <!-- breadcrumbs -->
     <section class="t-breadcrumbs-section">
