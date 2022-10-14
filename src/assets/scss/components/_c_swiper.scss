@@ -4,6 +4,7 @@
 
 .swiper {
   width: 100%;
+
   // height: 100%;
 }
 
@@ -13,6 +14,7 @@
   left: 0;
   z-index: 101;
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   pointer-events: none;
@@ -168,6 +170,80 @@
   }
 }
 
+//////////////////////////////////
+// swiper-button-next-custom
+.swiper-button-next-custom,
+.swiper-button-prev-custom {
+  position: absolute;
+  opacity: 0.88;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba($dark, 0.36);
+  transition: $transition;
+  border: $primary-50 2px solid;
+
+  &:hover {
+    box-shadow: 0 0.125rem 0.5rem rgba($dark, 0.36), 0 0.25rem 1.75rem rgba($dark, 0.12);
+    opacity: 1;
+  }
+}
+
+.swiper-button-next-custom {
+  top: 0.5rem;
+  right: 0.5rem;
+
+  &:hover:after,
+  &:after {
+    width: 2rem;
+    height: 2rem;
+    background-image: escape-svg(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='#{$dark}'%3E%3Cpath d='M6 9.33v5.34c0 3.32 2.35 4.67 5.22 3.02l1.28-.74a1 1 0 0 0 .5-.87V7.92a1 1 0 0 0-.5-.87l-1.28-.744C8.35 4.66 6 6.006 6 9.33Z'/%3E%3Cpath d='M14 8.79v6.43a.5.5 0 0 0 .75.43l1.1-.64c2.87-1.65 2.87-4.37 0-6.02l-1.1-.64a.5.5 0 0 0-.75.44Z' opacity='.4'/%3E%3C/g%3E%3C/svg%3E"));
+  }
+}
+
+.swiper-button-prev-custom {
+  bottom: 0.5rem;
+  left: 0.5rem;
+
+  &:hover:after,
+  &:after {
+    width: 2rem;
+    height: 2rem;
+    background-image: escape-svg(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='#{$dark}'%3E%3Cpath d='M18 9.33v5.34c0 3.32-2.35 4.67-5.22 3.02l-1.28-.74a1 1 0 0 1-.5-.87V7.92a1 1 0 0 1 .5-.87l1.28-.744C15.65 4.66 18 6.006 18 9.33Z'/%3E%3Cpath d='M9.997 8.79v6.43a.5.5 0 0 1-.75.43l-1.1-.64c-2.87-1.65-2.87-4.37 0-6.02l1.1-.64a.5.5 0 0 1 .75.44Z' opacity='.4'/%3E%3C/g%3E%3C/svg%3E"));
+  }
+}
+
+.swiper-pagination-custom.swiper-pagination-custom.swiper-pagination-custom.swiper-pagination-custom.swiper-pagination-custom.swiper-pagination-custom {
+  bottom: 0.125rem;
+
+  .swiper-pagination-bullet {
+    border-radius: 0.25rem;
+
+    &:before {
+      border-radius: 0.125rem;
+    }
+
+    &.swiper-pagination-bullet-active {
+      border-radius: 0.625rem;
+      width: 4rem;
+      height: 1rem;
+      box-shadow: 0 0.125rem 0.5rem rgba($dark, 0.12);
+
+      &:before {
+        width: 3.75rem;
+        height: 0.75rem;
+
+        @include gradient-x-three-colors(adjust-hue($primary, -60deg) -20% 0, tint-color($primary, 0%), 50%, adjust-hue($primary, 60deg) 120%);
+
+
+        border: 1px solid rgba($white, 0.24);
+        opacity: 0.96;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.25rem 0.75rem 0 rgba($dark, 0.16);
+      }
+    }
+  }
+}
+
+//////////////////////////////////
 // Pagination
 .swiper-pagination {
   position: static;
@@ -182,6 +258,7 @@
   transform: translateX(0%);
 }
 
+//////////////////////////////////
 // Pagination Bullet
 .swiper-pagination-bullets {
   &.swiper-pagination-bullets-dynamic {
@@ -231,15 +308,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // bottom: 0;
+  bottom: 0;
   z-index: 1;
 
   .swiper-pagination-bullet {
-    margin: 0 .625rem;
+    margin: 0 .5rem;
     position: relative;
     border-radius: 50%;
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1rem;
+    height: 1rem;
     background-color: _var("white", $white);
     opacity: .36;
 
@@ -249,10 +326,10 @@
       border-radius: 50%;
       top: 50%;
       left: 50%;
-      width: 1rem;
-      height: 1rem;
+      width: 0.75rem;
+      height: 0.75rem;
       transform: translate(-50%, -50%);
-      border: .125rem solid $white;
+      border: 0.125rem solid $white;
       border-radius: 50%;
     }
 
@@ -262,6 +339,10 @@
     }
 
     &.swiper-pagination-bullet-active {
+      width: 1.5rem;
+      height: 1.5rem;
+      background-color: rgba($white, 0.36);
+
       &::before {
         border-width: .125rem;
       }
@@ -272,7 +353,7 @@
 .swiper-pagination-bullet-active {
   &,
   &:hover {
-    border-color: $swiper-pagination-bullet-active-border-color;
+    border-color: rgba($swiper-pagination-bullet-active-border-color, 0.66);
 
     &::before {
       background-color: $swiper-pagination-bullet-pseudo-active-bg-color;

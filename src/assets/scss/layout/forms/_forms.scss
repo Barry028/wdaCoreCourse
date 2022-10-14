@@ -111,7 +111,7 @@ $input-placeholder: $grey-200;
   &.t-form-input-field {
     .t-form-group {
       > label {
-        font-size: $input-label-field-size;
+        font-size: 0.75rem;
         position: absolute;
         top: $input-label-field-top;
         left: $input-label-field-left;

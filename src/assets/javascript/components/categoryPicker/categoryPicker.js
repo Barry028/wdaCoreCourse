@@ -243,7 +243,7 @@ const JsCategoryPicker = function(element, config) {
     newInput.id = elHidden;
     newInput.value = '';
     JsUtils.insertAfter(newInput, document.getElementById(inputId))
-    // var groupByCategory = JsUtils.groupByProps(data, 'CTID');
+      // var groupByCategory = JsUtils.groupByProps(data, 'CTID');
   };
 
   const _keydown = function(element) {
@@ -320,17 +320,45 @@ const JsCategoryPicker = function(element, config) {
 
   // 確認按鈕
   const _confirm = function(inputId) {
-    const confirmBtn = document.getElementsByClassName('category-confirm-btn')[0];
+    console.log(pickerID);
+    var picker = document.getElementById(pickerID);
+    console.log(picker);
+    const confirmBtn = picker.getElementsByClassName('category-confirm-btn')[0];
     const selectedCnt = document.getElementById(pickerID + 'selectedCnt');
     const input = document.getElementById(inputId);
+    var inputHidden = document.getElementById(elHidden);
+
     JsUtils.addEvent(confirmBtn, 'click', function(event) {
-      input.innerHTML += '';
-      input.querySelector('input').classList.add('t-absolute')
-      selectedCnt.querySelectorAll('.selected-label').forEach(function(item, index) {
-        let copyItem = item.cloneNode(true);
-        let copyItemHtml = copyItem.innerHTML;
-        input.appendChild(copyItem)
-      });
+      if (input.tagName === 'DIV') {
+        input.querySelector('input').classList.add('t-absolute');
+        selectedCnt.querySelectorAll('.selected-label').forEach(function(item, index) {
+          let copyItem = item.cloneNode(true);
+          let copyItemHtml = copyItem.innerHTML;
+          input.appendChild(copyItem)
+        });
+      }
+      if (input.tagName === 'INPUT') {
+        let newValgroup = [];
+        let newParenID = [];
+        let newGroupID = [];
+        
+        selectedCnt.querySelectorAll('.selected-label').forEach(function(item, index) {
+          input.value = '';
+          inputHidden.value = '';
+          let name = item.getAttribute('data-name');
+          let parenID = item.getAttribute('data-paren-id');
+          let group = item.getAttribute('data-group');
+          newValgroup.push(name);
+          newParenID.push(parenID);
+          newGroupID.push(group);
+          console.log(newValgroup);
+          console.log(newParenID);
+          console.log(inputHidden);
+        });
+
+        inputHidden.value += newParenID;
+        input.value += newValgroup;
+      }
       _close();
     });
   };
@@ -436,7 +464,7 @@ const JsCategoryPicker = function(element, config) {
       let pickerSubUl = pickerSubCnt.getElementsByTagName('ul');
       let pickerSubUlLen = pickerSubUl.length;
       let labels = document.getElementsByClassName("selected-label-close")
-      // 右邊選單全選設定
+        // 右邊選單全選設定
       for (let i = 0; i < pickerSubUlLen; i++) {
         JsUtils.addEvent(pickerSubUl[i].firstElementChild, 'change', function(event) {
           event.preventDefault();

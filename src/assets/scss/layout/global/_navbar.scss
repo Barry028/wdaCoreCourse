@@ -2,14 +2,6 @@
 
 //  Layout -> Navbars 
 // --------------------------------------------------
-.quicklink,
-.quicklink2 {
-  @include opacity(0.66);
-
-  @media (max-width: $screen-sm-min) {
-    display: none;
-  }
-}
 
 .navbar {
   position: relative;
@@ -88,15 +80,7 @@
     }
   }
 
-  .area-tag-list {
-    margin-left: .75rem;
 
-    @include in-bk-mid;
-
-    .area-tag-list-item {
-      @include in-bk-mid;
-    }
-  }
 
   .navbar-collapse {
     display: flex;
@@ -167,7 +151,6 @@
 
       &[data-sub="true"] {
         > .nav-link {
-
           @include list-group-arrow($color: $primary-800, $background: $white, $size: 0.5rem);
         }
 
@@ -247,7 +230,6 @@
   }
 
   &.navbar-expand {
-
     @each $breakpoint in map-keys($grid-breakpoints) {
       $next: breakpoint-next($breakpoint, $grid-breakpoints);
       $infix: breakpoint-infix($next, $grid-breakpoints);

@@ -7,7 +7,6 @@
   <meta charset="UTF-8">
   <title>勞動力發展署 - 關鍵就業力課程</title>
   <link rel="stylesheet" type="text/css" href="../../assets/vendor/slim-icon/styles.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/vendor/icon-turbotech/style.css">
   <link rel="stylesheet" type="text/css" href="../../assets/css/all.css">
   <script>
   </script>
@@ -79,9 +78,9 @@
     <!-- Hero -->
     <section class="t-hero">
       <div class="container">
-        <div class="t-flex flex-column flex-md-row align-items-center justify-content-sm-between">
+        <div class="row t-flex flex-column flex-md-row align-items-center justify-content-sm-between">
           <!-- swiper -->
-          <div class="col-12 col-md-7">
+          <div class="col-md-7">
             <div class="js-swiper-hero swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -94,17 +93,21 @@
                   <img class="img-fluid" src="../../assets/images/samples/slider-advs-v3.jpg" alt="samplea">
                 </div>
               </div>
+              <div class="swiper-slider-buttons-center-y ">
+                <div class="js-swiper-hero-button-prev swiper-button-prev swiper-button-prev-custom"></div>
+                <div class="js-swiper-hero-button-next swiper-button-next swiper-button-next-custom"></div>
+              </div>
+              <div class="js-swiper-hero-pagination swiper-pagination-custom swiper-pagination"></div>
             </div>
-            <div class="js-swiper-hero-pagination swiper-pagination"></div>
           </div>
-          <!-- search -->
-          <div class="col-12 col-md-5">
+          <!-- Search -->
+          <div class="col-md-5">
             <figure class="t-absolute w-48 h-32 t-tp-6 t-rt-12 opt-48">
               <img class="img-fluid" src="../../assets/images/svgs/components/curved-shape-55.svg" alt="shapes">
             </figure>
             <div class="t-hero-search">
               <form action="" method="post" class="t-form t-form-input-field">
-                <legend class="t-form-legend-secondary t-absolute t-lt-1 t-tp--3">師資搜尋</legend>
+                <legend class="t-form-legend-secondary">師資搜尋</legend>
                 <picture class="t-hero-search-imgs">
                   <source src="../../assets/images/hero-img-1.png" data-src="../../assets/images/10Ratio3.3333_v1.svg">
                   <img src="../../assets/images/hero-img-1.png" alt="charts">
@@ -130,9 +133,7 @@
                   </div>
                   <div class="t-form-group">
                     <label for="s_areaPicker">居住地</label>
-                    <div id="s_areaPicker" data-picker-placeholder="選擇縣市 / 區域" type="text" class="t-form-control px-0 py-0">
-                      <input id="" type="text" class="t-form-control" placeholder="產業別">
-                    </div>
+                    <input id="s_areaPicker" type="text" class="t-form-control" placeholder="產業別">
                   </div>
                 </div>
                 <div class="t-form-group mb-0">
@@ -149,6 +150,7 @@
             </div>
           </div>
         </div>
+      </div>
     </section>
     <!-- 關鍵就業力主要服務 -->
     <section class="t-main-cards">
@@ -366,9 +368,9 @@
                 <div class="row justify-content-lg-between">
                   <div class="col-md-3">
                     <div class="mt-md-5 mb-5">
-                      <h2>
-                        <font class="text-tertiary"> 老師介紹：</font>
-                      </h2>
+                      <h3 class="">
+                        <font class="t-graffiti-heading"> 老師介紹：</font>
+                      </h3>
                       <p class="pt-4">本週新的老師，本週新的老師，本週新的老師，本週新的老師．．．．．
                       </p>
                       <p class="pt-4">本週新的老師，本週新的老師，本週新的老師，本週新的老師．．．．．
@@ -380,13 +382,31 @@
                       <div class="js-swiper-card-grid swiper swiper-equal-height">
                         <div class="swiper-wrapper">
                           <div class="swiper-slide">
-                            <a class="t-card t-card-transition" href="javascript:;">
+                            <a class="t-card" href="javascript:;">
                               <div class="t-card-pinned">
                                 <img class="t-card-img-top" src="../../assets/images/teacher-1.svg" alt="Image Description">
                                 <span class="t-badge t-badge-dark text-white t-card-pinned-top-end">王牌教師</span>
                               </div>
                               <div class="t-card-body">
-                                <h5 class="t-card-title txt-bg-underline-primary">王大美</h5>
+                                <h5 class="t-card-title" data-grad-under="primary">王大美</h5>
+                                <p>
+                                  <ul class="t-card-list">
+                                    <li class="t-card-list-item">・ 飛航、服務、管理就業學程</li>
+                                    <li class="t-card-list-item">・ 服務業客戶服務技巧</li>
+                                    <li class="t-card-list-item">・ 企業內部控制與內部稽核</li>
+                                  </ul>
+                                </p>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="swiper-slide">
+                            <a class="t-card" href="javascript:;">
+                              <div class="t-card-pinned">
+                                <img class="t-card-img-top" src="../../assets/images/teacher-1.svg" alt="Image Description">
+                                <span class="t-badge t-badge-dark text-white t-card-pinned-top-end">王牌教師</span>
+                              </div>
+                              <div class="t-card-body">
+                                <h5 class="t-card-title" data-grad-under="tertiary">王大美</h5>
                                 <p>
                                   <ul class="t-card-list">
                                     <li class="t-card-list-item">・ 飛航、服務、管理就業學程</li>
@@ -404,7 +424,7 @@
                                 <span class="t-badge t-badge-dark text-white t-card-pinned-top-end">王牌教師</span>
                               </div>
                               <div class="t-card-body">
-                                <h5 class="t-card-title txt-bg-underline-tertiary">王大美</h5>
+                                <h5 class="t-card-title" data-grad-under="quaternary">王大美</h5>
                                 <p>
                                   <ul class="t-card-list">
                                     <li class="t-card-list-item">・ 飛航、服務、管理就業學程</li>
@@ -416,13 +436,13 @@
                             </a>
                           </div>
                           <div class="swiper-slide">
-                            <a class="t-card t-card-transition" href="javascript:;">
+                            <a class="t-card" href="javascript:;">
                               <div class="t-card-pinned">
                                 <img class="t-card-img-top" src="../../assets/images/teacher-1.svg" alt="Image Description">
                                 <span class="t-badge t-badge-dark text-white t-card-pinned-top-end">王牌教師</span>
                               </div>
                               <div class="t-card-body">
-                                <h5 class="t-card-title txt-bg-underline-quaternary">王大美</h5>
+                                <h5 class="t-card-title" data-grad-under="secondary">王大美</h5>
                                 <p>
                                   <ul class="t-card-list">
                                     <li class="t-card-list-item">・ 飛航、服務、管理就業學程</li>
@@ -434,31 +454,13 @@
                             </a>
                           </div>
                           <div class="swiper-slide">
-                            <a class="t-card t-card-transition" href="javascript:;">
+                            <a class="t-card" href="javascript:;">
                               <div class="t-card-pinned">
                                 <img class="t-card-img-top" src="../../assets/images/teacher-1.svg" alt="Image Description">
                                 <span class="t-badge t-badge-dark text-white t-card-pinned-top-end">王牌教師</span>
                               </div>
                               <div class="t-card-body">
-                                <h5 class="t-card-title txt-bg-underline-secondary">王大美</h5>
-                                <p>
-                                  <ul class="t-card-list">
-                                    <li class="t-card-list-item">・ 飛航、服務、管理就業學程</li>
-                                    <li class="t-card-list-item">・ 服務業客戶服務技巧</li>
-                                    <li class="t-card-list-item">・ 企業內部控制與內部稽核</li>
-                                  </ul>
-                                </p>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="swiper-slide">
-                            <a class="t-card t-card-transition" href="javascript:;">
-                              <div class="t-card-pinned">
-                                <img class="t-card-img-top" src="../../assets/images/teacher-1.svg" alt="Image Description">
-                                <span class="t-badge t-badge-dark text-white t-card-pinned-top-end">王牌教師</span>
-                              </div>
-                              <div class="t-card-body">
-                                <h5 class="t-card-title txt-bg-underline-success">王大美</h5>
+                                <h5 class="t-card-title" data-grad-under="success">王大美</h5>
                                 <p>
                                   <ul class="t-card-list">
                                     <li class="t-card-list-item">・ 飛航、服務、管理就業學程</li>
@@ -738,7 +740,7 @@
         list: ['Apple', 'Banana', 'Cat'],
       };
       var picker = new JsCategoryPicker('s_areaPicker', {
-        // elHid: '.areaVal', // Input Hidden
+        elHidden: 'areaVal', // Input Hidden
         id: 'areaPicker', // Picker ID
         data: citysJson, // 代入縣市資訊
         // omitNum: 5, // 幾個選項以上 顯示單位 
@@ -748,7 +750,6 @@
         dataArraySub: ["ZIPCODE", "ZIPNAME"], // 只接受兩個 目前還沒寫擴充
         prefix: 'city_',
         prefixSub: 'dist_',
-
         selectAll: true, // 二層選單是否要開啟第一個全選 預設 false
         title: '地區類別選單',
         // confirm: function(res) {
