@@ -277,7 +277,7 @@
         }
       }
 
-      @include col-md-9 {}
+      @include col-sm-9 {}
 
 
       .t-panel-main {
@@ -316,7 +316,7 @@
           }
 
 
-          @include col-md-9 {
+          @include col-sm-9 {
             padding-top: 1rem;
           }
 
@@ -330,7 +330,7 @@
               padding-right: 0.5rem;
             }
 
-            @include col-md-9 {
+            @include col-sm-9 {
               &:first-child {
                 padding-top: .5rem;
                 padding-left: 0.75rem;
@@ -360,6 +360,9 @@
               a {
                 font-size: 125%;
                 font-weight: 500;
+                text-decoration-color: $secondary;
+                text-decoration-line: underline;
+                text-decoration-style: wavy;
               }
 
               small {
@@ -451,7 +454,9 @@
       .t-badge {
         position: absolute;
         left: 0.25rem;
+        border-radius: $border-radius;
         top: -1rem;
+        filter: hue-rotate(90deg);
 
         big {
           font-weight: 900;
@@ -480,9 +485,9 @@
 
 
         @include unit {
-          color: $tertiary-600;
-
-          @include stroke(0.25rem, rgba($tertiary-600, 0.2));
+          color: $tertiary-800;
+          // @include ;
+          @include stroke(0.25rem, rgba($tertiary-800, 0.2));
         }
 
 

@@ -160,6 +160,21 @@
 
 
 
+@mixin col-sm-12 {
+  .col-sm-12 & {
+    @content;
+  }
+}
+@mixin col-sm-9 {
+  .col-sm-9 & {
+    @content;
+  }
+}
+@mixin col-sm-6 {
+  .col-sm-6 & {
+    @content;
+  }
+}
 
 
 

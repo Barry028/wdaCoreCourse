@@ -2121,7 +2121,7 @@ hr[data-hr-style=border-fade] {
 .container-lg,
 .container-md,
 .container-sm {
-  --tu-gutter-x: 1.25rem;
+  --tu-gutter-x: 1.75rem;
   --tu-gutter-y: 0;
   width: 100%;
   padding-right: calc(var(--tu-gutter-x) * .5);
@@ -2156,7 +2156,7 @@ hr[data-hr-style=border-fade] {
   }
 }
 .row {
-  --tu-gutter-x: 1.25rem;
+  --tu-gutter-x: 1.75rem;
   --tu-gutter-y: 0;
   display: flex;
   flex-wrap: wrap;
@@ -23836,7 +23836,7 @@ input[type=button].btn--block {
   --tu-card-color: ;
   --tu-card-bg: #fff;
   --tu-card-img-overlay-padding: 1.75rem 1.75rem;
-  --tu-card-group-margin: 0.625rem;
+  --tu-card-group-margin: 0.875rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -24331,12 +24331,12 @@ input[type=button].btn--block {
 
 .t-card.t-card-v1 .t-card-img {
   background-color: #F6ABC8;
-  border-radius: 57%;
+  border-radius: 21%;
 }
 
 .t-card.t-card-v1 .t-card-img::before {
-  transform: rotate(59deg);
-  left: -1rem;
+  transform: rotate(-64deg);
+  left: 0rem;
   top: 1rem;
 }
 
@@ -24360,13 +24360,13 @@ input[type=button].btn--block {
 
 .t-card.t-card-v2 .t-card-img {
   background-color: #FFC199;
-  border-radius: 15%;
+  border-radius: 33%;
 }
 
 .t-card.t-card-v2 .t-card-img::before {
-  transform: rotate(-13deg);
-  left: -2rem;
-  top: 0rem;
+  transform: rotate(68deg);
+  left: -1rem;
+  top: -1rem;
 }
 
 .t-card.t-card-v2 .t-card-img .t-card-img-icons {
@@ -24389,13 +24389,13 @@ input[type=button].btn--block {
 
 .t-card.t-card-v3 .t-card-img {
   background-color: #6EBEAF;
-  border-radius: 25%;
+  border-radius: 11%;
 }
 
 .t-card.t-card-v3 .t-card-img::before {
-  transform: rotate(-28deg);
-  left: -2rem;
-  top: -2rem;
+  transform: rotate(-45deg);
+  left: 0rem;
+  top: 2rem;
 }
 
 .t-card.t-card-v3 .t-card-img .t-card-img-icons {
@@ -24418,11 +24418,11 @@ input[type=button].btn--block {
 
 .t-card.t-card-v4 .t-card-img {
   background-color: #92BBFC;
-  border-radius: 28%;
+  border-radius: 22%;
 }
 
 .t-card.t-card-v4 .t-card-img::before {
-  transform: rotate(-32deg);
+  transform: rotate(-41deg);
   left: 2rem;
   top: -1rem;
 }
@@ -35794,8 +35794,12 @@ a[data-bd-under=dimNavy]:hover, a[data-bd-under=dimNavy]:focus {
   transition: all 0.25s ease-in-out;
 }
 
-.t-card-glass .t-card-glass-inner .t-list-txts-item i {
+.t-card-glass .t-card-glass-inner .t-list-txts-item .svg-icon {
   margin-right: 0.25rem;
+}
+
+.t-card-glass .t-card-glass-inner a {
+  margin-top: 0.5rem;
 }
 
 .t-card-glass .t-card-glass-inner .btn, .t-card-glass .t-card-glass-inner .t-news-list-backend .t-news-btn, .t-news-list-backend .t-card-glass .t-card-glass-inner .t-news-btn {
@@ -35913,7 +35917,7 @@ a[data-bd-under=dimNavy]:hover, a[data-bd-under=dimNavy]:focus {
   margin-right: 0.25rem;
 }
 
-.col-md-12 .t-card-glass .btn, .col-md-12 .t-card-glass .t-news-list-backend .t-news-btn, .t-news-list-backend .col-md-12 .t-card-glass .t-news-btn {
+.col-sm-12 .t-card-glass .btn, .col-sm-12 .t-card-glass .t-news-list-backend .t-news-btn, .t-news-list-backend .col-sm-12 .t-card-glass .t-news-btn {
   padding: 0.5rem 2.5rem 0.5rem 1.5rem;
   writing-mode: horizontal-tb;
 }
@@ -42117,7 +42121,7 @@ a[data-bd-under=dimNavy]:hover, a[data-bd-under=dimNavy]:focus {
     border-bottom: 2px dotted var(--tu-grey-50, #f3f3f4);
   }
 }
-.col-md-9 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main {
+.col-sm-9 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main {
   padding-top: 1rem;
 }
 
@@ -42131,7 +42135,7 @@ a[data-bd-under=dimNavy]:hover, a[data-bd-under=dimNavy]:focus {
   padding-right: 0.5rem;
 }
 
-.col-md-9 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main .t-flex:first-child, .col-md-9 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main .t-list-tag:first-child, .col-md-9 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main .t-panel-main:first-child, .col-md-9 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main .t-list-card:first-child, .col-md-9 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main .search-list-tools .search-filter-list-lt .search-filter-item:first-child, .search-list-tools .search-filter-list-lt .col-md-9 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main .search-filter-item:first-child {
+.col-sm-9 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main .t-flex:first-child, .col-sm-9 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main .t-list-tag:first-child, .col-sm-9 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main .t-panel-main:first-child, .col-sm-9 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main .t-list-card:first-child, .col-sm-9 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main .search-list-tools .search-filter-list-lt .search-filter-item:first-child, .search-list-tools .search-filter-list-lt .col-sm-9 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main .search-filter-item:first-child {
   padding-top: 0.5rem;
   padding-left: 0.75rem;
   padding-right: 0.5rem;
@@ -42160,6 +42164,12 @@ a[data-bd-under=dimNavy]:hover, a[data-bd-under=dimNavy]:focus {
 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main .t-definition-list .t-definition-description a {
   font-size: 125%;
   font-weight: 500;
+  -webkit-text-decoration-color: #FFC832;
+  text-decoration-color: #FFC832;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  -webkit-text-decoration-style: wavy;
+  text-decoration-style: wavy;
 }
 
 .bt-section .t-panel.t-panel-mini .t-panel-main .t-card-panel-main .t-definition-list .t-definition-description small {
@@ -42261,7 +42271,9 @@ a[data-bd-under=dimNavy]:hover, a[data-bd-under=dimNavy]:focus {
 .bt-section .t-panel.t-panel-mini .t-badge {
   position: absolute;
   left: 0.25rem;
+  border-radius: 0.625rem;
   top: -1rem;
+  filter: hue-rotate(90deg);
 }
 
 .bt-section .t-panel.t-panel-mini .t-badge big {
@@ -42289,8 +42301,8 @@ a[data-bd-under=dimNavy]:hover, a[data-bd-under=dimNavy]:focus {
 }
 
 .user-unit .bt-section .t-panel.t-panel-mini .t-panel-mini-link {
-  color: #64b1be;
-  -webkit-text-stroke: 0.25rem rgba(100, 177, 190, 0.2);
+  color: #3b6273;
+  -webkit-text-stroke: 0.25rem rgba(59, 98, 115, 0.2);
 }
 
 .user-admin .bt-section .t-panel.t-panel-mini .t-panel-mini-link {

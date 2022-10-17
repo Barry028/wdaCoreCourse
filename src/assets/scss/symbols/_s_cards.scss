@@ -93,11 +93,12 @@
       transition: $transition;
     }
 
-
-    a {}
-
-    .t-list-txts-item i {
+    .t-list-txts-item .svg-icon {
       margin-right: 0.25rem;
+    }
+
+    a {
+      margin-top: 0.5rem;
     }
 
     .btn {
@@ -106,6 +107,7 @@
 
       .svg-icon {
         margin-left: 0;
+        // margin-right: 0;
       }
     }
   }
@@ -236,10 +238,13 @@
   }
 
 
-  @include col-md-12 {
+  @include col-sm-12 {
     .btn {
       padding: 0.5rem 2.5rem 0.5rem 1.5rem;
       writing-mode: horizontal-tb;
+      .svg-icon {
+
+      }
     }
   }
 }
