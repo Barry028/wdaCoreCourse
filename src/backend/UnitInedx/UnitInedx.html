@@ -1648,7 +1648,7 @@
       </a>
     </li>
     <li class="t-float-toolsbar-item">
-      <a id="t2" class="t-float-toolsbar-link" href="javascript:;" data-bs-toggle="tooltip" data-bs-placement="left" title="彙管單位">
+      <a id="t2" class="t-float-toolsbar-link active" href="javascript:;" data-bs-toggle="tooltip" data-bs-placement="left" title="彙管單位">
         彙管單位
       </a>
     </li>
@@ -1704,67 +1704,30 @@
   <script src="../../assets/javascript/forms/JsInputMask.js"></script>
   <!-- Page -->
   <script src="./UnitInedx.js"></script>
-
-
-      <script type="text/javascript">
-      function simpleRowDataParser(rowData) {
-        var str = "";
-        for (var key in rowData) {
-          if (rowData.hasOwnProperty(key))
-              str += key + ":" + rowData[key] + "\n";
-        }
-        return str;
-      }
-      function defaultSampleCallback(rowData, rowName) {
-        alert(rowName+"\n"+simpleRowDataParser(rowData));
-      }
-      function selectCallback(rowData, rowName) {
-        var colors = ["FF","CC","99","66","33","00"];
-        document.getElementById(rowName).children[3].style.backgroundColor = "#"+colors[rowData.red]+colors[rowData.green]+colors[rowData.blue];
-      }
-      
-      var defaultSampleOptions = {"finishCallback": defaultSampleCallback};
-      var customFunctionsOptions = {"updateCell": inlineDefaultUpdateCell,
-                    "finish": inlineDefaultFinish,
-                    "finishCallback": defaultSampleCallback,
-                    "finishCell": inlineDefaultFinishCell};
-      var sampleOptions = {"finishCallback": selectCallback};
-    </script>
   <script>
-
-  let meetingDate = new Pikaday({
-    field: document.getElementById('btMeetingDate'),
-    theme: "pikaday-white",
-    firstDay: 1,
-    minDate: new Date('2000-01-31 12:00'),
-    maxDate: new Date('2022-12-31 23:59'),
-    yearRange: [2000, 2022],
-    showTime: false,
-    toString(date, format) {
-      console.log(date.getHours())
-      return JsUtils.chineseYearFormat(date, format);
-    },
-    onSelect: function(date, format) {
-      let TwDate = JsUtils.chineseYearFormat(date, format)
-      let hidden = this._o.field.nextElementSibling;
-      hidden.value = date;
-    },
-  });
   var t1 = document.getElementById('t1');
   var t2 = document.getElementById('t2');
   var t3 = document.getElementById('t3');
   var t4 = document.getElementById('t4');
   const body = document.getElementsByTagName("BODY")[0];
   t1.addEventListener("click", function(event) {
+    document.querySelector('.t-float-toolsbar-link.active').classList.remove('active')
+    event.target.classList.add('active')
     body.className = 'user-admin';
   });
   t2.addEventListener("click", function(event) {
+    document.querySelector('.t-float-toolsbar-link.active').classList.remove('active')
+    event.target.classList.add('active')
     body.className = 'user-unit'
   });
   t3.addEventListener("click", function(event) {
+    document.querySelector('.t-float-toolsbar-link.active').classList.remove('active')
+    event.target.classList.add('active')
     body.className = 'user-branch'
   });
   t4.addEventListener("click", function(event) {
+    document.querySelector('.t-float-toolsbar-link.active').classList.remove('active')
+    event.target.classList.add('active')
     body.className = 'user-teacher'
   });
   // let dpMin, dpMax;
