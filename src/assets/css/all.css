@@ -2132,27 +2132,27 @@ hr[data-hr-style=border-fade] {
 
 @media (min-width: 576px) and (max-width: 767.98px) {
   .container-sm, .container {
-    max-width: 540px;
+    max-width: 680px;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .container-md, .container-sm, .container {
-    max-width: 720px;
+    max-width: 920px;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .container-lg, .container-md, .container-sm, .container {
-    max-width: 960px;
+    max-width: 1080px;
   }
 }
 @media (min-width: 1200px) and (max-width: 1399.98px) {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1140px;
+    max-width: 1280px;
   }
 }
 @media (min-width: 1400px) {
   .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1320px;
+    max-width: none;
   }
 }
 .row {
@@ -8541,6 +8541,17 @@ hr[data-hr-style=border-fade] {
   position: relative;
 }
 
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .container,
+.container-xxl,
+.container-fluid,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl {
+    padding: 0 2rem !important;
+  }
+}
 @media (min-width: 768px) and (max-width: 991.98px) {
   .container,
 .container-xxl,
@@ -8549,17 +8560,7 @@ hr[data-hr-style=border-fade] {
 .container-md,
 .container-lg,
 .container-xl {
-    padding: 0 1.5rem !important;
-  }
-
-  .container,
-.container-xxl,
-.container-fluid,
-.container-sm,
-.container-md,
-.container-lg,
-.container-xl {
-    max-width: none;
+    padding: 0 2rem !important;
   }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -8570,7 +8571,7 @@ hr[data-hr-style=border-fade] {
 .container-md,
 .container-lg,
 .container-xl {
-    padding: 0 1.125rem !important;
+    padding: 0 1.75rem !important;
   }
 
   .container,
@@ -24330,12 +24331,12 @@ input[type=button].btn--block {
 
 .t-card.t-card-v1 .t-card-img {
   background-color: #F6ABC8;
-  border-radius: 29%;
+  border-radius: 57%;
 }
 
 .t-card.t-card-v1 .t-card-img::before {
-  transform: rotate(56deg);
-  left: 2rem;
+  transform: rotate(59deg);
+  left: -1rem;
   top: 1rem;
 }
 
@@ -24359,13 +24360,13 @@ input[type=button].btn--block {
 
 .t-card.t-card-v2 .t-card-img {
   background-color: #FFC199;
-  border-radius: 10%;
+  border-radius: 15%;
 }
 
 .t-card.t-card-v2 .t-card-img::before {
-  transform: rotate(-8deg);
-  left: 0rem;
-  top: -2rem;
+  transform: rotate(-13deg);
+  left: -2rem;
+  top: 0rem;
 }
 
 .t-card.t-card-v2 .t-card-img .t-card-img-icons {
@@ -24388,13 +24389,13 @@ input[type=button].btn--block {
 
 .t-card.t-card-v3 .t-card-img {
   background-color: #6EBEAF;
-  border-radius: 42%;
+  border-radius: 25%;
 }
 
 .t-card.t-card-v3 .t-card-img::before {
-  transform: rotate(44deg);
-  left: 2rem;
-  top: 0rem;
+  transform: rotate(-28deg);
+  left: -2rem;
+  top: -2rem;
 }
 
 .t-card.t-card-v3 .t-card-img .t-card-img-icons {
@@ -24417,13 +24418,13 @@ input[type=button].btn--block {
 
 .t-card.t-card-v4 .t-card-img {
   background-color: #92BBFC;
-  border-radius: 48%;
+  border-radius: 28%;
 }
 
 .t-card.t-card-v4 .t-card-img::before {
-  transform: rotate(-23deg);
-  left: -2rem;
-  top: 1rem;
+  transform: rotate(-32deg);
+  left: 2rem;
+  top: -1rem;
 }
 
 .t-card.t-card-v4 .t-card-img .t-card-img-icons {
