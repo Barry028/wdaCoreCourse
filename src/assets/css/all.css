@@ -24330,13 +24330,13 @@ input[type=button].btn--block {
 
 .t-card.t-card-v1 .t-card-img {
   background-color: #F6ABC8;
-  border-radius: 39%;
+  border-radius: 41%;
 }
 
 .t-card.t-card-v1 .t-card-img::before {
-  transform: rotate(49deg);
+  transform: rotate(42deg);
   left: 1rem;
-  top: 0rem;
+  top: -2rem;
 }
 
 .t-card.t-card-v1 .t-card-img .t-card-img-icons {
@@ -24359,13 +24359,13 @@ input[type=button].btn--block {
 
 .t-card.t-card-v2 .t-card-img {
   background-color: #FFC199;
-  border-radius: 28%;
+  border-radius: 37%;
 }
 
 .t-card.t-card-v2 .t-card-img::before {
-  transform: rotate(54deg);
-  left: -2rem;
-  top: -1rem;
+  transform: rotate(22deg);
+  left: 2rem;
+  top: -2rem;
 }
 
 .t-card.t-card-v2 .t-card-img .t-card-img-icons {
@@ -24388,13 +24388,13 @@ input[type=button].btn--block {
 
 .t-card.t-card-v3 .t-card-img {
   background-color: #6EBEAF;
-  border-radius: 18%;
+  border-radius: 50%;
 }
 
 .t-card.t-card-v3 .t-card-img::before {
-  transform: rotate(30deg);
-  left: 1rem;
-  top: 2rem;
+  transform: rotate(0deg);
+  left: 0rem;
+  top: 1rem;
 }
 
 .t-card.t-card-v3 .t-card-img .t-card-img-icons {
@@ -24417,12 +24417,12 @@ input[type=button].btn--block {
 
 .t-card.t-card-v4 .t-card-img {
   background-color: #92BBFC;
-  border-radius: 15%;
+  border-radius: 17%;
 }
 
 .t-card.t-card-v4 .t-card-img::before {
-  transform: rotate(-67deg);
-  left: 1rem;
+  transform: rotate(-8deg);
+  left: 2rem;
   top: 0rem;
 }
 
@@ -42010,10 +42010,14 @@ a[data-bd-under=dimNavy]:hover, a[data-bd-under=dimNavy]:focus {
 
 .bt-section .t-panel {
   margin-bottom: 1.5rem;
+  box-shadow: 0.125rem 0.125rem 1rem rgba(18, 19, 40, 0.12);
 }
 
 .bt-section .t-panel .t-panel-heading {
   padding: 0.8125rem 0.25rem 0.75rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-radius: 0.625rem 0.625rem 0 0;
 }
 
 .bt-section .t-panel .t-panel-heading > .svg-icon {
@@ -42040,6 +42044,10 @@ a[data-bd-under=dimNavy]:hover, a[data-bd-under=dimNavy]:focus {
 
 .user-branch .bt-section .t-panel .t-panel-heading > .svg-icon {
   color: #0F52BA;
+}
+
+.bt-section .t-panel .t-panel-heading .btn, .bt-section .t-panel .t-panel-heading .t-news-list-backend .t-news-btn, .t-news-list-backend .bt-section .t-panel .t-panel-heading .t-news-btn {
+  margin-right: 0.75rem;
 }
 
 .bt-section .t-panel .t-panel-main .t-progress-card-container {
@@ -42323,16 +42331,6 @@ a[data-bd-under=dimNavy]:hover, a[data-bd-under=dimNavy]:focus {
 .user-branch .bt-section .t-panel.t-panel-mini .t-panel-mini-link {
   color: #10459d;
   -webkit-text-stroke: 0.25rem rgba(16, 69, 157, 0.2);
-}
-
-.bt-section .t-panel .t-panel {
-  box-shadow: 0.125rem 0.125rem 1rem rgba(18, 19, 40, 0.12);
-}
-
-.bt-section .t-panel .t-panel .t-panel-heading {
-  font-size: 0.9375rem;
-  font-weight: 500;
-  border-radius: 0.625rem 0.625rem 0 0;
 }
 
 .user-teacher .bt-section .t-panel .t-panel .t-panel-heading {
@@ -42846,14 +42844,14 @@ a[data-bd-under=dimNavy]:hover, a[data-bd-under=dimNavy]:focus {
   justify-content: end;
 }
 
-.t-pagination-nav .t-pagination {
+.t-pagination {
   display: flex;
   padding-left: 0;
   list-style: none;
   margin-bottom: 1.5rem;
 }
 
-.t-pagination-nav .t-pagination .t-page-link {
+.t-pagination .t-page-link {
   position: relative;
   display: block;
   color: #414253;
@@ -42862,14 +42860,14 @@ a[data-bd-under=dimNavy]:hover, a[data-bd-under=dimNavy]:focus {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.t-pagination-nav .t-pagination .t-page-link:hover {
+.t-pagination .t-page-link:hover {
   z-index: 2;
   color: #71717e;
   background-color: #e7e7ea;
   border-color: rgba(18, 19, 40, 0.24);
 }
 
-.t-pagination-nav .t-pagination .t-page-link:focus {
+.t-pagination .t-page-link:focus {
   z-index: 3;
   color: #71717e;
   background-color: #e7e7ea;
@@ -42878,7 +42876,7 @@ a[data-bd-under=dimNavy]:hover, a[data-bd-under=dimNavy]:focus {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .t-pagination-nav .t-pagination .t-page-link {
+  .t-pagination .t-page-link {
     transition: none;
   }
 }

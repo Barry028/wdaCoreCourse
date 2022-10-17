@@ -4,7 +4,6 @@
   background-color: _var("grey-50", $grey-50);
 }
 
-
 .bt-section {
   padding-top: 3rem;
 
@@ -174,9 +173,13 @@
 
   .t-panel {
     margin-bottom: 1.5rem;
+    box-shadow: 0.125rem 0.125rem 1rem rgba($dark, 0.12);
 
     .t-panel-heading {
       padding: 0.8125rem 0.25rem 0.75rem 1.25rem;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      border-radius: $border-radius $border-radius 0 0;
 
       > .svg-icon {
         flex: 0 0 auto;
@@ -205,6 +208,10 @@
         @include branch {
           color: $info;
         }
+      }
+
+      .btn {
+        margin-right: 0.75rem;
       }
     }
 
@@ -495,14 +502,6 @@
     }
 
     .t-panel {
-      box-shadow: 0.125rem 0.125rem 1rem rgba($dark, 0.12);
-
-      .t-panel-heading {
-        font-size: 0.9375rem;
-        font-weight: 500;
-        border-radius: $border-radius $border-radius 0 0;
-      }
-
       @include teacher {
         .t-panel-heading {
           background-color: $primary-100;
