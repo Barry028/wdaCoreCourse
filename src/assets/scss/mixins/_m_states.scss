@@ -66,25 +66,61 @@
   }
 }
 
-@mixin not-last-child {
+@mixin before {
+  &:before {
+    content: '';
+  }
+}
+
+@mixin after {
+  &:after {
+    content: '';
+  }
+}
+
+@mixin lc {
+  &:not(:first-of-type) {
+    margin-right: .75rem;
+  }
+}
+
+@mixin fc {
+  &:not(:first-of-type) {
+    margin-right: .75rem;
+  }
+}
+
+@mixin lt {
+  &:not(:first-of-type) {
+    margin-right: .75rem;
+  }
+}
+
+@mixin ft {
+  &:not(:first-of-type) {
+    margin-right: .75rem;
+  }
+}
+
+@mixin not-lc {
   &:not(:last-child) {
     @content;
   }
 }
 
-@mixin not-first-child {
+@mixin not-fc {
   &:not(:first-child) {
     margin-right: .75rem;
   }
 }
 
-@mixin not-last-type {
+@mixin not-lt {
   &:not(:last-of-type) {
     @content;
   }
 }
 
-@mixin not-first-type {
+@mixin not-ft {
   &:not(:first-of-type) {
     margin-right: .75rem;
   }

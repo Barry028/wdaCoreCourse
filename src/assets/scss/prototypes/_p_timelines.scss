@@ -16,7 +16,7 @@
     flex: 1 1 auto;
     width: 100%;
     transition: $transition;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
 
     &:last-child {
       padding-bottom: 0;
@@ -25,14 +25,14 @@
     &:last-child {
       .t-timeline-marker {
         &:after {
-          content: none;
+          // content: none;
         }
       }
     }
 
     &:not(.t-period):hover {
       .t-timeline-content {
-        background-color: $grey-25;
+        background-color: $grey-50;
         transition: $transition;
         border-radius: $border-radius;
       }
@@ -97,7 +97,7 @@
     padding: 0.5rem 0.75rem;
 
     .t-timeline-title {
-      font-size: 1.125rem;
+      font-size: 1rem;
       margin-bottom: .375rem;
     }
 

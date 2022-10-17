@@ -119,6 +119,7 @@ const JsUtils = (function() {
       parentNode ? (parentNode = parentNode || parentNode[0]) : (parentNode = document);
       return parentNode.querySelector("" + selector + "");
     },
+    // JsUtils.getUniqueId();
     getUniqueId: function(prefix) {
       return prefix + Math.floor(Math.random() * new Date().getTime());
     },
@@ -504,7 +505,7 @@ const JsUtils = (function() {
         return null;
       }
     },
-
+    // let inputEl = JsUtils.findAll(panel, '[data-tu-inlineEdit]');
     findAll: function(parent, query) {
       if (parent !== null) {
         return parent.querySelectorAll(query);
@@ -512,10 +513,9 @@ const JsUtils = (function() {
         return null;
       }
     },
-
+    // var par = JsUtils.parents(e.target.parentElement , '.t-panel')
     parents: function(elem, selector) {
-      // Set up a parent array
-      var parents = []; // Push each parent element to the array
+      var parents = []; 
       for (; elem && elem !== document; elem = elem.parentNode) {
         if (selector) {
           if (elem.matches(selector)) {
@@ -752,7 +752,7 @@ const JsUtils = (function() {
     },
 
     // fadeToggle fadeIn fadeOut
-    // fade.slide('fadeToggle', document.getElementById('a1'), 400, function () {
+    // JsUtils.fade('fadeToggle', document.getElementById('a1'), 400, function () {
     //   console.log('fadeToggle');
     // });
     fade: function(animeType, elem, duration, callBack) {

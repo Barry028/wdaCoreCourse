@@ -2,11 +2,24 @@
 
 //  Mixins > Text 3d
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+@function makelongshadow($color) {
+  $val: 0px 0px $color;
+  @for $i from 1 through 20 {
+    $color2: lighten($color, $i * 0.8);
+    $val: #{$val}, #{$i}px #{$i}px #{$color2};
+  }
+  @return $val;
+}
 
 $LIGHTING_FLOOR: 1;
 $LIGHTING_CEIL: 2;
 $LIGHTING_FLAT: 3;
 
+// @include text3d(
+//   adjust-color($primarycolour, $lightness: -8%), 
+//   $depth: 8, 
+//   $primaryshadowcolour: adjust-color($primarycolour, $lightness: -10%, $saturation: +20%),
+//   $shadowopacity: .3);
 @mixin text-3d($color: $primary, $depth: 5, $shadowsteps: 5, $shadowincrementer: 0.1875rem, $shadowopacity: 0.5, $colorShadow: $dark, $lighting: $LIGHTING_CEIL) {
   $predefinedShadows: 0 0 4px rgba($colorShadow, 0.04), 0 -1px 3px rgba($colorShadow, 0.18), 0 4px 6px rgba($colorShadow, 0.18);
 
@@ -45,6 +58,32 @@ $LIGHTING_FLAT: 3;
 }
 
 
+
+@mixin text-3d-v2($color, $size) {
+    font-weight:900;
+  text-shadow: 
+    0px #{$size} 0px $color,
+    0px #{$size*2} 0px shade-color($color ,10%),
+    0px #{$size*3} 0px shade-color($color ,20%),
+    0px #{$size*4} 0px shade-color($color ,30%),
+    0px #{$size*4} 0px shade-color($color ,40%),
+    0px #{$size*4} 0px shade-color($color ,50%),
+    0px #{$size*4} 0px shade-color($color ,60%)
+}
+
+
+@mixin long-shadow($color) {
+  text-shadow: makelongshadow($color);
+}
+
+// .long-shadow {
+//   font-size: 4rem;
+//   line-height: 1.2em;
+//   font-weight: 900;
+//   margin: 10rem auto 0;
+//   text-transform: uppercase;
+//   @include long-shadow(#b9b9b9);
+// }
 
 // text-shadow 
 // rgb(230, 173, 51) -2.88px -2.88px 0px, 

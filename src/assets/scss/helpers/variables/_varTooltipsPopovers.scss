@@ -5,15 +5,15 @@
 
 // tooltip
 $tooltip-arrow-color:               null !default; // Deprecated in Bootstrap 5.2.0 for CSS variables
-$tooltip-font-size:                 $font-size-xxs !default;
+$tooltip-font-size:                 $font-size-xxxs !default;
 $tooltip-max-width:                 12rem !default;
 $tooltip-color:                     $neutral-50 !default;
 $tooltip-bg:                        $neutral !default;
-$tooltip-border-radius:             $border-radius !default;
+$tooltip-border-radius:             $border-radius-sm !default;
 $tooltip-box-shadow:                $shadow-dropdown-v2 !default;
 $tooltip-opacity:                   .92 !default;
-$tooltip-padding-y:                 .5rem !default;
-$tooltip-padding-x:                 .875rem !default;
+$tooltip-padding-y:                 .3125rem !default;
+$tooltip-padding-x:                 .625rem !default;
 $tooltip-margin:                    null !default;
 
 $tooltip-arrow-width:               .75rem !default;

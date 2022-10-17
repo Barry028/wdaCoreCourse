@@ -22,7 +22,8 @@
       height: 0.5rem;
       width: 100%;
 
-      @include gradient-x(tint-color($color, 10%), tint-color($color, 20%), -20% , 120%);
+      // @include gradient-x(tint-color($color, 20%), shade-color($color, 20%), -20% , 120%);
+      @include gradient-x(tint-color($color, 20%), shade-color($color, 20%), -20% , 120%);
 
       background-size: 100% 0.5rem;
       background-repeat: no-repeat;
@@ -30,10 +31,10 @@
       background-position-y: 100%;
       border-radius: .125rem;
 
-      @include opacity(0.36);
+      @include opacity(0.48);
 
       transition: $transition;
-      transform: rotate(-0.25deg);
+      transform: rotate(-0.75deg);
     }
   }
 

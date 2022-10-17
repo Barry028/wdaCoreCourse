@@ -57,10 +57,11 @@ $font-size-pixel-md:                                         $font-size-pixel-ba
 $font-size-pixel-sm:                                         15px                      !default;
 $font-size-pixel-xs:                                         14px                      !default;
 $font-size-pixel-xxs:                                        13px                      !default;
-
+$font-size-pixel-xxxs:                                       12px                      !default;
 
 // $font-size-pixels:
 $font-size-pixels: (
+  xxxs: $font-size-pixel-xxxs,
   xxs: $font-size-pixel-xxs,
   xs:  $font-size-pixel-xs,
   sm:  $font-size-pixel-sm,
@@ -78,7 +79,7 @@ $font-size-md:                                               PxRem($font-size-pi
 $font-size-sm:                                               PxRem($font-size-pixel-sm)     !default;
 $font-size-xs:                                               PxRem($font-size-pixel-xs)     !default;
 $font-size-xxs:                                              PxRem($font-size-pixel-xxs)    !default;
-
+$font-size-xxxs:                                             PxRem($font-size-pixel-xxxs)   !default;
 
 $headings-font-family :         $font-family-base           !default;
 $headings-font-weight-bold:     500                         !default;

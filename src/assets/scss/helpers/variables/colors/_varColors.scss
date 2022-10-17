@@ -9,7 +9,7 @@ $primary:                                             #6246E4                 !d
 $secondary:                                           #FFC832                 !default;
 $tertiary:                                            #79D9E3                 !default;
 $quaternary:                                          #C20D84                 !default;
-$success:                                             #0B9B8A                 !default;
+$success:                                             #149B5F                 !default;
 $danger:                                              #E61E50                 !default;
 $warning:                                             #FF6A50                 !default;
 $info:                                                #0F52BA                 !default; 
@@ -386,7 +386,7 @@ $linkedin:              #0E76a8;
 
 //== customs Colors
 $link:                                             darken($primary, 16%);
-$link-hover:                                       darken($primary, 14%);
+$link-hover:                                       darken($primary, 24%);
 $link-blue:                                        $navy;
 $link-blue-hover:                                  darken($navy, 8%);
 

@@ -49,20 +49,9 @@ $color2: $primary) {
   }
 }
 
-// @include text-shaded($size: 1px, $shadow: $primary ,$through: 10);
-@mixin text-shaded($size: 1px, $shadow: $primary, $through: 10) {
-  font-weight: 700;
-
-  // --shadow-color: $color;
-  $value: ();
-
-  @for $i from 1 through $through {
-    $num: $i * $size;
-    $theShadow: #{-$num} $num $shadow;
-    $value: append($value, $theShadow, comma);
-  }
-
-  text-shadow: $value;
+// @include text-shadow-v2($white, $dark)
+@mixin text-shadow-v4($color: #3498db) {
+  text-shadow: 1px 1px 0 $color, 2px 2px 0 $color, 3px 3px 0 currentColor, 4px 4px 0 currentColor;
 }
 
 // @include shade(text, #aaa, #333, 10, 135deg, true);
@@ -86,7 +75,9 @@ $color2: $primary) {
   }
 
   @for $i from 1 through $depth {
-    $shadow: $shadow, ($i * $x) ($i * $y) 0 hsla(hue($color), saturation($color), lightness($color) - $i * $darken, 1 - $i * $opacify);
+    $shadow: $shadow, ($i * $x) ($i * $y) 0 hsla(hue($color),
+      saturation($color),
+      lightness($color) - $i * $darken, 1 - $i * $opacify);
   }
 
   #{$type}-shadow: 1.5px 1.5px 0 $borderColor,
@@ -109,42 +100,51 @@ $color2: $primary) {
 
 ;
 
-// @include text-shaded(4rem, 900,$white, $dark);
+// .t-text-cartoon {
+//   color: #fff;
+//   @include text-cartoon(5rem, 900, $white, $dark);
+// }
 
+// .t-text-cartoon-2 {
+//   @include text-cartoon(5rem, 900, #f7d9e3, #884c5e);
+// }
 @mixin text-cartoon($font-size: 7.5rem,
 $font-weight: 900,
 $color: $white,
-$shadow-color: $grey-800) {
-
-  $size: #{$font-size / 20};
-  $through: 18;
+$shadowColor: $dark) {
+  $fsize: ($font-size / 20);
+  // $through: 18;
 
   font-weight: $font-weight;
   font-size: $font-size;
   color: $color;
-  text-shadow: -#{$size} 0 $shadow-color,
-  0 -#{$size} $shadow-color,
-  #{$size} 0 $shadow-color,
-  0 #{$size} $shadow-color,
-  -#{$size} -#{$size} 0 $shadow-color,
-  -#{$size} #{$size} 0 $shadow-color,
-  #{$size} -#{$size} 0 $shadow-color,
-  #{$size} #{$size} 0 $shadow-color,
-  -#{$size} #{$size * 3} 0 $shadow-color,
-  0 #{$size * 3} 0 $shadow-color,
-  #{$size} #{$size * 3} 0 $shadow-color,
-  0 #{$size + 0.625} #{$size / 6} rgba($dark, .10),
-  0 0 #{$size} rgba($dark, .10),
-  0 #{$size} #{$size * 2} rgba($dark, .30),
-  0 #{$size * 2} #{$size} rgba($dark, .20),
-  0 #{$size * 3} #{$size * 3} rgba($dark, .25),
-  0 #{$size * 4} #{$size * 4} rgba($dark, .20),
-  0 #{$size * 6} #{$size * 6} rgba($dark, .15)
+  text-shadow: 0px -#{$fsize} 0px #{$shadowColor},
+  0px -#{$fsize} 0px #{$shadowColor},
+  0px #{$fsize} 0px #{$shadowColor},
+  0px #{$fsize} 0px #{$shadowColor},
+  -#{$fsize} 0px 0px #{$shadowColor},
+  #{$fsize} 0px 0px #{$shadowColor},
+  -#{$fsize} 0px 0px #{$shadowColor},
+  #{$fsize} 0px 0px #{$shadowColor},
+  -#{$fsize} -#{$fsize} 0px #{$shadowColor},
+  #{$fsize} -#{$fsize} 0px #{$shadowColor},
+  -#{$fsize} #{$fsize} 0px #{$shadowColor},
+  #{$fsize} #{$fsize} 0px #{$shadowColor},
+  -#{$fsize} #{$fsize * 3} 0px #{$shadowColor},
+  0px #{$fsize * 3} 0px #{$shadowColor},
+  #{$fsize} #{$fsize * 3} 0px #{$shadowColor},
+  0px #{$fsize * 3} #{$fsize/6} rgba($color, 0.1),
+  0px 0px #{$fsize} rgba($color, 0.1),
+  0px #{$fsize} #{$fsize/2} rgba($color, 0.3),
+  0px #{$fsize * 2} #{$fsize} rgba($color, 0.2),
+  0px #{$fsize * 3} #{$fsize * 3} rgba($color, 0.25),
+  0px #{$fsize * 4} #{$fsize * 4} rgba($color, 0.2),
+  0px #{$fsize * 6} #{$fsize * 6} rgba($color, 0.15);
 }
 
-;
-
-
+// .tt {
+//   @include text-cartoon(4rem, 900,$white, $dark);
+// }
 
 
 

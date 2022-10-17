@@ -37,21 +37,7 @@
     @content;
   }
 }
-@mixin col-md-12 {
-  .col-md-12 & {
-    @content;
-  }
-}
-@mixin col-md-9 {
-  .col-md-9 & {
-    @content;
-  }
-}
-@mixin col-md-6 {
-  .col-md-6 & {
-    @content;
-  }
-}
+
 // @include branch{}
 @mixin branch {
   .user-branch & {
@@ -80,6 +66,8 @@
 // //== Pages
 //==========================
 @import "_frontend/index";
+@import "_frontend/components";
+
 @import "_frontend/login";
 @import "_frontend/search";
 @import "_frontend/searchSm";
@@ -91,9 +79,9 @@
 @import "_backend/BSection";
 @import "_backend/BProgress";
 @import "_backend/BPageItems";
-@import "_backend/Bheader";
-
-
+@import "_backend/BHeader";
+@import "_backend/BBreadcrumbs";
+@import "_backend/BSearch";
 
 
 //== Vendors

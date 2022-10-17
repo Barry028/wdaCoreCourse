@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+[data-decoration] {
+  color: $link;
+
+  @include hover {
+    color: $link-hover;
+  }
+}
+
 [data-decoration='underline'] {
   text-decoration: underline $secondary;
 

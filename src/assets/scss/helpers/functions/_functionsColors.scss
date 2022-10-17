@@ -6,6 +6,7 @@
 $black: #0f0f0f !default;
 $dark:  #121328 !default;
 $white: #fff !default;
+$contrast-color-threshold:        55%;
 // $contrast-color-threshold:        80%;
 // contrast-color($badge-bg-color, $dark, $white);
 @function contrast-color($color, $dark ,$white) {
@@ -165,7 +166,8 @@ $white: #fff !default;
   $color-contrast-dark: $color-contrast-dark, 
   $color-contrast-light: $color-contrast-light,
   $min-contrast-ratio: $min-contrast-ratio) {
-  $foregrounds: $color-contrast-light, $color-contrast-dark, $white, $dark;
+  $foregrounds: $color-contrast-light, 
+  $color-contrast-dark, $white, $dark;
   $max-ratio: 0;
   $max-ratio-color: null;
 

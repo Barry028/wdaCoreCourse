@@ -1,10 +1,7 @@
+@charset "utf-8";
+
 .bt-wrapper {
   background-color: _var("grey-50", $grey-50);
-}
-
-.t-panel .t-panel-main .t-progress-card-container {
-  flex-wrap: nowrap;
-  gap: 0 1rem;
 }
 
 
@@ -15,14 +12,18 @@
     .bt-section-header {
       border-bottom: 0.25rem solid $primary-200;
 
+      > .svg-icon {
+        color: $primary;
+      }
+
+      .btn--checked {
+        @extend .btn--primary;
+      }
+
       .bt-section-heading {
         &:first-letter {
           color: $primary-700;
         }
-      }
-
-      .bt-section-para {
-        color: $grey;
       }
     }
 
@@ -52,14 +53,18 @@
     .bt-section-header {
       border-bottom: 0.25rem solid $tertiary-200;
 
+      > .svg-icon {
+        color: $tertiary;
+      }
+
+      .btn--checked {
+        @extend .btn--tertiary;
+      }
+
       .bt-section-heading {
         &:first-letter {
           color: $tertiary-700;
         }
-      }
-
-      .bt-section-para {
-        color: $grey;
       }
     }
 
@@ -89,14 +94,18 @@
     .bt-section-header {
       border-bottom: 0.25rem solid $info-200;
 
+      > .svg-icon {
+        color: $info;
+      }
+
+      .btn--checked {
+        @extend .btn--info;
+      }
+
       .bt-section-heading {
         &:first-letter {
           color: $info-700;
         }
-      }
-
-      .bt-section-para {
-        color: $grey;
       }
     }
 
@@ -126,14 +135,18 @@
     .bt-section-header {
       border-bottom: 0.25rem solid $quaternary-200;
 
+      > .svg-icon {
+        color: $quaternary;
+      }
+
+      .btn--checked {
+        @extend .btn--quaternary;
+      }
+
       .bt-section-heading {
         &:first-letter {
           color: $quaternary-700;
         }
-      }
-
-      .bt-section-para {
-        color: $grey;
       }
     }
 
@@ -167,6 +180,7 @@
 
       > .svg-icon {
         flex: 0 0 auto;
+        margin-right: 0.5rem;
 
         svg {
           width: 1.5rem !important;
@@ -192,6 +206,11 @@
           color: $info;
         }
       }
+    }
+
+    .t-panel-main .t-progress-card-container {
+      flex-wrap: nowrap;
+      gap: 0 1rem;
     }
 
     &.t-panel-mini {
@@ -474,25 +493,114 @@
         }
       }
     }
+
+    .t-panel {
+      box-shadow: 0.125rem 0.125rem 1rem rgba($dark, 0.12);
+
+      .t-panel-heading {
+        font-size: 0.9375rem;
+        font-weight: 500;
+        border-radius: $border-radius $border-radius 0 0;
+      }
+
+      @include teacher {
+        .t-panel-heading {
+          background-color: $primary-100;
+          border-top: $primary-300 solid 0.25rem;
+        }
+
+        .t-table-cnt {
+          background-color: rgba($info, 0.24);
+
+          .svg-icon {
+            color: $primary;
+          }
+        }
+      }
+
+
+      @include unit {
+        .t-panel-heading {
+          background-color: $tertiary-100;
+          border-top: $tertiary-300 solid 0.25rem;
+        }
+
+        .t-table-cnt {
+          background-color: rgba($secondary, 0.24);
+
+          .svg-icon {
+            color: $tertiary;
+          }
+        }
+      }
+
+
+      @include branch {
+        .t-panel-heading {
+          background-color: $info-100;
+          border-top: $info-300 solid 0.25rem;
+        }
+
+        .t-table-cnt {
+          background-color: rgba($success, 0.24);
+
+          .svg-icon {
+            color: $info;
+          }
+        }
+      }
+
+
+      @include admin {
+        .t-panel-heading {
+          background-color: $quaternary-100;
+          border-top: $quaternary-300 solid 0.25rem;
+        }
+
+        .t-table-cnt {
+          background-color: rgba($primary, 0.24);
+
+          .svg-icon {
+            color: $quaternary;
+          }
+        }
+      }
+    }
   }
 
   .bt-section-header {
+    position: relative;
     padding-bottom: .75rem;
     margin-bottom: 1rem;
     flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: flex-start;
+    display: flex;
+
+    > .svg-icon {
+      flex: 0 0 auto;
+      margin-right: 0.5rem;
+      align-self: end;
+
+      > svg {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
 
     .bt-section-heading {
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       letter-spacing: 1.25px;
       -webkit-text-stroke: 0.8755px;
 
       &:first-letter {
         font-size: 125%;
+        margin-right: 0.25rem;
       }
     }
 
     .bt-section-para {
-      font-size: 0.9375rem;
+      font-size: 0.875rem;
       color: $grey;
       margin-left: 1.5rem;
     }
@@ -515,24 +623,45 @@
     flex-direction: row;
 
     > .t-form-inline {
-      white-space: initial;
+      white-space: normal;
       flex-wrap: wrap;
+      flex: 0 0 auto;
+      width: 100%;
+      display: flex;
+
+      .t-form-group {
+        display: flex;
+      }
     }
 
     .t-form-label {
       min-width: 6rem;
     }
 
-    .t-form-group {
-      .btn {
-        margin-top: 0.5rem;
+    .t-form-btns {
+      padding-top: 0.75rem;
+      border-top: 1px dashed rgba($dark, 0.12);
+
+      .t-form-group {
+        justify-content: right;
+        align-items: end;
+        margin-bottom: 0;
+        flex-wrap: wrap;
+
+        .btn {
+          margin-top: 0.5rem;
+
+          &:not(:last-child) {
+            margin-right: 0.5rem;
+          }
+        }
       }
     }
   }
 
   .bt-form-cnt {
     width: 100%;
-    margin-top: 0.5rem;
+    margin-top: 2.25rem;
     position: relative;
     border-radius: $border-radius;
     padding: 2.5rem 1.5rem 1.5rem 1.5rem;
@@ -562,8 +691,48 @@
 
     .t-form-control {
       font-size: 0.875rem;
+      width: 100%;
     }
   }
+}
+
+.btn--checked {
+  letter-spacing: 1px;
+  font-size: 1rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+
+  @include teacher {
+    @extend .btn--primary;
+  }
+
+
+  @include unit {
+    @extend .btn--tertiary;
+  }
+
+
+  @include branch {
+    @extend .btn--info;
+  }
+
+
+  @include admin {
+    @extend .btn--quaternary;
+  }
+}
+
+.btn--export {
+  letter-spacing: 1px;
+  font-size: 0.9375rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  @extend .btn--success;
 }
 
 .bt-section-edit {
@@ -578,11 +747,77 @@
   background-color: _var("white", $white);
 
   @include btStyleBd;
+
+  [data-bs-toggle="collapse"] {
+    padding-right: 3.5rem;
+    position: absolute;
+    right: 0;
+    top: 0.25rem;
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+
+      @include svg-bg-icon(arrow-bottom, $primary, center, 70%);
+
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      border: 2px solid $primary-200;
+      transition: $transition;
+    }
+
+    &:before {
+      margin-right: 0.5rem;
+    }
+
+    &[aria-expanded="false"] {
+      &:before {
+        content: '收合';
+      }
+
+      &:after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+
+    &[aria-expanded="true"] {
+      &:before {
+        content: '展開';
+      }
+
+      &:after {
+        transform: translateY(-50%) rotate(0deg);
+      }
+    }
+  }
+
+  .bt-form-cnt.collapse {
+    &:not(.show) {
+      visibility: hidden;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .bt-form-cnt.show {
+    visibility: visible;
+  }
+}
+
+.bt-btn-group {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  border-top: 2px dotted rgba($dark, 0.12);
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .bt-section-result {
   padding: 2rem;
-  margin-top: 4rem;
   margin-bottom: 8rem;
   background-color: _var("white", $white);
 
@@ -594,17 +829,16 @@
     top: 1.25rem;
     font-size: 1rem;
 
-    i {
-      color: saturate($success, 40%);
+    .svg-icon {
+      color: $success-200;
       display: inline-block;
       vertical-align: middle;
-      font-size: 1.25rem;
-      margin-right: 1rem;
+      margin-right: 0.75rem;
     }
 
-    label {
+    .search-result-total-label {
       display: block;
-      background-color: _var("dark", $dark);
+      background-color: rgba($dark, 0.88);
       color: _var("white", $white);
       border-radius: 3rem;
       font-weight: 500;
@@ -612,14 +846,15 @@
       margin: 0;
       user-select: none;
 
-      font {
-        font-size: 1rem;
+      .search-result-total-text {
+        font-size: 0.875rem;
         display: inline-block;
         vertical-align: middle;
         margin-bottom: 0.125rem;
 
         big {
-          color: saturate($success, 40%);
+          color: $success-200;
+          margin: 0 0.125rem;
         }
       }
     }

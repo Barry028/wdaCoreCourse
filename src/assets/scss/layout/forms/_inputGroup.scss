@@ -4,8 +4,6 @@
   cursor: pointer;
   color: $lightgrey;
   border-radius: inherit;
-
-  // font-size: 1rem;
   width: 100%;
 
   @include absolute($R: 1rem, $T: 50%);
@@ -48,7 +46,7 @@
   border-radius: inherit;
   width: 100%;
 
-  .input-txt {
+  .t-input-txt {
     font-size: 1rem;
 
     @include absolute($T: 50%, $R: 1rem);

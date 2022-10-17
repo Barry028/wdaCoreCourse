@@ -7,42 +7,7 @@
   <meta charset="UTF-8">
   <title>勞動力發展署 - 關鍵就業力課程</title>
   <link rel="stylesheet" type="text/css" href="../../assets/vendor/slim-icon/styles.css">
-  <!-- <link rel="stylesheet" type="text/css" href="../../assets/vendor/swiper/swiper-bundle.css"> -->
   <link rel="stylesheet" type="text/css" href="../../assets/css/all.css">
-  <script>
-    (function(d){var config={kitId:'soy4top',scriptTimeout:3000,async:true},h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)})(document);
-  </script>
-  <script src="./index.js"></script>
-  <script>
-    
-    function simpleRowDataParser(rowData) {
-      var str = "";
-      for (var key in rowData) {
-        if (rowData.hasOwnProperty(key))
-          str += key + ":" + rowData[key] + "\n";
-      }
-      return str;
-    }
-
-    function defaultSampleCallback(rowData, rowName) {
-      alert(rowName + "\n" + simpleRowDataParser(rowData));
-    }
-
-    function selectCallback(rowData, rowName) {
-      var colors = ["FF", "CC", "99", "66", "33", "00"];
-      document.getElementById(rowName).children[3].style.backgroundColor = "#" + colors[rowData.red] + colors[rowData.green] + colors[rowData.blue];
-    }
-
-    var defaultSampleOptions = { "finishCallback": defaultSampleCallback };
-    var customFunctionsOptions = {
-      "updateCell": inlineDefaultUpdateCell,
-      "finish": inlineDefaultFinish,
-      "finishCallback": defaultSampleCallback,
-      "finishCell": inlineDefaultFinishCell
-    };
-    var sampleOptions = { "finishCallback": selectCallback };
-
-  </script>
 </head>
 
 <body class="t-bg-mesh-primary">
@@ -101,9 +66,45 @@
               <a class="t-header-nav-bar-link" href="javascript:;">最新訊息</a>
               <a class="t-header-nav-bar-link" href="javascript:;">課程需求刊登</a>
               <a class="t-header-nav-bar-link" href="javascript:;">課程介紹</a>
-              <a class="t-header-nav-bar-link" href="javascript:;">師資介紹</a>
+              <a class="t-header-nav-bar-link t-hight-light" href="javascript:;">師資介紹</a>
             </nav>
-            <a class="t-header-nav-bar-hightlight btn btn--primary" href="javascript:;">登入</a>
+            <button class="btn btn--flush menu-dropdown" data-tu-menu-trigger="click" data-tu-menu-placement="bottom-end">
+              <picture class="t-symbol t-rounded t-avastar">
+                <img class="" src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/emoji/Memoji-21@2x.webp" alt="使用者" class="t-lazy-load" width="48" height="48">
+                <source type="image/png" srcset="../../assets/images/emoji/Memoji-21@2x.png" />
+                <source type="image/webp" srcset="../../assets/images/emoji/Memoji-21@2x.webp" />
+              </picture>
+            </button>
+            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded t-user-menu" data-tu-menu="true">
+              <div class="menu-item">
+                <div class="menu-content t-flex align-items-center justify-content-between t-user-menu-header">
+                  <div class="symbol symbol-50px t-avastar">
+                    <picture class="t-symbol t-rounded">
+                      <img class="" src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/emoji/Memoji-21@2x.webp" alt="使用者" class="t-lazy-load" width="48" height="48">
+                      <source type="image/png" srcset="../../assets/images/emoji/Memoji-21@2x.png" />
+                      <source type="image/webp" srcset="../../assets/images/emoji/Memoji-21@2x.webp" />
+                    </picture>
+                  </div>
+                  <div class="flex-column ml-2">
+                    <div class="t-fw-bold t-flex align-items-center">
+                      林小本
+                      <span class="t-badge t-badge-light-success">Pro</span>
+                    </div>
+                    <a href="#" class="t-fw-400">max@kt.com</a>
+                  </div>
+                </div>
+                <div class="t-separator"></div>
+                <div class="menu-item">
+                  <a href="" class="menu-link px-5">
+                    My Profile
+                  </a>
+                </div>
+              </div>
+              </button>
+            </div>
+            <!-- <a class="btn btn--sm btn--soft--primary" href="javascript:;">
+              會員登入
+            </a> -->
           </div>
         </nav>
       </section>
@@ -138,58 +139,84 @@
             </i>
             回上頁(課程師資介紹)
           </button>
-          <!-- 人才試搜 Start -->
           <a name="academic_info" id="academic_info"></a>
           <div id="Info" class="t-info-item" data-profile="academic_info">
             <div class="t-form-legend-info t-inline-flex">
               <h3 class="t-inline-flex">師資介紹</h3>
             </div>
             <div class="t-panel">
+              <div id="edit-userInfo" class="t-panel-heading">
+                <a data-tu-inlineEditBtn="true" href="javascript:;" class="btn btn--primary">
+                  編輯
+                  <i class="svg-icon">
+                    <svg>
+                      <use href="#ic-edit"></use>
+                    </svg>
+                  </i>
+                </a>
+              </div>
               <div class="t-panel-main">
-                <div class="mask mask-brand-wda-logo-backgrounds brand-wda-logo-backgrounds"></div>
-                <div class="t-panel-item-img-container" data-overlay="gallery">
-                  <a data-fslightbox="gallery" href="../../assets/images/avatars/avatar-5.png">
-                    <picture class="t-panel-img t-img-overlay">
+                <div class="mask mask-card-ruler"></div>
+                <div class="mask mask-brand-wda-logo-backgrounds"></div>
+                <div class="t-panel-item-img-container">
+                  <a class="t-panel-img t-img-overlay" data-fslightbox="gallery" href="../../assets/images/avatars/avatar-5.png">
+                    <picture>
                       <source src="../../assets/images/avatars/avatar-5.png" data-src="../../assets/images/10Ratio3.3333_v1.svg">
                       <img src="../../assets/images/avatars/avatar-5.png" alt="王大明" class="t-lazy-load" width="160" height="188">
                     </picture>
                   </a>
                 </div>
+                <!-- view -->
                 <div class="t-panel-item-cnt">
                   <dl class="t-definition-list">
                     <dt class="t-definition-term" hidden>
                       教師姓名
                     </dt>
                     <dd class="t-definition-description ml-0">
-                      <h4 data-grad-under="info" class="t-panel-title">
-                        <big>王大明</big>
+                      <h4 data-grad-under="info" class="t-panel-title">王大明
                       </h4>
-                      <h5 data-grad-under="grey" class="t-panel-sub-title ml-2">
+                      <h5 data-grad-under="secondary" class="t-panel-sub-title">
                         Dai-Meng Wang
                       </h5>
                     </dd>
                   </dl>
-                  <h6 class="mt-4 mb-2">前一年度授課總時數：
-                    <big class="t-fc-primary t-fw-700">72</big> 小時
+                  <h6 class="t-panel-main-txt">
+                    前一年度授課總時數：
+                    <big>72</big> 小時
                   </h6>
                   <ul class="t-list-txts mb-2">
                     <li class="t-list-txts-item">
-                      DC： <big class="t-fc-primary t-fw-500">18</big> 小時
+                      DC： <big class="t-fw-500">18</big> 小時
                     </li>
                     <li class="t-list-txts-item">
-                      BC： <big class="t-fc-primary t-fw-500">32</big> 小時
+                      BC： <big class="t-fw-500">32</big> 小時
                     </li>
                     <li class="t-list-txts-item">
-                      KC： <big class="t-fc-primary t-fw-500">22</big> 小時
+                      KC： <big class="t-fw-500">22</big> 小時
                     </li>
                   </ul>
+                  <!-- <div class="t-io">
+                    <input id="infoTel" class="t-io-input" type="checkbox">
+                    <label class="t-io-label" for="infoTel">
+                      前台不顯示
+                    </label>
+                  </div> -->
                   <dl class="t-definition-list">
-                    <dt class="t-definition-term t-relative ">
-                      電子郵件
+                    <dt class="t-definition-term t-relative">
+                      電子郵件 (工作)
                     </dt>
                     <dd class="t-definition-description">
-                      <label class="t-badge t-badge-danger t-fs-12">工作</label>
-                      <a href="mailto:barrylin0208@gmail.com" title="barrylin0208@gmail.com" data-under="secondary">barrylin0208@gmail.com</a>
+                      <div class="t-eye-toggle">
+                        <input id="UserMailWork" class="t-eye-toggle-input" type="checkbox">
+                        <label class="t-eye-toggle-label" for="UserMailWork">
+                          <i class="svg-icon">
+                            <svg>
+                              <use href="#ic-eye"></use>
+                            </svg></i>
+                        </label>
+                      </div>
+                      <a data-tu-inlineEdit="true" data-tu-inlineEdit-label="電子郵件" data-tu-inlineEdit-name="userInfo" data-tu-inlineEdit-id="UserMailWork" data-tu-inlineEdit-placeholder="請輸入您的電子郵件 " href="mailto:barrylin0208@gmail.com" title="barrylin0208@gmail.com" data-under="primary">
+                        barrylin0208@gmail.com</a>
                     </dd>
                   </dl>
                   <dl class="t-definition-list">
@@ -197,14 +224,33 @@
                       電子郵件
                     </dt>
                     <dd class="t-definition-description">
-                      <a href="mailto:barrylin0208@gmail.com" title="barrylin0208@gmail.com" data-under="secondary">lx00@ms64.hinet.net </a>
+                      <div class="t-eye-toggle">
+                        <input id="UserMail" class="t-eye-toggle-input" type="checkbox">
+                        <label class="t-eye-toggle-label" for="UserMail">
+                          <i class="svg-icon">
+                            <svg>
+                              <use href="#ic-eye"></use>
+                            </svg></i>
+                        </label>
+                      </div>
+                      <a data-tu-inlineEdit="true" data-tu-inlineEdit-label="電子郵件" data-tu-inlineEdit-name="userInfo" data-tu-inlineEdit-id="UserMail" data-tu-inlineEdit-placeholder="請輸入您的電子郵件" href="mailto:lx00@ms64.hinet.net" title="lx00@ms64.hinet.net" data-under="primary">
+                        lx00@ms64.hinet.net</a>
                     </dd>
                   </dl>
                   <dl class="t-definition-list">
                     <dt class="t-definition-term">
                       聯絡手機
                     </dt>
-                    <dd class="t-definition-description">
+                    <dd data-tu-inlineEdit="true" data-tu-inlineEdit-label="聯絡手機" data-tu-inlineEdit-name="userInfo" data-tu-inlineEdit-id="UserPhone" data-tu-inlineEdit-placeholder="請輸入您的聯絡手機" class="t-definition-description">
+                      <div class="t-eye-toggle">
+                        <input id="UserPhone" class="t-eye-toggle-input" type="checkbox">
+                        <label class="t-eye-toggle-label" for="UserPhone">
+                          <i class="svg-icon">
+                            <svg>
+                              <use href="#ic-eye"></use>
+                            </svg></i>
+                        </label>
+                      </div>
                       0988-888111
                     </dd>
                   </dl>
@@ -212,7 +258,16 @@
                     <dt class="t-definition-term">
                       出生日期
                     </dt>
-                    <dd class="t-definition-description">
+                    <dd data-tu-inlineEdit="true" data-tu-inlineEdit-label="出生日期" data-tu-inlineEdit-name="UserBirth" data-tu-inlineEdit-id="UserBirth" data-tu-inlineEdit-placeholder="請輸入您的出生日期" class="t-definition-description">
+                      <div class="t-eye-toggle">
+                        <input id="UserBirth" class="t-eye-toggle-input" type="checkbox">
+                        <label class="t-eye-toggle-label" for="UserBirth">
+                          <i class="svg-icon">
+                            <svg>
+                              <use href="#ic-eye"></use>
+                            </svg></i>
+                        </label>
+                      </div>
                       1966-08-06
                     </dd>
                   </dl>
@@ -220,214 +275,560 @@
                     <dt class="t-definition-term">
                       聯絡地址
                     </dt>
-                    <dd class="t-definition-description">
+                    <dd data-tu-inlineEdit="true" data-tu-inlineEdit-label="聯絡地址" data-tu-inlineEdit-name="userInfo" data-tu-inlineEdit-id="userAdress" data-tu-inlineEdit="true" data-tu-inlineEdit-placeholder="請輸入您的聯絡地址" class="t-definition-description">
+                      <div class="t-eye-toggle">
+                        <input id="userAdress" class="t-eye-toggle-input" type="checkbox">
+                        <label class="t-eye-toggle-label" for="userAdress">
+                          <i class="svg-icon">
+                            <svg>
+                              <use href="#ic-eye"></use>
+                            </svg></i>
+                        </label>
+                      </div>
                       新北市平溪區 (226) 南山里南山坪4號
+                    </dd>
+                  </dl>
+                </div>
+                <!-- Edit -->
+                <div class="t-panel-edit-cnt">
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <!-- 課程師資介紹 End -->
+          <!-- 學歷背景 Start -->
+          <a name="academic_education" id="academic_education"></a>
+          <div id="Education" class="t-info-item" data-profile="academic_education">
+            <div class="t-panel">
+              <div class="t-panel-heading">
+                <i class="svg-icon" aria-hidden="true">
+                  <svg>
+                    <use href="#ic-education"></use>
+                  </svg>
+                </i>
+                <a data-tu-inlineEditBtn="true" href="javascript:;" class="btn btn--primary">
+                  編輯
+                  <i class="svg-icon"><svg>
+                      <use href="#ic-edit"></use>
+                    </svg>
+                  </i>
+                </a>
+                <h3 class="t-panel-heading-txt" data-title="EDUCATION">學歷背景</h3>
+              </div>
+              <div class="t-panel-main">
+                <div class="t-panel-main-fuild">
+                  <ul class="t-timeline">
+                    <li class="t-timeline-item">
+                      <div class="t-timeline-marker"></div>
+                      <div class="t-timeline-content">
+                        <h4 class="t-timeline-title">國立彰化師範大學商業教育學系</h4>
+                        <ul class="t-list-txts">
+                          <li class="t-list-txts-item">
+                            企業管理系
+                          </li>
+                          <li class="t-list-txts-item">
+                            博士
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="t-timeline-item">
+                      <div class="t-timeline-marker"></div>
+                      <div class="t-timeline-content">
+                        <h4 class="t-timeline-title">私立德明財經科技大學</h4>
+                        <ul class="t-list-txts">
+                          <li class="t-list-txts-item">
+                            企業管理系
+                          </li>
+                          <li class="t-list-txts-item">
+                            博士
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 學歷背景 End -->
+          <!-- 服務單位/職稱 Start -->
+          <a name="academic_employment " id="academic_employment"></a>
+          <div id="Employment" class="t-info-item" data-profile="academic_employment">
+            <div class="t-panel">
+              <div class="t-panel-heading">
+                <i class="svg-icon" aria-hidden="true">
+                  <svg>
+                    <use href="#ic-briefcase"></use>
+                  </svg>
+                </i>
+                <h3 class="t-panel-heading-txt" data-title="EMPLOYMENT HISTORY">服務單位/職稱</h3>
+              </div>
+              <div class="t-panel-main">
+                <div class="t-panel-main-fuild">
+                  <ul class="t-timeline">
+                    <li class="t-timeline-item">
+                      <div class="t-timeline-marker"></div>
+                      <div class="t-timeline-content">
+                        <h4 class="t-timeline-title">負責人</h4>
+                        <ul class="t-list-txts">
+                          <li class="t-list-txts-item">
+                            頡亨資訊股份有限公司 (電腦系統整合服務業)
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="t-timeline-item">
+                      <div class="t-timeline-marker"></div>
+                      <div class="t-timeline-content">
+                        <h4 class="t-timeline-title">負責人</h4>
+                        <ul class="t-list-txts">
+                          <li class="t-list-txts-item">
+                            吉甫國際產業公司 (電腦系統整合服務業)
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 服務單位/職稱 End -->
+          <!-- 所屬轄區 Start -->
+          <a name="academic_requirement" id="academic_requirement"></a>
+          <div id="Requirement" class="t-info-item" data-profile="academic_requirement">
+            <div class="t-panel">
+              <div class="t-panel-heading">
+                <i class="svg-icon" aria-hidden="true">
+                  <svg>
+                    <use href="#ic-location"></use>
+                  </svg>
+                </i>
+                <h3 class="t-panel-heading-txt" data-title="REQUIREMENT">所屬轄區</h3>
+              </div>
+              <div class="t-panel-main">
+                <div class="t-panel-main-fuild">
+                  <div class="t-para">
+                    桃竹苗分署
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 所屬轄區 End -->
+          <!-- 專長/領域 Start -->
+          <a name="academic_language" id="academic_language"></a>
+          <div id="Language" class="t-info-item" data-profile="academic_language">
+            <div class="t-panel">
+              <div class="t-panel-heading">
+                <i class="svg-icon" aria-hidden="true">
+                  <svg>
+                    <use href="#ic-medal-star"></use>
+                  </svg>
+                </i>
+                <h3 class="t-panel-heading-txt" data-title="LANGUAGE">專長/領域</h3>
+              </div>
+              <div class="t-panel-main">
+                <div class="t-label-list flex-row">
+                  <label class="t-badge t-badge-light-secondary" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                    飛航、服務、管理就業學程
+                  </label>
+                  <label class="t-badge t-badge-light-primary" data-bs-toggle="tooltip" title="服務業客戶服務技巧" aria-label="服務業客戶服務技巧" data-bs-placement="top">
+                    服務業客戶服務技巧
+                  </label>
+                  <label class="t-badge t-badge-light-tertiary" data-bs-toggle="tooltip" title="企業內部控制與內部稽核" aria-label="企業內部控制與內部稽核" data-bs-placement="top">
+                    企業內部控制與內部稽核
+                  </label>
+                  <label class="t-badge t-badge-light-quaternary" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                    飛航、服務、管理就業學程
+                  </label>
+                  <label class="t-badge t-badge-light-success" data-bs-toggle="tooltip" title="服務業客戶服務技巧" aria-label="服務業客戶服務技巧" data-bs-placement="top">
+                    服務業客戶服務技巧
+                  </label>
+                  <label class="t-badge t-badge-light-warning" data-bs-toggle="tooltip" title="企業內部控制與內部稽核" aria-label="企業內部控制與內部稽核" data-bs-placement="top">
+                    企業內部控制與內部稽核
+                  </label>
+                  <label class="t-badge t-badge-light-info" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                    飛航、服務、管理就業學程
+                  </label>
+                  <label class="t-badge t-badge-light-dark" data-bs-toggle="tooltip" title="服務業客戶服務技巧" aria-label="服務業客戶服務技巧" data-bs-placement="top">
+                    服務業客戶服務技巧
+                  </label>
+                  <label class="t-badge t-badge-light-grey" data-bs-toggle="tooltip" title="企業內部控制與內部稽核" aria-label="企業內部控制與內部稽核" data-bs-placement="top">
+                    企業內部控制與內部稽核
+                  </label> <label class="t-badge t-badge-light-light" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                    飛航、服務、管理就業學程
+                  </label>
+                  <label class="t-badge t-badge-light-lightgrey" data-bs-toggle="tooltip" title="服務業客戶服務技巧" aria-label="服務業客戶服務技巧" data-bs-placement="top">
+                    服務業客戶服務技巧
+                  </label>
+                  <label class="t-badge t-badge-light-white" data-bs-toggle="tooltip" title="企業內部控制與內部稽核" aria-label="企業內部控制與內部稽核" data-bs-placement="top">
+                    企業內部控制與內部稽核
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 專長/領域   End -->
+          <!-- 職能類別 Start -->
+          <a name="academic_skills" id="academic_skills"></a>
+          <div id="Skills" class="t-info-item" data-profile="academic_skills">
+            <div class="t-panel">
+              <div class="t-panel-heading">
+                <i class="svg-icon" aria-hidden="true">
+                  <svg>
+                    <use href="#ic-diamond"></use>
+                  </svg>
+                </i>
+                <h3 class="t-panel-heading-txt" data-title="SKILLS">職能類別</h3>
+              </div>
+              <div class="t-panel-main">
+                <div class="t-panel-main-fuild">
+                  <div class="t-label-list flex-row">
+                    <label class="t-badge t-badge-light-secondary" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                      知識職能 (KC)
+                    </label>
+                    <label class="t-badge t-badge-light-warning" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                      行為職能 (BC)
+                    </label>
+                    <label class="t-badge t-badge-light-primary" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                      動機職能 (DC)
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 職能類別 End -->
+          <!-- 授課區域  Start -->
+          <a name="academic_certificates" id="academic_certificates"></a>
+          <div id="Certificates" class="t-info-item" data-profile="academic_certificates">
+            <div class="t-panel">
+              <div class="t-panel-heading">
+                <i class="svg-icon" aria-hidden="true">
+                  <svg>
+                    <use href="#ic-map"></use>
+                  </svg>
+                </i>
+                <h3 class="t-panel-heading-txt" data-title="CERTIFICATES">授課區域 </h3>
+              </div>
+              <div class="t-panel-main">
+                <div class="t-panel-main-fuild">
+                  <div class="t-para">
+                    臺北市、基隆市、新北市、宜蘭縣、新竹市、新竹縣、桃園市、苗栗縣、臺中市、彰化縣、南投縣、嘉義市、嘉義縣、雲林縣、臺南市、高雄市、屏東縣、臺東縣、花蓮縣
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 授課產業別 End -->
+          <!-- 工作經歷 Start -->
+          <a name="academic_chineseSummary" id="academic_chineseSummary"></a>
+          <div id="ChineseSummary" class="t-info-item" data-profile="academic_chineseSummary">
+            <div class="t-panel">
+              <div class="t-panel-heading">
+                <i class="svg-icon" aria-hidden="true">
+                  <svg>
+                    <use href="#ic-archive-book"></use>
+                  </svg>
+                </i>
+                <h3 class="t-panel-heading-txt" data-title="PROFESSIONAL SUMMARY (CHINESE VERSION)">工作經歷</h3>
+              </div>
+              <div class="t-panel-main">
+                <div class="t-panel-main-fuild">
+                  <div class="t-para t-bg-mask-grid-before">
+                    現職為朝陽科技大學保險金融管理副教授 (92.08至今)，
+                    學歷為彰化師範大學工業教育學系「人力資源組」博士，
+                    業界人力資源相關工作經驗有八年多，
+                    並擔任企業內外部講師，以及企業訓練專業人員培訓班講師。
+                    ✅ 彰化師範大學工業教育系人力資源組博士 🎓
+                    ✅ 共通核心職能課程講師 🎓
+                    ✅ 訓練規劃與評量職能之國際合作研習活動，取得 🇦🇺 澳洲「訓練規劃與評估四級證書」
+                    (Certificate IV in Training and Assessment)
+                    ✅ 長宏專案管理顧問有限公司PMP輔導教練
+                    👉👉 研究領域為教育訓練與團隊學習，
+                    近年來授課領域在人力資源管理、人力資源發展、績效管理、組織行為、管理心理學、管理學，以及組織管理等方面。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 工作經歷 End -->
+          <!-- 專業證照 Start -->
+          <a name="academic_englishSummary" id="academic_englishSummary"></a>
+          <div id="EnglishSummary" class="t-info-item" data-profile="academic_englishSummary">
+            <div class="t-panel">
+              <div class="t-panel-heading">
+                <i class="svg-icon" aria-hidden="true">
+                  <svg>
+                    <use href="#ic-cup"></use>
+                  </svg>
+                </i>
+                <h3 class="t-panel-heading-txt" data-title="PROFESSIONAL SUMMARY (ENGLISH VERSION)">專業證照</h3>
+              </div>
+              <div class="t-panel-main">
+                <div class="t-panel-main-fuild">
+                  <dl class="t-definition-list-v">
+                    <dt class="t-definition-term-v">
+                      英語相關證照
+                    </dt>
+                    <dd class="t-definition-description-v">
+                      <label class="t-badge t-badge-light-primary" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                        動機職能 (DC)
+                      </label>
+                      <label class="t-badge t-badge-light-primary" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                        動機職能 (DC)
+                      </label>
+                      <label class="t-badge t-badge-light-primary" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                        動機職能 (DC)
+                      </label>
+                      <label class="t-badge t-badge-light-primary" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                        動機職能 (DC)
+                      </label>
+                    </dd>
+                  </dl>
+                  <dl class="t-definition-list-v">
+                    <dt class="t-definition-term-v">
+                      英語相關證照
+                    </dt>
+                    <dd class="t-definition-description-v">
+                      <label class="t-badge t-badge-light-secondary" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                        知識職能 (KC)
+                      </label>
+                      <label class="t-badge t-badge-light-secondary" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                        知識職能 (KC)
+                      </label>
+                      <label class="t-badge t-badge-light-secondary" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                        知識職能 (KC)
+                      </label>
+                    </dd>
+                  </dl>
+                  <dl class="t-definition-list-v">
+                    <dt class="t-definition-term-v">
+                      英語相關證照
+                    </dt>
+                    <dd class="t-definition-description-v">
+                      <label class="t-badge t-badge-light-warning" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                        行為職能 (BC)
+                      </label>
+                      <label class="t-badge t-badge-light-warning" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                        行為職能 (BC)
+                      </label>
+                    </dd>
+                  </dl>
+                  <dl class="t-definition-list-v">
+                    <dt class="t-definition-term-v">
+                      英語相關證照
+                    </dt>
+                    <dd class="t-definition-description-v">
+                      <label class="t-badge t-badge-light-tertiary" data-bs-toggle="tooltip" title="飛航、服務、管理就業學程" aria-label="飛航、服務、管理就業學程" data-bs-placement="top">
+                        動機職能 (DC)
+                      </label>
                     </dd>
                   </dl>
                 </div>
               </div>
             </div>
           </div>
-          <section>
-            <h1>
-              Default Sample
-            </h1>
-            <table>
-              <tr>
-                <th>User Name</th>
-                <th>Job Title</th>
-                <th>Remarks</th>
-                <th>Action</th>
-              </tr>
-              <tr id="normalTableRow1">
-                <td data-inlineType="text" data-inlineName="user">Cloud</td>
-                <td data-inlineType="text" data-inlineName="title">Mercenary</td>
-                <td data-inlineType="textarea" data-inlineName="remark">Loves using large swords</td>
-                <td data-inlineType="doneButton">
-                  <input type="button" value="Edit" onclick="inlineEdit('normalTableRow1', defaultSampleOptions)" />
-                </td>
-              </tr>
-              <tr id="normalTableRow2">
-                <td data-inlineType="text" data-inlineName="user">Noctis</td>
-                <td data-inlineType="text" data-inlineName="title">Prince</td>
-                <td data-inlineType="textarea" data-inlineName="remark">Possesses magical powers</td>
-                <td data-inlineType="doneButton">
-                  <input type="button" value="Edit" onclick="inlineEdit('normalTableRow2', defaultSampleOptions)" />
-                </td>
-              </tr>
-            </table>
-          </section>
-          <section>
-            <h1>
-              Element Attributes
-            </h1>
-            <table>
-              <tr>
-                <th>NPC Name</th>
-                <th>Work</th>
-                <th>Remarks</th>
-                <th>Action</th>
-                <th>Remove</th>
-              </tr>
-              <tr id="customFuncRow1">
-                <td data-inlineType="text" data-inlineName="name" data-inlineRequired="true">Zeus</td>
-                <td data-inlineType="text" data-inlineName="work" data-inlineRequired="true" data-inlinePlaceholder="(Required)"></td>
-                <td data-inlineType="text" data-inlineName="remark">Powerful entity that helps player</td>
-                <td data-inlineType="doneButton">
-                  <input type="button" value="Edit" onclick="inlineEdit('customFuncRow1', customFunctionsOptions)" />
-                </td>
-                <td data-inlineType="button">
-                  <input type="button" value="Remove" onclick="alert('Remove')" />
-                </td>
-              </tr>
-              <tr id="customFuncRow2">
-                <td data-inlineType="text" data-inlineName="name" data-inlineRequired="1">High Mage</td>
-                <td data-inlineType="text" data-inlineName="work" data-inlineRequired="1" data-inlinePlaceholder="(Required)">Town Hall</td>
-                <td data-inlineType="text" data-inlineName="remark" data-inlineSize="40">Teaches magic to player</td>
-                <td data-inlineType="doneButton">
-                  <input type="button" value="Edit" onclick="inlineEdit('customFuncRow2', customFunctionsOptions)" />
-                </td>
-                <td data-inlineType="button">
-                  <input type="button" value="Remove" onclick="alert('Remove')" />
-                </td>
-              </tr>
-            </table>
-          </section>
-          <section>
-            <h1>
-              Select (Dropdown)
-            </h1>
-            <table>
-              <tr>
-                <th>Red Component</th>
-                <th>Green Component</th>
-                <th>Blue Component</th>
-                <th>Mix</th>
-              </tr>
-              <tr id="selectRow1">
-                <td data-inlineType="select" data-inlineName="red" data-inlineOptionsTitle='["FF","CC","99","66","33","00"]' data-inlineOptionsValue='["FF","CC","99","66","33","00"]'>FF</td>
-                <td data-inlineType="select" data-inlineName="green" data-inlineOptionsTitle='["FF","CC","99","66","33","00"]' data-inlineOptionsValue='["FF","CC","99","66","33","00"]'>99</td>
-                <td data-inlineType="select" data-inlineName="blue" data-inlineOptionsTitle='["FF","CC","99","66","33","00"]' data-inlineOptionsValue='["FF","CC","99","66","33","00"]'>33</td>
-                <td data-inlineType="doneButton">
-                  <input type="button" value="Generate" onclick="inlineEdit('selectRow1', sampleOptions)" />
-                </td>
-              </tr>
-              <tr id="selectRow2">
-                <td data-inlineType="select" data-inlineName="red" data-inlineOptionsTitle='["FF","CC","99","66","33","00"]' data-inlineOptionsValue='["FF","CC","99","66","33","00"]'>00</td>
-                <td data-inlineType="select" data-inlineName="green" data-inlineOptionsTitle='["FF","CC","99","66","33","00"]' data-inlineOptionsValue='["FF","CC","99","66","33","00"]'>33</td>
-                <td data-inlineType="select" data-inlineName="blue" data-inlineOptionsTitle='["FF","CC","99","66","33","00"]' data-inlineOptionsValue='["FF","CC","99","66","33","00"]'>66</td>
-                <td data-inlineType="doneButton">
-                  <input type="button" value="Generate" onclick="inlineEdit('selectRow2', sampleOptions)" />
-                </td>
-              </tr>
-            </table>
-          </section>
-          <!-- Footer Start -->
-          <footer class="t-custom-footer">
-            <div class="container">
-              <div class="row align-items-center pb-4">
-                <div class="col-md">
-                  <h2 class="t-custom-footer-logo">
-                    <picture class="opt-36">
-                      <source class="" src="../../assets/images/wda_logo_bg.svg" data-src="../../assets/images/10Ratio3.3333_v1.svg">
-                      <img alt="勞動力發展署 - 關鍵就業力課程" src="../../assets/images/wda_logo_bg.svg"></img>
-                    </picture>
-                  </h2>
-                </div>
-                <div class="col-md-auto">
-                  <div class="t-flex">
-                    <a class="btn btn--pointer mr-4" href="javascript:;">會員登入</a>
-                    <a class="btn btn--pointer" href="javascript:;">會員註冊</a>
-                  </div>
-                </div>
+          <!-- 專業證照 End -->
+          <!-- 自我簡介 Start -->
+          <a name="academic_portfolio" id="academic_portfolio"></a>
+          <div id="Portfolios" class="t-info-item" data-profile="academic_portfolio">
+            <div class="t-panel">
+              <div class="t-panel-heading">
+                <i class="svg-icon" aria-hidden="true">
+                  <svg>
+                    <use href="#ic-3d-square"></use>
+                  </svg>
+                </i>
+                <h3 class="t-panel-heading-txt" data-title="PORTFOLIOS">自我簡介</h3>
               </div>
-              <div class="t-custom-footer-bd pb-4">
-                <div class="row">
-                  <div class="col-sm-3">
-                    <ul class="list-unstyled t-footer-list">
-                      <li>
-                        <a class="link link-light" href="javascript:;">網站導覽</a>
-                      </li>
-                      <li>
-                        <a class="link link-light" href="javascript:;">客服信箱</a>
-                      </li>
-                      <li>
-                        <a class="link link-light" href="javascript:;">常見問答</a>
-                      </li>
-                    </ul>
+              <div class="t-panel-main">
+                <div class="t-panel-main-fuild">
+                  <div class="t-para t-bg-mask-grid-before">
+                    內容充實，上課活潑生動，上課內容引導至生活例句，易記、易懂，灌輸正向思考，對國文興趣加深，且容易學習，體恤學生，例如：生活瑣事與個人情緒，老師都會想幫助與開導，進而引導正確的生活態度與觀念，不時提供最新的資訊與相關報導，提醒學生知悉情勢。
+                    熟知教材內容與命題趨勢。豐富多元的教學經驗讓學子受益良多。
                   </div>
-                  <div class="col-sm-3">
-                    <ul class="list-unstyled t-footer-list">
-                      <li>
-                        <a class="link link-light" href="javascript:;">
-                          什麼是關鍵就業力課程？
-                          <i class="bi-box-arrow-up-right ms-1"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="link link-light" href="javascript:;">政府網站資訊開放宣告</a>
-                      </li>
-                      <li>
-                        <a class="link link-light" href="javascript:;">隱私權及安全政策</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="col-sm-6 ">
-                    <ul class="list-unstyled t-footer-list">
-                      <li>
-                        勞動力發展署：
-                        <a class="link link-light link-light-75" href="javascript:;">24219 新北市新莊區中平路 439 號 (南棟 7 樓)
-                        </a>
-                      </li>
-                      <li>電話代表號：
-                        <a class="link link-light link-light-75" href="javascript:;">(02)8995-6000
-                        </a>
-                      </li>
-                      <li>免付費電話：
-                        <a class="link link-light link-light-75" href="javascript:;">0800-777-888
-                        </a>
-                      </li>
-                      <li>本署服務時間：
-                        <a class="link link-light link-light-75" href="javascript:;">週一～週五 08:30～12:30、13:30～17:30</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="row align-items-md-center pt-4">
-                <div class="col-md">
-                  <ul class="list-inline">
-                    <li class="list-inline-item">
-                      <span class="d-flex align-items-center">
-                        <picture class="t-footer-logos">
-                          <source src="../../assets/images/wda_logo_circle.svg" data-src="../../assets/images/10Ratio3.3333_v1.svg">
-                          <img alt="勞動力發展署 - 關鍵就業力課程" src="../../assets/images/wda_logo_circle.svg" width="20" height="20" />
-                        </picture>
-                        <span>
-                          本網站建議使用 IE10 以上版本瀏覽器及以1024ｘ768以上解析度，以獲得最佳瀏覽體驗。
-                        </span>
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-auto">
-                  <p class="mb-0">© 2021 All rights reserved. 本網站為勞動部勞動力發展署版權所有.</p>
                 </div>
               </div>
             </div>
-          </footer>
-          <!-- Footer End -->
+          </div>
+          <!-- 自我簡介 End -->
+          <!-- 曾開授課程   Start -->
+          <a name="academic_portfolio" id="academic_portfolio"></a>
+          <div id="Portfolios" class="t-info-item" data-profile="academic_portfolio">
+            <div class="t-panel">
+              <div class="t-panel-heading">
+                <i class="svg-icon" aria-hidden="true">
+                  <svg>
+                    <use href="#ic-3d-square"></use>
+                  </svg>
+                </i>
+                <h3 class="t-panel-heading-txt" data-title="PORTFOLIOS">曾開授課程 </h3>
+              </div>
+              <div class="t-panel-main">
+                <div class="t-panel-main-fuild">
+                  <div class="row row-cols-1 row-cols-sm-2">
+                    <a class="col mb-4" data-fslightbox="gallery" href="https://assets.codepen.io/2845599/Saly_44.webp">
+                      <figure class="t-card-mask-v1 t-card-mask-gradient-bottom-left">
+                        <img class="t-card-img" src="https://assets.codepen.io/2845599/Saly_44.webp">
+                        <figcaption class="t-card-mask-v1-cnt">
+                          <div class="t-icon-wrapper">
+                            <i class="svg-icon svg-icon-2hx"><svg>
+                                <use href="#ic-zoom-in"></use>
+                              </svg></i>
+                          </div>
+                        </figcaption>
+                      </figure>
+                    </a>
+                    <a class="col mb-4" data-fslightbox="gallery" href="https://assets.codepen.io/2845599/Saly_44.webp">
+                      <figure class="t-card-mask-v1 t-card-mask-gradient-bottom-left">
+                        <img class="t-card-img" src="https://assets.codepen.io/2845599/Saly_44.webp">
+                        <figcaption class="t-card-mask-v1-cnt">
+                          <div class="t-icon-wrapper">
+                            <i class="svg-icon svg-icon-2hx"><svg>
+                                <use href="#ic-zoom-in"></use>
+                              </svg></i>
+                          </div>
+                        </figcaption>
+                      </figure>
+                    </a>
+                    <a class="col mb-4" data-fslightbox="gallery" href="https://assets.codepen.io/2845599/Saly_44.webp">
+                      <figure class="t-card-mask-v1 t-card-mask-gradient-bottom-left">
+                        <img class="t-card-img" src="https://assets.codepen.io/2845599/Saly_44.webp">
+                        <figcaption class="t-card-mask-v1-cnt">
+                          <div class="t-icon-wrapper">
+                            <i class="svg-icon svg-icon-2hx"><svg>
+                                <use href="#ic-zoom-in"></use>
+                              </svg></i>
+                          </div>
+                        </figcaption>
+                      </figure>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 曾開授課程   End -->
+        </div>
+      </div>
+    </section>
+    <!-- Footer Start -->
+    <footer class="t-custom-footer">
+      <div class="container">
+        <div class="row align-items-center pb-4">
+          <div class="col-md">
+            <h2 class="t-custom-footer-logo">
+              <picture class="opt-36">
+                <source class="" src="../../assets/images/wda_logo_bg.svg" data-src="../../assets/images/10Ratio3.3333_v1.svg">
+                <img alt="勞動力發展署 - 關鍵就業力課程" src="../../assets/images/wda_logo_bg.svg"></img>
+              </picture>
+            </h2>
+          </div>
+          <div class="col-md-auto">
+            <div class="t-flex">
+              <a class="btn btn--pointer mr-4" href="javascript:;">會員登入</a>
+              <a class="btn btn--pointer" href="javascript:;">會員註冊</a>
+            </div>
+          </div>
+        </div>
+        <div class="t-custom-footer-bd pb-4">
+          <div class="row">
+            <div class="col-sm-3">
+              <ul class="list-unstyled t-footer-list">
+                <li>
+                  <a class="link link-light" href="javascript:;">網站導覽</a>
+                </li>
+                <li>
+                  <a class="link link-light" href="javascript:;">客服信箱</a>
+                </li>
+                <li>
+                  <a class="link link-light" href="javascript:;">常見問答</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-sm-3">
+              <ul class="list-unstyled t-footer-list">
+                <li>
+                  <a class="link link-light" href="javascript:;">
+                    什麼是關鍵就業力課程？
+                    <i class="bi-box-arrow-up-right ms-1"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="link link-light" href="javascript:;">政府網站資訊開放宣告</a>
+                </li>
+                <li>
+                  <a class="link link-light" href="javascript:;">隱私權及安全政策</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-sm-6 ">
+              <ul class="list-unstyled t-footer-list">
+                <li>
+                  勞動力發展署：
+                  <a class="link link-light link-light-75" href="javascript:;">24219 新北市新莊區中平路 439 號 (南棟 7 樓)
+                  </a>
+                </li>
+                <li>電話代表號：
+                  <a class="link link-light link-light-75" href="javascript:;">(02)8995-6000
+                  </a>
+                </li>
+                <li>免付費電話：
+                  <a class="link link-light link-light-75" href="javascript:;">0800-777-888
+                  </a>
+                </li>
+                <li>本署服務時間：
+                  <a class="link link-light link-light-75" href="javascript:;">週一～週五 08:30～12:30、13:30～17:30</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-md-center pt-4">
+          <div class="col-md">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <span class="d-flex align-items-center">
+                  <picture class="t-footer-logos">
+                    <source src="../../assets/images/wda_logo_circle.svg" data-src="../../assets/images/10Ratio3.3333_v1.svg">
+                    <img alt="勞動力發展署 - 關鍵就業力課程" src="../../assets/images/wda_logo_circle.svg" width="20" height="20" />
+                  </picture>
+                  <span>
+                    本網站建議使用 IE10 以上版本瀏覽器及以1024ｘ768以上解析度，以獲得最佳瀏覽體驗。
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-auto">
+            <p class="mb-0">© 2021 All rights reserved. 本網站為勞動部勞動力發展署版權所有.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
   </main>
   <!-- ChangeMode -->
   <div class="t-float-change-mode" id="tuChangeMode">
-    <svg xmlns="http://www.w3.org/8000/svg" viewBox="0 0 64 64"></svg>
   </div>
   <!-- Scrolltop -->
   <a href="javascript:;" id="tuScrolltop" class="tu-scrolltop">
     <i class="js-go-top--arrow" aria-hidden="true"></i>
   </a>
   <!-- SVG Symbols (Outlines) -->
-  <svg id="Outlines" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden="true">
+  <svg id="symbol" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden="true">
+    <!-- <i class="svg-icon"><svg><use href="#ic-ruler"></use></svg></i> -->
+    <symbol id="ic-user-outline" viewBox="0 0 24 24">
+      <title>ruler&pen</title>
+      <g fill="currentColor" data-name="ruler&amp;pen">
+        <path d="M14 22a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3ZM4 21l-1-2a3 3 0 0 1 0-1V5a3 3 0 0 1 2-3 3 3 0 0 1 3 3v13a4 4 0 0 1 0 1l-1 2a2 2 0 0 1-2 1 2 2 0 0 1-1-1Z" opacity=".4" />
+        <path d="M11 19v-2h4a1 1 0 0 1 1 1 1 1 0 0 1-1 1Zm5-4h-5v-2h5a1 1 0 0 1 1 1 1 1 0 0 1-1 1Zm-5-4V9h3a1 1 0 0 1 1 1 1 1 0 0 1-1 1ZM3 8V6h5v2Zm8-1V5h5a1 1 0 0 1 1 1 1 1 0 0 1-1 1Z" />
+      </g>
+    </symbol>
     <!-- <i class="svg-icon"><svg><use href="#ic-user-outline"></use></svg></i> -->
     <symbol id="ic-user-outline" viewBox="0 0 24 24">
       <title>USER</title>
@@ -686,6 +1087,14 @@
       <g fill="currentColor">
         <path d="M21.3 9.2c-2.4-3.7-5.7-5.8-9.3-5.8A9.7 9.7 0 0 0 7 5a13.4 13.4 0 0 0-4.3 4.3 5.8 5.8 0 0 0 0 5.6c2.4 3.7 5.7 5.8 9.3 5.8a9.7 9.7 0 0 0 5-1.5 13.4 13.4 0 0 0 4.3-4.3 5.8 5.8 0 0 0 0-5.6ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Z" opacity=".4" />
         <path d="M12 9.1a2.9 2.9 0 1 0 2.9 2.9A2.9 2.9 0 0 0 12 9.1Z" data-name="Vector" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-eye-slash"></use></svg></i> -->
+    <symbol id="ic-eye-slash" viewBox="0 0 24 24">
+      <title>eye-slash</title>
+      <g fill="currentColor">
+        <path d="m7.3 19.3 3.5-3.4a3.8 3.8 0 0 0 1.2.1 4 4 0 0 0 4-4 3.9 3.9 0 0 0-.1-1.2L19.6 7a14.9 14.9 0 0 1 1.7 2.1 5.8 5.8 0 0 1 0 5.7 13.4 13.4 0 0 1-4.2 4.3 9.7 9.7 0 0 1-5.1 1.5 9.5 9.5 0 0 1-4.7-1.3Zm-1.6-1a14.3 14.3 0 0 1-3-3.5 5.8 5.8 0 0 1 0-5.6A13.4 13.4 0 0 1 7 4.9a9.8 9.8 0 0 1 5-1.5 10 10 0 0 1 6.3 2.3l-3.4 3.4A4 4 0 0 0 12 8a4 4 0 0 0-4 4 4 4 0 0 0 1 2.9l-3.3 3.4Z" opacity=".4" />
+        <path d="M2.2 21.8a.8.8 0 0 1 0-1.1l7.3-7.3a2.8 2.8 0 0 1-.4-1.4A2.9 2.9 0 0 1 12 9.1a2.8 2.8 0 0 1 1.4.4l7.3-7.3a.8.8 0 0 1 1 0 .7.7 0 0 1 0 1.1L3.4 21.8a.8.8 0 0 1-.5.2.8.8 0 0 1-.6-.2Zm9.6-7 3-3a.5.5 0 0 1 0 .2 2.9 2.9 0 0 1-2.8 2.9.5.5 0 0 1-.2 0Z" />
       </g>
     </symbol>
     <!-- <i class="svg-icon"><svg><use href="#ic-business-plan"></use></svg></i> -->
@@ -1015,22 +1424,17 @@
   <script src="../../assets/javascript/observer/JsImagesLazyLoad.js"></script>
   <script src="../../assets/javascript/components/categoryPicker/categoryPicker.js"></script>
   <script src="../../assets/javascript/components/canvasBlur.js"></script>
-  <script type="text/javascript">
-  </script>
+  <script src="../../assets/javascript/components/JsMenu.js"></script>
+  <script src="./index.js"></script>
   <script>
-  // darkmode
-  var darkmodeBtns = JSTU.Gid("changeMode");
+  var log = function() {
+    console.log.apply(console, arguments)
+  }
 
-  var darkmode = new JsDarkMode(darkmodeBtns, {
-    storageName: "darkMode"
-  });
 
-  // Go Top
-  var scrEl = document.getElementById("tu_scrolltop")
-  var scrollTop = new JsTuScrolltop(scrEl, {
-    offset: 300,
-    speed: 100
-  })
+
+
+
   // Scroll Fixed Header 未封裝 判斷滾動方向
   headerScrollFunc('tHeader');
 
@@ -1113,32 +1517,7 @@
   }
 
   window.addEventListener("load", function(event) {
-    function simpleRowDataParser(rowData) {
-      var str = "";
-      for (var key in rowData) {
-        if (rowData.hasOwnProperty(key))
-          str += key + ":" + rowData[key] + "\n";
-      }
-      return str;
-    }
 
-    function defaultSampleCallback(rowData, rowName) {
-      alert(rowName + "\n" + simpleRowDataParser(rowData));
-    }
-
-    function selectCallback(rowData, rowName) {
-      var colors = ["FF", "CC", "99", "66", "33", "00"];
-      document.getElementById(rowName).children[3].style.backgroundColor = "#" + colors[rowData.red] + colors[rowData.green] + colors[rowData.blue];
-    }
-
-    var defaultSampleOptions = { "finishCallback": defaultSampleCallback };
-    var customFunctionsOptions = {
-      "updateCell": inlineDefaultUpdateCell,
-      "finish": inlineDefaultFinish,
-      "finishCallback": defaultSampleCallback,
-      "finishCell": inlineDefaultFinishCell
-    };
-    var sampleOptions = { "finishCallback": selectCallback };
   });
   </script>
 </body>

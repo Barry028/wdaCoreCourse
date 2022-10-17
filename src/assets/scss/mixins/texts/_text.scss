@@ -5,15 +5,16 @@
 
 // @include title;
 @mixin title {
-  font-weight: $font-family-display-weight;
-  font-family: $font-family-display;
   letter-spacing: 0.05em;
   line-height: 1.125em;
   font-family: $headings-font-family;
   font-weight: $headings-font-weight-bold;
 }
 
-@mixin titleComic($color: $dark) {
+
+
+// @include title-comic($primary);
+@mixin title-comic($color: $dark) {
   text-shadow: -1px -1px 0 $color, 0 -1px 0 $color, 1px -1px 0 $color, -1px 0 0 $color, 1px 0 0 $color, -1px 1px 0 $color, 0 1px 0 $color, 1px 1px 0 $color, -2px -2px 0 $color, -1px -2px 0 $color, 0 -2px 0 $color, 1px -2px 0 $color, 2px -2px 0 $color, 2px -1px 0 $color, 2px 0 0 $color, 2px 1px 0 $color, 2px 2px 0 $color, 1px 2px 0 $color, 0 2px 0 $color, -1px 2px 0 $color, -2px 2px 0 $color, -2px 1px 0 $color, -2px 0 0 $color, -2px -1px 0 $color;
 }
 
@@ -27,6 +28,10 @@
   height: $height;
   left: 0;
   top: 50%;
+  align-items: center;
+    justify-content: normal;
+    text-align: center;
+    font-size: 2.5rem;
   z-index: -1;
 }
 
@@ -58,4 +63,70 @@
       }
     }
   }
+}
+
+
+
+
+// @include text-shaded($size: 1px, $shadow: $primary ,$through: 10);
+@mixin text-shaded($size: 1px, $shadow: $primary, $through: 10) {
+  font-weight: 700;
+
+  // --shadow-color: $color;
+  $value: ();
+
+  @for $i from 1 through $through {
+    $num: $i * $size;
+    $theShadow: #{-$num} $num $shadow;
+    $value: append($value, $theShadow, comma);
+  }
+
+  text-shadow: $value;
+}
+// @include text-shaded-r($size: 1px, $shadow: $primary ,$through: 10);
+@mixin text-shaded-r($size: 1px, $shadow: $primary, $through: 10) {
+  font-weight: 700;
+
+  // --shadow-color: $color;
+  $value: ();
+
+  @for $i from 1 through $through {
+    $num: $i * $size;
+    $theShadow: #{$num} #{-$num} $shadow;
+    $value: append($value, $theShadow, comma);
+  }
+
+  text-shadow: $value;
+}
+
+// @include text-shaded-t($size: 1px, $shadow: $primary ,$through: 10);
+@mixin text-shaded-t($size: 1px, $shadow: $primary, $through: 10) {
+  font-weight: 700;
+
+  // --shadow-color: $color;
+  $value: ();
+
+  @for $i from 1 through $through {
+    $num: $i * $size;
+    $theShadow: #{-$num} -$num $shadow;
+    $value: append($value, $theShadow, comma);
+  }
+
+  text-shadow: $value;
+}
+
+// @include text-shaded-b($size: 1px, $shadow: $primary ,$through: 10);
+@mixin text-shaded-b($size: 1px, $shadow: $primary, $through: 10) {
+  font-weight: 700;
+
+  // --shadow-color: $color;
+  $value: ();
+
+  @for $i from 1 through $through {
+    $num: $i * $size;
+    $theShadow: #{$num} $num $shadow;
+    $value: append($value, $theShadow, comma);
+  }
+
+  text-shadow: $value;
 }

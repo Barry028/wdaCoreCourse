@@ -6,10 +6,9 @@
   padding: 0.375rem 0.75rem 0.875rem;
   background-color: rgba($grey-100, 0.12);
 
-  @each $color,
-  $value in $element-colors {
+  @each $color, $value in $element-colors {
     &.table--#{$color} {
-      background-color: rgba($value, 0.08);
+      background-color: rgba($value, 0.24);
     }
   }
 
@@ -56,7 +55,7 @@
     //     }
     //   }
     // }
-
+ 
   }
 
   &.t-table-responsive--data {
@@ -104,7 +103,7 @@
             vertical-align: middle;
 
             // margin: 0 .25rem;
-
+         
           }
 
           .btn--xs {
@@ -130,8 +129,8 @@
           @media (max-width: $screen-md) {
             display: flex;
             border-radius: 0.5rem;
-            padding: 1.125rem;
-            justify-content: right;
+            padding: 0.5rem 0.75rem;
+            justify-content: start;
             flex-wrap: wrap;
           }
 
@@ -143,65 +142,48 @@
 
           td {
             @media (max-width: $screen-md) {
-              font-size: 1.125rem;
-              padding: 0.75rem;
+              display: inline-flex;
+              flex-direction: column;
+              white-space: initial;
+              flex: 1 1 auto;
+              text-underline-offset: .25rem;
+              font-size: 1rem;
+              padding: 0.625rem;
+              text-align: left;
             }
 
-            &:not(.tool-td):not(.tool-default-td) {
+            &:not(.td-full) {
               @media (max-width: $screen-md) {
-                display: inline-flex;
-                flex-direction: column;
-                white-space: initial;
-                text-underline-offset: .25rem;
-                padding: 1.125rem 0.75rem;
+                max-width: 50%;
               }
 
-              &:not(.td-full) {
-                @media (max-width: $screen-md) {
-                  max-width: 50%;
-                }
-
-                @media (max-width: 524px) {
-                  &.form-td {
-                    width: 100%;
-                  }
-                }
-              }
-
-              &.form-td,
-              &.not-decoration {
-                text-decoration: none;
-              }
-
-              &.td-full {
-                @media (max-width: $screen-md) {
+              @media (max-width: 524px) {
+                &.form-td {
                   width: 100%;
                 }
               }
+            }
 
-              &.td-long {
-                .td-long-txt {
-                  @media (max-width: $screen-md) {
-                    width: 100%;
-                  }
-                }
+            &.td-full {
+              @media (max-width: $screen-md) {
+                width: 100%;
               }
+            }
 
-              &:before {
-                @media (max-width: $screen-md) {
-                  content: attr(data-th);
-                  display: inline-block;
-                  width: 100%;
-                  white-space: nowrap;
-                  font-weight: 700;
-                  margin-right: 1.5rem;
-                  margin-bottom: .5rem;
-                  color: $grey;
-                  text-decoration-color: $grey-200;
-                  text-decoration-line: underline;
-                  text-decoration-style: dashed;
-                  text-underline-offset: 0.375rem;
-                }
+            &:before {
+              @media (max-width: $screen-md) {
+                content: attr(data-th);
+                display: inline-block;
+                width: 100%;
+                white-space: nowrap;
+                font-weight: 700;
+                margin-right: 1.5rem;
+                margin-bottom: .5rem;
+                color: $grey;
+                text-decoration-color: $grey-200;
+                text-decoration-line: underline;
+                text-decoration-style: dashed;
+                text-underline-offset: 0.375rem;
               }
             }
 
@@ -222,7 +204,7 @@
 
                   font {
                     // font-size: 0;
-
+                 
                   }
 
                   i {
@@ -268,14 +250,6 @@
 
             .input-group {
               border-collapse: collapse;
-            }
-
-            .dashboard-form-input {
-              // padding: .75rem 0;
-
-              .dashboard-form-control {
-                font-size: .9375rem;
-              }
             }
 
             .form-check-input {
@@ -362,29 +336,19 @@
           }
         }
 
-        &:not(:last-child):not(:first-child) {
+
           padding: $table-cell-padding-y $table-cell-padding-x $table-cell-padding-y $table-cell-padding-x;
-        }
+
 
         &:first-child {
-          padding: $table-cell-padding-y $table-cell-padding-x $table-cell-padding-y $table-cell-padding-x;
           border-radius: .5rem 0 0 .5rem;
         }
 
         &:last-child {
           border-radius: 0 .5rem .5rem 0;
-          padding: $table-cell-padding-y $table-cell-padding-x $table-cell-padding-y $table-cell-padding-x;
         }
 
-        // &.td-long {
-        //   white-space: normal;
-        //   word-break: break-all;
-
-        //   .td-long-txt {
-        //     width: 12rem;
-        //   }
-        // }
-
+     
       }
 
       .tool-td {

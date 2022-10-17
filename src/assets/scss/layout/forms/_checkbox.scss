@@ -2,9 +2,9 @@
 //  Layout -> chkeckcheckbox 
 // --------------------------------------------------
 $checkbox-size: 1.25rem;
-$checkbox-h: 0.5rem;
-$checkbox-w: 0.25rem;
-$checkbox-border-w: .1875rem;
+$checkbox-h: 0.625rem;
+$checkbox-w: 0.375rem;
+$checkbox-border-w: 0.125rem;
 
 $checkbox-size-md: 1.5rem;
 $checkbox-h-md: 0.75rem;
@@ -51,8 +51,8 @@ $checkbox-w-lg: 0.625rem;
         content: '';
         transition: $transition;
       }
-      &:before {
 
+      &:before {
         display: block;
         height: 100%;
         width: 100%;
@@ -68,7 +68,6 @@ $checkbox-w-lg: 0.625rem;
         width: $checkbox-w;
         border: solid $white;
         border-width: 0 $checkbox-border-w $checkbox-border-w 0;
-
         position: absolute;
         top: 40%;
         left: 50%;
@@ -132,6 +131,7 @@ $checkbox-w-lg: 0.625rem;
     a, text, span {
       cursor: not-allowed;
     }
+
     .checkbox:hover:before {
       display: none;
     }

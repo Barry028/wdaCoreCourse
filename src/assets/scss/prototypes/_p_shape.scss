@@ -97,6 +97,41 @@
   clip-path: path("m 0 246 l 92 -30 c 91 -30 274 -92 455 -82 c 182 12 364 92 546 112 s 364 -22 546 -40 c 182 -20 364 -20 546 10 s 364 92 455 122 L 2732 368 v 122 H 0 Z");
 }
 
+// Classes
+.t-angle--top-left {
+  @include angle-edge($angle: 3, $angle-position-y: 'top', $angle-position-x: 'left');
+}
+
+.t-angle--top-right {
+  @include angle-edge($angle: 3, $angle-position-y: 'top', $angle-position-x: 'right');
+}
+
+.t-angle--bottom-left {
+  @include angle-edge($angle: 3, $angle-position-y: 'bottom', $angle-position-x: 'left');
+}
+
+.t-angle--bottom-right {
+  @include angle-edge($angle: 3, $angle-position-y: 'bottom', $angle-position-x: 'right');
+}
+
+.t-angle--both-left-left {
+  @include angle-edge($angle: 3, $angle-position-y: 'both', $angle-position-x: 'left');
+}
+
+.t-angle--both-right-right {
+  @include angle-edge($angle: 3, $angle-position-y: 'both', $angle-position-x: 'right');
+}
+
+.t-angle--both-left-right {
+  @include angle-edge($angle: 3, $angle-position-y: 'both', $angle-position-x: 'left', $angle-position-bottom-x: 'right');
+}
+
+.t-angle--both-right-left {
+  @include angle-edge($angle: 3, $angle-position-y: 'both', $angle-position-x: 'right', $angle-position-bottom-x: 'left');
+}
+
+
+
 // .t-svg-path-v002 {
 //   clip-path: path("M 1.188 970.336 V 636.336 C 66.861 641.53 132.535 646.724 181.188 634.336 C 229.84 621.948 261.469 591.979 329.188 580.336 S 500.711 575.376 574.188 603.336 S 690.813 680.532 737.188 674.336 C 783.563 668.14 833.164 606.51 892.188 603.336 C 951.211 600.162 1019.66 655.443 1076.19 653.336 C 1132.72 651.229 1177.34 591.734 1236.19 579.336 C 1295.04 566.938 1368.11 601.637 1441.19 636.336 V 970.336 Z")
 // }

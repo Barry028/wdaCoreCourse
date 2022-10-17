@@ -156,3 +156,25 @@
     }
   }
 }
+
+
+
+
+
+
+
+@mixin col-md-12 {
+  .col-md-12 & {
+    @content;
+  }
+}
+@mixin col-md-9 {
+  .col-md-9 & {
+    @content;
+  }
+}
+@mixin col-md-6 {
+  .col-md-6 & {
+    @content;
+  }
+}

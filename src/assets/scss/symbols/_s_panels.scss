@@ -8,7 +8,7 @@
   .t-badge {
     margin-bottom: .625rem;
     margin-right: .5rem;
-    padding: 0.625rem 1rem;
+    padding: 0.3125rem .625rem;
   }
 }
 
@@ -96,14 +96,14 @@
     // }
 
     .svg-icon {
-      color: $primary;
-      margin-right: 0.75rem;
+      // color: $primary;
+      // margin-right: 0.75rem;
 
       // @include sm-min {
       //   margin-right: 0;
       //   margin-bottom: .5rem;
       // }
-
+   
     }
 
     .t-panel-heading-txt {
@@ -187,29 +187,57 @@
 
     .t-panel-item-img-container {
       width: 10rem;
+      cursor: pointer;
+      height: fit-content;
+      text-align: center;
 
       .t-panel-img {
-        width: 8rem;
-        height: 8rem;
+        display: block;
         z-index: 1;
 
+        img {
+          border-radius: 1rem;
+          border: 0.15rem rgba($white, 0.66) solid;
+          box-shadow: 0.125rem 0.125rem 0.5rem rgba($dark, 0.2);
+        }
+
         &:before {
+          border-color: transparent;
+        }
+
+        picture:after,
+        picture:before {
           content: '';
           position: absolute;
-          top: -10%;
-          left: 10%;
-          width: 120%;
-          transform: rotate(-5deg) translateX(-1.25rem);
-          height: 120%;
           border-radius: 50%;
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-color: transparent;
           z-index: -1;
-          border: none;
-
-          @include pattern-diagonal-lines(0.375rem, $gray-100);
         }
-      }
 
-      cursor: pointer;
+        picture:before {
+          transform: rotate(80deg);
+          left: 1rem;
+          top: -0.5rem;
+
+          @include pattern-diagonal-stripes(0.125rem, $secondary-100);
+        }
+
+        picture:after {
+          left: 1rem;
+          top: 1rem;
+          transform: rotate(-140deg);
+
+          @include pattern-diagonal-stripes(0.125rem, $info-100);
+        }
+
+        // > source:before {
+        //   border-color: $info-200;
+        // }
+     
+      }
 
       @include hover {
         transition: $transition;
@@ -224,7 +252,7 @@
   }
 
   .t-panel-title {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     color: $primary-900;
 
     @include stroke(0.25rem, rgba($primary-600, 0.2));
@@ -233,8 +261,9 @@
       @include stroke(0.25rem, rgba($tertiary-600, 0.2));
     }
   }
-  .t-panel-sub-title  {
-    color: $grey-600;
+
+  .t-panel-sub-title {
+    color: $neutral-800;
     font-size: 95%;
     margin-top: 0.5rem;
   }
@@ -244,7 +273,7 @@
     width: 100%;
     justify-content: end;
 
-    >.btn {
+    > .btn {
       padding-left: 3rem;
       padding-right: 3rem;
 
@@ -276,8 +305,8 @@
 
     @include teacher {
       background-color: $tertiary-50;
-
     }
+
 
     .t-definition-list {
       margin-bottom: 0.375rem;

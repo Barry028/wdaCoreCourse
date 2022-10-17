@@ -2,8 +2,7 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////
-$fixedAreaR:           2rem !default;
-$fixedAreaB:           $fixedAreaR !default;
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -171,7 +170,7 @@ $aspect-ratios: (
 
 // Body
 
-$primary-light:                $primary-300      !default;
+$primary-light:                $primary-100      !default;
 $primary-inverse:              $primary-800      !default;
 $component-active-color:       $primary-inverse  !default;
 $component-active-bg:          $primary          !default;
@@ -233,8 +232,68 @@ $component-hover-color: $primary !default;
 $hover-bg: rgba($gray-100, 0.8) !default;
 
 // Custom variable(to remove)
-$active-bg: $hover-bg !default;
+$active-bg:                        $hover-bg !default;
+$border-size:                     0.25rem                             !default;
 
+
+// GO TOP
+$fixedAreaR:              1.5rem !default;
+$fixedAreaB:              $fixedAreaR !default;
+$go-icon-size-box:        3rem;
+$go-icon-size:            ($go-icon-size-box * 0.618);
+$go-icon-size-box-radius: 2rem;
+$go-icon-box-shadow:      0 1.5rem 3rem 0 rgba($primary-800, 0.36), 
+																										0 1rem 2rem 0 rgba($primary-600, 0.48), 
+																										inset 0 -0.5rem 1.5rem 0 rgba($primary-200, 0.48)  ,inset 0px 10px 10px rgb(255 255 255 / 50%), inset 0px -5px 10px rgb(0 0 0 / 30%) ;
+$dark-icon-box-shadow:    0 1.5rem 3rem 0 rgba($grey-800, 0.36), 
+																										0 1rem 2rem 0 rgba($grey-600, 0.48), 
+																										inset 0 -0.5rem 1.5rem 0 rgba($white, 0.24) , inset 0px 10px 10px rgb(255 255 255 / 50%), inset 0px -5px 10px rgb(0 0 0 / 30%) ;
+
+$light-background:        linear-gradient($light 0%, $grey-200 38%, $grey-300 48%, $grey-500 74%, $grey-700 100%);
+$dark-background:         linear-gradient($neutral 0%, $neutral-900 38%, $neutral-800 48%, $neutral-700 74%, $neutral-600 100%);
+$light-shadow-v1:         0 1.5rem 3rem 0;
+$light-shadow-v2:         inset 0 -0.5rem 1.5rem 0 ;
+
+
+// inset 0px 10px 10px rgb(255 255 255 / 50%), inset 0px -5px 10px rgb(0 0 0 / 30%)$light-shadow-v1 rgba($primary-500, 0.42), $light-shadow-v2 rgba($primary-600, 0.8)
+$light-shadow:            $light-shadow-v1 rgba($primary-50, 0.66), $light-shadow-v2 rgba($primary-100, 0.8);
+$dark-shadow:             inset 0px 10px 10px rgb(255 255 255 / 50%), inset 0px -5px 10px rgb(0 0 0 / 30%) ;
+$float-transition:        0.35s all ease-in-out;
+$float-z-index:           99;
+$change-mode-bottom:      5.25rem;
+// button::after {
+//     width: 100px;
+//     height: 100px;
+//     transform: translateX(-63px) rotateX(80deg);
+//     background: rgb(0,0,0);
+//     background: -moz-radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 40%);
+//     background: -webkit-radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 40%);
+//     background: radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 40%);
+//     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#b8d3f0",GradientType=1);
+//     content: '';
+//     position: absolute;
+//     transition: 500ms;
+
+
+
+
+// PIXEL Buttons
+$button-shadow-size:              0.25rem                             !default;
+$button-padding-y:                0.25rem                             !default;
+$button-padding-x:                0.75rem                             !default;
+$button-shadow-color:             rgba($dark, 0.12)                   !default;
+$button-shadow-size:              $shadow-size                        !default;
+$button-shadow-size--hover:       0.3625rem                           !default;
+$button-shadow-size--focus:       0.5rem                              !default;
+$button-padding:                  $button-padding-y 
+                                  (#{$button-shadow-size + $button-shadow-size})
+                                  (#{$button-shadow-size + $button-shadow-size})
+                                  $button-padding-x                   !default;
+
+$button-padding--active:          ($button-padding-y + $button-shadow-size) 
+                                  $button-padding-x 
+                                  $button-padding-y 
+                                  ($button-padding-x + $button-shadow-size)  !default;
 
 $noise-sm:                url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' /%3E%3C/svg%3E");
 $noise-md:                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' /%3E%3C/svg%3E");

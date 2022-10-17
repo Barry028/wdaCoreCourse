@@ -54,6 +54,7 @@ $transition-linear:         linear      !default;  // cubic-bezier(unquote($easi
 
 $transition-link:               background $transition-timing $transition-ease-in-out , 
                                 width $transition-timing $transition-ease-in-out , 
+                                font-weight $transition-timing $transition-ease-in-out , 
                                 color $transition-timing $transition-ease-in-out , 
                                 text-decoration $transition-timing $transition-ease-in-out    !default;
                                 

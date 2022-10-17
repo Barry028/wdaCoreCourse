@@ -42,6 +42,7 @@
   padding: 0;
   flex: 0 0 auto;
   user-select: none;
+  font-size: 0.875rem;
 
 
   @include menu-arrow($size: 0.625rem, $color: $white, $pr: 2.5rem, $right: 0.75rem);

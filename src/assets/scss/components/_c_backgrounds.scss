@@ -1,7 +1,8 @@
 
 //  Components -> Backgrounds
 // --------------------------------------------------
-
+$grad-adjust-hue-r: 40deg;
+$grad-adjust-hue-l: -$grad-adjust-hue-r;
 @each $color, $value in $element-colors {
   .t-bg-#{$color} {
     background-color: $value !important;
@@ -21,11 +22,6 @@
     background-color: $value;
   }
 }
-
-$grad-adjust-hue-r: 40deg;
-$grad-adjust-hue-l: -$grad-adjust-hue-r;
-
-
 
 @each $color, $value in $element-colors {
   .t-bg-grad-#{$color} {
