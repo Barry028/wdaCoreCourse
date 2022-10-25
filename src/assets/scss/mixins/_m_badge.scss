@@ -1,7 +1,8 @@
 @charset "utf-8";
 
 //  Mixins > Badges
-// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+//====================================================
+
 @mixin badge-variant($default) {
   color: color-yiq($default);
   background-color: $default;

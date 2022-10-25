@@ -1,0 +1,78 @@
+$grid-breakpoints: (xs: 640px,
+sm: 768px,
+md: 1024px,
+lg: 1280px,
+xl: 1536px,
+xxl: 1600px) !default;
+
+
+//== Screen
+$screen-xs: map-get($grid-breakpoints, "xs") !default;
+$screen-xs-min: $screen-xs !default;
+$screen-phone: $screen-xs-min !default;
+
+$screen-sm: map-get($grid-breakpoints, "sm") !default;
+$screen-sm-min: $screen-sm !default;
+$screen-tablet: $screen-sm-min !default;
+
+$screen-md: map-get($grid-breakpoints, "md") !default;
+$screen-md-min: $screen-md !default;
+$screen-desktop: $screen-md-min !default;
+
+$screen-lg: map-get($grid-breakpoints, "lg") !default;
+$screen-lg-min: $screen-lg !default;
+$screen-lg-desktop: $screen-lg-min !default;
+
+$screen-xl: map-get($grid-breakpoints, "xl") !default;
+$screen-xl-min: $screen-xl !default;
+$screen-xl-desktop: $screen-xl-min !default;
+
+$screen-xxl: map-get($grid-breakpoints, "xxl") !default;
+$screen-xxl-min: $screen-xxl !default;
+$screen-xxl-desktop: $screen-xxl-min !default;
+
+$screen-xs-max: ($screen-sm-min - 1) !default;
+$screen-sm-max: ($screen-md-min - 1) !default;
+$screen-md-max: ($screen-lg-min - 1) !default;
+$screen-lg-max: ($screen-xl-min - 1) !default;
+$screen-xl-max: ($screen-xxl-min - 1) !default;
+
+//== Grid system
+$grid-columns: 12 !default;
+$grid-gutter-width: 16px !default;
+$grid-gutter-width-rem: 1rem !default;
+$grid-float-breakpoint: $screen-sm-min !default;
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
+
+
+
+$gutter: 16px !default;
+
+
+
+// Grid containers
+$container-max-widths: (xs: 608px,
+sm: 732px,
+md: 976px,
+lg: 1220px,
+xl: 1456px,
+xxl: 1500px) !default;
+
+//== Container sizes
+$container-mobile: map-get($container-max-widths, "xs") !default;
+$container-xs: $container-mobile !default;
+
+$container-tablet: map-get($container-max-widths, "sm") !default;
+$container-sm: $container-tablet !default;
+
+$container-desktop: map-get($container-max-widths, "md") !default;
+$container-md: $container-desktop !default;
+
+$container-large-desktop: map-get($container-max-widths, "lg") !default;
+$container-lg: $container-large-desktop !default;
+
+$container-x-large-desktop: map-get($container-max-widths, "xl") !default;
+$container-xl: $container-x-large-desktop !default;
+
+$container-xx-large-desktop: map-get($container-max-widths, "xxl") !default;
+$container-xxl: $container-xx-large-desktop !default;

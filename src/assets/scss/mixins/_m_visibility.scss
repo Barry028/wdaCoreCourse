@@ -22,7 +22,7 @@
 
 $transition-visually : .5s height ease,.5s max-height ease,.5s opacity ease, 0s visibility ease;
 
-
+// @include visually-hidden ;
 @mixin visually-hidden($max-height: 0, $height: 0, $width: 0, $opacity: 0) {
   display: block;
   width: $width;
@@ -36,7 +36,7 @@ $transition-visually : .5s height ease,.5s max-height ease,.5s opacity ease, 0s 
   border: 0;
   @include opacity(0);
 }
-
+// @include visually-visible ;
 @mixin visually-visible($max-height: 40rem, $height: auto, $width: auto, $opacity: 1) {
   width: $width;
   height: $height;
@@ -47,6 +47,7 @@ $transition-visually : .5s height ease,.5s max-height ease,.5s opacity ease, 0s 
   @include opacity(1);
 }
 
+// @include visually-hidden-card;
 @mixin visually-hidden-card($max-height: 0, $height: 0, $width: 0, $opacity: 0) {
   width: $width;
   height: $height;
@@ -60,7 +61,7 @@ $transition-visually : .5s height ease,.5s max-height ease,.5s opacity ease, 0s 
   transform: rotate(-30deg);
   @include opacity(0);
 }
-
+// @include visually-visible-card;
 @mixin visually-visible-card($max-height: 40rem, $height: auto, $width: auto, $opacity: 1) {
   width: $width;
   height: $height;

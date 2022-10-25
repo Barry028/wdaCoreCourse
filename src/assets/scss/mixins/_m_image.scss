@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+//  Mixins > img
+//====================================================
 // @include img-retina;
 @mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
   background-image: url($file-1x);

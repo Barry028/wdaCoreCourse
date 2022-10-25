@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 //  Mixins > alerts
-// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+//====================================================
 @mixin alert-variant($background, $border, $color) {
   background-color: $background;
   border-color: $border;

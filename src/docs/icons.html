@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="author" content="© 2022 BarrY" />
+  <meta name="theme-color" content="#06152B" />
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" sizes="196x196" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <title>BarrY Bit - Pixel Art Themes</title>
+  <link href="./b-bit.css" rel="stylesheet" />
+  <link href="./style.css" rel="stylesheet" />
+  <script src="./lib/vue.min.js"></script>
+  <script src="./lib/dialog-polyfill.js"></script>
+  <script src="./lib/highlight.js"></script>
+  <link href="../icons/Bbit-icon-v1.0/style.css" rel="stylesheet">
+  <style>
+    @font-face {
+  font-family: "Cubic";
+  src: url("https://assets.codepen.io/2845599/Cubic_11_1.010_R.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Silver";
+  src: url("https://assets.codepen.io/2845599/Silver.woff2") format("woff2");
+}
+@font-face {
+  font-family: "zpix";
+  src: url("https://assets.codepen.io/2845599/zpix.woff2") format("woff2");
+}
+@font-face {
+  font-family: "misaki mincho";
+  src: url("https://assets.codepen.io/2845599/misaki_mincho.woff2") format("woff2");
+}
+@font-face {
+  font-family: "misaki gothic";
+  src: url("https://assets.codepen.io/2845599/misaki_gothic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "misaki gothic 2nd";
+  src: url("https://assets.codepen.io/2845599/misaki_gothic_2nd.woff2") format("woff2");
+}
+.pixel-burger {
+  border-style: solid;
+  border-width: 4px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  padding: 2rem 1.5rem;
+  font-family: "zpix", "Silver", "Cubic", "Kongtext";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+a {
+  color: #009EF7;
+  text-decoration: none;
+  background-color: transparent;
+}
+a:hover {
+  color: #0685d1;
+}
+
+h1 {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: bolder;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px #ccecfd, -2px -2px #ccecfd, 2px 2px #ccecfd, -2px -2px #ccecfd, 2px 2px #ccecfd, -2px -2px #ccecfd;
+  background: linear-gradient(90deg, #8D949E 0%, #8D949E 7.5%, transparent 7.5%, transparent 22.5%, #c4c8cd 22.5%, #c4c8cd 45%, transparent 45%, transparent 52.5%, #8D949E 52.5%, #8D949E 82.5%, transparent 82.5%, transparent 100%) repeat-x;
+  background-size: 6rem 0.25rem;
+  background-position: -6rem bottom;
+  transition: 0.25s background steps(6, start);
+  -webkit-text-stroke: 1px currentColor;
+}
+h1:hover {
+  background: linear-gradient(90deg, #009EF7 0%, #009EF7 7.5%, transparent 7.5%, transparent 22.5%, #5ec5ff 22.5%, #5ec5ff 45%, transparent 45%, transparent 52.5%, #009EF7 52.5%, #009EF7 82.5%, transparent 82.5%, transparent 100%) repeat-x;
+  background-size: 6rem 0.25rem;
+  background-position: -12rem bottom;
+}
+
+.section-contianer {
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.avastar-contianer {
+  right: 0;
+  top: 10%;
+  width: 4rem;
+  height: 4rem;
+  position: relative;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #1F1F39;
+  -webkit-clip-path: polygon(0 4px, 2px 4px, 2px 2px, 4px 2px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+          clip-path: polygon(0 4px, 2px 4px, 2px 2px, 4px 2px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+  position: fixed;
+}
+.avastar-contianer:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: inherit;
+  -webkit-clip-path: polygon(0 2px, 2px 2px, 2px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, 100% 2px, 100% calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+          clip-path: polygon(0 2px, 2px 2px, 2px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, 100% 2px, 100% calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+  border-right: 2px solid #1F1F39;
+  border-bottom: 2px solid #1F1F39;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  opacity: 0.88;
+}
+.avastar-contianer:after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 2px;
+  height: 2px;
+  opacity: 0.88;
+  background-color: #1F1F39;
+}
+.avastar-contianer .avastar-img {
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 716 716'%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' stroke='%23707070' d='M0 0h716v716H0z' transform='translate(5053 -1516)'/%3E%3C/clipPath%3E%3C/defs%3E%3Cpath fill='%23626367' d='M0 0h716v716H0z'/%3E%3Cg clip-path='url(%23a)' transform='translate(-5053 1516)'%3E%3Cpath fill='%23621a1c' d='M5242-637h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%2361181a' d='M5210-637h16v16h-16z'/%3E%3Cpath fill='%237c1b1f' d='M5194-637h16v16h-16z'/%3E%3Cpath fill='%231e080c' d='M5242-653h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5226-653h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%233a1315' d='M5194-653h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5178-653h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5258-669h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5210-669h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23621a1c' d='M5162-669h16v16h-16z'/%3E%3Cpath fill='%238e1c1c' d='M5146-669h16v16h-16z'/%3E%3Cpath fill='%234f1618' d='M5274-685h16v16h-16z'/%3E%3Cpath fill='%2307060b' d='M5258-685h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5242-685h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5226-685h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5210-685h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5194-685h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5178-685h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%232c1515' d='M5146-685h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5130-685h16v16h-16z'/%3E%3Cpath fill='%231c060a' d='M5274-701h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5258-701h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5242-701h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5210-701h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5194-701h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5178-701h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5146-701h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5130-701h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5114-701h16v16h-16z'/%3E%3Cpath fill='%239d1d1c' d='M5338-717h16v16h-16z'/%3E%3Cpath fill='%238c1a1a' d='M5322-717h16v16h-16z'/%3E%3Cpath fill='%237c1b1f' d='M5306-717h16v16h-16z'/%3E%3Cpath fill='%23641c1e' d='M5290-717h16v16h-16z'/%3E%3Cpath fill='%23401413' d='M5274-717h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5258-717h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5242-717h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5226-717h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5194-717h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5178-717h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5162-717h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5146-717h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5130-717h16v16h-16z'/%3E%3Cpath fill='%23732126' d='M5114-717h16v16h-16z'/%3E%3Cpath fill='%23721f23' d='M5338-733h16v16h-16z'/%3E%3Cpath fill='%23561a1b' d='M5322-733h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5306-733h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23641c1e' d='M5274-733h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5258-733h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5242-733h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5194-733h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5178-733h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5162-733h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5146-733h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5130-733h16v16h-16z'/%3E%3Cpath fill='%23721f23' d='M5114-733h16v16h-16z'/%3E%3Cpath fill='%23360e10' d='M5338-749h16v16h-16z'/%3E%3Cpath fill='%23802225' d='M5322-749h16v16h-16z'/%3E%3Cpath fill='%239d1d1c' d='M5306-749h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5290-749h16v16h-16z'/%3E%3Cpath fill='%23b52327' d='M5274-749h16v16h-16z'/%3E%3Cpath fill='%23721f23' d='M5258-749h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5242-749h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5226-749h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5194-749h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5178-749h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5162-749h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5146-749h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5130-749h16v16h-16z'/%3E%3Cpath fill='%237d1d21' d='M5114-749h16v16h-16z'/%3E%3Cpath fill='%23b02629' d='M5338-765h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5322-765h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5290-765h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23c41e23' d='M5258-765h16v16h-16z'/%3E%3Cpath fill='%23902626' d='M5242-765h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5226-765h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5210-765h16v16h-16z'/%3E%3Cpath fill='%23606063' d='M5194-765h16v16h-16z'/%3E%3Cpath fill='%23bab9bb' d='M5178-765h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5162-765h16v16h-16z'/%3E%3Cpath fill='%232e1717' d='M5146-765h16v16h-16z'/%3E%3Cpath fill='%234d1315' d='M5130-765h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5338-781h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5274-781h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5258-781h16v16h-16z'/%3E%3Cpath fill='%23340c0e' d='M5242-781h16v16h-16z'/%3E%3Cpath fill='%23621a1c' d='M5226-781h16v16h-16z'/%3E%3Cpath fill='%23912929' d='M5210-781h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5194-781h16v16h-16z'/%3E%3Cpath fill='%235a0e10' d='M5178-781h16v16h-16z'/%3E%3Cpath fill='%23ae2023' d='M5290-797h16v16h-16z'/%3E%3Cpath fill='%239d1d1c' d='M5274-797h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5258-797h16v16h-16z'/%3E%3Cpath fill='%23621a1c' d='M5242-797h16v16h-16z'/%3E%3Cpath fill='%238c1a1a' d='M5226-797h16v16h-16z'/%3E%3Cpath fill='%23802225' d='M5290-813h16v16h-16z'/%3E%3Cpath fill='%23732126' d='M5274-813h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5258-813h16v16h-16z'/%3E%3Cpath fill='%233a1315' d='M5290-829h16v16h-16z'/%3E%3Cpath fill='%238e2222' d='M5274-829h16v16h-16z'/%3E%3Cpath fill='%23561a1b' d='M5562-557h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23581c1d' d='M5530-557h16v16h-16z'/%3E%3Cpath fill='%23732126' d='M5514-557h16v16h-16z'/%3E%3Cpath fill='%23360e10' d='M5578-573h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5562-573h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5530-573h16v16h-16z'/%3E%3Cpath fill='%232e1717' d='M5514-573h16v16h-16z'/%3E%3Cpath fill='%23360e10' d='M5594-589h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5578-589h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5546-589h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5530-589h16v16h-16z'/%3E%3Cpath fill='%235e5d60' d='M5514-589h16v16h-16z'/%3E%3Cpath fill='%23612021' d='M5498-589h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5722-605h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5674-605h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23c4c1ab' d='M5642-605h16v16h-16z'/%3E%3Cpath fill='%2369685e' d='M5626-605h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5610-605h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5594-605h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5578-605h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5562-605h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5514-605h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5498-605h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5738-621h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5706-621h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5674-621h16v16h-16z'/%3E%3Cpath fill='%23908682' d='M5658-621h16v16h-16z'/%3E%3Cpath fill='%23f2efc8' d='M5642-621h16v16h-16z'/%3E%3Cpath fill='%23c0bda6' d='M5626-621h16v16h-16z'/%3E%3Cpath fill='%23949486' d='M5610-621h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5594-621h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5578-621h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5530-621h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23792a2f' d='M5498-621h16v16h-16z'/%3E%3Cpath fill='%23230d11' d='M5754-637h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5738-637h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5690-637h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5674-637h16v16h-16z'/%3E%3Cpath fill='%235f5653' d='M5658-637h16v16h-16z'/%3E%3Cpath fill='%23c4c2ac' d='M5642-637h16v16h-16z'/%3E%3Cpath fill='%23a1a195' d='M5626-637h16v16h-16z'/%3E%3Cpath fill='%236d6c6f' d='M5610-637h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5594-637h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5562-637h16v16h-16z'/%3E%3Cpath fill='%23210b0f' d='M5546-637h16v16h-16z'/%3E%3Cpath fill='%23381113' d='M5530-637h16v16h-16z'/%3E%3Cpath fill='%234a0e10' d='M5514-637h16v16h-16z'/%3E%3Cpath fill='%23701c21' d='M5498-637h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5754-653h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5722-653h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5706-653h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5658-653h16v16h-16z'/%3E%3Cpath fill='%239c9284' d='M5642-653h16v16h-16z'/%3E%3Cpath fill='%23727174' d='M5626-653h16v16h-16z'/%3E%3Cpath fill='%23545357' d='M5610-653h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5594-653h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5562-653h16v16h-16z'/%3E%3Cpath fill='%233a1315' d='M5546-653h16v16h-16z'/%3E%3Cpath fill='%2361181a' d='M5530-653h16v16h-16z'/%3E%3Cpath fill='%2379161a' d='M5514-653h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5498-653h16v16h-16z'/%3E%3Cpath fill='%23641c1e' d='M5482-653h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5770-669h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5754-669h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5738-669h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5722-669h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5706-669h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5690-669h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5658-669h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5642-669h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5626-669h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5610-669h16v16h-16z'/%3E%3Cpath fill='%2307060b' d='M5594-669h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5578-669h16v16h-16z'/%3E%3Cpath fill='%23340c0e' d='M5562-669h16v16h-16z'/%3E%3Cpath fill='%237c1b1f' d='M5546-669h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5530-669h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23802225' d='M5482-669h16v16h-16z'/%3E%3Cpath fill='%236f1a1f' d='M5466-669h16v16h-16z'/%3E%3Cpath fill='%23531516' d='M5450-669h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5802-685h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5754-685h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5738-685h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5722-685h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5690-685h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5674-685h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5658-685h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5642-685h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5626-685h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5610-685h16v16h-16z'/%3E%3Cpath fill='%2307060b' d='M5594-685h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5578-685h16v16h-16z'/%3E%3Cpath fill='%23360e10' d='M5562-685h16v16h-16z'/%3E%3Cpath fill='%23641c1e' d='M5546-685h16v16h-16z'/%3E%3Cpath fill='%23ae2023' d='M5530-685h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5514-685h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5498-685h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5466-685h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5450-685h16v16h-16z'/%3E%3Cpath fill='%23701c21' d='M5434-685h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5818-701h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5802-701h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5754-701h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5738-701h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5722-701h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5706-701h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5690-701h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5674-701h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5658-701h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5642-701h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5594-701h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5578-701h16v16h-16z'/%3E%3Cpath fill='%23360e10' d='M5562-701h16v16h-16z'/%3E%3Cpath fill='%234c1113' d='M5546-701h16v16h-16z'/%3E%3Cpath fill='%23561a1b' d='M5530-701h16v16h-16z'/%3E%3Cpath fill='%239f2120' d='M5514-701h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5498-701h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5482-701h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23b6282c' d='M5450-701h16v16h-16z'/%3E%3Cpath fill='%2361181a' d='M5434-701h16v16h-16z'/%3E%3Cpath fill='%23812428' d='M5418-701h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5818-717h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5754-717h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5738-717h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5722-717h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5706-717h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5690-717h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5674-717h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5658-717h16v16h-16z'/%3E%3Cpath fill='%235d4c49' d='M5642-717h16v16h-16z'/%3E%3Cpath fill='%23706a60' d='M5626-717h16v16h-16z'/%3E%3Cpath fill='%237e7a6e' d='M5610-717h16v16h-16z'/%3E%3Cpath fill='%236e6d63' d='M5594-717h16v16h-16z'/%3E%3Cpath fill='%23401413' d='M5578-717h16v16h-16z'/%3E%3Cpath fill='%237a181c' d='M5562-717h16v16h-16z'/%3E%3Cpath fill='%23621a1c' d='M5546-717h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5530-717h16v16h-16z'/%3E%3Cpath fill='%23812428' d='M5514-717h16v16h-16z'/%3E%3Cpath fill='%23c41e23' d='M5498-717h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5482-717h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5434-717h16v16h-16z'/%3E%3Cpath fill='%237d1d21' d='M5418-717h16v16h-16z'/%3E%3Cpath fill='%23802225' d='M5402-717h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5386-717h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5818-733h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5754-733h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5738-733h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5722-733h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5706-733h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5690-733h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5674-733h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5658-733h16v16h-16z'/%3E%3Cpath fill='%239d8471' d='M5642-733h16v16h-16z'/%3E%3Cpath fill='%23bea797' d='M5626-733h16v16h-16z'/%3E%3Cpath fill='%23f2dec1' d='M5610-733h16v16h-16z'/%3E%3Cpath fill='%23a9af9d' d='M5594-733h16v16h-16z'/%3E%3Cpath fill='%235a1e1f' d='M5578-733h16v16h-16z'/%3E%3Cpath fill='%23c31c21' d='M5562-733h16v16h-16z'/%3E%3Cpath fill='%238c1a1a' d='M5546-733h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5530-733h16v16h-16z'/%3E%3Cpath fill='%23701c21' d='M5514-733h16v16h-16z'/%3E%3Cpath fill='%23c31c21' d='M5498-733h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5482-733h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ae2023' d='M5434-733h16v16h-16z'/%3E%3Cpath fill='%23701c21' d='M5418-733h16v16h-16z'/%3E%3Cpath fill='%235f1517' d='M5402-733h16v16h-16z'/%3E%3Cpath fill='%235d1315' d='M5386-733h16v16h-16z'/%3E%3Cpath fill='%234f1618' d='M5370-733h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5354-733h16v16h-16z'/%3E%3Cpath fill='%23210b0f' d='M5834-749h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5818-749h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5754-749h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5738-749h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5722-749h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5706-749h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5690-749h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5674-749h16v16h-16z'/%3E%3Cpath fill='%232c2b30' d='M5658-749h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5642-749h16v16h-16z'/%3E%3Cpath fill='%23786d64' d='M5626-749h16v16h-16z'/%3E%3Cpath fill='%23a09a8f' d='M5610-749h16v16h-16z'/%3E%3Cpath fill='%23676d64' d='M5594-749h16v16h-16z'/%3E%3Cpath fill='%23932b2b' d='M5578-749h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5562-749h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5546-749h16v16h-16z'/%3E%3Cpath fill='%238b1717' d='M5530-749h16v16h-16z'/%3E%3Cpath fill='%23581c1d' d='M5514-749h16v16h-16z'/%3E%3Cpath fill='%23ae2225' d='M5498-749h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5482-749h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5402-749h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ae2225' d='M5354-749h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5834-765h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5818-765h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5786-765h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5770-765h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5754-765h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5738-765h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5722-765h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5706-765h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5690-765h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5674-765h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5658-765h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5642-765h16v16h-16z'/%3E%3Cpath fill='%23313034' d='M5626-765h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%232a1413' d='M5594-765h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5578-765h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5562-765h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5546-765h16v16h-16z'/%3E%3Cpath fill='%239d1d1c' d='M5530-765h16v16h-16z'/%3E%3Cpath fill='%23581c1d' d='M5514-765h16v16h-16z'/%3E%3Cpath fill='%239e1f1e' d='M5498-765h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5482-765h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23480c0e' d='M5402-765h16v16h-16z'/%3E%3Cpath fill='%23421615' d='M5386-765h16v16h-16z'/%3E%3Cpath fill='%23461b1a' d='M5370-765h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5354-765h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5834-781h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5818-781h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5786-781h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5770-781h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5738-781h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5722-781h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5706-781h16v16h-16z'/%3E%3Cpath fill='%2350463e' d='M5690-781h16v16h-16z'/%3E%3Cpath fill='%23685a4f' d='M5674-781h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5658-781h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5642-781h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5626-781h16v16h-16z'/%3E%3Cpath fill='%23271211' d='M5610-781h16v16h-16z'/%3E%3Cpath fill='%239c1a19' d='M5594-781h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5578-781h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ae2225' d='M5546-781h16v16h-16z'/%3E%3Cpath fill='%238e1c1c' d='M5530-781h16v16h-16z'/%3E%3Cpath fill='%235a1e1f' d='M5514-781h16v16h-16z'/%3E%3Cpath fill='%23ae2023' d='M5498-781h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5482-781h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5418-781h16v16h-16z'/%3E%3Cpath fill='%23210b0f' d='M5402-781h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5386-781h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5370-781h16v16h-16z'/%3E%3Cpath fill='%238c1a1a' d='M5354-781h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5834-797h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5818-797h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5802-797h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5786-797h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5770-797h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5754-797h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5738-797h16v16h-16z'/%3E%3Cpath fill='%233e3d41' d='M5722-797h16v16h-16z'/%3E%3Cpath fill='%235e544d' d='M5706-797h16v16h-16z'/%3E%3Cpath fill='%2377695f' d='M5690-797h16v16h-16z'/%3E%3Cpath fill='%235f4e4b' d='M5674-797h16v16h-16z'/%3E%3Cpath fill='%23313034' d='M5658-797h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5642-797h16v16h-16z'/%3E%3Cpath fill='%233c2226' d='M5626-797h16v16h-16z'/%3E%3Cpath fill='%23461b1a' d='M5610-797h16v16h-16z'/%3E%3Cpath fill='%23ae2023' d='M5594-797h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5578-797h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ae2023' d='M5546-797h16v16h-16z'/%3E%3Cpath fill='%238c1a1a' d='M5530-797h16v16h-16z'/%3E%3Cpath fill='%235a1e1f' d='M5514-797h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5498-797h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5482-797h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5418-797h16v16h-16z'/%3E%3Cpath fill='%23210b0f' d='M5402-797h16v16h-16z'/%3E%3Cpath fill='%232e1717' d='M5386-797h16v16h-16z'/%3E%3Cpath fill='%23462f31' d='M5370-797h16v16h-16z'/%3E%3Cpath fill='%239b1817' d='M5354-797h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5338-797h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5322-797h16v16h-16z'/%3E%3Cpath fill='%23b02629' d='M5306-797h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5834-813h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5818-813h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5802-813h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5770-813h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5754-813h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%2365564c' d='M5722-813h16v16h-16z'/%3E%3Cpath fill='%237d736a' d='M5706-813h16v16h-16z'/%3E%3Cpath fill='%239a8676' d='M5690-813h16v16h-16z'/%3E%3Cpath fill='%234f4e52' d='M5674-813h16v16h-16z'/%3E%3Cpath fill='%232c2b30' d='M5658-813h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5642-813h16v16h-16z'/%3E%3Cpath fill='%23483133' d='M5626-813h16v16h-16z'/%3E%3Cpath fill='%23542625' d='M5610-813h16v16h-16z'/%3E%3Cpath fill='%23b02629' d='M5594-813h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5578-813h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5546-813h16v16h-16z'/%3E%3Cpath fill='%238b1717' d='M5530-813h16v16h-16z'/%3E%3Cpath fill='%23621a1c' d='M5514-813h16v16h-16z'/%3E%3Cpath fill='%23b42125' d='M5498-813h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5482-813h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5418-813h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5402-813h16v16h-16z'/%3E%3Cpath fill='%23301a1a' d='M5386-813h16v16h-16z'/%3E%3Cpath fill='%234a3335' d='M5370-813h16v16h-16z'/%3E%3Cpath fill='%239e1f1e' d='M5354-813h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5338-813h16v16h-16z'/%3E%3Cpath fill='%23c41e23' d='M5322-813h16v16h-16z'/%3E%3Cpath fill='%239e1f1e' d='M5306-813h16v16h-16z'/%3E%3Cpath fill='%23230d0c' d='M5834-829h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5818-829h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5802-829h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5786-829h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5770-829h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5754-829h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5738-829h16v16h-16z'/%3E%3Cpath fill='%23b59987' d='M5722-829h16v16h-16z'/%3E%3Cpath fill='%23dbb49a' d='M5706-829h16v16h-16z'/%3E%3Cpath fill='%23f4ceb5' d='M5690-829h16v16h-16z'/%3E%3Cpath fill='%23baac98' d='M5674-829h16v16h-16z'/%3E%3Cpath fill='%23a1978a' d='M5658-829h16v16h-16z'/%3E%3Cpath fill='%23968170' d='M5642-829h16v16h-16z'/%3E%3Cpath fill='%23916c5f' d='M5626-829h16v16h-16z'/%3E%3Cpath fill='%23653d39' d='M5610-829h16v16h-16z'/%3E%3Cpath fill='%239f2120' d='M5594-829h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5578-829h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%239e1f1e' d='M5546-829h16v16h-16z'/%3E%3Cpath fill='%237d1d21' d='M5530-829h16v16h-16z'/%3E%3Cpath fill='%23621a1c' d='M5514-829h16v16h-16z'/%3E%3Cpath fill='%23b52327' d='M5498-829h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5482-829h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23b72a2e' d='M5418-829h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5402-829h16v16h-16z'/%3E%3Cpath fill='%2340262a' d='M5386-829h16v16h-16z'/%3E%3Cpath fill='%23652728' d='M5370-829h16v16h-16z'/%3E%3Cpath fill='%23b5262a' d='M5354-829h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5338-829h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5322-829h16v16h-16z'/%3E%3Cpath fill='%237c1b1f' d='M5306-829h16v16h-16z'/%3E%3Cpath fill='%234d1315' d='M5834-845h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5818-845h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5802-845h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5786-845h16v16h-16z'/%3E%3Cpath fill='%23313034' d='M5770-845h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5754-845h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5738-845h16v16h-16z'/%3E%3Cpath fill='%23f6dac1' d='M5722-845h16v16h-16z'/%3E%3Cpath fill='%23f7dec8' d='M5706-845h16v16h-16z'/%3E%3Cpath fill='%23f8e2cf' d='M5690-845h16v16h-16z'/%3E%3Cpath fill='%23f6e7d2' d='M5674-845h16v16h-16z'/%3E%3Cpath fill='%235a514a' d='M5658-845h16v16h-16z'/%3E%3Cpath fill='%23481d1c' d='M5642-845h16v16h-16z'/%3E%3Cpath fill='%23461b1a' d='M5626-845h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%239e1f1e' d='M5594-845h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5578-845h16v16h-16z'/%3E%3Cpath fill='%23c31c21' d='M5562-845h16v16h-16z'/%3E%3Cpath fill='%238c1a1a' d='M5546-845h16v16h-16z'/%3E%3Cpath fill='%23561a1b' d='M5530-845h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5514-845h16v16h-16z'/%3E%3Cpath fill='%23c41e23' d='M5498-845h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5482-845h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%238e2222' d='M5418-845h16v16h-16z'/%3E%3Cpath fill='%23363539' d='M5402-845h16v16h-16z'/%3E%3Cpath fill='%23442d2f' d='M5386-845h16v16h-16z'/%3E%3Cpath fill='%23581c1d' d='M5370-845h16v16h-16z'/%3E%3Cpath fill='%23912929' d='M5354-845h16v16h-16z'/%3E%3Cpath fill='%23b52327' d='M5338-845h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5322-845h16v16h-16z'/%3E%3Cpath fill='%23621a1c' d='M5306-845h16v16h-16z'/%3E%3Cpath fill='%231e080c' d='M5290-845h16v16h-16z'/%3E%3Cpath fill='%23c4c3ac' d='M5818-861h16v16h-16z'/%3E%3Cpath fill='%237c7169' d='M5802-861h16v16h-16z'/%3E%3Cpath fill='%23544a42' d='M5786-861h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5770-861h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5754-861h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5738-861h16v16h-16z'/%3E%3Cpath fill='%236a6359' d='M5722-861h16v16h-16z'/%3E%3Cpath fill='%23a09689' d='M5706-861h16v16h-16z'/%3E%3Cpath fill='%23ddcbb3' d='M5690-861h16v16h-16z'/%3E%3Cpath fill='%2365564c' d='M5674-861h16v16h-16z'/%3E%3Cpath fill='%23b42125' d='M5658-861h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5642-861h16v16h-16z'/%3E%3Cpath fill='%239c1a19' d='M5626-861h16v16h-16z'/%3E%3Cpath fill='%23701c21' d='M5610-861h16v16h-16z'/%3E%3Cpath fill='%234d1315' d='M5594-861h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5578-861h16v16h-16z'/%3E%3Cpath fill='%23ae2023' d='M5562-861h16v16h-16z'/%3E%3Cpath fill='%23701c21' d='M5546-861h16v16h-16z'/%3E%3Cpath fill='%233a1315' d='M5530-861h16v16h-16z'/%3E%3Cpath fill='%238f2424' d='M5514-861h16v16h-16z'/%3E%3Cpath fill='%23b31f23' d='M5498-861h16v16h-16z'/%3E%3Cpath fill='%23c41e23' d='M5482-861h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5466-861h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5434-861h16v16h-16z'/%3E%3Cpath fill='%23360e10' d='M5418-861h16v16h-16z'/%3E%3Cpath fill='%233c2c33' d='M5402-861h16v16h-16z'/%3E%3Cpath fill='%234a201f' d='M5386-861h16v16h-16z'/%3E%3Cpath fill='%23401413' d='M5370-861h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5354-861h16v16h-16z'/%3E%3Cpath fill='%23942d2d' d='M5338-861h16v16h-16z'/%3E%3Cpath fill='%2382262a' d='M5322-861h16v16h-16z'/%3E%3Cpath fill='%23752328' d='M5306-861h16v16h-16z'/%3E%3Cpath fill='%23701c21' d='M5290-861h16v16h-16z'/%3E%3Cpath fill='%2367292a' d='M5274-861h16v16h-16z'/%3E%3Cpath fill='%237b7165' d='M5258-861h16v16h-16z'/%3E%3Cpath fill='%23d7c1a5' d='M5242-861h16v16h-16z'/%3E%3Cpath fill='%23a1978a' d='M5226-861h16v16h-16z'/%3E%3Cpath fill='%237c7267' d='M5210-861h16v16h-16z'/%3E%3Cpath fill='%232c1716' d='M5194-861h16v16h-16z'/%3E%3Cpath fill='%232a1413' d='M5178-861h16v16h-16z'/%3E%3Cpath fill='%23545357' d='M5162-861h16v16h-16z'/%3E%3Cpath fill='%23403f43' d='M5146-861h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5130-861h16v16h-16z'/%3E%3Cpath fill='%236d6c6f' d='M5114-861h16v16h-16z'/%3E%3Cpath fill='%233b3a3e' d='M5098-861h16v16h-16z'/%3E%3Cpath fill='%23481d1c' d='M5082-861h16v16h-16z'/%3E%3Cpath fill='%238c8477' d='M5818-877h16v16h-16z'/%3E%3Cpath fill='%238b8376' d='M5802-877h16v16h-16z'/%3E%3Cpath fill='%236a6359' d='M5786-877h16v16h-16z'/%3E%3Cpath fill='%23403f43' d='M5770-877h16v16h-16z'/%3E%3Cpath fill='%233b3a3e' d='M5754-877h16v16h-16z'/%3E%3Cpath fill='%233c2226' d='M5738-877h16v16h-16z'/%3E%3Cpath fill='%235f3531' d='M5722-877h16v16h-16z'/%3E%3Cpath fill='%237a534a' d='M5706-877h16v16h-16z'/%3E%3Cpath fill='%2399776b' d='M5690-877h16v16h-16z'/%3E%3Cpath fill='%23573933' d='M5674-877h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5658-877h16v16h-16z'/%3E%3Cpath fill='%23c31c21' d='M5642-877h16v16h-16z'/%3E%3Cpath fill='%239e1f1e' d='M5626-877h16v16h-16z'/%3E%3Cpath fill='%23802225' d='M5610-877h16v16h-16z'/%3E%3Cpath fill='%234c1113' d='M5594-877h16v16h-16z'/%3E%3Cpath fill='%235f1517' d='M5578-877h16v16h-16z'/%3E%3Cpath fill='%237d1d21' d='M5562-877h16v16h-16z'/%3E%3Cpath fill='%23561a1b' d='M5546-877h16v16h-16z'/%3E%3Cpath fill='%233a1315' d='M5530-877h16v16h-16z'/%3E%3Cpath fill='%23721f23' d='M5514-877h16v16h-16z'/%3E%3Cpath fill='%23812428' d='M5498-877h16v16h-16z'/%3E%3Cpath fill='%239b1817' d='M5482-877h16v16h-16z'/%3E%3Cpath fill='%239d1d1c' d='M5466-877h16v16h-16z'/%3E%3Cpath fill='%23ae2023' d='M5450-877h16v16h-16z'/%3E%3Cpath fill='%23b02629' d='M5434-877h16v16h-16z'/%3E%3Cpath fill='%232c1515' d='M5418-877h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5402-877h16v16h-16z'/%3E%3Cpath fill='%234d2424' d='M5386-877h16v16h-16z'/%3E%3Cpath fill='%235a1e1f' d='M5370-877h16v16h-16z'/%3E%3Cpath fill='%233e2428' d='M5354-877h16v16h-16z'/%3E%3Cpath fill='%23701c21' d='M5338-877h16v16h-16z'/%3E%3Cpath fill='%23581c1d' d='M5322-877h16v16h-16z'/%3E%3Cpath fill='%23641c1e' d='M5306-877h16v16h-16z'/%3E%3Cpath fill='%23721f23' d='M5290-877h16v16h-16z'/%3E%3Cpath fill='%2384514d' d='M5274-877h16v16h-16z'/%3E%3Cpath fill='%23b2a28b' d='M5258-877h16v16h-16z'/%3E%3Cpath fill='%2380776b' d='M5242-877h16v16h-16z'/%3E%3Cpath fill='%2372655a' d='M5226-877h16v16h-16z'/%3E%3Cpath fill='%235f564f' d='M5210-877h16v16h-16z'/%3E%3Cpath fill='%234b3537' d='M5194-877h16v16h-16z'/%3E%3Cpath fill='%234f3c38' d='M5178-877h16v16h-16z'/%3E%3Cpath fill='%23565659' d='M5162-877h16v16h-16z'/%3E%3Cpath fill='%23515154' d='M5146-877h16v16h-16z'/%3E%3Cpath fill='%2346463e' d='M5130-877h16v16h-16z'/%3E%3Cpath fill='%235e5d60' d='M5114-877h16v16h-16z'/%3E%3Cpath fill='%23515154' d='M5098-877h16v16h-16z'/%3E%3Cpath fill='%23573f42' d='M5082-877h16v16h-16z'/%3E%3Cpath fill='%2354433f' d='M5818-893h16v16h-16z'/%3E%3Cpath fill='%23999784' d='M5802-893h16v16h-16z'/%3E%3Cpath fill='%237f7768' d='M5786-893h16v16h-16z'/%3E%3Cpath fill='%2366584d' d='M5770-893h16v16h-16z'/%3E%3Cpath fill='%23403f43' d='M5754-893h16v16h-16z'/%3E%3Cpath fill='%234d1315' d='M5738-893h16v16h-16z'/%3E%3Cpath fill='%235f1517' d='M5722-893h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5706-893h16v16h-16z'/%3E%3Cpath fill='%23531516' d='M5690-893h16v16h-16z'/%3E%3Cpath fill='%23421615' d='M5674-893h16v16h-16z'/%3E%3Cpath fill='%23ae2225' d='M5658-893h16v16h-16z'/%3E%3Cpath fill='%23b02629' d='M5642-893h16v16h-16z'/%3E%3Cpath fill='%239f2120' d='M5626-893h16v16h-16z'/%3E%3Cpath fill='%23902626' d='M5610-893h16v16h-16z'/%3E%3Cpath fill='%23421615' d='M5594-893h16v16h-16z'/%3E%3Cpath fill='%231c060a' d='M5578-893h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5562-893h16v16h-16z'/%3E%3Cpath fill='%23441918' d='M5546-893h16v16h-16z'/%3E%3Cpath fill='%233a1315' d='M5530-893h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5514-893h16v16h-16z'/%3E%3Cpath fill='%23581c1d' d='M5498-893h16v16h-16z'/%3E%3Cpath fill='%23641c1e' d='M5482-893h16v16h-16z'/%3E%3Cpath fill='%237d1d21' d='M5466-893h16v16h-16z'/%3E%3Cpath fill='%238e1c1c' d='M5450-893h16v16h-16z'/%3E%3Cpath fill='%23912929' d='M5434-893h16v16h-16z'/%3E%3Cpath fill='%23321c1c' d='M5418-893h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5402-893h16v16h-16z'/%3E%3Cpath fill='%23542625' d='M5386-893h16v16h-16z'/%3E%3Cpath fill='%237d2123' d='M5370-893h16v16h-16z'/%3E%3Cpath fill='%23562827' d='M5354-893h16v16h-16z'/%3E%3Cpath fill='%233a1315' d='M5338-893h16v16h-16z'/%3E%3Cpath fill='%23360e10' d='M5322-893h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5306-893h16v16h-16z'/%3E%3Cpath fill='%23732126' d='M5290-893h16v16h-16z'/%3E%3Cpath fill='%23a27f74' d='M5274-893h16v16h-16z'/%3E%3Cpath fill='%23f4e2c9' d='M5258-893h16v16h-16z'/%3E%3Cpath fill='%23313034' d='M5242-893h16v16h-16z'/%3E%3Cpath fill='%23363539' d='M5226-893h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5210-893h16v16h-16z'/%3E%3Cpath fill='%235c5251' d='M5194-893h16v16h-16z'/%3E%3Cpath fill='%2364625c' d='M5178-893h16v16h-16z'/%3E%3Cpath fill='%235d5e54' d='M5162-893h16v16h-16z'/%3E%3Cpath fill='%2363645b' d='M5146-893h16v16h-16z'/%3E%3Cpath fill='%23686960' d='M5130-893h16v16h-16z'/%3E%3Cpath fill='%234b4a44' d='M5114-893h16v16h-16z'/%3E%3Cpath fill='%2368676a' d='M5098-893h16v16h-16z'/%3E%3Cpath fill='%237a706f' d='M5082-893h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5802-909h16v16h-16z'/%3E%3Cpath fill='%23363539' d='M5786-909h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5770-909h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5754-909h16v16h-16z'/%3E%3Cpath fill='%23461b1a' d='M5658-909h16v16h-16z'/%3E%3Cpath fill='%234a0e10' d='M5642-909h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23421615' d='M5610-909h16v16h-16z'/%3E%3Cpath fill='%23561a1b' d='M5594-909h16v16h-16z'/%3E%3Cpath fill='%23621a1c' d='M5578-909h16v16h-16z'/%3E%3Cpath fill='%236f1a1f' d='M5562-909h16v16h-16z'/%3E%3Cpath fill='%23621a1c' d='M5546-909h16v16h-16z'/%3E%3Cpath fill='%23581c1d' d='M5530-909h16v16h-16z'/%3E%3Cpath fill='%23360e10' d='M5514-909h16v16h-16z'/%3E%3Cpath fill='%231e080c' d='M5498-909h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5482-909h16v16h-16z'/%3E%3Cpath fill='%231e080c' d='M5466-909h16v16h-16z'/%3E%3Cpath fill='%23230d11' d='M5450-909h16v16h-16z'/%3E%3Cpath fill='%23230d0c' d='M5434-909h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5418-909h16v16h-16z'/%3E%3Cpath fill='%233b3a3e' d='M5402-909h16v16h-16z'/%3E%3Cpath fill='%234c3834' d='M5386-909h16v16h-16z'/%3E%3Cpath fill='%23593b36' d='M5370-909h16v16h-16z'/%3E%3Cpath fill='%232e1717' d='M5354-909h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5338-909h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5322-909h16v16h-16z'/%3E%3Cpath fill='%23230d0c' d='M5306-909h16v16h-16z'/%3E%3Cpath fill='%23401413' d='M5290-909h16v16h-16z'/%3E%3Cpath fill='%234b4038' d='M5274-909h16v16h-16z'/%3E%3Cpath fill='%238c8477' d='M5258-909h16v16h-16z'/%3E%3Cpath fill='%239f998e' d='M5242-909h16v16h-16z'/%3E%3Cpath fill='%239e9486' d='M5226-909h16v16h-16z'/%3E%3Cpath fill='%239e8573' d='M5210-909h16v16h-16z'/%3E%3Cpath fill='%23716766' d='M5194-909h16v16h-16z'/%3E%3Cpath fill='%23584743' d='M5178-909h16v16h-16z'/%3E%3Cpath fill='%23857e70' d='M5162-909h16v16h-16z'/%3E%3Cpath fill='%23b3ab94' d='M5146-909h16v16h-16z'/%3E%3Cpath fill='%23dfd9bb' d='M5130-909h16v16h-16z'/%3E%3Cpath fill='%237a8e83' d='M5114-909h16v16h-16z'/%3E%3Cpath fill='%238f8f91' d='M5098-909h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5082-909h16v16h-16z'/%3E%3Cpath fill='%23340c0e' d='M5674-925h16v16h-16z'/%3E%3Cpath fill='%23561a1b' d='M5658-925h16v16h-16z'/%3E%3Cpath fill='%2378282c' d='M5642-925h16v16h-16z'/%3E%3Cpath fill='%23802225' d='M5626-925h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5610-925h16v16h-16z'/%3E%3Cpath fill='%238e1c1c' d='M5594-925h16v16h-16z'/%3E%3Cpath fill='%238f2424' d='M5578-925h16v16h-16z'/%3E%3Cpath fill='%23360e10' d='M5562-925h16s4 12 0 16-16 0-16 0Z'/%3E%3Cpath fill='%23230d11' d='M5546-925h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5530-925h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5498-925h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5290-925h16v16h-16z'/%3E%3Cpath fill='%234d1315' d='M5274-925h16v16h-16z'/%3E%3Cpath fill='%23963131' d='M5258-925h16v16h-16z'/%3E%3Cpath fill='%232c2b30' d='M5242-925h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5226-925h16v16h-16z'/%3E%3Cpath fill='%23645d52' d='M5210-925h16v16h-16z'/%3E%3Cpath fill='%23574d4c' d='M5194-925h16v16h-16z'/%3E%3Cpath fill='%23bea0a9' d='M5178-925h16v16h-16z'/%3E%3Cpath fill='%23958687' d='M5162-925h16v16h-16z'/%3E%3Cpath fill='%23625956' d='M5146-925h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5130-925h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5114-925h16v16h-16z'/%3E%3Cpath fill='%23461b1a' d='M5098-925h16v16h-16z'/%3E%3Cpath fill='%23641c1e' d='M5706-941h16v16h-16z'/%3E%3Cpath fill='%234d1315' d='M5690-941h16v16h-16z'/%3E%3Cpath fill='%238e2222' d='M5674-941h16v16h-16z'/%3E%3Cpath fill='%239d1d1c' d='M5658-941h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%239e1f1e' d='M5626-941h16v16h-16z'/%3E%3Cpath fill='%23ae2023' d='M5610-941h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5594-941h16v16h-16z'/%3E%3Cpath fill='%233a1315' d='M5578-941h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5562-941h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5546-941h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5530-941h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5514-941h16v16h-16z'/%3E%3Cpath fill='%23493e36' d='M5274-941h16v16h-16z'/%3E%3Cpath fill='%23752328' d='M5258-941h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5242-941h16v16h-16z'/%3E%3Cpath fill='%2381282a' d='M5226-941h16v16h-16z'/%3E%3Cpath fill='%234e3a36' d='M5210-941h16v16h-16z'/%3E%3Cpath fill='%23513f3b' d='M5194-941h16v16h-16z'/%3E%3Cpath fill='%23360e10' d='M5178-941h16v16h-16z'/%3E%3Cpath fill='%23581c1d' d='M5722-957h16v16h-16z'/%3E%3Cpath fill='%23641c1e' d='M5706-957h16v16h-16z'/%3E%3Cpath fill='%23721f23' d='M5690-957h16v16h-16z'/%3E%3Cpath fill='%239e1f1e' d='M5674-957h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5658-957h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23b31f23' d='M5610-957h16v16h-16z'/%3E%3Cpath fill='%239f2120' d='M5594-957h16v16h-16z'/%3E%3Cpath fill='%23340c0e' d='M5578-957h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5562-957h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5546-957h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5530-957h16v16h-16z'/%3E%3Cpath fill='%23987d6a' d='M5274-957h16v16h-16z'/%3E%3Cpath fill='%235f1e1f' d='M5258-957h16v16h-16z'/%3E%3Cpath fill='%239e1f1e' d='M5242-957h16v16h-16z'/%3E%3Cpath fill='%23792a2f' d='M5226-957h16v16h-16z'/%3E%3Cpath fill='%23592d2c' d='M5210-957h16v16h-16z'/%3E%3Cpath fill='%23692c2c' d='M5194-957h16v16h-16z'/%3E%3Cpath fill='%233a1315' d='M5722-973h16v16h-16z'/%3E%3Cpath fill='%23641c1e' d='M5706-973h16v16h-16z'/%3E%3Cpath fill='%23902626' d='M5690-973h16v16h-16z'/%3E%3Cpath fill='%23ae2225' d='M5674-973h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5658-973h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%239c1a19' d='M5594-973h16v16h-16z'/%3E%3Cpath fill='%23210b0f' d='M5578-973h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5562-973h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5546-973h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5258-973h16v16h-16z'/%3E%3Cpath fill='%2382262a' d='M5242-973h16v16h-16z'/%3E%3Cpath fill='%23732126' d='M5226-973h16v16h-16z'/%3E%3Cpath fill='%236f1a1f' d='M5210-973h16v16h-16z'/%3E%3Cpath fill='%237d1d21' d='M5194-973h16v16h-16z'/%3E%3Cpath fill='%23381113' d='M5738-989h16v16h-16z'/%3E%3Cpath fill='%23802225' d='M5722-989h16v16h-16z'/%3E%3Cpath fill='%238f2424' d='M5706-989h16v16h-16z'/%3E%3Cpath fill='%23ae2225' d='M5690-989h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5674-989h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%235f1517' d='M5594-989h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5578-989h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5562-989h16v16h-16z'/%3E%3Cpath fill='%235a514a' d='M5258-989h16v16h-16z'/%3E%3Cpath fill='%23250f0e' d='M5242-989h16v16h-16z'/%3E%3Cpath fill='%23381113' d='M5226-989h16v16h-16z'/%3E%3Cpath fill='%233a1315' d='M5210-989h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5194-989h16v16h-16z'/%3E%3Cpath fill='%23230d11' d='M5738-1005h16v16h-16z'/%3E%3Cpath fill='%239d1d1c' d='M5722-1005h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5706-1005h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5690-1005h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23b5262a' d='M5610-1005h16v16h-16z'/%3E%3Cpath fill='%23441918' d='M5594-1005h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5578-1005h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5562-1005h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5258-1005h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5242-1005h16v16h-16z'/%3E%3Cpath fill='%231c060a' d='M5226-1005h16v16h-16z'/%3E%3Cpath fill='%2332090b' d='M5210-1005h16v16h-16z'/%3E%3Cpath fill='%237d1d21' d='M5194-1005h16v16h-16z'/%3E%3Cpath fill='%234d1315' d='M5738-1021h16v16h-16z'/%3E%3Cpath fill='%239d1d1c' d='M5722-1021h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5706-1021h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5690-1021h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23b31f23' d='M5626-1021h16v16h-16z'/%3E%3Cpath fill='%239f2120' d='M5610-1021h16v16h-16z'/%3E%3Cpath fill='%23271211' d='M5594-1021h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5578-1021h16v16h-16z'/%3E%3Cpath fill='%237c7169' d='M5258-1021h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5242-1021h16v16h-16z'/%3E%3Cpath fill='%23271211' d='M5226-1021h16v16h-16z'/%3E%3Cpath fill='%23300709' d='M5210-1021h16v16h-16z'/%3E%3Cpath fill='%23802225' d='M5194-1021h16v16h-16z'/%3E%3Cpath fill='%234f1618' d='M5738-1037h16v16h-16z'/%3E%3Cpath fill='%23ac1b1e' d='M5722-1037h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5706-1037h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5690-1037h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ae2225' d='M5626-1037h16v16h-16z'/%3E%3Cpath fill='%239c1a19' d='M5610-1037h16v16h-16z'/%3E%3Cpath fill='%232e1717' d='M5594-1037h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5578-1037h16v16h-16z'/%3E%3Cpath fill='%239d8a7a' d='M5258-1037h16v16h-16z'/%3E%3Cpath fill='%23544a42' d='M5242-1037h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5226-1037h16v16h-16z'/%3E%3Cpath fill='%23230d11' d='M5210-1037h16v16h-16z'/%3E%3Cpath fill='%23802225' d='M5194-1037h16v16h-16z'/%3E%3Cpath fill='%23561a1b' d='M5738-1053h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5722-1053h16v16h-16z'/%3E%3Cpath fill='%23b02629' d='M5706-1053h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5690-1053h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ae2023' d='M5626-1053h16v16h-16z'/%3E%3Cpath fill='%238c1a1a' d='M5610-1053h16v16h-16z'/%3E%3Cpath fill='%23341e1e' d='M5594-1053h16v16h-16z'/%3E%3Cpath fill='%23454448' d='M5226-1053h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5210-1053h16v16h-16z'/%3E%3Cpath fill='%23802225' d='M5194-1053h16v16h-16z'/%3E%3Cpath fill='%23561a1b' d='M5738-1069h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5722-1069h16v16h-16z'/%3E%3Cpath fill='%23c41e23' d='M5706-1069h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5690-1069h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5626-1069h16v16h-16z'/%3E%3Cpath fill='%238a1515' d='M5610-1069h16v16h-16z'/%3E%3Cpath fill='%237f7768' d='M5226-1069h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%237d1d21' d='M5194-1069h16v16h-16z'/%3E%3Cpath fill='%234d1315' d='M5738-1069h16v16h-16z'/%3E%3Cpath fill='%23b42125' d='M5722-1069h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5706-1069h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5690-1069h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5626-1069h16v16h-16z'/%3E%3Cpath fill='%237d1d21' d='M5610-1069h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5194-1069h16v16h-16z'/%3E%3Cpath fill='%23230d11' d='M5738-1101h16v16h-16z'/%3E%3Cpath fill='%23b52327' d='M5722-1101h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5706-1101h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5690-1101h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5626-1101h16v16h-16z'/%3E%3Cpath fill='%237d1d21' d='M5610-1101h16v16h-16z'/%3E%3Cpath fill='%23574d46' d='M5210-1101h16v16h-16zm0 32h16v16h-16z'/%3E%3Cpath fill='%237d1d21' d='M5194-1101h16v16h-16z'/%3E%3Cpath fill='%2332090b' d='M5738-1117h16v16h-16z'/%3E%3Cpath fill='%23b42125' d='M5722-1117h16v16h-16z'/%3E%3Cpath fill='%23b52327' d='M5706-1117h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5690-1117h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5626-1117h16v16h-16z'/%3E%3Cpath fill='%237d1d21' d='M5610-1117h16v16h-16z'/%3E%3Cpath fill='%2344403a' d='M5210-1117h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5194-1117h16v16h-16z'/%3E%3Cpath fill='%2332090b' d='M5738-1133h16v16h-16z'/%3E%3Cpath fill='%23b42125' d='M5722-1133h16v16h-16z'/%3E%3Cpath fill='%23b5262a' d='M5706-1133h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5690-1133h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5626-1133h16v16h-16z'/%3E%3Cpath fill='%237d1d21' d='M5610-1133h16v16h-16z'/%3E%3Cpath fill='%23403f43' d='M5210-1133h16v16h-16z'/%3E%3Cpath fill='%2376252a' d='M5194-1133h16v16h-16z'/%3E%3Cpath fill='%23531516' d='M5738-1149h16v16h-16z'/%3E%3Cpath fill='%23902626' d='M5722-1149h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5706-1149h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5690-1149h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5626-1149h16v16h-16z'/%3E%3Cpath fill='%238a1515' d='M5610-1149h16v16h-16z'/%3E%3Cpath fill='%23733836' d='M5194-1149h16v16h-16z'/%3E%3Cpath fill='%234a0e10' d='M5722-1165h16v16h-16z'/%3E%3Cpath fill='%238b1717' d='M5706-1165h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5690-1165h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5626-1165h16v16h-16z'/%3E%3Cpath fill='%238b1717' d='M5610-1165h16v16h-16z'/%3E%3Cpath fill='%23773e3c' d='M5194-1165h16v16h-16z'/%3E%3Cpath fill='%23340c0e' d='M5722-1181h16v16h-16z'/%3E%3Cpath fill='%237c1b1f' d='M5706-1181h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5690-1181h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5626-1181h16v16h-16z'/%3E%3Cpath fill='%239d1d1c' d='M5610-1181h16v16h-16z'/%3E%3Cpath fill='%23773e3c' d='M5194-1181h16v16h-16z'/%3E%3Cpath fill='%234c1113' d='M5722-1197h16v16h-16z'/%3E%3Cpath fill='%237c1b1f' d='M5706-1197h16v16h-16z'/%3E%3Cpath fill='%23ae2225' d='M5690-1197h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5674-1197h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23b31f23' d='M5626-1197h16v16h-16z'/%3E%3Cpath fill='%23ae2023' d='M5610-1197h16v16h-16z'/%3E%3Cpath fill='%23774f46' d='M5594-1197h16v16h-16z'/%3E%3Cpath fill='%23763c3a' d='M5194-1197h16v16h-16z'/%3E%3Cpath fill='%23641c1e' d='M5722-1213h16v16h-16z'/%3E%3Cpath fill='%237d1d21' d='M5706-1213h16v16h-16z'/%3E%3Cpath fill='%238e1c1c' d='M5690-1213h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5674-1213h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23c41e23' d='M5626-1213h16v16h-16z'/%3E%3Cpath fill='%23b42125' d='M5610-1213h16v16h-16z'/%3E%3Cpath fill='%23623736' d='M5594-1213h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5706-1229h16v16h-16z'/%3E%3Cpath fill='%235f1517' d='M5690-1229h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5674-1229h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23c5252a' d='M5610-1229h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5594-1229h16v16h-16z'/%3E%3Cpath fill='%238e2222' d='M5706-1245h16v16h-16z'/%3E%3Cpath fill='%236f1a1f' d='M5690-1245h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5674-1245h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5658-1245h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%235f1517' d='M5594-1245h16v16h-16z'/%3E%3Cpath fill='%23802225' d='M5690-1261h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5674-1261h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5658-1261h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5642-1261h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%239f2120' d='M5594-1261h16v16h-16z'/%3E%3Cpath fill='%2353413d' d='M5578-1261h16v16h-16z'/%3E%3Cpath fill='%238f695c' d='M5210-1261h16v16h-16zm0 16h16v16h-16zm-16 0h16v16h-16zm0 16h16v16h-16z'/%3E%3Cpath fill='%23773e3c' d='M5194-1213h16v16h-16z'/%3E%3Cpath fill='%239d1d1c' d='M5690-1277h16v16h-16z'/%3E%3Cpath fill='%23701c21' d='M5674-1277h16v16h-16z'/%3E%3Cpath fill='%23c41e23' d='M5658-1277h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5642-1277h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23b02629' d='M5594-1277h16v16h-16z'/%3E%3Cpath fill='%2340262a' d='M5578-1277h16v16h-16z'/%3E%3Cpath fill='%23623935' d='M5210-1277h16v16h-16z'/%3E%3Cpath fill='%23621a1c' d='M5674-1293h16v16h-16zm0-16h16v16h-16z'/%3E%3Cpath fill='%23b42125' d='M5658-1293h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5642-1293h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23b6282c' d='M5594-1293h16v16h-16z'/%3E%3Cpath fill='%23340c0e' d='M5578-1293h16v16h-16z'/%3E%3Cpath fill='%23561a1b' d='M5210-1293h16v16h-16z'/%3E%3Cpath fill='%23732126' d='M5658-1309h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5642-1309h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%236f1a1f' d='M5578-1309h16v16h-16z'/%3E%3Cpath fill='%234b3537' d='M5242-1309h16v16h-16z'/%3E%3Cpath fill='%23792a2f' d='M5226-1309h16v16h-16zm0 16h16v16h-16z'/%3E%3Cpath fill='%23250f0e' d='M5658-1325h16v16h-16z'/%3E%3Cpath fill='%23b72a2e' d='M5642-1325h16v16h-16z'/%3E%3Cpath fill='%23b6282c' d='M5626-1325h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5610-1325h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23b5262a' d='M5578-1325h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5562-1325h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5546-1325h16v16h-16z'/%3E%3Cpath fill='%233b3a3e' d='M5258-1325h16v16h-16z'/%3E%3Cpath fill='%23a12625' d='M5242-1325h16v16h-16z'/%3E%3Cpath fill='%23a32a2a' d='M5658-1341h16v16h-16z'/%3E%3Cpath fill='%23381113' d='M5642-1341h16v16h-16z'/%3E%3Cpath fill='%237c1b1f' d='M5626-1341h16v16h-16z'/%3E%3Cpath fill='%23c41e23' d='M5610-1341h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5594-1341h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5578-1341h16v16h-16z'/%3E%3Cpath fill='%234c1113' d='M5562-1341h16v16h-16z'/%3E%3Cpath fill='%23230d11' d='M5546-1341h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5306-1341h16v16h-16z'/%3E%3Cpath fill='%23403f43' d='M5290-1341h16v16h-16z'/%3E%3Cpath fill='%234b3434' d='M5274-1341h16v16h-16z'/%3E%3Cpath fill='%23a12625' d='M5258-1341h16v16h-16z'/%3E%3Cpath fill='%235d1315' d='M5642-1357h16v16h-16z'/%3E%3Cpath fill='%2379161a' d='M5626-1357h16v16h-16z'/%3E%3Cpath fill='%238c1a1a' d='M5610-1357h16v16h-16z'/%3E%3Cpath fill='%23c31c21' d='M5594-1357h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5578-1357h16v16h-16z'/%3E%3Cpath fill='%23732126' d='M5562-1357h16v16h-16z'/%3E%3Cpath fill='%23421615' d='M5546-1357h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5530-1357h16v16h-16z'/%3E%3Cpath fill='%232c2b30' d='M5322-1357h16v16h-16z'/%3E%3Cpath fill='%234a3335' d='M5306-1357h16v16h-16z'/%3E%3Cpath fill='%234d3636' d='M5290-1357h16v16h-16z'/%3E%3Cpath fill='%237e2325' d='M5274-1357h16v16h-16z'/%3E%3Cpath fill='%23621a1c' d='M5626-1373h16v16h-16z'/%3E%3Cpath fill='%235f1517' d='M5610-1373h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5594-1373h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5578-1373h16v16h-16z'/%3E%3Cpath fill='%23a12625' d='M5562-1373h16v16h-16z'/%3E%3Cpath fill='%23561a1b' d='M5546-1373h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5530-1373h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5514-1373h16v16h-16z'/%3E%3Cpath fill='%23454448' d='M5322-1373h16v16h-16z'/%3E%3Cpath fill='%2350373a' d='M5306-1373h16v16h-16z'/%3E%3Cpath fill='%23623736' d='M5290-1373h16v16h-16z'/%3E%3Cpath fill='%237c1b1f' d='M5610-1389h16v16h-16z'/%3E%3Cpath fill='%23531516' d='M5594-1389h16v16h-16z'/%3E%3Cpath fill='%23912929' d='M5578-1389h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5562-1389h16v16h-16z'/%3E%3Cpath fill='%239f2120' d='M5546-1389h16v16h-16z'/%3E%3Cpath fill='%23812428' d='M5530-1389h16v16h-16z'/%3E%3Cpath fill='%23401413' d='M5514-1389h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5498-1389h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5450-1389h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5434-1389h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5418-1389h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5402-1389h16v16h-16z'/%3E%3Cpath fill='%23313034' d='M5386-1389h16v16h-16z'/%3E%3Cpath fill='%23515154' d='M5370-1389h16v16h-16z'/%3E%3Cpath fill='%234f4e52' d='M5354-1389h16v16h-16z'/%3E%3Cpath fill='%23565659' d='M5338-1389h16v16h-16z'/%3E%3Cpath fill='%235f1e1f' d='M5322-1389h16v16h-16z'/%3E%3Cpath fill='%23531516' d='M5578-1405h16v16h-16z'/%3E%3Cpath fill='%23230d11' d='M5562-1405h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%2332090b' d='M5530-1405h16v16h-16z'/%3E%3Cpath fill='%23340c0e' d='M5514-1405h16v16h-16z'/%3E%3Cpath fill='%2376252a' d='M5498-1405h16v16h-16z'/%3E%3Cpath fill='%23381113' d='M5482-1405h16v16h-16z'/%3E%3Cpath fill='%23210b0f' d='M5466-1405h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5450-1405h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5434-1405h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5418-1405h16v16h-16z'/%3E%3Cpath fill='%230e0d12' d='M5402-1405h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5386-1405h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5370-1405h16v16h-16z'/%3E%3Cpath fill='%23622323' d='M5354-1405h16v16h-16z'/%3E%3Cpath fill='%237e1f23' d='M5354-717h16v16h-16z'/%3E%3Cpath fill='%23551718' d='M5354-733h16v16h-16z'/%3E%3Cpath fill='%23ae2225' d='M5354-749h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5338-797h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5322-797h16v16h-16z'/%3E%3Cpath fill='%23b02629' d='M5306-797h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5338-813h16v16h-16z'/%3E%3Cpath fill='%23c41e23' d='M5322-813h16v16h-16z'/%3E%3Cpath fill='%239e1f1e' d='M5306-813h16v16h-16z'/%3E%3Cpath fill='%23af2427' d='M5322-829h16v16h-16z'/%3E%3Cpath fill='%237c1b1f' d='M5306-829h16v16h-16z'/%3E%3Cpath fill='%23621a1c' d='M5306-845h16v16h-16z'/%3E%3Cpath fill='%231e080c' d='M5290-845h16v16h-16z'/%3E%3Cpath fill='%23ba9378' d='M5434-861h16v16h-16z'/%3E%3Cpath fill='%23b89075' d='M5418-861h16v16h-16z'/%3E%3Cpath fill='%23ba9378' d='M5402-861h16v16h-16z'/%3E%3Cpath fill='%23b89075' d='M5386-861h16v16h-16z'/%3E%3Cpath fill='%23b4896c' d='M5370-861h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23a17559' d='M5482-877h16v16h-16z'/%3E%3Cpath fill='%23b78e72' d='M5466-877h16v16h-16z'/%3E%3Cpath fill='%23c19c83' d='M5450-877h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23bf997f' d='M5418-877h16v16h-16z'/%3E%3Cpath fill='%23c09b81' d='M5402-877h16v16h-16z'/%3E%3Cpath fill='%23cca185' d='M5386-877h16v16h-16z'/%3E%3Cpath fill='%23bb947a' d='M5370-877h16v16h-16z'/%3E%3Cpath fill='%23ba9175' d='M5354-877h16v16h-16z'/%3E%3Cpath fill='%23b89075' d='M5338-877h16v16h-16z'/%3E%3Cpath fill='%23a98066' d='M5322-877h16v16h-16z'/%3E%3Cpath fill='%23b58a6e' d='M5498-893h16v16h-16z'/%3E%3Cpath fill='%23c29d84' d='M5482-893h16v16h-16z'/%3E%3Cpath fill='%23dbb397' d='M5466-893h16v16h-16z'/%3E%3Cpath fill='%23d8ae90' d='M5450-893h16v16h-16z'/%3E%3Cpath fill='%23cca185' d='M5434-893h16v16h-16z'/%3E%3Cpath fill='%23c29d84' d='M5418-893h16v16h-16z'/%3E%3Cpath fill='%23c09b81' d='M5402-893h16v16h-16z'/%3E%3Cpath fill='%23c09a80' d='M5386-893h16v16h-16z'/%3E%3Cpath fill='%23bf997f' d='M5370-893h16v16h-16z'/%3E%3Cpath fill='%23be987d' d='M5354-893h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23bd977c' d='M5322-893h16v16h-16z'/%3E%3Cpath fill='%23a87f65' d='M5306-893h16v16h-16zm208-16h16v16h-16z'/%3E%3Cpath fill='%23c09b81' d='M5498-909h16v16h-16z'/%3E%3Cpath fill='%23ddb79d' d='M5482-909h16v16h-16z'/%3E%3Cpath fill='%23e3bda6' d='M5466-909h16v16h-16z'/%3E%3Cpath fill='%23c29d84' d='M5450-909h16v16h-16z'/%3E%3Cpath fill='%23b88f74' d='M5434-909h16v16h-16z'/%3E%3Cpath fill='%23bc8977' d='M5418-909h16v16h-16z'/%3E%3Cpath fill='%23b37965' d='M5402-909h16v16h-16z'/%3E%3Cpath fill='%23ba8573' d='M5386-909h16v16h-16z'/%3E%3Cpath fill='%23b78269' d='M5370-909h16v16h-16z'/%3E%3Cpath fill='%23bb8871' d='M5354-909h16v16h-16z'/%3E%3Cpath fill='%23bf997f' d='M5338-909h16v16h-16z'/%3E%3Cpath fill='%23cda387' d='M5322-909h16v16h-16z'/%3E%3Cpath fill='%23bf997f' d='M5306-909h16v16h-16z'/%3E%3Cpath fill='%23a57b60' d='M5290-909h16v16h-16z'/%3E%3Cpath fill='%23a87f65' d='M5530-925h16v16h-16z'/%3E%3Cpath fill='%23cba084' d='M5514-925h16v16h-16z'/%3E%3Cpath fill='%23d0a98f' d='M5498-925h16v16h-16z'/%3E%3Cpath fill='%23e6c2ad' d='M5482-925h16v16h-16z'/%3E%3Cpath fill='%23e0b59b' d='M5466-925h16v16h-16z'/%3E%3Cpath fill='%234a3632' d='M5450-925h16v16h-16z'/%3E%3Cpath fill='%2354352f' d='M5434-925h16v16h-16z'/%3E%3Cpath fill='%2350312b' d='M5418-925h16v16h-16z'/%3E%3Cpath fill='%23452824' d='M5402-925h16v16h-16z'/%3E%3Cpath fill='%23744139' d='M5386-925h16v16h-16z'/%3E%3Cpath fill='%23713d35' d='M5370-925h16v16h-16z'/%3E%3Cpath fill='%23723f37' d='M5354-925h16v16h-16z'/%3E%3Cpath fill='%23b67e6b' d='M5338-925h16v16h-16z'/%3E%3Cpath fill='%23bf997f' d='M5322-925h16v16h-16z'/%3E%3Cpath fill='%23e0b59b' d='M5306-925h16v16h-16z'/%3E%3Cpath fill='%23bd977c' d='M5290-925h16v16h-16z'/%3E%3Cpath fill='%239f7456' d='M5274-925h16v16h-16z'/%3E%3Cpath fill='%23a2765b' d='M5546-941h16v16h-16z'/%3E%3Cpath fill='%23be987d' d='M5530-941h16v16h-16z'/%3E%3Cpath fill='%23d0aa90' d='M5514-941h16v16h-16z'/%3E%3Cpath fill='%23dbb398' d='M5498-941h16v16h-16z'/%3E%3Cpath fill='%23ddb89e' d='M5482-941h16v16h-16z'/%3E%3Cpath fill='%23774f46' d='M5466-941h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5450-941h16v16h-16z'/%3E%3Cpath fill='%23180a08' d='M5434-941h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5418-941h16v16h-16z'/%3E%3Cpath fill='%2368676a' d='M5402-941h16v16h-16z'/%3E%3Cpath fill='%23230d11' d='M5386-941h16v16h-16z'/%3E%3Cpath fill='%231a0c0a' d='M5370-941h16v16h-16z'/%3E%3Cpath fill='%233b1d18' d='M5354-941h16v16h-16z'/%3E%3Cpath fill='%23230d11' d='M5338-941h16v16h-16z'/%3E%3Cpath fill='%23c0927d' d='M5322-941h16v16h-16z'/%3E%3Cpath fill='%23e4bfa9' d='M5306-941h16v16h-16z'/%3E%3Cpath fill='%23d0aa90' d='M5290-941h16v16h-16z'/%3E%3Cpath fill='%23b68d71' d='M5274-941h16v16h-16z'/%3E%3Cpath fill='%23a3785c' d='M5258-941h16v16h-16z'/%3E%3Cpath fill='%23a98066' d='M5562-957h16v16h-16z'/%3E%3Cpath fill='%23bb9276' d='M5546-957h16v16h-16z'/%3E%3Cpath fill='%23d8ad8f' d='M5530-957h16v16h-16z'/%3E%3Cpath fill='%23d9b094' d='M5514-957h16v16h-16z'/%3E%3Cpath fill='%23d0a98f' d='M5498-957h16v16h-16z'/%3E%3Cpath fill='%23b78e72' d='M5482-957h16v16h-16z'/%3E%3Cpath fill='%23a98168' d='M5466-957h16v16h-16z'/%3E%3Cpath fill='%23a87f65' d='M5450-957h16v16h-16z'/%3E%3Cpath fill='%23bc9479' d='M5434-957h16v16h-16z'/%3E%3Cpath fill='%23bd957b' d='M5418-957h16v16h-16z'/%3E%3Cpath fill='%23dab296' d='M5402-957h16v16h-16z'/%3E%3Cpath fill='%23957164' d='M5386-957h16v16h-16z'/%3E%3Cpath fill='%238f695c' d='M5370-957h16v16h-16z'/%3E%3Cpath fill='%23606063' d='M5354-957h16v16h-16z'/%3E%3Cpath fill='%23363539' d='M5338-957h16v16h-16z'/%3E%3Cpath fill='%23111015' d='M5322-957h16v16h-16z'/%3E%3Cpath fill='%23f3cdb3' d='M5306-957h16v16h-16z'/%3E%3Cpath fill='%23dbb397' d='M5290-957h16v16h-16z'/%3E%3Cpath fill='%23c19c83' d='M5274-957h16v16h-16z'/%3E%3Cpath fill='%23b58a6e' d='M5258-957h16v16h-16z'/%3E%3Cpath fill='%23b78e72' d='M5242-957h16v16h-16z'/%3E%3Cpath fill='%23cca286' d='M5594-973h16v16h-16z'/%3E%3Cpath fill='%23b68d71' d='M5578-973h16v16h-16z'/%3E%3Cpath fill='%23a67c61' d='M5562-973h16v16h-16z'/%3E%3Cpath fill='%23d0a98f' d='M5546-973h16v16h-16z'/%3E%3Cpath fill='%23e3bca4' d='M5530-973h16v16h-16z'/%3E%3Cpath fill='%23e2baa2' d='M5514-973h16v16h-16z'/%3E%3Cpath fill='%23e0b69c' d='M5498-973h16v16h-16z'/%3E%3Cpath fill='%23dab296' d='M5482-973h16v16h-16z'/%3E%3Cpath fill='%23dbb397' d='M5466-973h16v16h-16z'/%3E%3Cpath fill='%23e1b79e' d='M5450-973h16v16h-16z'/%3E%3Cpath fill='%23e2b9a1' d='M5434-973h16v16h-16z'/%3E%3Cpath fill='%23e6c2ad' d='M5418-973h16v16h-16z'/%3E%3Cpath fill='%23dbb398' d='M5402-973h16v16h-16z'/%3E%3Cpath fill='%23f2c8ac' d='M5386-973h16v16h-16z'/%3E%3Cpath fill='%23ddb89f' d='M5370-973h16v16h-16z'/%3E%3Cpath fill='%23cda489' d='M5354-973h16v16h-16z'/%3E%3Cpath fill='%23c09a80' d='M5338-973h16v16h-16z'/%3E%3Cpath fill='%23a67c61' d='M5322-973h16v16h-16z'/%3E%3Cpath fill='%23c29d84' d='M5306-973h16v16h-16z'/%3E%3Cpath fill='%23d7ab8d' d='M5290-973h16v16h-16z'/%3E%3Cpath fill='%23cea58a' d='M5274-973h16v16h-16z'/%3E%3Cpath fill='%23b99277' d='M5258-973h16v16h-16z'/%3E%3Cpath fill='%23b78e72' d='M5242-973h16v16h-16z'/%3E%3Cpath fill='%23dbb397' d='M5594-989h16v16h-16z'/%3E%3Cpath fill='%23b4896c' d='M5578-989h16v16h-16z'/%3E%3Cpath fill='%23b58a6e' d='M5562-989h16v16h-16z'/%3E%3Cpath fill='%23dbb397' d='M5546-989h16v16h-16z'/%3E%3Cpath fill='%23e6c2ad' d='M5530-989h16v16h-16z'/%3E%3Cpath fill='%23f3cdb3' d='M5514-989h16v16h-16z'/%3E%3Cpath fill='%23f4ceb5' d='M5498-989h16v16h-16z'/%3E%3Cpath fill='%23f3c9ad' d='M5482-989h16v16h-16z'/%3E%3Cpath fill='%23f3caaf' d='M5466-989h16v16h-16z'/%3E%3Cpath fill='%23e6c2ad' d='M5450-989h16v16h-16z'/%3E%3Cpath fill='%23dbb398' d='M5434-989h16v16h-16z'/%3E%3Cpath fill='%239a6c4d' d='M5418-989h16v16h-16z'/%3E%3Cpath fill='%23b3886b' d='M5402-989h16v16h-16z'/%3E%3Cpath fill='%23825f47' d='M5386-989h16v16h-16z'/%3E%3Cpath fill='%23cca286' d='M5370-989h16v16h-16z'/%3E%3Cpath fill='%23e0b69c' d='M5354-989h16v16h-16z'/%3E%3Cpath fill='%23ddb89e' d='M5338-989h16v16h-16z'/%3E%3Cpath fill='%23cea58a' d='M5322-989h16v16h-16z'/%3E%3Cpath fill='%23bf997f' d='M5306-989h16v16h-16z'/%3E%3Cpath fill='%23d0a98f' d='M5290-989h16v16h-16z'/%3E%3Cpath fill='%23d7ac8e' d='M5274-989h16v16h-16z'/%3E%3Cpath fill='%23cba084' d='M5258-989h16v16h-16z'/%3E%3Cpath fill='%23a67c61' d='M5242-989h16v16h-16z'/%3E%3Cpath fill='%23ddb79d' d='M5610-1005h16v16h-16z'/%3E%3Cpath fill='%23be987d' d='M5594-1005h16v16h-16z'/%3E%3Cpath fill='%23a17559' d='M5578-1005h16v16h-16z'/%3E%3Cpath fill='%23bd977c' d='M5562-1005h16v16h-16z'/%3E%3Cpath fill='%23dbb49a' d='M5546-1005h16v16h-16z'/%3E%3Cpath fill='%23e5c0aa' d='M5530-1005h16v16h-16z'/%3E%3Cpath fill='%23f3cdb3' d='M5514-1005h16v16h-16z'/%3E%3Cpath fill='%23f5d6bc' d='M5498-1005h16v16h-16z'/%3E%3Cpath fill='%23f6d8be' d='M5482-1005h16v16h-16z'/%3E%3Cpath fill='%23f5d7bd' d='M5466-1005h16v16h-16z'/%3E%3Cpath fill='%23f4ceb5' d='M5450-1005h16v16h-16z'/%3E%3Cpath fill='%23c29d84' d='M5434-1005h16v16h-16z'/%3E%3Cpath fill='%23f2c9ad' d='M5418-1005h16v16h-16z'/%3E%3Cpath fill='%23f2c8ab' d='M5402-1005h16v16h-16z'/%3E%3Cpath fill='%23e0b69c' d='M5386-1005h16v16h-16z'/%3E%3Cpath fill='%23ba9378' d='M5370-1005h16v16h-16z'/%3E%3Cpath fill='%23e1b89f' d='M5354-1005h16v16h-16z'/%3E%3Cpath fill='%23f2c7aa' d='M5338-1005h16v16h-16z'/%3E%3Cpath fill='%23e5c2ac' d='M5322-1005h16v16h-16z'/%3E%3Cpath fill='%23e2bba3' d='M5306-1005h16v16h-16z'/%3E%3Cpath fill='%23e1b79e' d='M5290-1005h16v16h-16z'/%3E%3Cpath fill='%23ddb79d' d='M5274-1005h16v16h-16z'/%3E%3Cpath fill='%23cda489' d='M5258-1005h16v16h-16z'/%3E%3Cpath fill='%23a2765b' d='M5242-1005h16v16h-16z'/%3E%3Cpath fill='%23dbb397' d='M5610-1021h16v16h-16z'/%3E%3Cpath fill='%238f6c55' d='M5594-1021h16v16h-16z'/%3E%3Cpath fill='%23996b4b' d='M5578-1021h16v16h-16z'/%3E%3Cpath fill='%23c09a80' d='M5562-1021h16v16h-16z'/%3E%3Cpath fill='%23dab296' d='M5546-1021h16v16h-16z'/%3E%3Cpath fill='%23e5c2ac' d='M5530-1021h16v16h-16z'/%3E%3Cpath fill='%23f4d1b8' d='M5514-1021h16v16h-16z'/%3E%3Cpath fill='%23f6d9c0' d='M5498-1021h16v16h-16z'/%3E%3Cpath fill='%23f6dbc3' d='M5482-1021h16v16h-16z'/%3E%3Cpath fill='%23f6dac2' d='M5466-1021h16v16h-16z'/%3E%3Cpath fill='%23f4ceb4' d='M5450-1021h16v16h-16z'/%3E%3Cpath fill='%23e0b59b' d='M5434-1021h16v16h-16z'/%3E%3Cpath fill='%23dbb398' d='M5418-1021h16v16h-16z'/%3E%3Cpath fill='%23f4d1b8' d='M5402-1021h16v16h-16z'/%3E%3Cpath fill='%23dab296' d='M5386-1021h16v16h-16z'/%3E%3Cpath fill='%23dbb398' d='M5370-1021h16v16h-16z'/%3E%3Cpath fill='%23f4ceb4' d='M5354-1021h16v16h-16z'/%3E%3Cpath fill='%23f5d7bd' d='M5338-1021h16v16h-16z'/%3E%3Cpath fill='%23f4d2ba' d='M5322-1021h16v16h-16z'/%3E%3Cpath fill='%23f5d2bb' d='M5306-1021h16v16h-16z'/%3E%3Cpath fill='%23f3cbb0' d='M5290-1021h16v16h-16z'/%3E%3Cpath fill='%23e4bfa9' d='M5274-1021h16v16h-16z'/%3E%3Cpath fill='%23dbb397' d='M5258-1021h16v16h-16z'/%3E%3Cpath fill='%23b58a6e' d='M5242-1021h16v16h-16z'/%3E%3Cpath fill='%23a2765b' d='M5226-1021h16v16h-16z'/%3E%3Cpath fill='%23d1ab91' d='M5626-1037h16v16h-16z'/%3E%3Cpath fill='%23be987d' d='M5610-1037h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5594-1037h16v16h-16z'/%3E%3Cpath fill='%23a98066' d='M5578-1037h16v16h-16z'/%3E%3Cpath fill='%23c09a80' d='M5562-1037h16v16h-16z'/%3E%3Cpath fill='%23dcb69c' d='M5546-1037h16v16h-16z'/%3E%3Cpath fill='%23e4bfa9' d='M5530-1037h16v16h-16z'/%3E%3Cpath fill='%23f3cdb3' d='M5514-1037h16v16h-16z'/%3E%3Cpath fill='%23f5d6bb' d='M5498-1037h16v16h-16z'/%3E%3Cpath fill='%23f6d8be' d='M5482-1037h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23f4d1b8' d='M5450-1037h16v16h-16z'/%3E%3Cpath fill='%23e5c2ac' d='M5434-1037h16v16h-16z'/%3E%3Cpath fill='%23e3bda6' d='M5418-1037h16v16h-16z'/%3E%3Cpath fill='%23e1b79e' d='M5402-1037h16v16h-16z'/%3E%3Cpath fill='%23dcb59b' d='M5386-1037h16v16h-16z'/%3E%3Cpath fill='%23e3bca5' d='M5370-1037h16v16h-16z'/%3E%3Cpath fill='%23f4d1b8' d='M5354-1037h16v16h-16z'/%3E%3Cpath fill='%23f6dcc5' d='M5338-1037h16v16h-16z'/%3E%3Cpath fill='%23f6d9c0' d='M5322-1037h16v16h-16z'/%3E%3Cpath fill='%23f5d3bd' d='M5306-1037h16v16h-16z'/%3E%3Cpath fill='%23f3caae' d='M5290-1037h16v16h-16z'/%3E%3Cpath fill='%23e4bea7' d='M5274-1037h16v16h-16z'/%3E%3Cpath fill='%23dbb397' d='M5258-1037h16v16h-16z'/%3E%3Cpath fill='%23bb947a' d='M5242-1037h16v16h-16z'/%3E%3Cpath fill='%239e7254' d='M5226-1037h16v16h-16z'/%3E%3Cpath fill='%23b88f74' d='M5626-1053h16v16h-16z'/%3E%3Cpath fill='%23a67c61' d='M5610-1053h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5594-1053h16v16h-16z'/%3E%3Cpath fill='%23996b4b' d='M5578-1053h16v16h-16z'/%3E%3Cpath fill='%23bd957b' d='M5562-1053h16v16h-16z'/%3E%3Cpath fill='%23d9b094' d='M5546-1053h16v16h-16z'/%3E%3Cpath fill='%23b89e8c' d='M5530-1053h16v16h-16z'/%3E%3Cpath fill='%239c8370' d='M5514-1053h16v16h-16z'/%3E%3Cpath fill='%23af907d' d='M5498-1053h16v16h-16z'/%3E%3Cpath fill='%2350463e' d='M5482-1053h16v16h-16z'/%3E%3Cpath fill='%23b79d8b' d='M5466-1053h16v16h-16z'/%3E%3Cpath fill='%23e1b69d' d='M5450-1053h16v16h-16z'/%3E%3Cpath fill='%23e0b69c' d='M5434-1053h16v16h-16z'/%3E%3Cpath fill='%23f5d2bb' d='M5418-1053h16v16h-16z'/%3E%3Cpath fill='%23f4d2ba' d='M5402-1053h16v16h-16z'/%3E%3Cpath fill='%23e5c1ab' d='M5386-1053h16v16h-16z'/%3E%3Cpath fill='%23e1b69d' d='M5370-1053h16v16h-16z'/%3E%3Cpath fill='%23f5d3bd' d='M5354-1053h16v16h-16z'/%3E%3Cpath fill='%23f6d8be' d='M5338-1053h16v16h-16z'/%3E%3Cpath fill='%23f6d9c0' d='M5322-1053h16v16h-16z'/%3E%3Cpath fill='%23f4d2ba' d='M5306-1053h16v16h-16z'/%3E%3Cpath fill='%23f3c9ad' d='M5290-1053h16v16h-16z'/%3E%3Cpath fill='%23ddb79d' d='M5274-1053h16v16h-16z'/%3E%3Cpath fill='%23cca185' d='M5258-1053h16v16h-16z'/%3E%3Cpath fill='%23b68d71' d='M5242-1053h16v16h-16z'/%3E%3Cpath fill='%239b6e4e' d='M5226-1053h16v16h-16z'/%3E%3Cpath fill='%23a57b60' d='M5610-1069h16v16h-16z'/%3E%3Cpath fill='%232f241b' d='M5594-1069h16v16h-16z'/%3E%3Cpath fill='%237a5840' d='M5578-1069h16v16h-16z'/%3E%3Cpath fill='%23bc9479' d='M5562-1069h16v16h-16z'/%3E%3Cpath fill='%23544a42' d='M5546-1069h16v16h-16z'/%3E%3Cpath fill='%23eee' d='M5530-1069h16v16h-16z'/%3E%3Cpath fill='%2329231a' d='M5514-1069h16v16h-16z'/%3E%3Cpath fill='%2307060b' d='M5498-1069h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5482-1069h16v16h-16z'/%3E%3Cpath fill='%2380776b' d='M5466-1069h16v16h-16z'/%3E%3Cpath fill='%23997f6b' d='M5450-1069h16v16h-16z'/%3E%3Cpath fill='%23cba084' d='M5434-1069h16v16h-16z'/%3E%3Cpath fill='%23f4d1b8' d='M5418-1069h16v16h-16z'/%3E%3Cpath fill='%23f6d8bf' d='M5402-1069h16v16h-16z'/%3E%3Cpath fill='%23dab296' d='M5386-1069h16v16h-16z'/%3E%3Cpath fill='%239d8a7a' d='M5370-1069h16v16h-16z'/%3E%3Cpath fill='%23dcc5b8' d='M5354-1069h16v16h-16z'/%3E%3Cpath fill='%23baa190' d='M5338-1069h16v16h-16z'/%3E%3Cpath fill='%23f4d0b8' d='M5322-1069h16v16h-16z'/%3E%3Cpath fill='%23f3cbb1' d='M5306-1069h16v16h-16z'/%3E%3Cpath fill='%23e4bea7' d='M5290-1069h16v16h-16z'/%3E%3Cpath fill='%23e1b79e' d='M5274-1069h16v16h-16z'/%3E%3Cpath fill='%23cb9f82' d='M5258-1069h16v16h-16z'/%3E%3Cpath fill='%23a87f65' d='M5242-1069h16v16h-16z'/%3E%3Cpath fill='%23403126' d='M5226-1069h16v16h-16z'/%3E%3Cpath fill='%23230d11' d='M5738-1085h16v16h-16z'/%3E%3Cpath fill='%23b52327' d='M5722-1085h16v16h-16z'/%3E%3Cpath fill='%23c42125' d='M5706-1085h16v16h-16z'/%3E%3Cpath fill='%23c52328' d='M5690-1085h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23ad1d20' d='M5626-1085h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5610-1085h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5594-1085h16v16h-16z'/%3E%3Cpath fill='%2387664e' d='M5578-1085h16v16h-16z'/%3E%3Cpath fill='%23bb947a' d='M5562-1085h16v16h-16z'/%3E%3Cpath fill='%23b58a6e' d='M5546-1085h16v16h-16z'/%3E%3Cpath fill='%23515154' d='M5530-1085h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5514-1085h16v16h-16z'/%3E%3Cpath fill='%2307060b' d='M5498-1085h16v16h-16z'/%3E%3Cpath fill='%2309080d' d='M5482-1085h16v16h-16z'/%3E%3Cpath fill='%23716358' d='M5466-1085h16v16h-16z'/%3E%3Cpath fill='%23b88f74' d='M5450-1085h16v16h-16z'/%3E%3Cpath fill='%23e0b69c' d='M5434-1085h16v16h-16z'/%3E%3Cpath fill='%23f4ceb5' d='M5418-1085h16v16h-16z'/%3E%3Cpath fill='%23f3cbb1' d='M5402-1085h16v16h-16z'/%3E%3Cpath fill='%23cea68b' d='M5386-1085h16v16h-16z'/%3E%3Cpath fill='%23a77d63' d='M5370-1085h16v16h-16z'/%3E%3Cpath fill='%2379797b' d='M5354-1085h16v16h-16z'/%3E%3Cpath fill='%230c0b10' d='M5338-1085h16v16h-16z'/%3E%3Cpath fill='%2307060b' d='M5322-1085h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5306-1085h16v16h-16z'/%3E%3Cpath fill='%239d8471' d='M5290-1085h16v16h-16z'/%3E%3Cpath fill='%23e0b69c' d='M5274-1085h16v16h-16z'/%3E%3Cpath fill='%23cca185' d='M5258-1085h16v16h-16z'/%3E%3Cpath fill='%23a77d63' d='M5242-1085h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5226-1085h16v16h-16z'/%3E%3Cpath fill='%23574d46' d='M5210-1085h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5610-1101h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5594-1101h16v16h-16z'/%3E%3Cpath fill='%23815d45' d='M5578-1101h16v16h-16z'/%3E%3Cpath fill='%23bc9479' d='M5562-1101h16v16h-16z'/%3E%3Cpath fill='%23bd977c' d='M5546-1101h16v16h-16z'/%3E%3Cpath fill='%23b99277' d='M5530-1101h16v16h-16z'/%3E%3Cpath fill='%23896d5a' d='M5514-1101h16v16h-16z'/%3E%3Cpath fill='%238e7361' d='M5498-1101h16v16h-16z'/%3E%3Cpath fill='%23977c68' d='M5482-1101h16v16h-16z'/%3E%3Cpath fill='%23b89075' d='M5466-1101h16v16h-16z'/%3E%3Cpath fill='%23bd977c' d='M5450-1101h16v16h-16z'/%3E%3Cpath fill='%23dbb49a' d='M5434-1101h16v16h-16z'/%3E%3Cpath fill='%23e4bfa9' d='M5418-1101h16v16h-16z'/%3E%3Cpath fill='%23e4bfa8' d='M5402-1101h16v16h-16z'/%3E%3Cpath fill='%23d8ad8f' d='M5386-1101h16v16h-16z'/%3E%3Cpath fill='%23b99277' d='M5370-1101h16v16h-16z'/%3E%3Cpath fill='%2372655a' d='M5354-1101h16v16h-16z'/%3E%3Cpath fill='%2388878a' d='M5338-1101h16v16h-16z'/%3E%3Cpath fill='%2307060b' d='M5322-1101h16v16h-16z'/%3E%3Cpath fill='%23322c23' d='M5306-1101h16v16h-16z'/%3E%3Cpath fill='%23b5b4b6' d='M5290-1101h16v16h-16z'/%3E%3Cpath fill='%23493e36' d='M5274-1101h16v16h-16z'/%3E%3Cpath fill='%23b89075' d='M5258-1101h16v16h-16z'/%3E%3Cpath fill='%23815d45' d='M5242-1101h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5226-1101h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5610-1117h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23684c39' d='M5578-1117h16v16h-16z'/%3E%3Cpath fill='%23c09a80' d='M5562-1117h16v16h-16z'/%3E%3Cpath fill='%23cca286' d='M5546-1117h16v16h-16z'/%3E%3Cpath fill='%23c29e86' d='M5530-1117h16v16h-16z'/%3E%3Cpath fill='%23c09b81' d='M5514-1117h16v16h-16z'/%3E%3Cpath fill='%23bd977c' d='M5498-1117h16v16h-16z'/%3E%3Cpath fill='%23bc9479' d='M5482-1117h16v16h-16z'/%3E%3Cpath fill='%23c09a80' d='M5466-1117h16v16h-16z'/%3E%3Cpath fill='%23cca286' d='M5450-1117h16v16h-16z'/%3E%3Cpath fill='%23dab195' d='M5434-1117h16v16h-16z'/%3E%3Cpath fill='%23dcb59b' d='M5418-1117h16v16h-16z'/%3E%3Cpath fill='%23dcb69c' d='M5402-1117h16v16h-16z'/%3E%3Cpath fill='%23d1ab91' d='M5386-1117h16v16h-16z'/%3E%3Cpath fill='%23bb9378' d='M5370-1117h16v16h-16z'/%3E%3Cpath fill='%23b99277' d='M5354-1117h16v16h-16z'/%3E%3Cpath fill='%235f564f' d='M5338-1117h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5322-1117h16v16h-16z'/%3E%3Cpath fill='%234d423a' d='M5306-1117h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5290-1117h16v16h-16z'/%3E%3Cpath fill='%23a4795e' d='M5274-1117h16v16h-16z'/%3E%3Cpath fill='%23b78e72' d='M5258-1117h16v16h-16z'/%3E%3Cpath fill='%237f5c43' d='M5242-1117h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5226-1117h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5626-1133h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5610-1133h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5594-1133h16v16h-16z'/%3E%3Cpath fill='%2384624b' d='M5578-1133h16v16h-16z'/%3E%3Cpath fill='%23bc9479' d='M5562-1133h16v16h-16z'/%3E%3Cpath fill='%2377695f' d='M5546-1133h16v16h-16z'/%3E%3Cpath fill='%23d0a98f' d='M5530-1133h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23cea58a' d='M5498-1133h16v16h-16z'/%3E%3Cpath fill='%23cda489' d='M5482-1133h16v16h-16z'/%3E%3Cpath fill='%23cea58a' d='M5466-1133h16v16h-16z'/%3E%3Cpath fill='%23d1ab91' d='M5450-1133h16v16h-16z'/%3E%3Cpath fill='%23d9b094' d='M5434-1133h16v16h-16z'/%3E%3Cpath fill='%23d9af93' d='M5418-1133h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23d1ab91' d='M5386-1133h16v16h-16z'/%3E%3Cpath fill='%23cba084' d='M5370-1133h16v16h-16z'/%3E%3Cpath fill='%23ba9175' d='M5354-1133h16v16h-16z'/%3E%3Cpath fill='%23b88f74' d='M5338-1133h16v16h-16z'/%3E%3Cpath fill='%23b89075' d='M5322-1133h16v16h-16z'/%3E%3Cpath fill='%23a77d63' d='M5306-1133h16v16h-16z'/%3E%3Cpath fill='%23b88f74' d='M5290-1133h16v16h-16z'/%3E%3Cpath fill='%23ba9378' d='M5274-1133h16v16h-16z'/%3E%3Cpath fill='%23a98168' d='M5258-1133h16v16h-16z'/%3E%3Cpath fill='%23553a27' d='M5242-1133h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5226-1133h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5210-1133h16v16h-16zm416-16h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5594-1149h16v16h-16z'/%3E%3Cpath fill='%23b3886b' d='M5578-1149h16v16h-16z'/%3E%3Cpath fill='%23cda387' d='M5562-1149h16v16h-16z'/%3E%3Cpath fill='%237d5b44' d='M5546-1149h16v16h-16z'/%3E%3Cpath fill='%2350463e' d='M5530-1149h16v16h-16z'/%3E%3Cpath fill='%234d423a' d='M5514-1149h16v16h-16z'/%3E%3Cpath fill='%237d5b44' d='M5498-1149h16v16h-16z'/%3E%3Cpath fill='%234e443c' d='M5482-1149h16v16h-16z'/%3E%3Cpath fill='%23c29d84' d='M5466-1149h16v16h-16z'/%3E%3Cpath fill='%23d9b094' d='M5450-1149h16v16h-16z'/%3E%3Cpath fill='%23dcb69c' d='M5434-1149h16v16h-16z'/%3E%3Cpath fill='%23dcb59b' d='M5418-1149h16v16h-16z'/%3E%3Cpath fill='%23dab296' d='M5402-1149h16v16h-16z'/%3E%3Cpath fill='%23d9ae92' d='M5386-1149h16v16h-16z'/%3E%3Cpath fill='%23cea58a' d='M5370-1149h16v16h-16z'/%3E%3Cpath fill='%23cb9f82' d='M5354-1149h16v16h-16z'/%3E%3Cpath fill='%23c29d84' d='M5338-1149h16v16h-16z'/%3E%3Cpath fill='%23bd957b' d='M5322-1149h16v16h-16z'/%3E%3Cpath fill='%2384624b' d='M5306-1149h16v16h-16z'/%3E%3Cpath fill='%23be987d' d='M5290-1149h16v16h-16z'/%3E%3Cpath fill='%23bb947a' d='M5274-1149h16v16h-16z'/%3E%3Cpath fill='%23986949' d='M5258-1149h16v16h-16z'/%3E%3Cpath fill='%233e2f24' d='M5242-1149h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5226-1149h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5210-1149h16v16h-16zm416-16h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5610-1165h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5594-1165h16v16h-16z'/%3E%3Cpath fill='%23a3785c' d='M5578-1165h16v16h-16z'/%3E%3Cpath fill='%23cda387' d='M5562-1165h16v16h-16z'/%3E%3Cpath fill='%23d9b094' d='M5546-1165h16v16h-16z'/%3E%3Cpath fill='%23e1b79e' d='M5530-1165h16v16h-16z'/%3E%3Cpath fill='%23e4bfa8' d='M5514-1165h16v16h-16z'/%3E%3Cpath fill='%2365564c' d='M5498-1165h16v16h-16z'/%3E%3Cpath fill='%237d5b44' d='M5482-1165h16v16h-16z'/%3E%3Cpath fill='%23786b60' d='M5466-1165h16v16h-16z'/%3E%3Cpath fill='%23e5c2ac' d='M5450-1165h16v16h-16z'/%3E%3Cpath fill='%23f3ccb2' d='M5434-1165h16v16h-16z'/%3E%3Cpath fill='%23e6c2ad' d='M5418-1165h16v16h-16z'/%3E%3Cpath fill='%23e5c2ac' d='M5402-1165h16v16h-16z'/%3E%3Cpath fill='%23dcb59b' d='M5386-1165h16v16h-16z'/%3E%3Cpath fill='%238d715f' d='M5370-1165h16v16h-16z'/%3E%3Cpath fill='%2393725c' d='M5354-1165h16v16h-16z'/%3E%3Cpath fill='%23bc9479' d='M5338-1165h16v16h-16z'/%3E%3Cpath fill='%23a57b60' d='M5322-1165h16v16h-16z'/%3E%3Cpath fill='%23815d45' d='M5306-1165h16v16h-16z'/%3E%3Cpath fill='%23cba084' d='M5290-1165h16v16h-16z'/%3E%3Cpath fill='%2392705a' d='M5274-1165h16v16h-16z'/%3E%3Cpath fill='%2345352a' d='M5258-1165h16v16h-16z'/%3E%3Cpath fill='%233a2a20' d='M5242-1165h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5226-1165h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5626-1181h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5610-1181h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5594-1181h16v16h-16z'/%3E%3Cpath fill='%2384624b' d='M5578-1181h16v16h-16z'/%3E%3Cpath fill='%23cea68b' d='M5562-1181h16v16h-16z'/%3E%3Cpath fill='%23d9af93' d='M5546-1181h16v16h-16z'/%3E%3Cpath fill='%23e1b69d' d='M5530-1181h16v16h-16z'/%3E%3Cpath fill='%23e4bfa8' d='M5514-1181h16v16h-16z'/%3E%3Cpath fill='%23f2c9ad' d='M5498-1181h16v16h-16z'/%3E%3Cpath fill='%23f4ceb5' d='M5482-1181h16v16h-16z'/%3E%3Cpath fill='%23f4cfb7' d='M5466-1181h16v16h-16z'/%3E%3Cpath fill='%23f5d6bb' d='M5450-1181h16v16h-16z'/%3E%3Cpath fill='%23f6d8be' d='M5434-1181h16v16h-16z'/%3E%3Cpath fill='%23f3cdb3' d='M5418-1181h16v16h-16z'/%3E%3Cpath fill='%23ca9e81' d='M5402-1181h16v16h-16z'/%3E%3Cpath fill='%23e4bfa9' d='M5386-1181h16v16h-16z'/%3E%3Cpath fill='%23e5c0aa' d='M5370-1181h16v16h-16z'/%3E%3Cpath fill='%23cea68b' d='M5354-1181h16v16h-16z'/%3E%3Cpath fill='%233e3d41' d='M5338-1181h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5322-1181h16v16h-16z'/%3E%3Cpath fill='%2349392e' d='M5306-1181h16v16h-16z'/%3E%3Cpath fill='%2379563e' d='M5290-1181h16v16h-16z'/%3E%3Cpath fill='%23664a37' d='M5274-1181h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5258-1181h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5242-1181h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5226-1181h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5210-1181h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5626-1197h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5610-1197h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5594-1197h16v16h-16z'/%3E%3Cpath fill='%23573c29' d='M5578-1197h16v16h-16z'/%3E%3Cpath fill='%23d0a98f' d='M5562-1197h16v16h-16z'/%3E%3Cpath fill='%23dcb59b' d='M5546-1197h16v16h-16z'/%3E%3Cpath fill='%23e3bca5' d='M5530-1197h16v16h-16z'/%3E%3Cpath fill='%23f2c7aa' d='M5514-1197h16v16h-16z'/%3E%3Cpath fill='%23f4cfb6' d='M5498-1197h16v16h-16z'/%3E%3Cpath fill='%23f5d3bd' d='M5482-1197h16v16h-16z'/%3E%3Cpath fill='%23f5d7bd' d='M5466-1197h16v16h-16z'/%3E%3Cpath fill='%23f6dac2' d='M5450-1197h16v16h-16z'/%3E%3Cpath fill='%23f3ccb2' d='M5434-1197h16v16h-16z'/%3E%3Cpath fill='%23ba9378' d='M5418-1197h16v16h-16z'/%3E%3Cpath fill='%2396755f' d='M5402-1197h16v16h-16z'/%3E%3Cpath fill='%23f4d2ba' d='M5386-1197h16v16h-16z'/%3E%3Cpath fill='%23f4ceb4' d='M5370-1197h16v16h-16z'/%3E%3Cpath fill='%23dbb397' d='M5354-1197h16v16h-16z'/%3E%3Cpath fill='%23996b4b' d='M5338-1197h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5322-1197h16v16h-16z'/%3E%3Cpath fill='%23605146' d='M5306-1197h16v16h-16z'/%3E%3Cpath fill='%23d0a98f' d='M5290-1197h16v16h-16z'/%3E%3Cpath fill='%235f4634' d='M5274-1197h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5258-1197h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5242-1197h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5226-1197h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5210-1197h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5626-1213h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5610-1213h16v16h-16z'/%3E%3Cpath fill='%23313034' d='M5594-1213h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5578-1213h16v16h-16z'/%3E%3Cpath fill='%237e5a41' d='M5562-1213h16v16h-16z'/%3E%3Cpath fill='%23dbb49a' d='M5546-1213h16v16h-16z'/%3E%3Cpath fill='%23e2baa2' d='M5530-1213h16v16h-16z'/%3E%3Cpath fill='%23f2c8ac' d='M5514-1213h16v16h-16z'/%3E%3Cpath fill='%23f4d0b8' d='M5498-1213h16v16h-16z'/%3E%3Cpath fill='%23f5d3bd' d='M5482-1213h16v16h-16z'/%3E%3Cpath fill='%23f4d1b8' d='M5466-1213h16v16h-16z'/%3E%3Cpath fill='%23e2baa2' d='M5450-1213h16v16h-16z'/%3E%3Cpath fill='%23a98066' d='M5434-1213h16v16h-16z'/%3E%3Cpath fill='%23504137' d='M5418-1213h16v16h-16z'/%3E%3Cpath fill='%23968170' d='M5402-1213h16v16h-16z'/%3E%3Cpath fill='%23f6d9c0' d='M5386-1213h16v16h-16z'/%3E%3Cpath fill='%23e3bca5' d='M5370-1213h16v16h-16z'/%3E%3Cpath fill='%23b78e72' d='M5354-1213h16v16h-16z'/%3E%3Cpath fill='%235a402d' d='M5338-1213h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5322-1213h16v16h-16z'/%3E%3Cpath fill='%23625348' d='M5306-1213h16v16h-16z'/%3E%3Cpath fill='%23d0a98f' d='M5290-1213h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5274-1213h16v16h-16z'/%3E%3Cpath fill='%23313034' d='M5258-1213h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5242-1213h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5226-1213h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5210-1213h16v16h-16z'/%3E%3Cpath fill='%232c2b30' d='M5626-1229h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5610-1229h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5578-1229h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5562-1229h16v16h-16z'/%3E%3Cpath fill='%23b58a6e' d='M5546-1229h16v16h-16z'/%3E%3Cpath fill='%23d7ab8d' d='M5530-1229h16v16h-16z'/%3E%3Cpath fill='%23e4bea7' d='M5514-1229h16v16h-16z'/%3E%3Cpath fill='%23dcb69c' d='M5498-1229h16v16h-16z'/%3E%3Cpath fill='%23e2bba3' d='M5482-1229h16v16h-16z'/%3E%3Cpath fill='%23b68d71' d='M5466-1229h16v16h-16z'/%3E%3Cpath fill='%2347372c' d='M5450-1229h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5434-1229h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5418-1229h16v16h-16z'/%3E%3Cpath fill='%23b39684' d='M5402-1229h16v16h-16z'/%3E%3Cpath fill='%23e3bda6' d='M5386-1229h16v16h-16z'/%3E%3Cpath fill='%239b6e4e' d='M5370-1229h16v16h-16z'/%3E%3Cpath fill='%234e3f35' d='M5354-1229h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5338-1229h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5322-1229h16v16h-16z'/%3E%3Cpath fill='%23dab296' d='M5306-1229h16v16h-16z'/%3E%3Cpath fill='%23815d45' d='M5290-1229h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5274-1229h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5258-1229h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5242-1229h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5226-1229h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5210-1229h16v16h-16z'/%3E%3Cpath fill='%233e3d41' d='M5626-1245h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5610-1245h16v16h-16z'/%3E%3Cpath fill='%232c2b30' d='M5594-1245h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5578-1245h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%2316151a' d='M5546-1245h16v16h-16z'/%3E%3Cpath fill='%23403126' d='M5530-1245h16v16h-16z'/%3E%3Cpath fill='%23986949' d='M5514-1245h16v16h-16z'/%3E%3Cpath fill='%23583e2b' d='M5498-1245h16v16h-16z'/%3E%3Cpath fill='%2338281d' d='M5482-1245h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%233b3a3e' d='M5450-1245h16v16h-16z'/%3E%3Cpath fill='%23403f43' d='M5434-1245h16v16h-16z'/%3E%3Cpath fill='%23694d3b' d='M5418-1245h16v16h-16z'/%3E%3Cpath fill='%23a98168' d='M5402-1245h16v16h-16z'/%3E%3Cpath fill='%23634633' d='M5386-1245h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5370-1245h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5354-1245h16v16h-16z'/%3E%3Cpath fill='%23403f43' d='M5338-1245h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5322-1245h16v16h-16z'/%3E%3Cpath fill='%23cb9f82' d='M5306-1245h16v16h-16z'/%3E%3Cpath fill='%233a2a20' d='M5290-1245h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5274-1245h16v16h-16z'/%3E%3Cpath fill='%23363539' d='M5258-1245h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5242-1245h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5226-1245h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5610-1261h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5594-1261h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5578-1261h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5562-1261h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5546-1261h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5530-1261h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5498-1261h16v16h-16z'/%3E%3Cpath fill='%234d423a' d='M5482-1261h16v16h-16z'/%3E%3Cpath fill='%234e443c' d='M5466-1261h16v16h-16z'/%3E%3Cpath fill='%23403f43' d='M5450-1261h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5434-1261h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5418-1261h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5402-1261h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5386-1261h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5370-1261h16v16h-16z'/%3E%3Cpath fill='%233b3a3e' d='M5354-1261h16v16h-16z'/%3E%3Cpath fill='%23524840' d='M5338-1261h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5322-1261h16v16h-16z'/%3E%3Cpath fill='%2349392e' d='M5306-1261h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5290-1261h16v16h-16z'/%3E%3Cpath fill='%232c2b30' d='M5274-1261h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5258-1261h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5242-1261h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5226-1261h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5610-1277h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5578-1277h16v16h-16z'/%3E%3Cpath fill='%23363539' d='M5562-1277h16v16h-16z'/%3E%3Cpath fill='%233e3d41' d='M5546-1277h16v16h-16z'/%3E%3Cpath fill='%233b3a3e' d='M5530-1277h16v16h-16z'/%3E%3Cpath fill='%23403f43' d='M5514-1277h16v16h-16z'/%3E%3Cpath fill='%23524840' d='M5498-1277h16v16h-16z'/%3E%3Cpath fill='%23454448' d='M5482-1277h16v16h-16z'/%3E%3Cpath fill='%23403f43' d='M5466-1277h16v16h-16z'/%3E%3Cpath fill='%23363539' d='M5450-1277h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5434-1277h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5418-1277h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5402-1277h16v16h-16z'/%3E%3Cpath fill='%23313034' d='M5386-1277h16v16h-16z'/%3E%3Cpath fill='%233e3d41' d='M5370-1277h16v16h-16z'/%3E%3Cpath fill='%2347474a' d='M5354-1277h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5322-1277h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5306-1277h16v16h-16z'/%3E%3Cpath fill='%233a2a20' d='M5290-1277h16v16h-16z'/%3E%3Cpath fill='%232c2b30' d='M5274-1277h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5258-1277h16v16h-16z'/%3E%3Cpath fill='%233a2a20' d='M5242-1277h16v16h-16z'/%3E%3Cpath fill='%2336261b' d='M5226-1277h16v16h-16z'/%3E%3Cpath fill='%233b3a3e' d='M5610-1293h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5594-1293h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5578-1293h16v16h-16z'/%3E%3Cpath fill='%23403f43' d='M5562-1293h16v16h-16z'/%3E%3Cpath fill='%2347474a' d='M5546-1293h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23454448' d='M5498-1293h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5482-1293h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5466-1293h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5450-1293h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5434-1293h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5418-1293h16v16h-16z'/%3E%3Cpath fill='%23363539' d='M5402-1293h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5386-1293h16v16h-16z'/%3E%3Cpath fill='%23544a42' d='M5370-1293h16v16h-16z'/%3E%3Cpath fill='%234c4c4f' d='M5354-1293h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5338-1293h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5322-1293h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5306-1293h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5290-1293h16v16h-16z'/%3E%3Cpath fill='%23313034' d='M5274-1293h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5258-1293h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5242-1293h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5594-1309h16v16h-16z'/%3E%3Cpath fill='%23363539' d='M5578-1309h16v16h-16z'/%3E%3Cpath fill='%23454448' d='M5562-1309h16v16h-16z'/%3E%3Cpath fill='%234a494d' d='M5546-1309h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5514-1309h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5498-1309h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5482-1309h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5466-1309h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5450-1309h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5434-1309h16v16h-16z'/%3E%3Cpath fill='%233e3d41' d='M5418-1309h16v16h-16z'/%3E%3Cpath fill='%2347474a' d='M5402-1309h16v16h-16z'/%3E%3Cpath fill='%234c4c4f' d='M5386-1309h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%2350463e' d='M5354-1309h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5338-1309h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5322-1309h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5306-1309h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5290-1309h16v16h-16z'/%3E%3Cpath fill='%23363539' d='M5274-1309h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5258-1309h16v16h-16z'/%3E%3Cpath fill='%232c2b30' d='M5242-1309h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5594-1325h16v16h-16z'/%3E%3Cpath fill='%23313034' d='M5578-1325h16v16h-16z'/%3E%3Cpath fill='%2353413d' d='M5562-1325h16v16h-16z'/%3E%3Cpath fill='%234a494d' d='M5546-1325h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5514-1325h16v16h-16z'/%3E%3Cpath fill='%23403f43' d='M5498-1325h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5482-1325h16v16h-16z'/%3E%3Cpath fill='%23403f43' d='M5466-1325h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%234a494d' d='M5434-1325h16v16h-16z'/%3E%3Cpath fill='%23594f48' d='M5418-1325h16v16h-16z'/%3E%3Cpath fill='%234c4c4f' d='M5402-1325h16v16h-16z'/%3E%3Cpath fill='%23594f48' d='M5386-1325h16v16h-16z'/%3E%3Cpath fill='%234c4c4f' d='M5370-1325h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5354-1325h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5338-1325h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5322-1325h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5306-1325h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5290-1325h16v16h-16z'/%3E%3Cpath fill='%232c2b30' d='M5274-1325h16v16h-16z'/%3E%3Cpath fill='%234c4c4f' d='M5258-1325h16v16h-16z'/%3E%3Cpath fill='%233e3d41' d='M5562-1341h16v16h-16z'/%3E%3Cpath fill='%234c4c4f' d='M5546-1341h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%234a494d' d='M5482-1341h16v16h-16z'/%3E%3Cpath fill='%234c4c4f' d='M5466-1341h16v16h-16z'/%3E%3Cpath fill='%234a494d' d='M5450-1341h16v16h-16z'/%3E%3Cpath fill='%23574d46' d='M5434-1341h16v16h-16z'/%3E%3Cpath fill='%234a494d' d='M5418-1341h16v16h-16z'/%3E%3Cpath fill='%23594f48' d='M5402-1341h16v16h-16z'/%3E%3Cpath fill='%23454448' d='M5386-1341h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5370-1341h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5354-1341h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5338-1341h16v16h-16z'/%3E%3Cpath fill='%23131217' d='M5322-1341h16v16h-16z'/%3E%3Cpath fill='%2324180f' d='M5306-1341h16v16h-16z'/%3E%3Cpath fill='%231d1c21' d='M5290-1341h16v16h-16z'/%3E%3Cpath fill='%23313034' d='M5274-1341h16v16h-16z'/%3E%3Cpath fill='%232c2b30' d='M5562-1357h16v16h-16z'/%3E%3Cpath fill='%23313034' d='M5546-1357h16v16h-16z'/%3E%3Cpath fill='%2347474a' d='M5530-1357h16v16h-16z'/%3E%3Cpath fill='%234c4c4f' d='M5514-1357h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%234a494d' d='M5482-1357h16v16h-16z'/%3E%3Cpath fill='%234c4c4f' d='M5466-1357h16v16h-16z'/%3E%3Cpath fill='%234a494d' d='M5450-1357h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5402-1357h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5386-1357h16v16h-16z'/%3E%3Cpath fill='%231b1a1f' d='M5370-1357h16v16h-16z'/%3E%3Cpath fill='%232d2119' d='M5354-1357h16v16h-16z'/%3E%3Cpath fill='%23403f43' d='M5338-1357h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5322-1357h16v16h-16z'/%3E%3Cpath fill='%23363539' d='M5306-1357h16v16h-16z'/%3E%3Cpath fill='%235b5b5e' d='M5290-1357h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5530-1373h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5514-1373h16v16h-16z'/%3E%3Cpath fill='%2347474a' d='M5498-1373h16v16h-16z'/%3E%3Cpath fill='%234a494d' d='M5482-1373h16v16h-16zm-16 0h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23454448' d='M5434-1373h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5418-1373h16v16h-16z'/%3E%3Cpath fill='%232a292d' d='M5402-1373h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23363539' d='M5370-1373h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5354-1373h16v16h-16z'/%3E%3Cpath fill='%23313034' d='M5338-1373h16v16h-16z'/%3E%3Cpath fill='%2327262b' d='M5322-1373h16v16h-16z'/%3E%3Cpath fill='%23313034' d='M5514-1389h16v16h-16z'/%3E%3Cpath fill='%2339383c' d='M5498-1389h16v16h-16z'/%3E%3Cpath fill='%233b3a3e' d='M5482-1389h16v16h-16z'/%3E%3Cpath fill='%2347474a' d='M5466-1389h16v16h-16z'/%3E%3Cpath fill='%23454448' d='M5450-1389h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5434-1389h16v16h-16z'/%3E%3Cpath fill='%233e3d41' d='M5418-1389h16v16h-16z'/%3E%3Cpath fill='%23434246' d='M5402-1389h16v16h-16z'/%3E%3Cpath fill='%233e3d41' d='M5386-1389h16v16h-16z'/%3E%3Cpath fill='%23343337' d='M5370-1389h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5354-1389h16v16h-16z'/%3E%3Cpath fill='%23252428' d='M5338-1389h16v16h-16z'/%3E%3Cpath fill='%232f2e32' d='M5482-1405h16v16h-16zm-16 0h16v16h-16z'/%3E%3Cpath fill='%23201f23' d='M5450-1405h16v16h-16z'/%3E%3Cpath fill='%2318171c' d='M5434-1405h16v16h-16z'/%3E%3Cpath fill='%23222126' d='M5418-1405h16v16h-16z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.82);
+  transition: all 0.25s ease-in-out;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  z-index: 1100;
+}
+#loading .loading-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 80px;
+  height: 120px;
+}
+
+.icon-list {
+  font-size: 0;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+.icon-list .icon-list-item {
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.4"%3E%3Cpath opacity=".5" d="M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z"/%3E%3Cpath d="M6 5V0H5v5H0v1h5v94h1V6h94V5H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 6rem;
+  padding: 1.25rem 0.25rem;
+}
+.icon-list .icon-list-item > i {
+  color: #1F1F39;
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+.icon-list .icon-list-item > input[type=text] {
+  color: #333F51;
+  display: block;
+  font-size: 1.25rem;
+  position: relative;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #D1D4D8;
+  -webkit-clip-path: polygon(0 4px, 2px 4px, 2px 2px, 4px 2px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+          clip-path: polygon(0 4px, 2px 4px, 2px 2px, 4px 2px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+  width: 100%;
+  height: calc(100% - 4px);
+  padding: 0.125rem 0.25rem;
+  background-clip: padding-box;
+}
+.icon-list .icon-list-item > input[type=text]:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: inherit;
+  -webkit-clip-path: polygon(0 2px, 2px 2px, 2px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, 100% 2px, 100% calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+          clip-path: polygon(0 2px, 2px 2px, 2px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, 100% 2px, 100% calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+  border-right: 2px solid #D1D4D8;
+  border-bottom: 2px solid #D1D4D8;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  opacity: 0.88;
+}
+.icon-list .icon-list-item > input[type=text]:after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 2px;
+  height: 2px;
+  opacity: 0.88;
+  background-color: #D1D4D8;
+}
+
+.pixel-btn {
+  position: relative;
+  border: none;
+}
+.pixel-btn:before, .pixel-btn:after {
+  content: "";
+  position: absolute;
+  background-color: inherit;
+  height: 100%;
+  z-index: -1;
+  width: calc(100% - 8px);
+}
+.pixel-btn:before {
+  bottom: -4px;
+  right: 4px;
+  width: calc(100% - 8px);
+}
+.pixel-btn:after {
+  top: -4px;
+  left: 4px;
+}
+
+.pixel-burger {
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.pixel-burger {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='33' height='31'%3E%3Cg data-name='Group 149'%3E%3Cpath fill='%23fff' d='M29 16h-2v2h-2v-2h2V8h-2V4h-2V2h-6v2h2v2h-2V4h-4v2h2v2h-2V6H9V4H7V2H3v6h2v2h2v2h2v2h2v2H9v4h2v2h8v-2h2v2h-2v4h6v-2h2v-2h2v-2h2v-4Zm-12-6h2v2h2v2h-2v-2h-2Zm8 0v2h-2v-2h-2V8h2v2Z' data-name='Path 122'/%3E%3Cpath stroke='rgba(0,0,0,0)' stroke-miterlimit='10' d='M21 30h-2v-2h-2v-4h-6v-2H9v-2H7v-2H5v-8H3V8H1V2h2v6h2v2h2v2h2v2h2v2H9v4h2v2h8v4h6v2h-2v2Zm4-4v-2h2v2Zm2-2v-2h2v2Zm2-2v-2h2v2Zm-10 0v-2h2v2Zm12-2v-4h-4V8h-2V4h-2V2h2v2h2v4h2v6h2v2h2v4Zm-6-2v-2h2v2Zm-6-4v-2h-2v-2h2v2h2v2Zm4-2v-2h-2V8h2v2h2v2ZM13 8V6H9V4H7V2H3V0h4v2h2v2h4v2h2v2Zm4-2V4h-4V2h4v2h2v2Zm4-4h-4V0h6v2Z' data-name='Union 52'/%3E%3C/g%3E%3C/svg%3E"), auto;
+  background-color: #fff;
+  color: #1F1F39;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-image-slice: 3;
+  border-image-width: 3;
+  border-image-repeat: stretch;
+  border-image-source: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8" ?><svg version="1.1" width="8" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M3 1 h1 v1 h-1 z M4 1 h1 v1 h-1 z M2 2 h1 v1 h-1 z M5 2 h1 v1 h-1 z M1 3 h1 v1 h-1 z M6 3 h1 v1 h-1 z M1 4 h1 v1 h-1 z M6 4 h1 v1 h-1 z M2 5 h1 v1 h-1 z M5 5 h1 v1 h-1 z M3 6 h1 v1 h-1 z M4 6 h1 v1 h-1 z" fill="rgb(31,31,57)" /></svg>');
+  border-image-outset: 2;
+  border-style: solid;
+  border-width: 3px;
+  transition: 0.125s all ease;
+}
+@media all and (-webkit-min-device-pixel-ratio: 0) and (-webkit-min-device-pixel-ratio: 0), all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+  .pixel-burger {
+    border-image-repeat: space;
+  }
+}
+@supports (-moz-appearance: meterbar) {
+  .pixel-burger {
+    border-image-repeat: stretch;
+  }
+}
+.pixel-burger:before, .pixel-burger:after {
+  content: "";
+  position: absolute;
+  transition: 0.125s all ease;
+}
+.pixel-burger:before {
+  width: calc(100% + 6px);
+  height: 100%;
+  bottom: -3px;
+  left: -3px;
+  box-shadow: inset 0 -9px 0 rgba(31, 31, 57, 0.36);
+}
+.pixel-burger:after {
+  background-color: inherit;
+  width: calc(100% - 6px);
+  height: 3px;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.pixel-burger:hover {
+  background-color: #E8E9EB;
+  transform: translate3d(0, 2px, 0);
+}
+.pixel-burger:hover:before {
+  bottom: -3px;
+  box-shadow: inset 0 -6px 0 rgba(31, 31, 57, 0.24);
+}
+.pixel-burger:hover:after {
+  bottom: 0;
+}
+.pixel-burger:hover i {
+  top: calc(50% - 1.5px);
+}
+.pixel-burger:active {
+  background-color: #f3f3f4;
+  transform: translate3d(0, 4px, 0);
+}
+.pixel-burger:active:before {
+  bottom: -3px;
+  box-shadow: inset 0 -3px 0 rgba(31, 31, 57, 0.16);
+}
+.pixel-burger:active:after {
+  bottom: -3px;
+}
+.pixel-burger:active i {
+  top: calc(50% - 0);
+}
+.pixel-burger i {
+  border: none;
+  margin: 0 auto;
+  width: 66%;
+  left: 50%;
+  top: calc(50% - 3px);
+  transform: translate(-50%, -50%);
+}
+.pixel-burger i, .pixel-burger i:before, .pixel-burger i:after {
+  display: block;
+  height: 3px;
+  position: absolute;
+  background-color: currentColor;
+  transition: 0.125s all step-end;
+}
+.pixel-burger i:before, .pixel-burger i:after {
+  content: "";
+  width: 100%;
+}
+.pixel-burger i:before {
+  transform: translateY(-9px);
+}
+.pixel-burger i:after {
+  transform: translateY(9px);
+}
+
+.pixel-burger.pixel-burger-lt i:before, .pixel-burger.pixel-burger-lt i:after {
+  width: 70%;
+}
+.pixel-burger.pixel-burger-rt i:before, .pixel-burger.pixel-burger-rt i:after {
+  right: 0;
+  width: 70%;
+}
+.pixel-burger[data-active-type=arrow-left].active i:before, .pixel-burger[data-active-type=arrow-left].active i:after {
+  width: 50%;
+}
+.pixel-burger[data-active-type=arrow-left].active i:before {
+  transform: translateY(-3px) rotate(-45deg);
+  left: -3px;
+}
+.pixel-burger[data-active-type=arrow-left].active i:after {
+  transform: translateY(3px) rotate(45deg);
+  left: -3px;
+}
+.pixel-burger[data-active-type=arrow-right].active i:before, .pixel-burger[data-active-type=arrow-right].active i:after {
+  width: 50%;
+}
+.pixel-burger[data-active-type=arrow-right].active i:before {
+  transform: translateY(-3px) rotate(45deg);
+  right: -3px;
+}
+.pixel-burger[data-active-type=arrow-right].active i:after {
+  transform: translateY(3px) rotate(-45deg);
+  right: -3px;
+}
+.pixel-burger[data-active-type=close].active i {
+  background-color: inherit;
+  height: 0;
+}
+.pixel-burger[data-active-type=close].active i:before, .pixel-burger[data-active-type=close].active i:after {
+  width: 100%;
+}
+.pixel-burger[data-active-type=close].active i:before {
+  transform: translateY(-50%) rotate(45deg);
+}
+.pixel-burger[data-active-type=close].active i:after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.pixel-burger-input:checked + [data-active-type=close] i {
+  background-color: inherit;
+  height: 0;
+}
+.pixel-burger-input:checked + [data-active-type=close] i:before, .pixel-burger-input:checked + [data-active-type=close] i:after {
+  width: 100%;
+}
+.pixel-burger-input:checked + [data-active-type=close] i:before {
+  transform: translateY(-50%) rotate(45deg);
+}
+.pixel-burger-input:checked + [data-active-type=close] i:after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+.pixel-burger-input:checked + [data-active-type=arrow-left] i {
+  background-color: currentColor;
+  height: 3px;
+}
+.pixel-burger-input:checked + [data-active-type=arrow-left] i:before, .pixel-burger-input:checked + [data-active-type=arrow-left] i:after {
+  width: 50%;
+}
+.pixel-burger-input:checked + [data-active-type=arrow-left] i:before {
+  transform: translateY(-3px) rotate(-45deg);
+  left: -3px;
+}
+.pixel-burger-input:checked + [data-active-type=arrow-left] i:after {
+  transform: translateY(3px) rotate(45deg);
+  left: -3px;
+}
+.pixel-burger-input:checked + [data-active-type=arrow-right] i {
+  background-color: currentColor;
+  height: 3px;
+}
+.pixel-burger-input:checked + [data-active-type=arrow-right] i:before, .pixel-burger-input:checked + [data-active-type=arrow-right] i:after {
+  width: 50%;
+}
+.pixel-burger-input:checked + [data-active-type=arrow-right] i:before {
+  transform: translateY(-3px) rotate(45deg);
+  right: -3px;
+}
+.pixel-burger-input:checked + [data-active-type=arrow-right] i:after {
+  transform: translateY(3px) rotate(-45deg);
+  right: -3px;
+}
+.pixel-burger-input:checked ~ .pixel-nav {
+  max-height: 100vh;
+  visibility: visible;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.pixel-nav-bar {
+  position: relative;
+}
+.pixel-nav-bar .pixel-nav {
+  position: absolute;
+  background-color: #fff;
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 0;
+  visibility: hidden;
+  width: 100%;
+  transition: 0.25s max-height steps(8, end), 0s visibility;
+  z-index: 1;
+}
+.pixel-nav-bar .pixel-nav .pixel-nav-item .pixel-nav-link {
+  position: relative;
+  display: block;
+  color: #1F1F39;
+  font-size: 1.25rem;
+  margin-left: 1.5rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+.pixel-nav-bar .pixel-nav .pixel-nav-item .pixel-nav-link:before {
+  position: absolute;
+  top: calc(50% - 8px);
+  left: -1rem;
+  content: "";
+  width: 2px;
+  height: 2px;
+  color: #1F1F39;
+  box-shadow: 8px 2px, 10px 2px, 6px 4px, 8px 4px, 10px 4px, 12px 4px, 4px 6px, 6px 6px, 8px 6px, 10px 6px, 12px 6px, 14px 6px, 4px 8px, 6px 8px, 8px 8px, 10px 8px, 12px 8px, 14px 8px, 6px 10px, 8px 10px, 10px 10px, 12px 10px, 8px 12px, 10px 12px;
+}
+
+nav {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+  </style>
+</head>
+
+<body>
+  <main id="wrapper">
+    <section id="iConBlock" class="section-contianer">
+      <div class="avastar-contianer">
+        <div class="avastar-img"></div>
+      </div>
+      <h1>
+        <a href="#fill">#</a>
+        Pixel iCon (Fill)
+      </h1>
+      <ul class="icon-list">
+        <!-- inner -->
+      </ul>
+      <h1>
+        <a href="#solid">#</a>
+        Pixel iCon (Solid)
+      </h1>
+      <ul class="icon-list">
+        <!-- inner -->
+      </ul>
+    </section>
+
+    <div id="loading">
+      <svg class="loading-img" viewBox="0 0 40 50">
+        <style>
+        .triangle {
+          stroke-dasharray: 16;
+          animation: dash 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
+        }
+
+        @keyframes dash {
+          to {
+            stroke-dashoffset: 136;
+          }
+        }
+
+        .loading {
+          text-anchor: start;
+          font-family: 'Orbitron', sans-serif;
+          font-size: 7.5px;
+          animation: blink .8s ease-in-out infinite alternate;
+        }
+
+        @keyframes blink {
+          50% {
+            opacity: 0;
+          }
+        }
+        </style>
+        <polygon class="triangle" fill="none" stroke="#fff" stroke-width="2" points="20,1 40,40 1,40" />
+        <text class="loading" x="0" y="52" fill="#fff">Loading ...</text>
+      </svg>
+    </div>
+  </main>
+  <script>
+  // $(function() {
+  //   $.ajax({
+  //     url: "https://assets.codepen.io/2845599/bbiticon_selection.json",
+  //     dataType: "json",
+  //     success: function(data) {
+  //       var icons = data.icons;
+  //       $.each(icons, function(key, icon) {
+  //         var items =
+  //           "<li class='bb-icon-list-item'>\
+  //             <div class='bb-icon-box'>\
+  //                 <a class='' href='javascript:;' data-toggle=tooltip title=bbion-" + icon.properties.name + ">\
+  //                     <i class='bbion-" + icon.properties.name + "'></i>\
+  //                 </a>\
+  //                 <input type='text' readonly value='bbion-" + icon.properties.name + "' />\
+  //             </div>\
+  //           </li>";
+  //         // $('[data-toggle="tooltip"]').tooltip();
+  //         // Weather
+  //         if (icon.setId == 7) {
+  //           $('#Weather').append(items)
+  //         }
+  //         if (icon.setId == 6) {
+  //           $('#TextEditor').append(items)
+  //         }
+  //         if (icon.setId == 5) {
+  //           $('#Interface').append(items)
+  //         }
+  //         if (icon.setId == 4) {
+  //           $('#Food').append(items)
+  //         }
+  //         if (icon.setId == 3) {
+  //           $('#Contacts').append(items)
+  //         }
+  //         if (icon.setId == 2) {
+  //           $('#Commerce').append(items)
+  //         }
+  //         if (icon.setId == 1) {
+  //           $('#Arrows').append(items)
+  //         }
+  //         if (icon.setId == 0) {
+  //           $('#Afaido').append(items)
+  //         }
+  //       })
+  //     },
+  //     error: function(jqXHR, textStatus, error) {
+  //       console.log('ERROR', textStatus, error);
+  //     }
+  //   });
+  // });
+  "use strict";
+
+  /**
+   * 使用 Ajax 獲取服務器 Json 數組
+   */
+  var iConBlock = document.getElementById("iConBlock");
+  var loading = document.getElementById("loading");
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://assets.codepen.io/2845599/pixel-icon_selection20220630.json', true);
+  /**
+   * 獲取數據後的處理程序
+   */
+  xhr.onload = function() {
+    /*
+     * ReadyState -->
+     * 0 - 是初始狀態
+     * 1 - 是開始創建連接
+     * 2 - 客戶端向服務端發送數據
+     * 3 - 服務端開始向客戶端返回數據
+     * 4 - 客戶端接收數據完畢
+     * Status --> 
+     * HTTP 狀態碼 200 成功
+     */
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      setTimeout(get_iCon_Json, 1000);
+    }
+  }
+
+  function get_iCon_Json() {
+    loading.remove(); // 移除載入動畫
+    var json = xhr.responseText; // 獲取到 Json 字符串，還需解析
+    var obj = JSON.parse(json); // 解析成 Object 數組
+    var icon = obj.icons; // 選到 iCon element
+    var prefix = obj.preferences.fontPref.prefix; // 選到 iCon Prefix Name
+    // console.log(obj);
+    // 跑迴圈
+    for (var i = 0; i < icon.length; i++) {
+      var group = icon[i].setIdx;
+      switch (group) {
+        case 0: // fill 
+          var list = iConBlock.getElementsByTagName('ul')[0];
+          bulid_list(i);
+          break;
+        case 1: // solid
+          var list = iConBlock.getElementsByTagName('ul')[1];
+          bulid_list(i);
+          break;
+      }
+    }
+
+    // 建立內容
+    function bulid_list(i) {
+      var li_item = document.createElement("li");
+      var icon_el =
+        "<i class='" + prefix + icon[i].properties.name + "' aria-hidden='true'></i>" +
+        "<input class='bit' type='text' name='iCon' value='" + prefix + icon[i].properties.name + "' readonly>";
+      li_item.className = "icon-list-item";
+      li_item.innerHTML = icon_el;
+      list.appendChild(li_item);
+    }
+    // 綁定事件 Input Select Copy
+    iConBlock.addEventListener("click", function(el) {
+      var target = el.target || el.srcElement;
+      if (target.nodeName.toLowerCase() === 'input') {
+        target.select();
+        document.execCommand("copy");
+      }
+    });
+    // Copy 事件 加上 <i> ... </i>
+    iConBlock.addEventListener('copy', function(el) {
+      var text = window.getSelection().toString();
+      el.preventDefault();
+      el.clipboardData.setData('text/plain', '<i class="' + text + '" aria-hidden="true"></i>');
+    });
+  }
+  xhr.send();
+  </script>
+</body>
+
+</html>

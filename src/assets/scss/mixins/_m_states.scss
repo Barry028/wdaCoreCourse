@@ -29,6 +29,13 @@
   }
 }
 
+
+@mixin checked  {
+  &:checked {
+    @content;}
+}
+
+
 @mixin readonly {
   &[readonly],
   &.readonly {

@@ -1,4 +1,13 @@
 // triangle mixin
+
+
+
+// @include grad-triangle($primary-500,$primary-300)
+@mixin grad-triangle($color1 :$primary-500, $color2: $primary-300) {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='prefix__triangle' viewBox='0 0 818 728'%3E%3ClinearGradient id='a' x1='760' x2='342' y1='-32' y2='372' gradientTransform='rotate(22 392 376)' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='#{$color1}'/%3E%3Cstop offset='1' stop-color='#{$color2}'/%3E%3C/linearGradient%3E%3Cpath fill='url(%23a)' d='M809 18a45 45 0 0 0-41-18L226 64a46 46 0 0 0-31 73l333 440a46 46 0 0 0 79-10L816 63a45 45 0 0 0-6-45'/%3E%3C/svg%3E");
+}
+
+
 @mixin triangle ($size, $color, $direction) {
   height: 0;
   width: 0;

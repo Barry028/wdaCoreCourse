@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
           <label class="t-fw-500" for="${id}">
             ${label}
           </label>
-          <div class="input-group">
+          <div class="t-input-group">
             <input autocomplete="off" 
                     class="t-form-control 
                     rounded--36" 

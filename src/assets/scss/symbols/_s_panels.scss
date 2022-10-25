@@ -293,20 +293,49 @@
     text-align: center;
 
     @include teacher {
-      border-top: 0.25rem solid $tertiary-600;
+      // border-top: 0.25rem solid $tertiary-600;
       border-bottom: 0.125rem solid $tertiary-400;
+
+      &:before {
+        content: '';
+        border-radius: $border-radius;
+        position: absolute;
+        left: 0;
+        top: -0.1875rem;
+        background-color: $tertiary-600;
+        width: 100%;
+        height: 0.375rem;
+      }
     }
   }
 
   .t-panel-bottom {
-    background-color: $primary-25;
+    background-color: $primary-50;
     border-radius: 0 0 $border-radius $border-radius;
     padding: 0.75rem 1rem 1rem 1rem;
 
     @include teacher {
-      background-color: $tertiary-50;
+      background-color: $tertiary-100;
     }
 
+
+    .btn {
+      position: relative;
+      padding-right: 2.5rem;
+
+      .svg-icon {
+        right: 0.25rem;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+      }
+
+      @include btn-hover {
+        .svg-icon {
+          transform: translateY(-50%) rotate(290deg);
+        }
+      }
+    }
 
     .t-definition-list {
       margin-bottom: 0.375rem;

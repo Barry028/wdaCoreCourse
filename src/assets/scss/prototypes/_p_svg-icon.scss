@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-//==  Prototypes -> Svg icon
+//==================================================== Prototypes -> Svg icon
 //====================================================
 
 @each $name, $value in $element-colors {
@@ -11,9 +11,14 @@
   @include svg-variant(".t-f-grey#{$name}", $value);
 }
 
+// %svg-transition {
+//   transition: fill 0.25s ease;
+// }
+
 .svg-icon {
   display: inline-flex;
   vertical-align: middle;
+  transition: fill 0.25s ease;
   line-height: 1;
 
   @include svg-icon-size(get($font-sizes, 5));

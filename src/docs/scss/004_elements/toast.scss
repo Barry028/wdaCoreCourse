@@ -1,0 +1,92 @@
+$toast-colors: (
+  "success": $success,
+  "error": $danger,
+  "warning": $warning,
+  "info": $info,
+  "help": $primary,
+  "default": $grey-600
+) !default;
+// Toast
+.pixel-toast {
+  position: relative;
+  border-radius: 0;
+  color: $white;
+  margin: 1rem;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  user-select: none;
+  transition: $transition-base;
+  opacity: 1;
+  min-width: 12rem;
+  z-index: 1;
+
+ position: relative;
+  border-radius: 0;
+  color: $white;
+  margin: 1rem;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  user-select: none;
+  transition: $transition-base;
+  opacity: 1;
+  min-width: 12rem;
+  z-index: 1;
+
+  &:before {
+    opacity: 1;
+  }
+
+  &.float-toast {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    animation-duration: 250ms;
+    z-index: 9999;
+  }
+  @each $name, $value in $toast-colors {
+    &.toast--#{$name} {
+      @include px-border-box(
+        $bd-color: rgba(darken($value, 12%), 0.72),
+        $bg-color: rgba(darken($value, 10%), 0.36),
+        $px-width: 1rem,
+        $grid: true,
+        $grid-line-width: 2px,
+        $fixed: true
+      );
+
+      font {
+        @include pixel-text-stroke(0.5px, $white);
+        @include pixel-text-shadow(darken($value, 10%), 2px);
+      }
+      &:before,
+      &:after {
+        z-index: -1;
+      }
+    }
+  }
+
+  >svg {
+    position: relative;
+    display: block;
+    width: 6rem;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
+
+  >i {
+    position: relative;
+    display: block;
+    color: $white;
+    font-size: 4rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.78;
+  }
+
+  font {
+    position: relative;
+    font-size: 1.375rem;
+    color: $white;
+  }
+}

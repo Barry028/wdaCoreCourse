@@ -1,0 +1,69 @@
+
+@charset "utf-8";
+@each $color, $value in $theme-colors {
+  .bg-#{$color} {
+    background-color: $value !important;
+    color: color-contrast($value);
+  }
+}
+
+
+
+@mixin bg-screen-v1 {
+  background-image: url("data:image/svg+xml;utf8,%3Csvg width=%22100%25%22 height=%22100%25%22 opacity='.66' viewBox=%220 0 1000 600%22 version=%221.1%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22 %3E %3Cstyle%3E .box_shadow {  ;box-shadow: -5px -5px 20px -10px %232a2829; } .shadow_right { -webkit-filter: drop-shadow(-5px -5px 15px %232a2829); filter: drop-shadow(-5px -5px 15px %232a2829); } .shadow_left{ -webkit-filter: drop-shadow(5px 5px 15px %232a2829); filter: drop-shadow(5px 5px 15px %232a2829); } %3C%2Fstyle%3E %3Cdefs%3E %3ClinearGradient id=%22gradient__0%22 x1=%220%22 y1=%220%22 x2=%220%22 y2=%221%22%3E %3Cstop stop-color=%22%232a2829%22 offset=%220.0%25%22 %2F%3E %3Cstop stop-color=%22%23493736%22 offset=%2212.5%25%22 %2F%3E %3Cstop stop-color=%22%23668284%22 offset=%2225.0%25%22 %2F%3E %3Cstop stop-color=%22%23b9d7d9%22 offset=%2237.5%25%22 %2F%3E %3Cstop stop-color=%22white%22 offset=%2250.0%25%22 %2F%3E %3Cstop stop-color=%22%23b9d7d9%22 offset=%2262.5%25%22 %2F%3E %3Cstop stop-color=%22%23668284%22 offset=%2275.0%25%22 %2F%3E %3Cstop stop-color=%22%23493736%22 offset=%2287.5%25%22 %2F%3E %3Cstop stop-color=%22%232a2829%22 offset=%22100.0%25%22 %2F%3E %3C%2FlinearGradient%3E %3Cfilter id=%22grain%22 x=%22-500%22 y=%22-300%22 width=%222000%22 height=%221200%22 filterUnits=%22userSpaceOnUse%22%3E%3E %3CfeFlood flood-color=%22%23ffffff%22 result=%22neutral-gray%22 %2F%3E %3CfeTurbulence in=%22neutral-gray%22 type=%22fractalNoise%22 baseFrequency=%222.5%22 numOctaves=%22100%22 stitchTiles=%22stitch%22 result=%22noise%22 %2F%3E %3CfeColorMatrix in=%22noise%22 type=%22saturate%22 values=%220%22 result=%22destaturatedNoise%22 %3E%3C%2FfeColorMatrix%3E %3CfeComponentTransfer in=%22desaturatedNoise%22 result=%22theNoise%22%3E %3CfeFuncA type=%22table%22 tableValues=%220 0 0.12 0%22%3E%3C%2FfeFuncA%3E %3C%2FfeComponentTransfer%3E %3CfeBlend in=%22SourceGraphic%22 in2=%22theNoise%22 mode=%22soft-light%22 result=%22noisy-image%22 %2F%3E %3C%2Ffilter%3E} %3C%2Fdefs%3E %3Cg filter=%22url(%23grain)%22%3E %3Crect width=%221000%22 height=%22600%22 fill=%22%232a2829%22%2F%3E %3Crect class=%22%22 id=%22rect__4%22 x=%22444.44444444444446%22 y=%22133.33333333333334%22 width=%22111.11111111111111%22 height=%22333.3333333333333%22 fill=%22url(%23gradient__0)%22 %2F%3E %3Crect class=%22shadow_left%22 id=%22rect__5%22 x=%22555.5555555555555%22 y=%22100%22 width=%22111.11111111111111%22 height=%22400%22 fill=%22url(%23gradient__0)%22 %2F%3E %3Crect class=%22shadow_left%22 id=%22rect__6%22 x=%22666.6666666666666%22 y=%2266.66666666666666%22 width=%22111.11111111111111%22 height=%22466.6666666666667%22 fill=%22url(%23gradient__0)%22 %2F%3E %3Crect class=%22shadow_left%22 id=%22rect__7%22 x=%22777.7777777777778%22 y=%2233.333333333333314%22 width=%22111.11111111111111%22 height=%22533.3333333333334%22 fill=%22url(%23gradient__0)%22 %2F%3E %3Crect class=%22shadow_left%22 id=%22rect__8%22 x=%22888.8888888888889%22 y=%220%22 width=%22111.11111111111111%22 height=%22600%22 fill=%22url(%23gradient__0)%22 %2F%3E %3Crect class=%22shadow_right%22 id=%22rect__3%22 x=%22333.3333333333333%22 y=%22100%22 width=%22111.11111111111111%22 height=%22400%22 fill=%22url(%23gradient__0)%22 %2F%3E %3Crect class=%22shadow_right%22 id=%22rect__2%22 x=%22222.22222222222223%22 y=%2266.66666666666667%22 width=%22111.11111111111111%22 height=%22466.66666666666663%22 fill=%22url(%23gradient__0)%22 %2F%3E %3Crect class=%22shadow_right%22 id=%22rect__1%22 x=%22111.11111111111111%22 y=%2233.333333333333336%22 width=%22111.11111111111111%22 height=%22533.3333333333334%22 fill=%22url(%23gradient__0)%22 %2F%3E %3Crect class=%22shadow_right%22 id=%22rect__0%22 x=%220%22 y=%220%22 width=%22111.11111111111111%22 height=%22600%22 fill=%22url(%23gradient__0)%22 %2F%3E %3C%2Fg%3E %3C%2Fsvg%3E");
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+@mixin bg-grad-v1 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 2161 450'%3E%3Cg filter='url(%23a)'%3E%3Ccircle cx='450' r='250' fill='url(%23b)' fill-opacity='.5'/%3E%3C/g%3E%3Cg filter='url(%23c)'%3E%3Ccircle cx='802.5' cy='.5' r='238.5' fill='url(%23d)' fill-opacity='.5'/%3E%3C/g%3E%3Cg filter='url(%23e)'%3E%3Ccircle cx='1711' r='250' fill='url(%23f)' fill-opacity='.5'/%3E%3C/g%3E%3Cdefs%3E%3ClinearGradient id='b' x1='331.4' x2='627.8' y1='63' y2='82.7' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%234AD295'/%3E%3Cstop offset='1' stop-color='%235EB2FC'/%3E%3C/linearGradient%3E%3ClinearGradient id='d' x1='802.5' x2='802.5' y1='-238' y2='239' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%235EB2FC'/%3E%3Cstop offset='1' stop-color='%23B3B3FC'/%3E%3C/linearGradient%3E%3ClinearGradient id='f' x1='1592.4' x2='1888.8' y1='63' y2='82.7' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%234AD295'/%3E%3Cstop offset='1' stop-color='%235EB2FC'/%3E%3C/linearGradient%3E%3Cfilter id='a' width='900' height='900' x='0' y='-450' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur result='effect1_foregroundBlur' stdDeviation='100'/%3E%3C/filter%3E%3Cfilter id='c' width='877' height='877' x='364' y='-438' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur result='effect1_foregroundBlur' stdDeviation='100'/%3E%3C/filter%3E%3Cfilter id='e' width='900' height='900' x='1261' y='-450' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur result='effect1_foregroundBlur' stdDeviation='100'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@mixin bg-grad-v2 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2161' height='450' viewBox='0 0 2161 450' fill='none'%3E%3Cg filter='url(%23filter0_f)'%3E%3Ccircle cx='450' r='250' fill='url(%23paint0_linear)' fill-opacity='.5'/%3E%3C/g%3E%3Cg filter='url(%23filter1_f)'%3E%3Ccircle cx='802.5' cy='.5' r='238.5' fill='url(%23paint1_linear)' fill-opacity='.5'/%3E%3C/g%3E%3Cg filter='url(%23filter2_f)'%3E%3Ccircle cx='1711' r='250' fill='url(%23paint2_linear)' fill-opacity='.5'/%3E%3C/g%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='331.387' y1='63' x2='627.77' y2='82.679' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%234AD295'/%3E%3Cstop offset='1' stop-color='%235EB2FC'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint1_linear' x1='802.5' y1='-238' x2='802.5' y2='239' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%235EB2FC'/%3E%3Cstop offset='1' stop-color='%23B3B3FC'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint2_linear' x1='1592.39' y1='63' x2='1888.77' y2='82.679' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%234AD295'/%3E%3Cstop offset='1' stop-color='%235EB2FC'/%3E%3C/linearGradient%3E%3Cfilter id='filter0_f' x='0' y='-450' width='900' height='900' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='100' result='effect1_foregroundBlur'/%3E%3C/filter%3E%3Cfilter id='filter1_f' x='364' y='-438' width='877' height='877' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='100' result='effect1_foregroundBlur'/%3E%3C/filter%3E%3Cfilter id='filter2_f' x='1261' y='-450' width='900' height='900' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='100' result='effect1_foregroundBlur'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}
+
+@mixin bg-grad-v3 {
+  background-image: linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin bg-grad-v4 {
+  background: linear-gradient(124.14deg, rgba(255, 252, 243, 0) 20%, rgba(255, 252, 243, 0.2) 39.82%, rgba(255, 252, 243, 0) 60%), radial-gradient(154% 102% at 85% 32.47%, rgba(255, 252, 243, 0) 49.82%, rgba(230, 148, 247, 0.6) 82.11%), radial-gradient(124% 129% at 35% 78.47%, rgba(255, 252, 243, 0) 49.82%, rgba(255, 252, 243, 0.6) 82.11%), radial-gradient(125% 178% at 25% 4.47%, rgba(255, 252, 243, 0) 49.82%, rgba(255, 252, 243, 0.6) 82.11%), radial-gradient(41.58% 150.68% at 26.01% 45.34%, rgba(255, 252, 243, 0.6) 19.17%, rgba(255, 252, 243, 0) 100%), linear-gradient(84.14deg, rgba(230, 148, 247, 0.2) 2.84%, rgba(247, 161, 166, 0.2) 118.515%), radial-gradient(50% 120% at 100% 14.47%, rgba(175, 155, 241, 0) 6.9%, rgba(211, 199, 248, 0.5) 52.84%, rgba(175, 155, 241, 0) 100%), radial-gradient(56% 120% at 90% 112.47%, rgba(255, 155, 130, 0) 26.9%, rgba(255, 155, 130, 0.8) 72.84%, rgba(255, 155, 130, 0) 100%), radial-gradient(35% 68% at 35% 84.47%, #ffaf9b 49.82%, rgba(251, 211, 199, 0) 82.11%), linear-gradient(84.14deg, #e694f7 2.84%, #f7a1a6 118.515%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin bg-grad-v5 {
+  background: radial-gradient(27.91% 37.23% at 6.91% 7.68%, rgba(200, 119, 185, 0.5) 0, rgba(198, 118, 185, 0) 100%), radial-gradient(53.04% 64.16% at 53.96% 7.14%, rgba(16, 154, 229, 0.7) 0, rgba(125, 124, 196, 0) 93.21%), radial-gradient(69.88% 69.88% at 10.64% 86.96%, #fe014c 0, rgba(223, 51, 129, 0.8) 47.68%, rgba(187, 84, 133, 0.229058) 81.13%, rgba(124, 128, 200, 0) 100%), linear-gradient(90deg, #c877b9 0, #c877b9 31.9%, rgba(200, 119, 185, 0) 83.73%), linear-gradient(180deg, #0aadee 14.98%, #fea5aa 76.19%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin bg-grad-v6 {
+  background: linear-gradient(124.14deg, rgba(255, 252, 243, 0) 20%, rgba(255, 252, 243, 0.2) 39.82%, rgba(255, 252, 243, 0) 60%), radial-gradient(154% 102% at 85% 32.47%, rgba(255, 252, 243, 0) 49.82%, rgba(230, 148, 247, 0.6) 82.11%), radial-gradient(124% 129% at 35% 78.47%, rgba(255, 252, 243, 0) 49.82%, rgba(255, 252, 243, 0.9) 82.11%), radial-gradient(125% 178% at 25% 4.47%, rgba(255, 252, 243, 0) 49.82%, rgba(255, 252, 243, 0.9) 82.11%), radial-gradient(41.58% 150.68% at 26.01% 45.34%, rgba(255, 252, 243, 0.6) 19.17%, rgba(255, 252, 243, 0) 100%), linear-gradient(84.14deg, rgba(230, 148, 247, 0.2) 2.84%, rgba(247, 161, 166, 0.2) 118.515%), radial-gradient(50% 120% at 100% 14.47%, rgba(175, 155, 241, 0) 26.9%, rgba(211, 199, 248, 0.9) 72.84%, rgba(175, 155, 241, 0) 100%), linear-gradient(95.41deg, rgba(160, 218, 140, 0) 19.21%, #a0da8c 46.15%, #a0da8c 63.7%, rgba(160, 218, 140, 0) 83.72%), radial-gradient(56% 120% at 90% 112.47%, rgba(255, 155, 130, 0) 26.9%, rgba(255, 155, 130, 0.8) 72.84%, rgba(255, 155, 130, 0) 100%), radial-gradient(35% 68% at 35% 84.47%, #ffaf9b 49.82%, rgba(251, 211, 199, 0) 82.11%), linear-gradient(84.14deg, #e694f7 2.84%, #f7a1a6 118.515%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin bg-grad-v7 {
+  background: linear-gradient(124.14deg, rgba(255, 252, 243, 0) 20%, rgba(255, 252, 243, 0.2) 39.82%, rgba(255, 252, 243, 0) 60%), radial-gradient(154% 102% at 85% 32.47%, rgba(255, 252, 243, 0) 49.82%, rgba(230, 148, 247, 0.6) 82.11%), radial-gradient(124% 129% at 35% 78.47%, rgba(255, 252, 243, 0) 49.82%, rgba(255, 252, 243, 0.6) 82.11%), radial-gradient(125% 178% at 25% 4.47%, rgba(255, 252, 243, 0) 49.82%, rgba(255, 252, 243, 0.6) 82.11%), radial-gradient(41.58% 150.68% at 26.01% 45.34%, rgba(255, 252, 243, 0.6) 19.17%, rgba(255, 252, 243, 0) 100%), linear-gradient(84.14deg, rgba(230, 148, 247, 0.2) 2.84%, rgba(247, 161, 166, 0.2) 118.515%), radial-gradient(50% 120% at 100% 14.47%, rgba(175, 155, 241, 0) 6.9%, rgba(230, 195, 255, 0.5) 52.84%, rgba(175, 155, 241, 0) 100%), radial-gradient(56% 120% at 90% 112.47%, rgba(255, 155, 130, 0) 26.9%, rgba(202, 236, 189, 0.9) 72.84%, rgba(255, 155, 130, 0) 100%), radial-gradient(35% 68% at 35% 84.47%, #ffaf9b 49.82%, rgba(251, 211, 199, 0) 82.11%), linear-gradient(84.14deg, #bedbfa 2.84%, #caecbd 118.515%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin bg-grad-v8 {
+  background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin bg-grad-v9 {
+  background-image:  linear-gradient(#131e3c 1px, transparent 1px), linear-gradient(to right, #131e3c 1px, #0f172e 1px);
+  background-size: 20px 20px;
+}
+

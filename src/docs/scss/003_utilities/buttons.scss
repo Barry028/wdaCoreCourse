@@ -1,0 +1,161 @@
+@charset "utf-8";
+
+//   @include px-cybr-btn(
+//     $bg: $black,
+//     $bg2: $secondary,
+//     $bg3: $primary,
+//    
+//   );
+// @include px-cybr-btn(
+//   $bg: $dark,
+//   $bg2: $secondary,
+//   $bg3: $primary,
+//   
+// );
+$clip-tag: polygon(20% 0%, 100% 0%, 100% 25%, 100% 75%, 100% 100%, 20% 100%, 0% 50%);
+
+$clip: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 10% 100%, 0 70%);
+
+%before-cilp {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    clip-path: $clip;
+    z-index: -1;
+}
+
+@mixin px-cybr-btn($bg: $dark, $bg2: $secondary, $bg3: $primary) {
+    position: relative;
+    color: color-contrast($bg);
+    background: transparent;
+    border: 0;
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    outline: transparent;
+    padding: 1.25rem 3rem;
+    user-select: none;
+    text-transform: uppercase;
+
+    &:hover {
+        .cybr-btn-glitch {
+            visibility: visible;
+            animation-play-state: running;
+        }
+
+        &:before {
+            background: lighten($bg2, 8%);
+        }
+
+        &:after {
+            background: lighten($bg, 8%);
+        }
+    }
+
+    &:active {
+        background: lighten($bg, 6%);
+    }
+
+    &:before {
+        @extend %before-cilp;
+
+        background: $bg2;
+        transform: translate(0.25rem, 0.25rem);
+        transition: $transition-base;
+    }
+
+    &:after {
+        @extend %before-cilp;
+
+        background: $bg;
+        transition: $transition-base;
+    }
+
+    .cybr-btn-tag {
+        position: absolute;
+        bottom: -10%;
+        right: 2.5%;
+        background: invert($bg);
+
+        // invert 對比
+        color: color-contrast(invert($bg));
+        font-size: 0.75rem;
+        letter-spacing: 0;
+        font-weight: 400;
+        padding: 0.375rem 0.25rem 0.25rem 0.5rem;
+        line-height: 1;
+        clip-path: $clip-tag;
+    }
+
+    .cybr-btn-glitch {
+        position: absolute;
+        top: 0.1875rem;
+        right: 0.1875rem;
+        bottom: 0.1875rem;
+        left: 0.1875rem;
+        background: $bg2;
+        font-size: 1.25rem;
+        text-shadow: 0.25rem 0.25rem $bg2, -0.25rem -0.25rem $bg3;
+        clip-path: $clip;
+        transition: $transition-base;
+        animation: glitch 1s infinite paused;
+        visibility: hidden;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0.125rem;
+            right: 0.125rem;
+            bottom: 0.125rem;
+            left: 0.125rem;
+            clip-path: $clip;
+            background: lighten($bg, 10%);
+            z-index: -1;
+        }
+    }
+}
+
+@mixin glitch-animation($frames, $static, $animation-name: "glitch") {
+    $clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 10% 95%, 0 70%);
+    $clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+    $clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
+    $clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+    $clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+    $clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
+    $clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
+    $clip-animations: ("1": $clip-one, "2": $clip-two, "3": $clip-three, "4": $clip-four, "5": $clip-five, "6": $clip-six, "7": $clip-seven) !default;
+    $shimmy-distance: 5%;
+
+    @if unitless($static) {
+        $static: percentage($static);
+    }
+
+    $animating: (100% - $frames * $static) / ($frames - 1);
+
+    @at-root {
+        @keyframes #{$animation-name} {
+            @for $i from 0 to $frames {
+                $current-frame: $i * $static + $i * $animating;
+                $next-frame: ($i + 1) * $static + $i * $animating;
+                $halfway-frame: $i * $static / 1% + ($i - 1) * $animating + $animating / 2;
+
+                @if $i > 0 {
+                    #{$halfway-frame} {
+                        clip-path: map-get($clip-animations, #{random(7)});
+                        transform: translate(#{random(8) - 1%}, 0);
+                    }
+
+                    #{$current-frame, $next-frame} {
+                        clip-path: map-get($clip-animations, #{random(7)});
+                        transform: translate(#{random(8) - 1%}, 0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// @include glitch-animation(16, 10%);

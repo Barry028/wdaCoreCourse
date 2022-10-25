@@ -7,19 +7,19 @@
 
 
       $(document).ready(function() {
-        // Darkmode
-        const darkmodeBtns = document.getElementById("tuChangeMode");
-        const darkmode = new JsDarkMode(darkmodeBtns, {
-          dark_linearGradient: "#fcf81c,#d5ef0d,#b7ff4a",
-          light_linearGradient: "#97e6ff,#1b449c,#006bfc",
-        });
+        // // Darkmode
+        // const darkmodeBtns = document.getElementById("tuChangeMode");
+        // const darkmode = new JsDarkMode(darkmodeBtns, {
+        //   dark_linearGradient: "#fcf81c,#d5ef0d,#b7ff4a",
+        //   light_linearGradient: "#97e6ff,#1b449c,#006bfc",
+        // });
 
-        // Go Top
-        const scrEl = document.getElementById("tuScrolltop")
-        const scrollTop = new JsTuScrolltop(scrEl, {
-          offset: 300,
-          speed: 100
-        });
+        // // Go Top
+        // const scrEl = document.getElementById("tuScrolltop")
+        // const scrollTop = new JsTuScrolltop(scrEl, {
+        //   offset: 300,
+        //   speed: 100
+        // });
 
 
         // if ($('#Header').length) {

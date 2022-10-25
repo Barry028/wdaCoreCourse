@@ -1,0 +1,297 @@
+.pixel-nav-bar {
+  position: relative;
+  background-color: $white;
+  padding: 0 1rem;
+  @include compact-rounded-corners;
+  @include compact-rounded-corners-before($color: lighten($dark, 0%),
+    $opacity: 0.6,
+    $l: 0.5rem,
+    $t: 0.5625rem);
+
+
+  .pixel-nav-tool {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  @at-root .nav-brand {
+    margin-right: auto;
+    margin-left: 1.25rem;
+    display: inline-block;
+    vertical-align: middle;
+
+    .brand-logo {
+      display: block;
+      font-size: 0;
+      color: $dark;
+      text-decoration: none;
+
+      &:hover {
+        opacity: .8;
+      }
+
+      .brand-logo-img {
+        display: inline-block;
+        vertical-align: middle;
+        height: 4.5rem;
+        padding: .875rem 0;
+      }
+
+      // avastar
+      .avastar-container {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 2.75rem;
+        margin-left: .5rem;
+
+        &:after {
+          content: '';
+          display: block;
+          padding-top: 100%;
+        }
+
+        .avastar-img {
+          background-image: $avastar-v6;
+          background-repeat: no-repeat;
+          background-position: center;
+          position: absolute;
+          background-size: contain;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .nav-brand-para {
+      margin-top: .75rem;
+      padding-bottom: .5rem;
+      font-size: .875rem;
+    }
+  }
+
+  .nav-social-buttons {
+    @include abs-align(y);
+    right: 1.5rem;
+  }
+}
+
+// Type[Button]
+.pixel-burger {
+  background-color: $white;
+  color: $dark;
+  @include pixel-burger-button();
+  transition: 0.125s all ease;
+
+  &:hover {
+    .burger-line {
+      top: calc(50% - 1.5px);
+    }
+  }
+
+  &:active {
+    .burger-line {
+      top: calc(50% - 0);
+    }
+  }
+
+  .burger-line {
+    background-color: currentColor;
+    display: block;
+    height: $burger-line;
+    position: relative;
+    border: none;
+    margin: 0.75rem auto 1.125rem;
+    width: 1.5rem;
+
+    &:before,
+    &:after {
+      display: block;
+      height: $burger-line;
+      position: absolute;
+      background-color: currentColor;
+      transition: 0.125s all step-end;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      width: 100%;
+    }
+
+    &:before {
+      transform: translateY(-9px);
+    }
+
+    &:after {
+      transform: translateY(9px);
+    }
+  }
+}
+
+.pixel-burger {
+  &.pixel-burger-lt {
+    i {
+
+      &:before,
+      &:after {
+        width: 70%;
+      }
+    }
+  }
+
+  &.pixel-burger-rt {
+    .burger-line {
+
+      &:before,
+      &:after {
+        right: 0;
+        width: 70%;
+      }
+    }
+  }
+
+  &[data-active-type="arrow-left"] {
+    &.active {
+      .burger-line {
+
+        &:before,
+        &:after {
+          width: 50%;
+        }
+
+        &:before {
+          transform: translateY(-3px) rotate(-45deg);
+          left: -3px;
+        }
+
+        &:after {
+          transform: translateY(3px) rotate(45deg);
+          left: -3px;
+        }
+      }
+    }
+  }
+
+  &[data-active-type="arrow-right"] {
+    &.active {
+      .burger-line {
+
+        &:before,
+        &:after {
+          width: 50%;
+        }
+
+        &:before {
+          transform: translateY(-3px) rotate(45deg);
+          right: -3px;
+        }
+
+        &:after {
+          transform: translateY(3px) rotate(-45deg);
+          right: -3px;
+        }
+      }
+    }
+  }
+
+  &[data-active-type="close"] {
+    &.active {
+      .burger-line {
+        background-color: inherit;
+
+        // height: 0;
+        &:before,
+        &:after {
+          width: 100%;
+        }
+
+        &:before {
+          transform: translateY(-50%) rotate(45deg);
+        }
+
+        &:after {
+          transform: translateY(-50%) rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+// Type[checkbox]
+.pixel-burger-input {
+  &:checked {
+    +[data-active-type="close"] {
+      .burger-line {
+        background-color: inherit;
+
+        // height: 0;
+        &:before,
+        &:after {
+          width: 100%;
+        }
+
+        &:before {
+          transform: translateY(-50%) rotate(45deg);
+        }
+
+        &:after {
+          transform: translateY(-50%) rotate(-45deg);
+        }
+      }
+    }
+
+    +[data-active-type="arrow-left"] {
+      .burger-line {
+        background-color: currentColor;
+        height: 3px;
+
+        &:before,
+        &:after {
+          width: 50%;
+        }
+
+        &:before {
+          transform: translateY(-3px) rotate(-45deg);
+          left: -3px;
+        }
+
+        &:after {
+          transform: translateY(3px) rotate(45deg);
+          left: -3px;
+        }
+      }
+    }
+
+    +[data-active-type="arrow-right"] {
+      .burger-line {
+        background-color: currentColor;
+        height: 3px;
+
+        &:before,
+        &:after {
+          width: 50%;
+        }
+
+        &:before {
+          transform: translateY(-3px) rotate(45deg);
+          right: -3px;
+        }
+
+        &:after {
+          transform: translateY(3px) rotate(-45deg);
+          right: -3px;
+        }
+      }
+    }
+
+    ~.pixel-nav {
+      max-height: 100vh;
+      visibility: visible;
+      padding-top: 0.5rem;
+      padding-bottom: 1rem;
+    }
+  }
+}

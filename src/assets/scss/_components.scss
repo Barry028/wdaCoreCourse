@@ -4,13 +4,19 @@
 //==========================
 
 @import "components/_c_alerts";
+@import "components/_c_JsAlerts";
 @import "components/_c_backgrounds";
 @import "components/_c_backgroundsCustom";
 @import "components/_c_backgroundsGrads";
 @import "components/_c_badges";
 @import "components/_c_buttons";
-@import "components/_c_bubbles";
 @import "components/_c_Bullets";
+
+
+@import "components/_c_bubbles";
+@import "components/_c_bubblePop.scss";
+@import "components/_c_bubbleChats.scss";
+@import "components/_c_bubbleChatsv2.scss";
 
 // @import "components/bootstrap-datePicker";
 @import "components/_c_cssTabs";

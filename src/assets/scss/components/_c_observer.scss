@@ -1,22 +1,20 @@
-
-
-
 .observer-nav {
   position: relative;
   display: block;
   background: _var("white", $white);
   border-radius: $border-radius;
-  padding: 1.5rem 1.25rem;
+  padding: 1.25rem 1rem;
   width: 100%;
 
   &.is-fix {
     height: inherit;
     width: inherit;
     box-shadow: $box-shadow-lg;
-    top: 10rem;
+    top: 12rem;
     position: fixed;
     z-index: 999;
     transform: translate3d(0, 0, 0);
+    transition: box-shadow .25s ease;
 
     .float-rocket {
       transform: rotate(-10deg) scale(1.25);
@@ -24,7 +22,7 @@
     }
 
     .float-svg {
-      width: 12rem;
+      width: 10rem;
       transform: rotate(-25deg);
       transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
     }
@@ -45,22 +43,23 @@
     transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
     transform: translate3d(0, 0, 0);
   }
-
 }
 
 .hr-lines-v1 {
   position: relative;
   height: 1rem;
   width: 100%;
-  background-color: $primary;
+
+  @include gradient-x-three-colors(adjust-hue($primary, 30deg) -20% 0, tint-color($primary, 0%), 50%, adjust-hue($primary, -30deg) 120%);
+
   transform: translateY(-1rem);
   border-radius: 0.5rem;
 }
 
 .float-rocket {
   position: absolute;
-  top: -9.5rem;
-  right: 2.5rem;
+  top: -8rem;
+  right: -1.5rem;
   transform: rotate(10deg);
   width: 12rem;
   pointer-events: none;
@@ -68,9 +67,8 @@
 }
 
 .float-svg {
-  width: 10rem;
+  width: 8rem;
   pointer-events: none;
-  
   transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
   z-index: 3;
 }
@@ -86,24 +84,25 @@
   position: relative;
   display: block;
   list-style: none;
-  padding: .75rem 1rem .575rem 2.5em;
+  padding: .625rem 1rem .925rem 2.5em;
   border: 2px solid transparent;
   margin-bottom: .125rem;
   cursor: pointer;
-  border-radius: $border-radius--px;
+  border-radius: $border-radius;
   transition: $transition-base;
   counter-increment: step-counter;
   font-weight: 700;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   letter-spacing: 1.5px;
   text-align: left;
   user-select: none;
+  white-space: normal;
 
   $i: 0;
 
   @each $color, $value in $department-colors {
     &.observer-nav-item-#{$color}.observer-nav-item-#{$color}.observer-nav-item-#{$color} {
-      background-image: linear-gradient(90deg, tint-color($value, 20%) 0.5rem, $default 0.5rem, $default 0.525rem, transparent 0.525rem);
+      background-image: linear-gradient(90deg, tint-color($value, 20%) 0.375rem, $default 0.5rem, $default 0.525rem, transparent 0.525rem);
       background-color: tint-color($value, 90%);
       color: shade-color($value, 60%);
 
@@ -116,21 +115,20 @@
       }
     }
   }
+
   &:not(:first-of-type) {
     margin-top: 0.75rem;
   }
 
   &.active.active.active {
-    // background-color: $primary-700;
     color: $white;
     border: 2px solid _var("grey-50", $grey-50);
     box-shadow: 2px 2px 4px rgba($dark, 0.16);
-    font-size: 112.5%;
+    font-size: 0.9375rem;
   }
 
   &:before {
     content: counter(step-counter);
-
     color: $white;
     font-size: 80%;
     font-weight: 700;

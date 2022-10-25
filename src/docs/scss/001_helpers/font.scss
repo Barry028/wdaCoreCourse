@@ -1,0 +1,132 @@
+// Font
+@font-face {
+  font-family: "Cubic"; // 中文  Cubic
+  src: url("https://assets.codepen.io/2845599/Cubic_11_1.010_R.woff2") format("woff2");
+}
+// @font-face {
+//   font-family: "Silver"; // 中文 Silver
+//   src: url("https://assets.codepen.io/2845599/Silver.woff2") format("woff2");
+// }
+// @font-face {
+//   font-family: "zpix"; // 中文 zpix
+//   src: url("https://assets.codepen.io/2845599/zpix.woff2") format("woff2");
+// }
+// @font-face {
+//   font-family: "misaki mincho"; // 中文 misaki mincho
+//   src: url("https://assets.codepen.io/2845599/misaki_mincho.woff2") format("woff2");
+// }
+// @font-face {
+//   font-family: "misaki gothic"; // 中文 misaki gothic
+//   src: url("https://assets.codepen.io/2845599/misaki_gothic.woff2") format("woff2");
+// }
+// @font-face {
+//   font-family: "misaki gothic 2nd"; // 中文 misaki gothic 2nd
+//   src: url("https://assets.codepen.io/2845599/misaki_gothic_2nd.woff2") format("woff2");
+// }
+// // Press Start 2P
+// @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+// unibody-8-new 900 700 400
+@import url('https://use.typekit.net/ogp0znt.css');
+
+$font-family:                                 "unibody-8-new", 
+                                              "Cubic", 
+                                              "zpix", 
+                                              "Silver", 
+                                              "Kongtext", sans-serif !default;
+$font-base:                                   "unibody-8-new", 
+                                              "Cubic", 
+                                              "zpix", 
+                                              "Silver", 
+                                              "Kongtext", sans-serif !default;
+$font-mono:                                   "DotGothic16", 
+                                              "AB Megadot9", 
+                                              "AB Kokikaku", monospace !default;
+
+// Fonts Styles
+$font-size-html-base:           16px                            !default;
+$font-size-html-lg:             15px                            !default;
+$font-size-html-md:             14px                            !default;
+$font-size-html-sm:             13px                            !default;
+$font-size-html-xs:             12px                            !default;
+
+// Line Height
+$line-height-xs:                1.25                            !default;
+$line-height-sm:                1.375                           !default;
+$line-height-base:              1.5                             !default;
+$line-height-lg:                1.75                            !default;
+
+// Fonts base
+$font-size:                     1rem                            !default;
+$h1-font-size:                  $font-size * 1.75               !default;
+$h2-font-size:                  $font-size * 1.5                !default;
+$h3-font-size:                  $font-size * 1.4375             !default;
+$h4-font-size:                  $font-size * 1.375              !default;
+$h5-font-size:                  $font-size * 1.25               !default;
+$h6-font-size:                  $font-size * 1.125              !default;
+$para-font-size:                $font-size                      !default;
+$span-font-size:                $font-size * 0.875              !default;
+$label-font-size:               $font-size * 0.9375             !default;
+
+$font-weight-100:               100                             !default;
+$font-weight-200:               200                             !default;
+$font-weight-300:               300                             !default;
+$font-weight-400:               400                             !default;
+$font-weight-500:               500                             !default;
+$font-weight-600:               600                             !default;
+$font-weight-700:               700                             !default;
+$font-weight-800:               800                             !default;
+$font-weight-900:               900                             !default;
+
+// Headings       
+$font-heading:                  "unibody-8-new", "Cubic"        !default;
+$font-heading-bolder:           900                             !default;
+$font-heading-bold:             700                             !default;
+$font-heading-line-height:      $line-height-xs                 !default;
+
+// Font Stroke Width
+$text-weight:                    0.50px                              !default;
+$text-weight-bold:               0.75px                              !default;
+$text-weight-bolder:             1.00px                              !default;
+
+// Font Stroke All
+$text-stroke-bold:               $text-weight-bold currentColor      !default;
+$text-stroke-bolder:             $text-weight-bolder currentColor    !default;
+
+// Font Stroke Shadow
+$text-shadow-weight-bold:         0.50px                              !default;
+$text-shadow-weight-bolder:       0.75px                              !default;
+$text-shadow-bold:                0 $text-shadow-weight-bold 0 currentColor, 
+                                  0 0 $text-shadow-weight-bold currentColor,
+                                  0 0 $text-shadow-weight-bold currentColor, 
+                                  0 0 $text-shadow-weight-bold currentColor,
+                                  0 0 $text-shadow-weight-bold currentColor, 
+                                  0 0 $text-shadow-weight-bold currentColor, 
+                                  0 0 $text-shadow-weight-bold currentColor,
+                                  0 0 $text-shadow-weight-bold currentColor, 
+                                  0 0 $text-shadow-weight-bold currentColor, 
+                                  0 0 $text-shadow-weight-bold currentColor, 
+                                  0 0 $text-shadow-weight-bold currentColor, 
+                                  0 0 $text-shadow-weight-bold currentColor, 
+                                  0 0 $text-shadow-weight-bold currentColor, 
+                                  0 0 $text-shadow-weight-bold currentColor, 
+                                  0 0 $text-shadow-weight-bold currentColor, 
+                                  0 0 $text-shadow-weight-bold currentColor, 
+                                  0 0 $text-shadow-weight-bold currentColor;
+                                              
+
+
+
+
+
+// Mono - DotGothic16、AB Megadot9（中文掉字嚴重）、AB Kokikaku
+// <script>
+//   (function(d) {
+//     var config = {
+//       kitId: 'lir7qjs',
+//       scriptTimeout: 3000,
+//       async: true
+//     },
+//     h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+//   })(document);
+// </script>

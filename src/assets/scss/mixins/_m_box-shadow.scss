@@ -1,8 +1,8 @@
 @charset "utf-8";
 
-//   Mixins > Box Shadow
-// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// 
+//==  Mixins-> BoxShadow
+//====================================================
+
 @mixin shadow-box-v1($bg: $grey-100, $shadow: $grey-700, $w: .25rem) {
   background-color: $bg;
   box-shadow: 0 $w $bg, 0 -#{$w} $bg, #{$w} 0 $bg, -#{$w} 0 $bg,
@@ -20,7 +20,6 @@
 //   @include shadow-box-v1($bg: #eee, $shadow: #999, $w: 4px);
 // }
 
-
 @mixin shadow-box($value) {
     box-shadow: 1px 1px $dark, 2px 2px $dark, 3px 3px $dark, 4px 4px $dark,
     5px 5px $dark, 6px 6px $dark, 7px 7px $dark, 8px 8px $dark, 9px 9px $dark,
@@ -33,8 +32,6 @@
 @mixin box-shadow($value) {
   box-shadow: $value;
 }
-
-
 
 @mixin bottom-box-shadow($color, $whith: 0.25rem) {
   box-shadow: inset 0 -#{$whith} 0 $color;

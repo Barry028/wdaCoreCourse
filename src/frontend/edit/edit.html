@@ -13,7 +13,7 @@
 <body class="t-bg-mesh-primary">
   <main id="web" class="t-wrapper">
     <!-- Header -->
-    <header id="tHeader" class="t-header">
+    <header data-tu-an="blur fade bottom once" id="tHeader" class="t-header">
       <section class="t-header-top">
         <div class="container">
           <div class="row">
@@ -44,9 +44,19 @@
       <section class="t-header-main">
         <nav class="navbar navbar-expand-md">
           <div class="container">
+            <button class="navbar-toggler navbar-toggler-left" type="button" aria-label="主要選單" aria-expanded="false" aria-controls="navBar" data-bs-toggle="collapse" data-bs-target="#navBar">
+              <div class="t-menu-icon-wrapper">
+                <div class="t-menu-icon-line"></div>
+              </div>
+              <!--               <i class="svg-icon svg-icon-2hx">
+                <svg>
+                  <use href="#ic-burger"></use>
+                </svg>
+              </i> -->
+            </button>
             <!-- <img src="../../assets/images/wda-logo.svg" alt="aa" id="imas"> -->
             <!-- <canvas id="output"></canvas> -->
-            <div class=" t-header-brand">
+            <div class="t-header-brand">
               <!-- <img src=""  alt="勞動部勞動力發展署" width="164" height="26"> -->
               <a class="t-header-logo" href="../index/index.html">
                 <picture class="t-header-logo-sub" id="a1">
@@ -62,7 +72,7 @@
                 </picture>
               </a>
             </div>
-            <nav class="t-header-nav-bar ml-auto">
+            <nav id="navBar" class="t-header-nav-bar ml-auto collapse navbar-collapse">
               <a class="t-header-nav-bar-link" href="javascript:;">最新訊息</a>
               <a class="t-header-nav-bar-link" href="javascript:;">課程需求刊登</a>
               <a class="t-header-nav-bar-link" href="javascript:;">課程介紹</a>
@@ -155,7 +165,7 @@
                   </i>
                 </a>
               </div>
-              <div class="t-panel-main">
+              <div class="t-panel-main a1">
                 <div class="mask mask-card-ruler"></div>
                 <div class="mask mask-brand-wda-logo-backgrounds"></div>
                 <div class="t-panel-item-img-container">
@@ -166,7 +176,8 @@
                     </picture>
                   </a>
                 </div>
-                <!-- view -->
+
+                <!-- View -->
                 <div class="t-panel-item-cnt">
                   <dl class="t-definition-list">
                     <dt class="t-definition-term" hidden>
@@ -293,7 +304,6 @@
                 <div class="t-panel-edit-cnt">
                 </div>
               </div>
-              
             </div>
           </div>
           <!-- 課程師資介紹 End -->
@@ -792,7 +802,7 @@
           <div class="col-md">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <span class="d-flex align-items-center">
+                <span class="t-flex align-items-center">
                   <picture class="t-footer-logos">
                     <source src="../../assets/images/wda_logo_circle.svg" data-src="../../assets/images/10Ratio3.3333_v1.svg">
                     <img alt="勞動力發展署 - 關鍵就業力課程" src="../../assets/images/wda_logo_circle.svg" width="20" height="20" />
@@ -813,8 +823,8 @@
     <!-- Footer End -->
   </main>
   <!-- ChangeMode -->
-  <div class="t-float-change-mode" id="tuChangeMode">
-  </div>
+  <div class="t-float-change-mode" id="tuChangeMode"></div>
+  
   <!-- Scrolltop -->
   <a href="javascript:;" id="tuScrolltop" class="tu-scrolltop">
     <i class="js-go-top--arrow" aria-hidden="true"></i>
@@ -1405,7 +1415,7 @@
       <path fill="currentColor" d="M12 17.5a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2Zm0-9.2c-2 0-3.6 1.6-3.6 3.6s1.6 3.6 3.6 3.6 3.6-1.6 3.6-3.6S14 8.3 12 8.3Z" />
     </symbol>
   </svg>
-  <!-- popper -->
+  <!-- Popper -->
   <script src="../../assets/vendor/@popperjs/core/dist/umd/popper.js"></script>
   <!-- Bootstrap v5.2.0  -->
   <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.js"></script>
@@ -1418,102 +1428,26 @@
   <!-- Custom -->
   <script src="../../assets/javascript/custom.js"></script>
   <!-- Components -->
+  <script src="../../assets/javascript/components/JsHeader.js"></script>
   <script src="../../assets/javascript/components/JsImagePlaceholder.js"></script>
   <script src="../../assets/javascript/components/JsDarkMode.js"></script>
   <script src="../../assets/javascript/components/JsTuScrolltop.js"></script>
   <script src="../../assets/javascript/observer/JsImagesLazyLoad.js"></script>
   <script src="../../assets/javascript/components/categoryPicker/categoryPicker.js"></script>
-  <script src="../../assets/javascript/components/canvasBlur.js"></script>
+  <script src="../../assets/javascript/observer/JsObserverAnimations.js"></script>
   <script src="../../assets/javascript/components/JsMenu.js"></script>
+  <script src="../../assets/javascript/components/JsAlerts.js"></script>
   <script src="./index.js"></script>
   <script>
+
+
+
+  let el = document.querySelector('.t-link').textContent
+  console.log(el)
+  var arrPer = JsUtils.startsWith(el, '首', true)
+  console.log(arrPer)
   var log = function() {
     console.log.apply(console, arguments)
-  }
-
-
-
-
-
-  // Scroll Fixed Header 未封裝 判斷滾動方向
-  headerScrollFunc('tHeader');
-
-  function headerScrollFunc(id) {
-
-    const header = document.getElementById(id);
-    const options = {
-      fixClass: 'is-fix',
-      hideClass: 'is-hide',
-      showClass: 'is-show',
-      showDelay: 500
-    };
-    if (!header) { return false }
-    options.startPosi = 0;
-    options.upFlg = false;
-    options.setTimeoutFlg = false;
-    options.setTimeoutId = 0;
-
-    window.addEventListener('resize', function() {
-      headerFix(options);
-    });
-    window.addEventListener('scroll', function() {
-      headerFix(options);
-    });
-
-
-    function headerFix(options) {
-
-      const headerBasePosi = 0;
-      const headerFixPosi = header.clientHeight;
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const fixClass = options.fixClass;
-      const showClass = options.showClass;
-      const hideClass = options.hideClass;
-
-      if (scrollTop > options.startPosi) {
-        options.upFlg = false;
-        clearTimeout(options.setTimeoutId);
-        options.setTimeoutFlg = false;
-
-        if (scrollTop > headerFixPosi) {
-          header.classList.add(fixClass);
-        }
-        const pageHeight = document.documentElement.scrollHeight;
-        const scrollBottom = window.innerHeight + scrollTop;
-        if (pageHeight <= scrollBottom) {
-          headerShow(hideClass, showClass);
-        } else {
-          if (header.classList.contains(showClass)) {
-            headerHide(hideClass, showClass);
-          }
-        }
-      } else {
-        options.upFlg = true;
-        if (scrollTop <= headerBasePosi) {
-          header.classList.remove(fixClass, showClass, hideClass);
-        } else {
-          if (!options.setTimeoutFlg) {
-            options.setTimeoutFlg = true;
-            options.setTimeoutId = setTimeout(function() {
-              if (options.upFlg && header.classList.contains(fixClass)) {
-                headerShow(hideClass, showClass);
-              }
-            }, options.showDelay);
-          }
-        }
-      }
-      options.startPosi = scrollTop;
-    }
-
-    function headerShow(hideClass, showClass) {
-      header.classList.remove(hideClass);
-      header.classList.add(showClass);
-    }
-
-    function headerHide(hideClass, showClass) {
-      header.classList.remove(showClass);
-      header.classList.add(hideClass);
-    }
   }
 
   window.addEventListener("load", function(event) {

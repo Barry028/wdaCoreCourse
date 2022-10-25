@@ -1,0 +1,203 @@
+.container {
+  max-width: $container-xl;
+  @include container-fixed;
+
+  @media (max-width: $screen-lg-min) {
+    max-width: $container-lg;
+  }
+
+  @media (max-width: $screen-md-min) {
+    max-width: $container-md;
+  }
+
+  @media (max-width: $screen-sm-min) {
+    max-width: $container-sm;
+  }
+
+  @media (max-width: $screen-xs-min) {
+    max-width: $container-xs;
+  }
+  &-fluid {
+    @include container-fixed;
+  }
+}
+
+// Row
+.row {
+  @include make-row;
+}
+
+
+@include make-grid(xl);
+
+// Large grid
+@media (max-width: $screen-lg-min) {
+  @include make-grid(lg);
+}
+
+// Medium grid
+@media (max-width: $screen-md-min) {
+  @include make-grid(md);
+}
+
+// Small grid
+@media (max-width: $screen-sm-min) {
+  @include make-grid(sm);
+}
+
+// Extra small grid
+@media (max-width: $screen-xs-min) {
+  @include make-grid(xs);
+}
+
+// Columns
+@include make-grid-columns;
+
+
+.clear-fix {
+  @include clearfix;
+}
+
+@media (max-width: $screen-lg-min) {
+  .clear-fix-lg {
+    @include clearfix;
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  .clear-fix-md {
+    @include clearfix;
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .clear-fix-sm {
+    @include clearfix;
+  }
+}
+
+@media (max-width: $screen-xs-min) {
+  .clear-fix-xs {
+    @include clearfix;
+  }
+}
+
+
+.bb-container {
+  position: relative;
+  padding: 1.5rem 2rem;
+  border-color: $dark;
+  border-style: solid;
+  border-width: 4px;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  &.is-centered {
+    text-align: center;
+  }
+
+  &.is-right {
+    text-align: right;
+  }
+
+  &.with-title {
+    >.title {
+      display: table;
+      padding: 0 0.5rem;
+      margin: -2.5rem 0 1rem;
+      font-size: 1.25rem;
+      background-color: $background-color;
+    }
+
+    &.is-centered {
+      >.title {
+        margin: -2rem auto 1rem;
+      }
+    }
+
+    &.is-right {
+      >.title {
+        margin: -2rem 0 1rem auto;
+      }
+    }
+  }
+
+  &.is-dark {
+    position: relative;
+    margin: $border-size;
+    color: $background-color;
+    background-color: $base-color;
+    border-color: white;
+
+    &::after {
+      position: absolute;
+      top: -$border-size * 1.8;
+      right: -$border-size * 1.8;
+      bottom: -$border-size * 1.8;
+      left: -$border-size * 1.8;
+      z-index: -1;
+      content: "";
+      background-color: $base-color;
+    }
+
+    &.with-title {
+      >.title {
+        color: $background-color;
+        background-color: $base-color;
+      }
+    }
+  }
+
+  &.is-rounded {
+    @include rounded-corners();
+
+    padding: 1rem 1.5rem;
+    margin: $border-size;
+
+    &.with-title {
+      >.title {
+        margin-top: -1.5rem;
+      }
+
+      &.is-centered {
+        >.title {
+          margin: -1.5rem auto 1rem;
+        }
+      }
+
+      &.is-right {
+        >.title {
+          margin: -1.5rem 0 1rem auto;
+        }
+      }
+    }
+
+    &.is-dark {
+      @include rounded-corners(true);
+
+      &::after {
+        content: none;
+      }
+
+      &.with-title {
+        >.title {
+          margin-top: -1.3rem;
+        }
+
+        &.is-centered {
+          >.title {
+            margin: -1.3rem auto 1rem;
+          }
+        }
+
+        &.is-right {
+          >.title {
+            margin: -1.3rem 0 1rem auto;
+          }
+        }
+      }
+    }
+  }
+}

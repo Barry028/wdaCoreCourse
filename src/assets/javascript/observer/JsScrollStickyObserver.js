@@ -61,6 +61,7 @@ const JsScrollStickyObserver = function(element, options) {
     } else if (footerEntry && footerEntry.isIntersecting) {
       element.classList.remove(fixedClassName)
       element.classList.add(stopClassName)
+      // element.style.transform = "translateY(" + headerHeight + "px)";
       element.style.width = elementWidth + 'px'
     } else {
       if (document.documentElement.scrollTop !== 0) {

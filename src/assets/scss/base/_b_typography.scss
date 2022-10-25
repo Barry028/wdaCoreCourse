@@ -1,7 +1,7 @@
-
 @charset "utf-8";
-//  Base -> Typography
-// --------------------------------------------------
+//==  Base -> Typography
+//====================================================
+
 h1 {
   // font-size: $h1-font-size;
   font-size: clamp($h2-font-size, 4.5vw, $h1-font-size);
@@ -38,11 +38,13 @@ p {
 }
 
 span {
-  font-size: $span-font-size;
+  // font-size: $span-font-size;
+  font-size: inherit;
 }
 
 label {
-  font-size: $label-font-size;
+  // font-size: $label-font-size;
+  font-size: inherit;
 }
 
 b {
@@ -70,6 +72,7 @@ abbr {
     text-decoration: none;
     cursor: help;
 }
+
 mark {
     border-radius: $border-radius-xs;
     padding: 0.125rem 0.25rem;

@@ -15,8 +15,7 @@
   font-weight: $fw;
   display: flex;
 
-  @include gradient-x(tint-color($color, 40%), shade-color($color, 20%), -20%);
-
+  @include gradient-x(tint-color($color, 20%) -20% , shade-color($color, 20%), 120%);
   background-size: $size;
   background-repeat: repeat-x;
   background-position: $position;

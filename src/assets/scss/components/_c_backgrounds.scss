@@ -22,7 +22,7 @@ $grad-adjust-hue-l: -$grad-adjust-hue-r;
     background-color: $value;
   }
 }
-
+// @include gradient-x-three-colors(adjust-hue($value , -45deg) -20% 0 , tint-color($value, 0%), 50%, adjust-hue($value , 45deg) 120%);
 @each $color, $value in $element-colors {
   .t-bg-grad-#{$color} {
     @include gradient-x-three-colors(adjust-hue($value , $grad-adjust-hue-l) -20% 0 , tint-color($value, 0%), 50%, adjust-hue($value , $grad-adjust-hue-r) 120%);
@@ -32,4 +32,5 @@ $grad-adjust-hue-l: -$grad-adjust-hue-r;
     @include gradient-x-three-colors(adjust-hue($value , $grad-adjust-hue-l) -20% 0 , tint-color($value, 0%), 50%, adjust-hue($value , $grad-adjust-hue-r) 120%);    // background-color: $value;
   }
 }
+
 

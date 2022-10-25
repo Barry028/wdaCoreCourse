@@ -1,0 +1,75 @@
+@mixin list-before($class,
+$disc-or-circle,
+$colors: ($dark, map-get($default-colors, "shadow"))) {
+  &.is-#{$class} li::before {
+    position: absolute;
+    top: calc(50% - 8px);
+    left: -22px;
+    content: "";
+
+    @include pixelize(2px, $disc-or-circle, $colors);
+  }
+}
+
+.nes-list {
+  // prettier-ignore
+  $disc: ((0, 0, 0, 1, 1, 0, 0, 0),
+    (0, 0, 1, 1, 1, 1, 0, 0),
+    (0, 1, 1, 1, 1, 1, 1, 0),
+    (0, 1, 1, 1, 1, 1, 1, 0),
+    (0, 0, 1, 1, 1, 1, 0, 0),
+    (0, 0, 0, 1, 1, 0, 0, 0));
+
+  // prettier-ignore
+  $circle: ((0, 0, 0, 1, 1, 0, 0, 0),
+    (0, 0, 1, 1, 1, 1, 0, 0),
+    (0, 1, 1, 0, 0, 1, 1, 0),
+    (0, 1, 1, 0, 0, 1, 1, 0),
+    (0, 0, 1, 1, 1, 1, 0, 0),
+    (0, 0, 0, 1, 1, 0, 0, 0));
+
+  list-style-type: none;
+
+  & li {
+    position: relative;
+  }
+
+  @include list-before("disc", $disc);
+  @include list-before("circle", $circle);
+
+  &.is-dark {
+    $dark-colors: ($background-color, $base-color);
+    @include list-before("disc", $disc, $dark-colors);
+    @include list-before("circle", $circle, $dark-colors);
+
+    li {
+      color: $color-white;
+    }
+  }
+}
+
+.pixel-list-inline {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 1.5rem;
+
+  &.pixel-list-inline-sm {
+    .pixel-list-inline-item {
+      // min-width: (100% / 10);
+   
+    }
+  }
+
+  .pixel-list-inline-item {
+    // display: inline-block;
+    // vertical-align: middle;
+    // min-width: (100% / 8);
+    // padding-right: 1.5rem;
+
+    // &:not(:last-child) {
+    //   margin-right: 1.5rem;
+    // }
+ 
+  }
+}

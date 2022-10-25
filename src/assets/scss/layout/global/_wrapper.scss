@@ -2,23 +2,32 @@
   position: relative;
 }
 
+// @media (min-width: $screen-xxl) {
+//   .container,
+//   .container-xxl {
+//     max-width: $container-max-width-xxl;
+//   }
+// }
 
 // Desktop Mode
-@include media-breakpoint-only(xl) {
+@include md-min {
   // Containers
   .container,
   .container-xxl,
   .container-fluid {
-    padding: 0 get($content-spacing, desktop) !important;
+    --tu-gutter-x: #{get($content-spacing, desktop)};
+    // padding: 0 get($content-spacing, desktop) !important;
   }
 }
+
 
 @include media-breakpoint-only(md) {
   // Containers
   .container,
   .container-xxl,
   .container-fluid {
-    padding: 0 get($content-spacing, desktop) !important;
+    --tu-gutter-x: #{get($content-spacing, desktop-tablet)};
+    // padding: 0 get($content-spacing, desktop) !important;
   }
 }
 
@@ -30,7 +39,8 @@
   .container-xxl,
   .container-fluid {
     max-width: none;
-    padding: 0 get($content-spacing, tablet-and-mobile) !important;
+    --tu-gutter-x: #{get($content-spacing, tablet-and-mobile)};
+    // padding: 0 get($content-spacing, tablet-and-mobile) !important;
   }
 }
 
@@ -41,14 +51,7 @@
   .container-xxl,
   .container-fluid {
     max-width: none;
-    padding: 0 get($content-spacing, mobile) !important;
-  }
-}
-
-
-@media (min-width: $screen-xxl) {
-  .container,
-  .container-xxl {
-    max-width: $container-max-width-xxl;
+    --tu-gutter-x: #{get($content-spacing, mobile)};
+    // padding: 0 get($content-spacing, mobile) !important;
   }
 }

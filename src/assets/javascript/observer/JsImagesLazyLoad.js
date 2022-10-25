@@ -34,7 +34,7 @@ const JsImagesLazyLoad = function(elements, options) {
   var lazyImages = document.querySelectorAll(elements);
   
   var imageLoad = function(image) {
-    console.log(image)
+    // console.log(image)
     image.setAttribute("src", image.getAttribute("data-src"));
     image.removeAttribute("data-src");
   };

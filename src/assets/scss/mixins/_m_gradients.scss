@@ -3,6 +3,96 @@
 //  Mixins > gradients
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
+$default-gradient: matte !default;
+$support-for-original-webkit-gradients: false;
+
+@mixin background-gradient($bg-color, $type: $default-gradient, $direction: top, $contrast: 1) {
+  $flat: $type == null or $type == none or $type == flat;
+
+  @if $flat or $bg-color == transparent {
+    background-color: $bg-color;
+
+    @if $bg-color != null {
+      // invoking this mixin with null, none, or flat as the $type parameter means 
+      // "no gradient" so make sure we don't inherit one via the cascade
+      background-image: none;
+    }
+  }
+
+  @if not ($flat or $bg-color == transparent) {
+    @if type-of($type) == "list" {
+      // Color stops provided - no $bg-color required
+      @include background-image(linear-gradient($direction, $type));
+    }
+    @else if $bg-color != transparent {
+      // Named gradients
+      @if $bg-color == null {
+        @warn '@background-gradient: $bg-color is required for named gradient "#{$type}"';
+      }
+      @else if $type == bevel {
+        @include background-image(bevel-gradient($bg-color, $direction, $contrast));
+      }
+      @else if $type == glossy {
+        @include background-image(glossy-gradient($bg-color, $direction, $contrast));
+      }
+      @else if $type == recessed {
+        @include background-image(recessed-gradient($bg-color, $direction, $contrast));
+      }
+      @else if $type == linear {
+        @include background-image(linear-gradient($direction, color_stops(lighten($bg-color, 5%), darken($bg-color, 10%))));
+      }
+      @else if $type == matte {
+        @include background-image(matte-gradient($bg-color, $direction, $contrast));
+      }
+      @else {
+        @warn '@background-gradient: invalid gradient name "#{$type}"';
+      }
+    }
+  }
+}
+@function linear-gradient-bevel($direction, $bg-color) {
+    @return linear-gradient($direction, color_stops( 
+        lighten($bg-color, 15%), 
+        lighten($bg-color, 8%) 30%, 
+        $bg-color 65%, 
+        darken($bg-color, 6%) 
+    ));
+}
+.a1 {
+  background: linear-gradient-bevel(0, $dark);
+}
+
+// These are functions so they can be combined together with background-image()// ie. @include background-image(background_noise(), glossy-gradient());
+
+@function bevel-gradient($bg-color: $base-color, $direction: top, $contrast: 1) {
+  @return linear-gradient($direction, color_stops(lighten($bg-color, 15%), lighten($bg-color, 8%) 30%, $bg-color 65%, darken($bg-color, 6%)));
+}
+
+@function glossy-gradient($bg-color: $base-color, $direction: top, $contrast: 1) {
+  @return linear-gradient($direction, color_stops(lighten($bg-color, 15% * $contrast), lighten($bg-color, 5% * $contrast) 50%, $bg-color 51%, darken($bg-color, 5% * $contrast)));
+}
+
+@function recessed-gradient($bg-color: $base-color, $direction: top, $contrast: 1) {
+  @return linear-gradient($direction, color_stops(darken($bg-color, 10% * $contrast), darken($bg-color, 5% * $contrast) 10%, $bg-color 65%, lighten($bg-color, 0.5% * $contrast)));
+}
+
+@function matte-gradient($bg-color: $base-color, $direction: top, $contrast: 1) {
+  @return linear-gradient($direction, color_stops(lighten($bg-color, 15% * $contrast), lighten($bg-color, 5% * $contrast) 3%, darken($bg-color, 5% * $contrast)));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @mixin gradient-bg($color: null) {
   background-color: $color;
 
@@ -43,24 +133,27 @@
   }
 }
 
-//      @include gradient-x-three-colors(adjust-hue($value , $grad-adjust-hue-l) -20% 0 , tint-color($value, 0%), 50%, adjust-hue($value , $grad-adjust-hue-r) 120%);
+// @include gradient-x-three-colors(adjust-hue($value , $grad-adjust-hue-l) -20% 0 , tint-color($value, 0%), 50%, adjust-hue($value , $grad-adjust-hue-r) 120%);
 
 @mixin gradient-x-three-colors($start-color: $blue, $mid-color: $purple, $color-stop: 50%, $end-color: $red) {
-  background-color: $start-color;
+  // background-color: $start-color;
   background-image: linear-gradient(-45deg, $start-color, $mid-color $color-stop, $end-color);
   background-repeat: no-repeat;
-  background-size: 120% 120%;
+  background-size: 200% 200%;
+  background-position: center;
 
   @if $legacy-support-for-ie == true {
     filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr='#{$start-color}', endColorStr='#{$end-color}');
   }
+
 }
 
 @mixin gradient-y-three-colors($start-color: $blue, $mid-color: $purple, $color-stop: 50%, $end-color: $red) {
-  background-color: $start-color;
+  // background-color: $start-color;
   background-image: linear-gradient($start-color, $mid-color $color-stop, $end-color);
   background-repeat: no-repeat;
-  background-size: 120% 120%;
+  background-size: 200% 200%;
+  background-position: center;
 
   @if $legacy-support-for-ie == true {
     filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=1, startColorStr='#{$start-color}', endColorStr='#{$end-color}');
@@ -127,7 +220,30 @@
   background: $background radial-gradient(50% 75% at 51.25% 20.5%, rgba($color, $opacity) 0, rgba($white, 0) 100%) no-repeat (center / contain);
 }
 
-// background: repeat-x 100% 0/50% 100% radial-gradient(circle at 50% 0, transparent 25%, #7f5fff 65%);    // content: "";
+@mixin linear-gradient($direction: to bottom, $first-color: black, $second-color: black, $first-color-opacity: 0, $second-color-opacity: 0.9, $first-color-position: 0%, $second-color-position: 100%) {
+  background-image: linear-gradient($direction, rgba($first-color, $first-color-opacity) $first-color-position, rgba($second-color, $second-color-opacity) $second-color-position);
+}
+
+// .overlay-gradient-x-sunset::before{
+//     @include linear-gradient(
+//         $direction: to right,
+//         $first-color: orange,
+//         $second-color: purple,
+//         $first-color-opacity: 0.25,
+//         $second-color-opacity: 0.75,
+//         $first-color-position: 0,
+//         $second-color-position: 100%
+//     );
+// }
+// $elements: 51;
+// @for $i from 0 to $elements {
+//   span:nth-child(#{$i}) {
+//     height: random(260) + px;
+//     background-color: lighten($blue, $i);
+//   }
+// }
+
+// background: repeat-x 100% 0/50% 100% radial-gradient(circle at 50% 0, transparent 25%, #7f5fff 65%); // content: "";
 // position: absolute;
 // display: block;
 // top: 0;

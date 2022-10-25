@@ -8,10 +8,11 @@ $border-style-dashed:           dashed 							!default;
 $border-style-dotted:           dotted 							!default;
 // $border-radius-lg:             0.75rem  				!default;
 $border-color:                	$border							!default;
+
 $border-radius:               	0.625rem  				!default;
 $border-radius-2xl:            1rem          !default;
-$border-radius-xl:            	0.875rem 						!default;
-$border-radius-lg:            	0.75rem 				 		  !default;
+$border-radius-xl:            	0.875rem 					!default;
+$border-radius-lg:            	0.75rem 				 	!default;
 $border-radius:               	0.625rem  				!default;
 $border-radius-md:            	0.5rem 				 		!default;
 $border-radius-sm:            	0.375rem 					!default;
@@ -22,7 +23,7 @@ $border-radius-pill:           50%   					 		!default;
 
 $rounded-pill:                 	1e5px  							 !default;
 $border-pill:                	  $rounded-pill  !default;
-
+$pill:                      	  $rounded-pill  !default; 
 $border-radius-2xl--px:         16px          !default;
 $border-radius-xl--px:          14px 							  !default;
 $border-radius-lg--px:          12px 							  !default;

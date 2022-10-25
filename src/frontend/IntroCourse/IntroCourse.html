@@ -7,19 +7,14 @@
   <meta charset="UTF-8">
   <title>勞動力發展署 - 關鍵就業力課程</title>
   <link rel="stylesheet" type="text/css" href="../../assets/vendor/slim-icon/styles.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/vendor/swiper/swiper-bundle.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/vendor/icon-turbotech/style.css">
   <!-- <link rel="stylesheet" type="text/css" href="../../assets/vendor/bootstrap/dist/css/bootstrap.min.css"> -->
   <link rel="stylesheet" type="text/css" href="../../assets/css/all.css">
-  <script>
-    (function(d){var config={kitId:'soy4top',scriptTimeout:3000,async:true},h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)})(document);
-  </script>
 </head>
 
 <body>
   <main id="web" class="t-wrapper">
     <!-- Header -->
-    <header id="tHeader" class="t-header">
+    <header data-tu-an="blur fade bottom once" id="tHeader" class="t-header">
       <section class="t-header-top">
         <div class="container">
           <div class="row">
@@ -50,9 +45,19 @@
       <section class="t-header-main">
         <nav class="navbar navbar-expand-md">
           <div class="container">
+            <button class="navbar-toggler navbar-toggler-left" type="button" aria-label="主要選單" aria-expanded="false" aria-controls="navBar" data-bs-toggle="collapse" data-bs-target="#navBar">
+              <div class="t-menu-icon-wrapper">
+                <div class="t-menu-icon-line"></div>
+              </div>
+              <!--               <i class="svg-icon svg-icon-2hx">
+                <svg>
+                  <use href="#ic-burger"></use>
+                </svg>
+              </i> -->
+            </button>
             <!-- <img src="../../assets/images/wda-logo.svg" alt="aa" id="imas"> -->
             <!-- <canvas id="output"></canvas> -->
-            <div class=" t-header-brand">
+            <div class="t-header-brand">
               <!-- <img src=""  alt="勞動部勞動力發展署" width="164" height="26"> -->
               <a class="t-header-logo" href="../index/index.html">
                 <picture class="t-header-logo-sub" id="a1">
@@ -68,13 +73,49 @@
                 </picture>
               </a>
             </div>
-            <nav class="t-header-nav-bar ml-auto">
+            <nav id="navBar" class="t-header-nav-bar ml-auto collapse navbar-collapse">
               <a class="t-header-nav-bar-link" href="javascript:;">最新訊息</a>
               <a class="t-header-nav-bar-link" href="javascript:;">課程需求刊登</a>
               <a class="t-header-nav-bar-link" href="javascript:;">課程介紹</a>
-              <a class="t-header-nav-bar-link" href="javascript:;">師資介紹</a>
+              <a class="t-header-nav-bar-link t-hight-light" href="javascript:;">師資介紹</a>
             </nav>
-            <a class="t-header-nav-bar-hightlight btn btn--primary" href="javascript:;">登入</a>
+            <button class="btn btn--flush menu-dropdown" data-tu-menu-trigger="click" data-tu-menu-placement="bottom-end">
+              <picture class="t-symbol t-rounded t-avastar">
+                <img class="" src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/emoji/Memoji-21@2x.webp" alt="使用者" class="t-lazy-load" width="48" height="48">
+                <source type="image/png" srcset="../../assets/images/emoji/Memoji-21@2x.png" />
+                <source type="image/webp" srcset="../../assets/images/emoji/Memoji-21@2x.webp" />
+              </picture>
+            </button>
+            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded t-user-menu" data-tu-menu="true">
+              <div class="menu-item">
+                <div class="menu-content t-flex align-items-center justify-content-between t-user-menu-header">
+                  <div class="symbol symbol-50px t-avastar">
+                    <picture class="t-symbol t-rounded">
+                      <img class="" src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/emoji/Memoji-21@2x.webp" alt="使用者" class="t-lazy-load" width="48" height="48">
+                      <source type="image/png" srcset="../../assets/images/emoji/Memoji-21@2x.png" />
+                      <source type="image/webp" srcset="../../assets/images/emoji/Memoji-21@2x.webp" />
+                    </picture>
+                  </div>
+                  <div class="flex-column ml-2">
+                    <div class="t-fw-bold t-flex align-items-center">
+                      林小本
+                      <span class="t-badge t-badge-light-success">Pro</span>
+                    </div>
+                    <a href="#" class="t-fw-400">max@kt.com</a>
+                  </div>
+                </div>
+                <div class="t-separator"></div>
+                <div class="menu-item">
+                  <a href="" class="menu-link px-5">
+                    My Profile
+                  </a>
+                </div>
+              </div>
+              </button>
+            </div>
+            <!-- <a class="btn btn--sm btn--soft--primary" href="javascript:;">
+              會員登入
+            </a> -->
           </div>
         </nav>
       </section>
@@ -99,7 +140,7 @@
       <div class="container">
         <div class="row justify-content-between align-items-center">
           <div class="col-sm-12">
-            <div class="t-tab t-tab-line-bottom t-tab-cnts bg-white">
+            <div class="t-tab t-tab-line-bottom t-tab-course">
               <input id="item_1" type="radio" name="tabsV1" class="hide" checked="">
               <input id="item_2" type="radio" name="tabsV1" class="hide">
               <input id="item_3" type="radio" name="tabsV1" class="hide">
@@ -115,8 +156,8 @@
                 </label>
               </div>
               <div class="t-tab-contents">
-                <div id="tab_content_1" class="t-tab-content py-8 px-4">
-                  <div class="row justify-content-between align-items-top px-4">
+                <div id="tab_content_1" class="t-tab-content">
+                  <div class="row justify-content-between align-items-top">
                     <div class="col-sm-2">
                       <picture class="">
                         <img id="imas11" src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 270'></svg>" data-src="../../assets/images/course_img.svg" alt="勞動部勞動力發展署" class="t-lazy-load img-fluid" width="240" height="270">
@@ -125,14 +166,14 @@
                       </picture>
                     </div>
                     <div class="col-sm-10 t-txt-left pl-4">
-                      <h2 class="t-course-heading t-relative mb-4" data-grad-under="info">目標任務</h2>
+                      <h2 class="t-course-heading t-heading-blob t-heading-blob--info" data-grad-under="info">目標任務</h2>
                       <p class="t-course-para">
                         工作意義與工作熱情自我認知與職涯發展專業精神與自律自制。
                       </p>
                     </div>
-                    <div class="t-pattern-diagonal-lines-md t-t-fc-dark opt--20 h-4 opt-12 my-4"></div>
+                    <div class="t-pattern-diagonal-lines-md t-fc-dark opt--20 h-4 opt-12 my-4"></div>
                     <div class="col-sm-12 t-txt-left">
-                      <h2 class="t-relative mb-2 t-course-heading" data-grad-under="secondary">課程單元</h2>
+                      <h2 class="t-course-heading t-heading-blob t-heading-blob--secondary" data-grad-under="secondary">課程單元</h2>
                     </div>
                   </div>
                   <div class="t-tab t-tab-card t-tab-course" id="tCourseCotent">
@@ -141,36 +182,34 @@
                     <input id="item_3_3" type="radio" name="tabsV1_1" class="hide">
                     <div id="tab-nav-v1_1" class="t-tab-nav" data-scroll="x">
                       <label for="item_1_1" class="t-tab-nav-item flex-column" id="item_1_1_lab">
-                        <!-- <span class="t-tab-nav-item-badge">1</span> -->
                         <p class="t-tab-nav-item-txt">工作意義與工作願景 (DC1)</p>
                         <font class="t-tab-nav-item-txt-sm">(3小時)</font>
                       </label>
                       <label for="item_2_2" class="t-tab-nav-item flex-column" id="item_2_2_lab">
-                        <!-- <span class="t-tab-nav-item-badge">2</span> -->
                         <p class="t-tab-nav-item-txt">工作意義與工作願景 (DC1)</p>
                         <font class="t-tab-nav-item-txt-sm">(3小時)</font>
                       </label>
                       <label for="item_3_3" class="t-tab-nav-item flex-column" id="item_3_3_lab">
-                        <!-- <span class="t-tab-nav-item-badge">3</span> -->
                         <p class="t-tab-nav-item-txt">工作意義與工作願景 (DC1)</p>
                         <font class="t-tab-nav-item-txt-sm">(3小時)</font>
                       </label>
                     </div>
                     <div class="t-tab-contents">
-                      <div id="tab_content_1_1" class="t-tab-content py-10 t-txt-left">
-                        <h2 class="t-relative mb-8 t-course-heading" data-grad-under="quaternary">課程大綱</h2>
+                      <div id="tab_content_1_1" class="t-tab-content t-txt-left">
+                        <h2 class="t-course-heading t-heading-blob t-heading-blob--quaternary" data-grad-under="quaternary">課程大綱</h2>
                         <div class="row justify-content-between align-items-top">
-                          <div class="col-sm-9 t-txt-left">
-                            <figure class="row flex-row t-course-card t-card-bg-primary">
-                              <div class="col-sm-4 mb-6 mb-lg-0">
-                                <div class="t-absolute t-pattern-cross-dots-sm t-fc-primary mb-6 w-40 h-40"></div>
+                          <div class="col-md-9 t-txt-left">
+                            <!--  -->
+                            <figure class="flex-row t-course-card t-card-bg-primary">
+                              <div class="t-course-card-left">
+                                <div class="t-absolute t-pattern-cross-dots-sm t-fc-primary w-40 h-40"></div>
                                 <img class="img-fluid t-zindex-1 t-relative" src="../../assets/images/course-v1-1.png" alt="Image Description" width="534" height="516">
                               </div>
-                              <div class="col-sm-8">
+                              <div class="t-course-card-main">
                                 <figcaption class="teachers-list-item-caption">
                                   <h3 class="t-course-card-title">工作意義與工作熱情</h3>
-                                  <div class="t-pattern-diagonal-stripes-sm mb-6 t-course-subhr">
-                                    <h4 class="t-course-card-subtitle t-fc-lightgrey bg-white t-inline-flex ">課程子綱</h4>
+                                  <div class="t-pattern-diagonal-stripes-sm t-course-subhr">
+                                    <h4 class="t-course-card-subtitle t-fc-lightgrey t-inline-flex">課程子綱</h4>
                                   </div>
                                   <ul class="t-course-list list-checked list-checked-soft-bg-primary list-checked-lg">
                                     <li class="list-checked-item">
@@ -186,15 +225,16 @@
                                 </figcaption>
                               </div>
                             </figure>
-                            <figure class="row flex-row t-course-card t-card-bg-secondary">
-                              <div class="col-sm-4 mb-6 mb-lg-0">
-                                <div class="t-absolute t-pattern-diagonal-stripes-sm t-fc-quaternary mb-6 w-40 h-40 opt-28"> </div>
-                                <img class="img-fluid t-zindex-1 t-relative" src="../../assets/images/course-v1-1.png" alt="Image Description" width="534" height="516">
+                            <!--  -->
+                            <figure class="flex-row t-course-card t-card-bg-secondary">
+                              <div class="t-course-card-left">
+                                <div class="t-absolute t-pattern-checks-sm t-fc-quaternary w-40 h-40"></div>
+                                <img class="img-fluid t-zindex-1 t-relative" src="../../assets/images/course-v1-2.png" alt="Image Description" width="534" height="516">
                               </div>
-                              <div class="col-sm-8">
+                              <div class="t-course-card-main">
                                 <figcaption class="teachers-list-item-caption">
                                   <h3 class="t-course-card-title">職場環境與正向價值觀</h3>
-                                  <div class="t-pattern-diagonal-stripes-sm mb-6 t-course-subhr">
+                                  <div class="t-pattern-diagonal-stripes-sm t-course-subhr">
                                     <h4 class="t-course-card-subtitle t-fc-lightgrey bg-white t-inline-flex ">課程子綱</h4>
                                   </div>
                                   <ul class="t-course-list list-checked list-checked-soft-bg-primary list-checked-lg">
@@ -211,16 +251,16 @@
                                 </figcaption>
                               </div>
                             </figure>
-                            <figure class="row flex-row t-course-card t-card-bg-tertiary">
-                              <div class="col-sm-4 mb-7 mb-lg-0">
-                                <div class="t-absolute t-pattern-dots-sm t-fc-tertiary opt-28 mb-6 w-40 h-
-                                40"> </div>
-                                <img class="img-fluid t-zindex-1 t-relative" src="../../assets/images/course-v1-1.png" alt="Image Description" width="534" height="516">
+                            <!--  -->
+                            <figure class="flex-row t-course-card t-card-bg-tertiary">
+                              <div class="t-course-card-left">
+                                <div class="t-absolute t-pattern-diagonal-lines-sm t-fc-tertiary w-40 h-40"> </div>
+                                <img class="img-fluid t-zindex-1 t-relative" src="../../assets/images/course-v1-3.png" alt="Image Description" width="534" height="516">
                               </div>
-                              <div class="col-sm-8">
+                              <div class="t-course-card-main">
                                 <figcaption class="teachers-list-item-caption">
                                   <h3 class="t-course-card-title">績效意識與工作效能</h3>
-                                  <div class="t-pattern-diagonal-stripes-sm mb-6 t-course-subhr">
+                                  <div class="t-pattern-diagonal-stripes-sm t-course-subhr">
                                     <h4 class="t-course-card-subtitle t-fc-lightgrey bg-white t-inline-flex ">課程子綱</h4>
                                   </div>
                                   <ul class="t-course-list list-checked list-checked-soft-bg-primary list-checked-lg">
@@ -237,15 +277,16 @@
                                 </figcaption>
                               </div>
                             </figure>
-                            <figure class="row flex-row t-course-card t-card-bg-quaternary">
-                              <div class="col-sm-4 mb-7 mb-lg-0">
-                                <div class="t-absolute  opt-28 t-pattern-checks-sm t-fc-secondary mb-6 w-40 h-40"> </div>
-                                <img class="img-fluid t-zindex-1 t-relative" src="../../assets/images/course-v1-1.png" alt="Image Description" width="534" height="516">
+                            <!--  -->
+                            <figure class="flex-row t-course-card t-card-bg-quaternary">
+                              <div class="t-course-card-left">
+                                <div class="t-absolute t-pattern-zigzag-md t-fc-secondary w-40 h-40"></div>
+                                <img class="img-fluid t-zindex-1 t-relative" src="../../assets/images/course-v1-4.png" alt="Image Description" width="534" height="516">
                               </div>
-                              <div class="col-sm-8">
+                              <div class="t-course-card-main">
                                 <figcaption class="teachers-list-item-caption">
                                   <h3 class="t-course-card-title">績效呈現與工作認同</h3>
-                                  <div class="t-pattern-diagonal-stripes-sm mb-6 t-course-subhr">
+                                  <div class="t-pattern-diagonal-stripes-sm t-course-subhr">
                                     <h4 class="t-course-card-subtitle t-fc-lightgrey bg-white t-inline-flex ">課程子綱</h4>
                                   </div>
                                   <ul class="t-course-list list-checked list-checked-soft-bg-primary list-checked-lg">
@@ -261,17 +302,18 @@
                                   </ul>
                                 </figcaption>
                             </figure>
-                            <div class="t-pattern-diagonal-lines-md t-t-fc-dark opt--20 h-4 opt-24 my-8 mt-10"></div>
-                            <h2 class="t-relative mb-8 t-course-heading" data-grad-under="tertiary">成就指標</h2>
-                            <figure class="row flex-row t-course-card shd-none">
+                            <!--  -->
+                            <div class="t-pattern-diagonal-lines-md t-fc-dark opt--20 h-4 opt-24 my-8 mt-10"></div>
+                            <h2 class="t-course-heading" data-grad-under="tertiary">成就指標</h2>
+                            <figure class=" flex-row t-course-card shd-none">
                               <div class="col-12">
-                                <div class="t-absolute t-pattern-cross-dots-sm t-fc-primary mb-6 w-60 h-80">
-                                </div>
+                                <figcaption></figcaption>
+                                <div class="t-absolute t-pattern-cross-dots-sm t-fc-primary mb-6 w-60 h-80"></div>
                                 <img class="img-fluid t-zindex-1 t-relative" src="../../assets/images/course_v2-2.png" alt="Image Description" width="534" height="516">
                               </div>
                             </figure>
                           </div>
-                                                    <div class="col-sm-3">
+                          <div class="col-md-3 px-0">
                             <div class="hr-lines-v1 h-100" id="hrLine"></div>
                             <div id="listenList" class="observer-nav">
                               <img src="../../assets/images/3d-rockets.png" class="float-rocket" id="floatRocket">
@@ -297,6 +339,7 @@
               </div>
             </div>
           </div>
+        </div>
     </section>
     <!-- Footer Start -->
     <footer id="tuFooter" class="t-custom-footer">
@@ -374,7 +417,7 @@
           <div class="col-md">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <span class="d-flex align-items-center">
+                <span class="t-flex align-items-center">
                   <picture class="t-footer-logos">
                     <source src="../../assets/images/wda_logo_circle.svg" data-src="../../assets/images/10Ratio3.3333_v1.svg">
                     <img alt="勞動力發展署 - 關鍵就業力課程" src="../../assets/images/wda_logo_circle.svg" width="20" height="20" />
@@ -396,7 +439,6 @@
   </main>
   <!-- ChangeMode -->
   <div class="t-float-change-mode" id="tuChangeMode">
-    <svg xmlns="http://www.w3.org/8000/svg" viewBox="0 0 64 64"></svg>
   </div>
   <!-- Scrolltop -->
   <a href="javascript:;" id="tuScrolltop" class="tu-scrolltop">
@@ -464,15 +506,17 @@
   <!-- Custom -->
   <script src="../../assets/javascript/custom.js"></script>
   <!-- Components -->
-  <script src="../../assets/javascript/components/JsImagePlaceholder.js"></script>
+  <script src="../../assets/javascript/components/JsHeader.js"></script>
   <script src="../../assets/javascript/components/JsDarkMode.js"></script>
   <script src="../../assets/javascript/components/JsTuScrolltop.js"></script>
   <script src="../../assets/javascript/observer/JsImagesLazyLoad.js"></script>
   <script src="../../assets/javascript/components/categoryPicker/categoryPicker.js"></script>
   <!-- observer -->
-  <!-- <script src="../../assets/javascript/observer/JsImagesLazyLoad.js"></script> -->
   <script src="../../assets/javascript/observer/JsBuildNav.js"></script>
   <script src="../../assets/javascript/observer/JsScrollStickyObserver.js"></script>
+  <script src="../../assets/javascript/observer/JsObserverAnimations.js"></script>
+  <script src="../../assets/javascript/components/JsMenu.js"></script>
+  <script src="../../assets/javascript/components/JsAlerts.js"></script>
   <script>
   var nameArr = ["林大明", "陳小華", "林大明", "林小美", "陳曉潔", "林大明", "陳小華", "林大明", "林小美", "陳曉潔", "林大明", "陳小華", "林大明", "林小美", "陳曉潔", "林大明", "陳小華", "林大明", "林小美", "陳曉潔"];
   var idArr = ["AreaPei", "AreaTao", "AreaChung", "AreaNam", "AreaKao"];
@@ -550,17 +594,7 @@
   });
 
 
-  const floatObserver = new JsScrollStickyObserver("listenList", {
-    prevElementID: "hrLine",
-    stopElementID: "tuFooter",
-    fixedClassName: "is-fix",
-    stopClassName: "is-absolute",
-    callback: {
-      root: "tCourseCotent",
-      rootMargin: '20px',
-      threshold: [1, 0.5, 0]
-    }
-  });
+
 
 
   // 建立右側卡片導航
@@ -573,163 +607,18 @@
     navItemClasPre: ["pei", "tao", "chung", "nam", "kao", "ano"]
   });
 
-
-
-
-  // Go Top
-  const scrEl = document.getElementById("tu_scrolltop")
-  const scrollTop = new JsTuScrolltop(scrEl, {
-    offset: 300,
-    speed: 100
+  const floatObserver = new JsScrollStickyObserver("listenList", {
+    prevElementID: "hrLine",
+    stopElementID: "tuFooter",
+    fixedClassName: "is-fix",
+    stopClassName: "is-absolute",
+    callback: {
+      root: "tCourseCotent",
+      rootMargin: '200px',
+      threshold: [1, 0.5, 0]
+    }
   });
 
-
-
-  // Scroll Fixed Header 未封裝 判斷滾動方向
-  headerScrollFunc('tHeader');
-
-  function headerScrollFunc(id) {
-
-    const header = document.getElementById(id);
-    const options = {
-      fixClass: 'is-fix',
-      hideClass: 'is-hide',
-      showClass: 'is-show',
-      showDelay: 500
-    };
-    if (!header) { return false }
-    options.startPosi = 0;
-    options.upFlg = false;
-    options.setTimeoutFlg = false;
-    options.setTimeoutId = 0;
-
-    window.addEventListener('resize', function() {
-      headerFix(options);
-    });
-    window.addEventListener('scroll', function() {
-      headerFix(options);
-    });
-
-
-    function headerFix(options) {
-
-      const headerBasePosi = 0;
-      const headerFixPosi = header.clientHeight;
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const fixClass = options.fixClass;
-      const showClass = options.showClass;
-      const hideClass = options.hideClass;
-
-      if (scrollTop > options.startPosi) {
-        options.upFlg = false;
-        clearTimeout(options.setTimeoutId);
-        options.setTimeoutFlg = false;
-
-        if (scrollTop > headerFixPosi) {
-          header.classList.add(fixClass);
-        }
-        const pageHeight = document.documentElement.scrollHeight;
-        const scrollBottom = window.innerHeight + scrollTop;
-        if (pageHeight <= scrollBottom) {
-          headerShow(hideClass, showClass);
-        } else {
-          if (header.classList.contains(showClass)) {
-            headerHide(hideClass, showClass);
-          }
-        }
-      } else {
-        options.upFlg = true;
-        if (scrollTop <= headerBasePosi) {
-          header.classList.remove(fixClass, showClass, hideClass);
-        } else {
-          if (!options.setTimeoutFlg) {
-            options.setTimeoutFlg = true;
-            options.setTimeoutId = setTimeout(function() {
-              if (options.upFlg && header.classList.contains(fixClass)) {
-                headerShow(hideClass, showClass);
-              }
-            }, options.showDelay);
-          }
-        }
-      }
-      options.startPosi = scrollTop;
-    }
-
-    function headerShow(hideClass, showClass) {
-      header.classList.remove(hideClass);
-      header.classList.add(showClass);
-    }
-
-    function headerHide(hideClass, showClass) {
-      header.classList.remove(showClass);
-      header.classList.add(hideClass);
-    }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // // 未完成
-  // document.addEventListener("DOMContentLoaded", function() {
-  //   var citysJson = "https://assets.codepen.io/2845599/citys.json";
-  //   var zipCode = "https://assets.codepen.io/2845599/zipCode.json";
-  //   var citysJsonFive = "https://cdn.jsdelivr.net/gh/Barry028/TurboFrame@main/src/json/taiwan_zipCode.json";
-  //   const data = {
-  //     imgUrl: '../../assets/images',
-  //     list: ['Apple', 'Banana', 'Cat'],
-  //   };
-  //   var picker = new JsCategoryPicker('s_areaPicker', {
-  //     // elHid: '.areaVal', // Input Hidden
-  //     id: 'areaPicker', // Picker ID
-  //     data: citysJson, // 代入縣市資訊
-  //     // omitNum: 5, // 幾個選項以上 顯示單位 
-  //     // unit: '地區', // 5 個選項以上顯示 已選擇幾個的單位
-  //     // selectedNum: 10, // 可選擇幾個標籤
-  //     dataArray: ["CTID", "CTNAME"], // 只接受兩個 目前還沒寫擴充
-  //     dataArraySub: ["ZIPCODE", "ZIPNAME"], // 只接受兩個 目前還沒寫擴充
-  //     prefix: 'city_',
-  //     prefixSub: 'dist_',
-
-  //     selectAll: true, // 二層選單是否要開啟第一個全選 預設 false
-  //     title: '地區類別選單',
-  //     // confirm: function(res) {
-  //     //   // 回傳 Input hidden
-  //     //   if (res.length) {
-  //     //     for (var k in res) {
-  //     //       $('.areaVal').eq(k).val(res[k].value);
-  //     //       $('.areaVal').eq(k).attr('name', 'area[' + res[k].uid + ']');
-  //     //     }k
-  //     //   } else {
-  //     //     $('.areaVal').val('');
-  //     //     $('.areaVal').attr('name', 'area[]');
-  //     //   }
-  //     // }
-  //   });
-  //   // console.log(citysJson)
-
-  // });
 
   window.addEventListener("load", function(event) {
 

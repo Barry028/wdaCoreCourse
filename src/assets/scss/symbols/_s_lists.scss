@@ -19,45 +19,62 @@
 }
 
 //////////////////////////////////////////////////////////////////////
+
 .t-news-list {
   position: relative;
-  margin-top: 3.5rem;
+  margin-top: 3rem;
 
   .t-news-list-item {
     position: relative;
-    background-color: _var("grey-50", $grey-50);
+    background-color: _var("white", $white);
     border-radius: $border-radius-lg;
-    font-size: 0;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 1rem;
-    transition: $transition-base;
+    border-bottom: 4px solid _var("grey-50", $grey-50);
+    padding: 0.75rem 1rem;
+    transition: $transition;
 
-    @include shadow--hv--ver_2;
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        z-index: 10 - $i;
+      }
+    }
+
+    @include shadow--hv--ver_5;
 
     &:not(:last-of-type) {
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
+
+      @include sm {
+        margin-bottom: 1.5rem;
+      }
     }
 
     &:hover {
-      background-color: $danger-100;
+      background-color: $danger-50;
+      border-bottom-color: $danger-100;
 
       .t-news-icon {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cg data-name='Group 209546' transform='translate(-4 -31)'%3E%3Crect width='60' height='60' fill='%23ff5042' data-name='Rectangle 35' opacity='.2' rx='8' transform='translate(4 31)'/%3E%3Cpath fill='%23ff5042' d='M50.6 51a3.9 3.9 0 0 1 0 1.3l-5.7 22.5a3.7 3.7 0 0 1-3.6 2.9H19.4a3.8 3.8 0 0 1-3.6-5l7-22.5a3.7 3.7 0 0 1 3.6-2.6H47a3.7 3.7 0 0 1 3.5 2.3 3.3 3.3 0 0 1 .3 1.1Z' data-name='Vector' opacity='.4'/%3E%3Cpath fill='%23ff5042' d='M52.3 73.7a3.7 3.7 0 0 1-3.7 4h-7.3a3.7 3.7 0 0 0 3.6-2.9l5.7-22.5a3.9 3.9 0 0 0 0-1.3ZM30.1 52.9a1.8 1.8 0 0 1-.3 0 1.3 1.3 0 0 1-.9-1.6l1.7-7.2a1.3 1.3 0 0 1 1.6-.9 1.3 1.3 0 0 1 .9 1.5L31.3 52a1.2 1.2 0 0 1-1.2 1Z' data-name='Vector'/%3E%3Cg data-name='Group'%3E%3Cpath fill='%23ff5042' d='M41.3 52.9a.7.7 0 0 1-.3 0 1.3 1.3 0 0 1-1-1.5l1.6-7.3a1.3 1.3 0 0 1 1.5-1 1.3 1.3 0 0 1 1 1.6l-1.6 7.2a1.2 1.2 0 0 1-1.2 1Z' data-name='Vector'/%3E%3C/g%3E%3Cg data-name='Group'%3E%3Cpath fill='%23ff5042' d='M40.2 62.3H26.8a1.3 1.3 0 0 1-1.2-1.3 1.3 1.3 0 0 1 1.2-1.3h13.4a1.3 1.3 0 0 1 1.2 1.3 1.3 1.3 0 0 1-1.2 1.3Z' data-name='Vector'/%3E%3C/g%3E%3Cg data-name='Group'%3E%3Cpath fill='%23ff5042' d='M38.5 69H25.2a1.3 1.3 0 0 1-1.3-1.3 1.3 1.3 0 0 1 1.3-1.3h13.3a1.3 1.3 0 0 1 1.3 1.3 1.3 1.3 0 0 1-1.3 1.2Z' data-name='Vector'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         transform: scale(1.25);
+        transition: $transition;
       }
 
       .t-news-txt {
+        font-size: 110%;
+        font-weight: 500;
         color: $danger;
+        transition: $transition;
       }
 
       .t-news-date {
-        background-color: _var("white", $white);
+        // background-color: _var("white", $white);
+        background-color: $danger-200;
+        transition: $transition;
       }
     }
   }
 
   .t-news-cnt {
+    position: relative;
     border-radius: inherit;
     display: flex;
     flex-flow: row;
@@ -65,12 +82,59 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 0 2rem;
 
-    @media all and (max-width: $screen-sm-min) {
-      display: block;
-      width: 100%;
-      padding: 1rem 0 0 0;
+    @include sm {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+
+    .t-card-pin {
+      position: absolute;
+      opacity: 0.4;
+      top: 3.25rem;
+      left: 0;
+      transform: rotate(-5deg);
+      width: .75rem;
+      height: .75rem;
+      background-color: _var("dark", $dark);
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px $white, 0 0 0 3px $dark;
+      transform: rotate(160deg);
+      z-index: 1;
+
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        border-radius: 50%;
+        position: absolute;
+        transition: $transition;
+      }
+
+      &:before {
+        width: .75rem;
+        height: .75rem;
+        background-color: $dark;
+        border-radius: 50%;
+        left: calc(50% - .375rem);
+        top: -2.75rem;
+      }
+
+      &:after {
+        width: .375rem;
+        background-color: $white;
+        border: 1px solid $grey-400;
+        border-radius: 1rem;
+        height: 3.125rem;
+        left: calc(50% - .1875rem);
+        bottom: .1875rem;
+      }
+
+      @include sm {
+        top: 8rem;
+      }
     }
 
     .t-news-icon {
@@ -80,6 +144,10 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
+
+      @include sm {
+        margin-bottom: 1rem;
+      }
     }
 
     .t-news-label {
@@ -107,34 +175,60 @@
       white-space: nowrap;
 
       .date-year {
-        font-size: .875rem;
+        font-size: .8125rem;
         color: $grey-500;
-      }
-
-      .date-month {
-        font-size: 1.25rem;
         font-weight: 500;
       }
 
+      .date-month {
+        font-size: 0.9375rem;
+        font-weight: 400;
+      }
+
       .date-day {
-        font-size: .875rem;
+        font-size: .8125rem;
         color: $grey-500;
+        font-weight: 300;
         margin-left: .5rem;
+      }
+
+      @include sm {
+        margin-bottom: 1rem;
+        margin-left: 0;
       }
     }
 
     .t-news-txt {
       width: 80%;
       color: _var("dark", $dark);
-      font-size: 1.125rem;
+      font-size: 1rem;
       margin-left: 1rem;
       margin-right: 1rem;
+
+      @include sm {
+        margin-bottom: 0.5rem;
+        margin-left: 0;
+      }
     }
 
     .t-news-unit {
-      font-size: .75rem;
-      color: $grey;
+      position: relative;
+      font-size: .8125rem;
+      color: $neutral-600;
       white-space: nowrap;
+      align-self: end;
+      padding-left: 2rem;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0.375rem;
+        top: 50%;
+        transform: translateY(-50%);
+        @extend .brand-wda-logo-circle;
+        width: 1.25rem;
+        height: 1.25rem;
+      }
     }
   }
 }
@@ -396,7 +490,7 @@
     //     background-repeat: no-repeat;
     //   }
     // }
- 
+
   }
 
   .t-news-btn {
@@ -419,13 +513,13 @@
     font-size: 0.875rem;
     color: $grey;
     margin-top: 1.5rem;
-
   }
 
   .t-blog-info {
     background-color: $grey-50;
     border-radius: $border-radius;
     padding: 0.5rem 1rem;
+
     .t-definition-list {
       &:last-child {
         margin-bottom: 0;
@@ -445,7 +539,7 @@
       color: $primary;
       margin-right: 0.75rem;
 
-      > svg {
+      >svg {
         width: 1.5rem;
         height: 1.5rem;
       }

@@ -94,6 +94,7 @@
 
   .modal-dialog {
     position: relative;
+    margin: 0 auto;
     width: auto;
     pointer-events: none;
     transition: $modal-transition;
@@ -198,96 +199,14 @@
 
     @include title;
   }
-
-  .btn-close {
-    width: 2.5rem;
-    height: 2.5rem;
-    cursor: pointer;
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    right: 1.25rem;
-    transform: translate(0, -50%);
-    border-radius: 100%;
-    background-color: transparent;
-    border: solid 2px $primary-300;
-    transition: .25s all ease;
-
-    &:after,
-    &:before {
-      content: '';
-      position: absolute;
-      top: 1rem;
-      left: 0.46875rem;
-      height: 4px;
-      width: 1.375rem;
-      border-radius: 36px;
-      background-color: $primary;
-      transform: rotate(45deg);
-    }
-
-    &:after {
-      transform: rotate(-45deg);
-    }
-
-    &:hover {
-      transform: translate(0, -50%) rotate(180deg);
-      background: $danger;
-      text-decoration: none;
-      border-color: $danger;
-
-      &:after,
-      &:before {
-        background: _var("white", $white);
-      }
-    }
-  }
 }
 
-@mixin btn-close {
-  .btn-close {
-    width: 2.5rem;
-    height: 2.5rem;
-    cursor: pointer;
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    right: 1.25rem;
-    transform: translate(0, -50%);
-    border-radius: 100%;
-    background-color: transparent;
-    border: solid 2px $primary-300;
-    transition: .25s all ease;
+.btn-close {
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
 
-    &:after,
-    &:before {
-      content: '';
-      position: absolute;
-      top: 1rem;
-      left: 0.46875rem;
-      height: 4px;
-      width: 1.375rem;
-      border-radius: 36px;
-      background-color: $primary;
-      transform: rotate(45deg);
-    }
-
-    &:after {
-      transform: rotate(-45deg);
-    }
-
-    &:hover {
-      transform: translate(0, -50%) rotate(180deg);
-      background: $danger;
-      text-decoration: none;
-      border-color: $danger;
-
-      &:after,
-      &:before {
-        background: _var("white", $white);
-      }
-    }
-  }
+  @include btn-close($danger, $white, $pill);
 }
 
 .modal-footer {
@@ -305,17 +224,17 @@
     padding-left: 2rem;
     padding-right: 2rem;
 
-    + .btn {
+    +.btn {
       margin-left: .75rem;
       margin-bottom: 0;
     }
   }
 
-  .btn-group .btn + .btn {
+  .btn-group .btn+.btn {
     margin-left: -1px;
   }
 
-  .btn-block + .btn-block {
+  .btn-block+.btn-block {
     margin-left: 0;
   }
 }

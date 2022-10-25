@@ -15,6 +15,7 @@
 
 .t-tab {
   position: relative;
+
   // overflow-x: clip;
   display: flex;
   flex-wrap: wrap;
@@ -86,6 +87,7 @@
   .t-tab-nav {
     position: relative;
     display: inline-flex;
+    z-index: 1;
 
     .t-tab-nav-item {
       position: relative;
@@ -239,7 +241,8 @@
       padding: 0.75rem;
       border-radius: 2rem;
       gap: 1rem;
-      overflow: auto;
+
+      // overflow: auto;
 
       @include scrollbar-color($grey-100, $grey-200);
 
@@ -255,6 +258,7 @@
         font-weight: 500;
         letter-spacing: 0.5px;
         text-align: left;
+        align-items: start;
 
         &:before {
           content: counter(step-counter);
@@ -276,13 +280,17 @@
         }
 
         .t-tab-nav-item-txt {
-          font-size: inherit;
+          font-size: 1rem;
+
+          @include heading-shadow-v2(rgba($success, 0.36));
         }
 
         .t-tab-nav-item-txt-sm {
           padding-top: .5rem;
           color: $success;
-          font-size: 80%;
+          font-size: 0.875rem;
+
+          @include heading-shadow-v2($white);
         }
 
         // .t-tab-nav-label {
@@ -299,8 +307,13 @@
       }
 
       ~ .t-tab-contents {
+        overflow: initial;
+
         .t-tab-content {
-          // text-align: center;
+          // align-items: center;
+          align-items: inherit;
+              white-space: initial;
+            // text-align: center;
        
         }
       }
@@ -309,16 +322,24 @@
     %tab-card-check {
       color: $white;
 
-      @include gradient-directional($hawthorn, $meteorite, 60deg);
+      @include gradient-directional($success-400, $secondary, 60deg);
 
       box-shadow: $box-shadow-tab-ac;
       background-repeat: repeat;
       border-color: $box-shadow-border-color-ac;
 
       &:before {
-        background: $yellow-400;
-        color: contrast-color($yellow-400, $dark, $white);
-        filter: drop-shadow(0 0.4375rem 0 rgba($yellow-400, 0.4));
+        background: $secondary;
+        color: contrast-color($secondary, $dark, $white);
+        filter: drop-shadow(0 0.4375rem 0 rgba($secondary-400, 0.4));
+      }
+
+      .t-tab-nav-item-txt {
+        @include heading-shadow-v2(rgba($success-700, 0.36));
+      }
+
+      .t-tab-nav-item-txt-sm {
+        @include heading-shadow-v2(rgba($white, 0.48));
       }
     }
 
@@ -468,6 +489,7 @@
         >input:nth-child(#{$i}):checked~.t-tab-nav>.t-tab-nav-item:nth-child(#{$i}) {
           &:after {
             width: 100%;
+
             @extend %tab-line-check-item-bottom;
           }
         }

@@ -2,8 +2,6 @@
 
 // Forms -> controls
 // --------------------------------------------------
-
-
 [data-required] {
   &:after {
     content: '* ';
@@ -12,55 +10,8 @@
   }
 }
 
-%t-form-control {
-  background-color: $white;
-  border: $input-btn-border-width solid $border;
-
-  @include border-radius($input-btn-radius);
-
-  font-size: $input-btn-font-size;
-  padding: $input-btn-padding-y $input-btn-padding-x;
-  transition: $transition-input;
-
-  @include placeholder {
-    color: $input-placeholder;
-  }
-
-
-  @include focus {
-    border-color: rgba($primary, 0.88);
-    box-shadow: 0 0 0 0.25rem rgba($primary, 0.24);
-    transition: $transition-input;
-  }
-
-
-  @include disabled {
-    background-color: $grey-100;
-    opacity: .66;
-    cursor: not-allowed;
-  }
-
-  @include readonly {
-    opacity: .66;
-    background-color: $grey-100;
-  }
-
-  @include disabled-readonly {
-    cursor: text;
-    opacity: 1;
-    background-color: transparent;
-    color: $dark;
-    border: 2px solid transparent;
-    border-radius: 0;
-    border-bottom: 2px dashed $grey-100;
-    background-image: none;
-  }
-}
 
 .t-form-control {
-  position: relative;
-  display: block;
-  width: 100%;
   text-align: left;
   text-align-last: left;
 
@@ -84,7 +35,6 @@
 
   @at-root select#{&} {
     appearance: none;
-
     @include svg-bg-icon(arrow-bottom, $primary, right 1rem center, 0.75rem 50%);
 
     cursor: pointer;

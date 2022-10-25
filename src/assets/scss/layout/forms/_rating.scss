@@ -1,49 +1,53 @@
-//
+@charset "utf-8";
+
 //  Layout -> rating 
 // --------------------------------------------------
-.rating {
+.t-rating {
   display: inline-block;
   vertical-align: middle;
 }
 
-.rating-input {
+.t-rating-input {
   position: absolute !important;
   left: -9999px !important;
 }
-.rating-input[disabled] {
+
+.t-rating-input[disabled] {
   display: none;
 }
 
-.rating-label {
+.t-rating-label {
   padding: 0;
   margin: 0;
 }
-.rating-label > i, .rating-label > .svg-icon {
+
+.t-rating-label > i, .t-rating-label > .svg-icon {
   line-height: 1;
   color: $lightgrey;
 }
 
-label.rating-label {
+label.t-rating-label {
   cursor: pointer;
 }
 
-div.rating-label.checked > i, div.rating-label.checked > .svg-icon,
-label.rating-label > i,
-label.rating-label > .svg-icon {
+div.t-rating-label.checked > i, div.t-rating-label.checked > .svg-icon,
+label.t-rating-label > i,
+label.t-rating-label > .svg-icon {
   color: $yellow;
 }
 
-.rating-input:checked ~ .rating-label > i, .rating-input:checked ~ .rating-label > .svg-icon {
+.t-rating-input:checked ~ .t-rating-label > i, .t-rating-input:checked ~ .t-rating-label > .svg-icon {
   color: $lightgrey;
 }
 
-.rating:hover label.rating-label > i, .rating:hover label.rating-label > .svg-icon {
+.t-rating:hover label.t-rating-label > i, .t-rating:hover label.t-rating-label > .svg-icon {
   color: $yellow;
 }
 
-label.rating-label:hover ~ .rating-label {
+label.t-rating-label:hover ~ .t-rating-label {
   color: $lightgrey;
 }
-label.rating-label:hover ~ .rating-label > i, label.rating-label:hover ~ .rating-label > .svg-icon {
+
+label.t-rating-label:hover ~ .t-rating-label > i, label.t-rating-label:hover ~ .t-rating-label > .svg-icon {
   color: $lightgrey;
 }

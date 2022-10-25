@@ -1,0 +1,131 @@
+@mixin bb-switch($cnt-w: 6rem, $cnt-h: 2.25rem, $btn-w: 3.5rem, $btn-h: 3.5rem, $icon-size: 1.5rem, $lab-bg: $grey-100, $lab-bd: $dark, $lab-check-bg: $dark, $lab-check-bd: $white, $default-bg: darken($dark, 0%), $default-bd: darken($dark, 10%), $default-icon-color: color-contrast($default-bg), $check-bg: $white, $check-bd: darken($white, 10%), $check-icon-color: color-contrast($check-bg)) {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    margin: 1rem 2rem;
+
+    .bb-switch-lab {
+        position: relative;
+        cursor: $cursor-click-url;
+        display: inline-block;
+        margin-bottom: 0;
+
+        @include pixel-box($corner-size: 2, $border-size: 4px, $background-color: $lab-bg, $border-color: $lab-bd, $border-inset: false);
+
+        height: $cnt-h;
+        width: $cnt-w;
+
+        .bb-switch-lab-btn {
+            display: inline-block;
+            vertical-align: middle;
+
+            @include pixel-box($corner-size: 2, $border-size: 6px, $background-color: $default-bg, $border-color: $default-bd, $border-inset: false);
+
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: 0.125s all ease-in-out;
+            width: $btn-w;
+            height: $btn-h;
+            pointer-events: none;
+
+            &[data-off]:not(:empty),
+            &[data-on]:not(:empty) {
+                &:after,
+                &:before {
+                    display: inline-block;
+                    position: absolute;
+                    bottom: -3rem;
+                    left: 0;
+                    font-size: 1.25rem;
+                    width: 5ch;
+                    color: currentcolor;
+                }
+
+                &:after {
+                    content: attr(data-off);
+                    visibility: hidden;
+                }
+
+                &:before {
+                    content: attr(data-on);
+                    visibility: visible;
+                }
+            }
+
+            i {
+                font-size: $icon-size;
+                color: $default-icon-color;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+
+                &:not(:first-of-type) {
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+
+    .bb-switch-inp {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+
+        &:checked + .bb-switch-lab {
+            @include pixel-box($corner-size: 2, $border-size: 4px, $background-color: $lab-check-bg, $border-color: $lab-check-bd, $border-inset: false);
+
+            > .bb-switch-lab-btn {
+                background: $check-bg;
+
+                @include pixel-box($corner-size: 2, $border-size: 6px, $background-color: $check-bg, $border-color: $check-bd, $border-inset: false);
+
+                transform: translate3d(0%, -50%, 0);
+                left: auto;
+                right: -#{$border-size * 2};
+
+                &:after,
+                &:before {
+                    right: 0;
+                    left: auto;
+                }
+
+                &:after {
+                    visibility: visible;
+                }
+
+                &:before {
+                    visibility: hidden;
+                }
+
+                i {
+                    // color: $check-icon;
+                    color: $check-icon-color;
+
+                    &:first-of-type {
+                        visibility: hidden;
+                    }
+
+                    &:last-of-type {
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+
+        &:disabled + .bb-switch-lab {
+            background: $grey-400;
+            cursor: not-allowed;
+        }
+
+        &:disabled + .bb-switch-lab .bb-switch-lab-btn {
+            background: $grey-400;
+        }
+    }
+}
+
+.bb-switch {
+    @include bb-switch($cnt-w: 6rem, $cnt-h: 2rem, $btn-w: 3rem, $btn-h: 3rem, $icon-size: 1.125rem, $lab-bg: $grey-100, $lab-bd: $dark, $lab-check-bg: $dark, $lab-check-bd: $white, $default-bg: darken($dark, 0%), $default-bd: darken($dark, 10%), $default-icon-color: darken($white, 0%), $check-bg: $white, $check-bd: darken($white, 10%), $check-icon-color: darken($dark, 20%));
+}

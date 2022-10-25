@@ -5,13 +5,13 @@
 @import "card/_card-group-break.scss";
 @import "card/_card-group-row.scss";
 
-$card-bg-v1: #F6ABC8 !default;
-$card-bg-v2: #FFC199 !default;
-$card-bg-v3: #6EBEAF !default;
-$card-bg-v4: #92BBFC !default;
+$card-bg-v1: #F95794 !default;
+$card-bg-v2: #FF9557 !default;
+$card-bg-v3: #A3D858 !default;
+$card-bg-v4: #03A9F4 !default;
 
-$card-img-w: 8rem !default;
-$card-img-border: 0.25rem dotted rgba(_var("white-rgb", $white), 0.66) !default;
+$card-img-w: 6rem !default;
+$card-img-border: 0.125rem dotted rgba(_var("white-rgb", $white), 0.66) !default;
 $card-bg-v1-icon: escape-svg(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42.8' height='59.6'%3E%3Cpath data-name='Path 248249' d='M25.5 9.4a1 1 0 0 1-1-1V5.2a3.2 3.2 0 1 0-6.3 0v3.4a1 1 0 0 1-1.9 0V5a5.1 5.1 0 1 1 10.2 0v3.4a1 1 0 0 1-1 1Z' fill='%23fff'/%3E%3Cpath data-name='Path 248250' d='M36.3 38.5a1 1 0 0 1-1-1V22.9a14 14 0 1 0-27.9 0v14.8a1 1 0 0 1-1.9 0V22.8a15.9 15.9 0 1 1 31.8 0v14.8a1 1 0 0 1-1 1Z' fill='%23fff'/%3E%3Cpath data-name='Path 248251' d='M40.2 44.8H2.6A2.6 2.6 0 0 1 0 42.2v-3a2.6 2.6 0 0 1 2.6-2.6h37.6a2.6 2.6 0 0 1 2.6 2.6v3a2.6 2.6 0 0 1-2.6 2.6ZM2.6 38.5a.7.7 0 0 0-.7.7v3a.7.7 0 0 0 .7.7h37.6a.7.7 0 0 0 .7-.7v-3a.7.7 0 0 0-.7-.7Z' fill='%23fff'/%3E%3Cpath data-name='Path 248252' d='M21.4 49.3a12 12 0 0 1-9.7-4.9 1 1 0 0 1 .8-1.5h17.9a1 1 0 0 1 .7 1.5 12 12 0 0 1-9.7 5Zm-6.8-4.5a10.2 10.2 0 0 0 13.6 0Z' fill='%23fff'/%3E%3Cpath data-name='Path 248253' d='M21.4 59.6a1 1 0 0 1-1-1V54a1 1 0 0 1 2 0v4.7a1 1 0 0 1-1 1Z' fill='%23fff'/%3E%3Cpath data-name='Path 248254' d='M9 56.8a1 1 0 0 1-.8-1.5l2.8-3.8a1 1 0 1 1 1.5 1.2l-2.8 3.8a1 1 0 0 1-.8.3Z' fill='%23fff'/%3E%3Cpath data-name='Path 248255' d='M33.9 56.8a1 1 0 0 1-.8-.3l-2.8-3.8a1 1 0 1 1 1.5-1.2l2.8 3.8a1 1 0 0 1-.7 1.5Z' fill='%23fff'/%3E%3C/svg%3E")) !default;
 $card-bg-v2-icon: escape-svg(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='59.6' height='59.3'%3E%3Cpath data-name='Path 248256' d='M53.5 53.2H6.1a1 1 0 0 1-1-1V22.6A2.6 2.6 0 0 1 7.8 20h12.5a1 1 0 1 1 0 1.9H7.7a.6.6 0 0 0-.6.6v28.8h45.5V22.5a.6.6 0 0 0-.7-.6H39a1 1 0 1 1 0-2h13a2.6 2.6 0 0 1 2.6 2.6v29.8a1 1 0 0 1-1 1Z' fill='%23fff'/%3E%3Cpath data-name='Path 248257' d='M55 59.3H4.6A4.6 4.6 0 0 1 0 54.6v-1.4a1.9 1.9 0 0 1 1.9-1.9h55.9a1.9 1.9 0 0 1 1.8 1.9v1.4a4.6 4.6 0 0 1-4.6 4.7ZM2 53.3v1.3a2.7 2.7 0 0 0 2.7 2.7H55a2.7 2.7 0 0 0 2.7-2.7v-1.4Z' fill='%23fff'/%3E%3Cpath data-name='Path 248258' d='M26 26.5a4.8 4.8 0 0 1-4.7-4 4.7 4.7 0 0 1-2.7-6.2 4.7 4.7 0 0 1 0-6A4.7 4.7 0 0 1 21.3 4a4.7 4.7 0 0 1 9.5.6v17a4.8 4.8 0 0 1-4.8 4.8ZM26 2a2.8 2.8 0 0 0-2.8 2.8 1 1 0 0 1-.7 1 2.8 2.8 0 0 0-1.9 4.2 1 1 0 0 1-.2 1.2 2.8 2.8 0 0 0 0 4.3 1 1 0 0 1 .2 1.2 2.8 2.8 0 0 0 1.9 4.1 1 1 0 0 1 .7 1 2.8 2.8 0 0 0 5.7 0v-17A2.8 2.8 0 0 0 26 2Z' fill='%23fff'/%3E%3Cpath data-name='Path 248259' d='M33.6 26.5a4.8 4.8 0 0 1-4.7-4.7v-17a4.7 4.7 0 0 1 9.4-.7 4.7 4.7 0 0 1 2.7 6.1 4.7 4.7 0 0 1 0 6.1 4.7 4.7 0 0 1-2.7 6.1 4.8 4.8 0 0 1-4.7 4.1Zm0-24.6a2.8 2.8 0 0 0-2.8 2.8v17a2.8 2.8 0 0 0 5.6 0 1 1 0 0 1 .8-1 2.8 2.8 0 0 0 1.8-4.1 1 1 0 0 1 .2-1.2 2.8 2.8 0 0 0 0-4.3A1 1 0 0 1 39 10a2.8 2.8 0 0 0-1.8-4.1 1 1 0 0 1-.8-1 2.8 2.8 0 0 0-2.8-2.9Z' fill='%23fff'/%3E%3Cpath data-name='Path 248260' d='M24.6 6.2a1 1 0 0 1-.5-.1 2.8 2.8 0 0 0-1.7-.3 1 1 0 0 1-.3-2 4.6 4.6 0 0 1 3 .6 1 1 0 0 1-.5 1.8Z' fill='%23fff'/%3E%3Cpath data-name='Path 248261' d='M22.1 12.8A4.2 4.2 0 0 1 19 11a1 1 0 0 1 1.6-1s.7 1 1.6 1a1 1 0 0 1 1 1 1 1 0 0 1-1 1Z' fill='%23fff'/%3E%3Cpath data-name='Path 248262' d='M22.3 22.6a1 1 0 0 1-1-1 3.5 3.5 0 0 1 3.5-3.4h.2a1 1 0 0 1 0 2c-1.7 0-1.8 1.2-1.8 1.5a1 1 0 0 1-1 1Z' fill='%23fff'/%3E%3Cpath data-name='Path 248263' d='M34.9 8.5a1 1 0 1 1 0-2c.3 0 1.5-.1 1.5-1.8a1 1 0 0 1 2 0A3.5 3.5 0 0 1 35 8.5H35Z' fill='%23fff'/%3E%3Cpath data-name='Path 248264' d='M39.8 17a4.7 4.7 0 0 1-4.6-4.6 1 1 0 0 1 1.9-.2c.2 2.8 2.3 3 2.8 3a1 1 0 0 1 0 1.9Z' fill='%23fff'/%3E%3Cpath data-name='Path 248265' d='M37.7 22.6a1 1 0 0 1-.5 0 4 4 0 0 1-1.7-3.4 1 1 0 0 1 2-.1 2.3 2.3 0 0 0 .7 1.8 1 1 0 0 1 .3 1.3 1 1 0 0 1-.8.4Z' fill='%23fff'/%3E%3Cpath data-name='Path 248266' d='M29.8 47.4a1 1 0 0 1-.3 0 17.3 17.3 0 0 0-10.8 0 1 1 0 0 1-1.3-1V32.1a1 1 0 0 1 .7-1 19.1 19.1 0 0 1 12 0 1 1 0 0 1 .7 1v14.3a1 1 0 0 1-1 1Zm-5.7-2.9a19.1 19.1 0 0 1 4.8.6V32.8a17.2 17.2 0 0 0-9.5 0v12.3a19.1 19.1 0 0 1 4.7-.6Z' fill='%23fff'/%3E%3Cpath data-name='Path 248267' d='M41.2 47.4a1 1 0 0 1-.3 0 17.3 17.3 0 0 0-10.8 0 1 1 0 0 1-1.2-1V32.1a1 1 0 0 1 .6-1 19.1 19.1 0 0 1 12 0 1 1 0 0 1 .7 1v14.3a1 1 0 0 1-1 1Zm-5.7-2.9a19.1 19.1 0 0 1 4.8.6V32.8a17.2 17.2 0 0 0-9.5 0v12.3a19.1 19.1 0 0 1 4.7-.6Z' fill='%23fff'/%3E%3Cpath data-name='Path 248268' d='M38 37.7a.8.8 0 0 1-.2 0 7 7 0 0 0-4.5 0 .8.8 0 0 1-.5-1.6 8.8 8.8 0 0 1 5.5 0 .8.8 0 0 1-.3 1.6Z' fill='%23fff'/%3E%3Cpath data-name='Path 248269' d='M33 42a.8.8 0 0 1-.2-1.6 8.8 8.8 0 0 1 5.5 0 .8.8 0 1 1-.5 1.5 7 7 0 0 0-4.5 0 .8.8 0 0 1-.3 0Z' fill='%23fff'/%3E%3Cpath data-name='Path 248270' d='M23 38.7a.8.8 0 0 1-.1-1.6 10.9 10.9 0 0 1 2.4 0 .8.8 0 1 1-.1 1.6 9 9 0 0 0-2.1 0 .8.8 0 0 1-.1 0Z' fill='%23fff'/%3E%3Cpath data-name='Path 248271' d='M21.3 42.8a.8.8 0 0 1-.2-1.6 10.9 10.9 0 0 1 6 0 .8.8 0 0 1-.4 1.5 9.3 9.3 0 0 0-5.2 0 .8.8 0 0 1-.2 0Z' fill='%23fff'/%3E%3C/svg%3E")) !default;
 $card-bg-v3-icon: escape-svg(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='59.6' height='59.3'%3E%3Cpath data-name='Path 248256' d='M53.5 53.2H6.1a1 1 0 0 1-1-1V22.6A2.6 2.6 0 0 1 7.8 20h12.5a1 1 0 1 1 0 1.9H7.7a.6.6 0 0 0-.6.6v28.8h45.5V22.5a.6.6 0 0 0-.7-.6H39a1 1 0 1 1 0-2h13a2.6 2.6 0 0 1 2.6 2.6v29.8a1 1 0 0 1-1 1Z' fill='%23fff'/%3E%3Cpath data-name='Path 248257' d='M55 59.3H4.6A4.6 4.6 0 0 1 0 54.6v-1.4a1.9 1.9 0 0 1 1.9-1.9h55.9a1.9 1.9 0 0 1 1.8 1.9v1.4a4.6 4.6 0 0 1-4.6 4.7ZM2 53.3v1.3a2.7 2.7 0 0 0 2.7 2.7H55a2.7 2.7 0 0 0 2.7-2.7v-1.4Z' fill='%23fff'/%3E%3Cpath data-name='Path 248258' d='M26 26.5a4.8 4.8 0 0 1-4.7-4 4.7 4.7 0 0 1-2.7-6.2 4.7 4.7 0 0 1 0-6A4.7 4.7 0 0 1 21.3 4a4.7 4.7 0 0 1 9.5.6v17a4.8 4.8 0 0 1-4.8 4.8ZM26 2a2.8 2.8 0 0 0-2.8 2.8 1 1 0 0 1-.7 1 2.8 2.8 0 0 0-1.9 4.2 1 1 0 0 1-.2 1.2 2.8 2.8 0 0 0 0 4.3 1 1 0 0 1 .2 1.2 2.8 2.8 0 0 0 1.9 4.1 1 1 0 0 1 .7 1 2.8 2.8 0 0 0 5.7 0v-17A2.8 2.8 0 0 0 26 2Z' fill='%23fff'/%3E%3Cpath data-name='Path 248259' d='M33.6 26.5a4.8 4.8 0 0 1-4.7-4.7v-17a4.7 4.7 0 0 1 9.4-.7 4.7 4.7 0 0 1 2.7 6.1 4.7 4.7 0 0 1 0 6.1 4.7 4.7 0 0 1-2.7 6.1 4.8 4.8 0 0 1-4.7 4.1Zm0-24.6a2.8 2.8 0 0 0-2.8 2.8v17a2.8 2.8 0 0 0 5.6 0 1 1 0 0 1 .8-1 2.8 2.8 0 0 0 1.8-4.1 1 1 0 0 1 .2-1.2 2.8 2.8 0 0 0 0-4.3A1 1 0 0 1 39 10a2.8 2.8 0 0 0-1.8-4.1 1 1 0 0 1-.8-1 2.8 2.8 0 0 0-2.8-2.9Z' fill='%23fff'/%3E%3Cpath data-name='Path 248260' d='M24.6 6.2a1 1 0 0 1-.5-.1 2.8 2.8 0 0 0-1.7-.3 1 1 0 0 1-.3-2 4.6 4.6 0 0 1 3 .6 1 1 0 0 1-.5 1.8Z' fill='%23fff'/%3E%3Cpath data-name='Path 248261' d='M22.1 12.8A4.2 4.2 0 0 1 19 11a1 1 0 0 1 1.6-1s.7 1 1.6 1a1 1 0 0 1 1 1 1 1 0 0 1-1 1Z' fill='%23fff'/%3E%3Cpath data-name='Path 248262' d='M22.3 22.6a1 1 0 0 1-1-1 3.5 3.5 0 0 1 3.5-3.4h.2a1 1 0 0 1 0 2c-1.7 0-1.8 1.2-1.8 1.5a1 1 0 0 1-1 1Z' fill='%23fff'/%3E%3Cpath data-name='Path 248263' d='M34.9 8.5a1 1 0 1 1 0-2c.3 0 1.5-.1 1.5-1.8a1 1 0 0 1 2 0A3.5 3.5 0 0 1 35 8.5H35Z' fill='%23fff'/%3E%3Cpath data-name='Path 248264' d='M39.8 17a4.7 4.7 0 0 1-4.6-4.6 1 1 0 0 1 1.9-.2c.2 2.8 2.3 3 2.8 3a1 1 0 0 1 0 1.9Z' fill='%23fff'/%3E%3Cpath data-name='Path 248265' d='M37.7 22.6a1 1 0 0 1-.5 0 4 4 0 0 1-1.7-3.4 1 1 0 0 1 2-.1 2.3 2.3 0 0 0 .7 1.8 1 1 0 0 1 .3 1.3 1 1 0 0 1-.8.4Z' fill='%23fff'/%3E%3Cpath data-name='Path 248266' d='M29.8 47.4a1 1 0 0 1-.3 0 17.3 17.3 0 0 0-10.8 0 1 1 0 0 1-1.3-1V32.1a1 1 0 0 1 .7-1 19.1 19.1 0 0 1 12 0 1 1 0 0 1 .7 1v14.3a1 1 0 0 1-1 1Zm-5.7-2.9a19.1 19.1 0 0 1 4.8.6V32.8a17.2 17.2 0 0 0-9.5 0v12.3a19.1 19.1 0 0 1 4.7-.6Z' fill='%23fff'/%3E%3Cpath data-name='Path 248267' d='M41.2 47.4a1 1 0 0 1-.3 0 17.3 17.3 0 0 0-10.8 0 1 1 0 0 1-1.2-1V32.1a1 1 0 0 1 .6-1 19.1 19.1 0 0 1 12 0 1 1 0 0 1 .7 1v14.3a1 1 0 0 1-1 1Zm-5.7-2.9a19.1 19.1 0 0 1 4.8.6V32.8a17.2 17.2 0 0 0-9.5 0v12.3a19.1 19.1 0 0 1 4.7-.6Z' fill='%23fff'/%3E%3Cpath data-name='Path 248268' d='M38 37.7a.8.8 0 0 1-.2 0 7 7 0 0 0-4.5 0 .8.8 0 0 1-.5-1.6 8.8 8.8 0 0 1 5.5 0 .8.8 0 0 1-.3 1.6Z' fill='%23fff'/%3E%3Cpath data-name='Path 248269' d='M33 42a.8.8 0 0 1-.2-1.6 8.8 8.8 0 0 1 5.5 0 .8.8 0 1 1-.5 1.5 7 7 0 0 0-4.5 0 .8.8 0 0 1-.3 0Z' fill='%23fff'/%3E%3Cpath data-name='Path 248270' d='M23 38.7a.8.8 0 0 1-.1-1.6 10.9 10.9 0 0 1 2.4 0 .8.8 0 1 1-.1 1.6 9 9 0 0 0-2.1 0 .8.8 0 0 1-.1 0Z' fill='%23fff'/%3E%3Cpath data-name='Path 248271' d='M21.3 42.8a.8.8 0 0 1-.2-1.6 10.9 10.9 0 0 1 6 0 .8.8 0 0 1-.4 1.5 9.3 9.3 0 0 0-5.2 0 .8.8 0 0 1-.2 0Z' fill='%23fff'/%3E%3C/svg%3E")) !default;
@@ -25,15 +25,16 @@ $card-computs: "v1" $card-bg-v1 $card-bg-v1-icon, "v2" $card-bg-v2 $card-bg-v2-i
 // Alternate styles
 @each $name, $value, $icon in $card-computs {
   .t-card {
-
-
     &.t-card-#{$name} {
-      background-color: tint-color($value, 60%);
+      @include gradient-x-three-colors(adjust-hue(tint-color($value, 90%), -45deg) -20% 0, tint-color($value, 70%), 50%, adjust-hue(tint-color($value, 80%), 45deg) 120%);
+
       box-shadow: 0 2.75rem 5.5rem -3.5rem rgba($value, 0.28), 0 2rem 4rem -2rem rgba($value, 0.38);
-      border: tint-color($value, 72) 0.125rem solid;
+      border: tint-color($value, 78%) 0.125rem solid;
 
       .t-card-img {
-        background-color: $value;
+        @include gradient-x-three-colors(adjust-hue(tint-color($value, 20%), -45deg) -20% 0, tint-color($value, 10%), 50%, adjust-hue(tint-color($value, 30%), 45deg) 120%);
+
+        // background-color: tint-color($value, 20%);
         border-radius: unquote("#{randomNums(10, 60)}%");
 
         &::before {
@@ -47,11 +48,16 @@ $card-computs: "v1" $card-bg-v1 $card-bg-v1-icon, "v2" $card-bg-v2 $card-bg-v2-i
         }
       }
 
+      .t-card-title {
+        @include heading-shadow-v2($value);
+      }
+
       &:hover {
         box-shadow: 0 3rem 6rem -4.5rem rgba($value, 0.66), 0 2.5rem 4.25rem -1.5rem rgba($value, 0.52);
+        transition: $transition;
 
         .t-card-title {
-          color: darken($value, 10%);
+          color: shade-color($value, 40%);
         }
       }
     }
@@ -59,13 +65,14 @@ $card-computs: "v1" $card-bg-v1 $card-bg-v1-icon, "v2" $card-bg-v2 $card-bg-v2-i
 }
 
 .t-card {
-  // position: relative;
-    align-items: center;
+  align-items: center;
+
   .t-card-img {
     position: absolute;
     width: $card-img-w;
     height: $card-img-w;
     border: $card-img-border;
+    box-shadow: inset 2px -2px 20px rgba($white, 0.12), inset -3px 3px 3px rgba($white, 0.24);
 
     &::before {
       content: '';
@@ -74,12 +81,12 @@ $card-computs: "v1" $card-bg-v1 $card-bg-v1-icon, "v2" $card-bg-v2 $card-bg-v2-i
       height: 100%;
       border: inherit;
       border-radius: inherit;
-      background-color: inherit;
-      opacity: 0.36;
+      background: inherit;
+      opacity: 0.20;
+      transition: $transition;
     }
 
     .t-card-img-icons {
-      opacity: 0.92;
       position: relative;
       z-index: 1;
     }
@@ -87,7 +94,7 @@ $card-computs: "v1" $card-bg-v1 $card-bg-v1-icon, "v2" $card-bg-v2 $card-bg-v2-i
 
   &:hover {
     .t-card-title {
-      font-size: 150%;
+      font-size: 125%;
       transform: scale(1.05);
       transition: $transition-base;
     }
@@ -107,12 +114,54 @@ $card-computs: "v1" $card-bg-v1 $card-bg-v1-icon, "v2" $card-bg-v2 $card-bg-v2-i
 
     .t-card-title {
       position: relative;
+      font-size: 1.125rem;
+      letter-spacing: 1px;
       color: _var("dark", $dark);
-
       margin-top: 1rem;
-
-      // padding-bottom: 1rem;
-   
     }
   }
 }
+
+.t-corner-box {
+  @include px-corner-bg-box($background: $secondary-200, $color: rgba($white, 1), $shadow-color: rgba($black, 0.68), $shadow-size: 0.625rem, $size: 0.5rem, $outline-size: 0.25rem, $outline-color-r: $black, $outline-color-l: tint-color($black, 20%));
+}
+
+.t-card-bg {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .t-card-inner {
+    position: relative;
+    padding: 1.25rem;
+    background-color: $quaternary-200;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    .t-card-title {
+      font-weight: 500;
+      font-size: 125%;
+      color: $primary-800;
+
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

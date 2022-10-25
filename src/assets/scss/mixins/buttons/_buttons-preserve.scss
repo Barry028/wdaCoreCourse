@@ -70,8 +70,8 @@
   }
 }
 
-@each $color, $value in $element-colors {
-  .pb-btn-preserve--#{$color} {
-    @include preserve-btns($background-color: $value, $color: color-contrast($value), $size: 2rem, $font-size: 1.25rem);
-  }
-}
+// @each $color, $value in $element-colors {
+//   .pb-btn-preserve--#{$color} {
+//     @include preserve-btns($background-color: $value, $color: color-contrast($value), $size: 2rem, $font-size: 1.25rem);
+//   }
+// }

@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+//  @include pixel-text-stroke(2px, darken($success,20%));
+@mixin pixel-text-stroke($weight: $text-weight-bolder,
+$color: currentColor) {
+  -webkit-text-stroke: $weight $color;
+}
+
+//  @include pixel-text-shadow(2px, darken($success,20%));
+@mixin pixel-text-shadow($color: currentColor,
+$width: $border-size) {
+  $value: ();
+  @for $i from 1 through 20 {
+    $num: $i * $width ;
+    $theShadow: 0 0 $num $color;
+    $value: append($value, $theShadow, comma);
+  }
+  text-shadow: $value
+}
+
+@mixin pixel-text-shadow-outer($color: $grey-100, $size: "2px") {
+  text-shadow: $size $size $color,
+  -#{$size} -#{$size}$color,
+  $size $size $color,
+  -#{$size} -#{$size} $color,
+  $size $size $color,
+  -#{$size} -#{$size} $color;
+}
+
+
+@mixin pixel-text-bt-gradient($bg: $dark) {
+  background: linear-gradient(90deg,
+    $bg 0%,
+    $bg 7.5%,
+    transparent 7.5%,
+    transparent 22.5%,
+    lighten($bg, 20%) 22.5%,
+    lighten($bg, 20%) 45%,
+    transparent 45%,
+    transparent 52.5%,
+    $bg 52.5%,
+    $bg 82.5%,
+    transparent 82.5%,
+    transparent 100%) repeat-x;
+}
+
+@mixin bt-line--pixel($bg: $dark,
+$hover-color: $info,
+$size: 5rem 0.375rem,
+$position-x: -6rem,
+$position-x-hover: 2rem) {
+  @include pixel-text-bt-gradient($bg);
+  background-size: $size;
+  background-position: $position-x bottom;
+  -webkit-text-stroke: 1px currentColor;
+  transition: $transition-base;
+
+  &:hover {
+    @include pixel-text-bt-gradient($hover-color);
+    background-size: $size;
+    background-position: $position-x-hover bottom;
+  }
+}
+
+// @include heading-shadow-v1($color-1: $danger, $color-2: $dark);
+@mixin heading-shadow-v1($color-1: $danger, $color-2: $dark) {
+  font-weight: 900;
+  text-shadow: 0px 1px $color-1, 1px 2px $color-1, 2px 3px $color-1,
+    3px 4px $color-1, 4px 5px $color-1, 8px 9px rgba($color-2, 0.12);
+}
+
+// @include heading-shadow-v2($color: $dark);
+@mixin heading-shadow-v2($color: $primary) {
+  font-weight: 900;
+  text-shadow: 0 0.1em 20px $color, 0.05em -0.03em 0 $color,
+    0.05em 0.005em 0 $color, 0em 0.08em 0 $color, 0.05em 0.08em 0 $color,
+    0px -0.03em 0 $color, -0.03em -0.03em 0 $color, -0.03em 0.08em 0 $color,
+    -0.03em 0 0 $color;
+}
+// @include heading-shadow-v3($color: $primary, $shadow: darken($primary, 16%));
+@mixin heading-shadow-v3($color: $primary, $shadow: darken($primary, 16%)) {
+  color: $color;
+  $value: ();
+  @for $i from 1 through 24 {
+    $num: $i * 0.25 + px;
+    $theShadow: $num $num $shadow;
+    $value: append($value, $theShadow, comma);
+  }
+  text-shadow: $value;
+}
+
+
+
+
+
+
+
+
+

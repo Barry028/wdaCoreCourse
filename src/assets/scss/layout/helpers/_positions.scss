@@ -5,7 +5,6 @@
 .is-fix {
   @include loop-class-six(".is-fix") {
     position: fixed;
-    transition: $transition;
     z-index: 999;
     box-shadow: $shadow-panel-fixed;
   }
@@ -15,12 +14,25 @@
   @include loop-class-six(".is-absolute") {
     position: absolute;
     width: inherit;
+    bottom: 0;
   }
 }
 
 .t-header {
   @include loop-class-six(".is-fix") {
     transform: translate3d(0, -100%, 0);
+
+    .t-header-main {
+      @include sm-min {
+        padding: 0.25rem;
+      }
+    }
+
+    .t-header-logo-sub {
+      @include sm-min {
+        @include visually-hidden;
+      }
+    }
   }
 
 

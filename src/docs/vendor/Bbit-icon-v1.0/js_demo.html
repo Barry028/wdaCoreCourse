@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no">
+  <meta charset="UTF-8">
+  <title>iCon list</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="pixel-burger">
+    <i></i>
+  </div>
+  <div class="" id="loading">
+    <svg class="loading-img" viewBox="0 0 40 50">
+      <style>
+      .triangle {
+        stroke-dasharray: 16;
+        animation: dash 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
+      }
+
+      @keyframes dash {
+        to {
+          stroke-dashoffset: 136;
+        }
+      }
+
+      .loading {
+        text-anchor: start;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 7.5px;
+        animation: blink .8s ease-in-out infinite alternate;
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+      </style>
+      <polygon class="triangle" fill="none" stroke="#000" stroke-width="2" points="20,1 40,40 1,40" />
+      <text class="loading" x="0" y="52" fill="#000">Loading ...</text>
+    </svg>
+  </div>
+  <section id="iConBlock">
+    <!--     <ul class="icon-list">
+    </ul>
+    <ul class="icon-list">
+    </ul> -->
+  </section>
+</body>
+<script>
+"use strict";
+/**
+ * 使用ajax獲取服務器json 數組
+ */
+var iConBlock = document.getElementById("iConBlock");
+var loading = document.getElementById("loading");
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://assets.codepen.io/2845599/pixel-icon_selection20220630.json', true);
+/**
+ * 獲取數據後的處理程序
+ */
+xhr.onload = function() {
+  /*
+   * ReadyState -->
+   * 0 - 是初始狀態
+   * 1 - 是開始創建連接
+   * 2 - 客戶端向服務端發送數據
+   * 3 - 服務端開始向客戶端返回數據
+   * 4 - 客戶端接收數據完畢
+   * Status --> 
+   * HTTP 狀態碼 200 成功
+   */
+  if (xhr.readyState == 4 && xhr.status == 200) {
+    setTimeout(get_iCon_Json, 1000);
+  }
+}
+
+function get_iCon_Json() {
+
+  loading.remove(); // 移除載入動畫
+
+  var json = xhr.responseText; // 獲取到 Json 字符串，還需解析
+  var obj = JSON.parse(json); // 解析字符串 --> 解析成 Object 數組
+  var icon = obj.icons; // 選到 iCon element
+  var prefix = obj.preferences.fontPref.prefix; // 選到 iCon Prefix Name
+  console.log(obj); // 印出所有結構 
+  var ids = icon.pop().setId; // 選最後一個元素 取得 id (群組數量)
+  console.log(ids); // iconmoon id 由 0 開始計算
+  build_list_Ul(ids);
+
+  icon.forEach(function(item, index) {
+    var group = item.setId - 1;
+    var list = iConBlock.getElementsByTagName('ul')[group];
+    var li_item = document.createElement("li");
+    var icon_el =
+      "<i class='" + prefix + item.properties.name + "' aria-hidden='true'></i>" +
+      "<input class='bit' type='text' name='' value='" + prefix + item.properties.name + "' readonly>";
+    li_item.className = "icon-list-item";
+    li_item.innerHTML = icon_el;
+    list.appendChild(li_item);
+    // console.log(item);
+    // console.log(group);
+  });
+
+  function build_list_Ul(ids) {
+    var headingName = ['Fill', 'Solid'];
+    for (var gg = 0; gg < ids + 1; gg++) {
+      var ul = document.createElement("ul");
+      var heaging = document.createElement("h3");
+      ul.className = "icon-list";
+      heaging.innerText = headingName[gg];
+      iConBlock.appendChild(ul);
+      ul.appendChild(heaging)
+    }
+  }
+
+  // 綁定事件 Input Select Copy
+  iConBlock.addEventListener("click", function(el) {
+    var target = el.target || el.srcElement;
+    if (target.nodeName.toLowerCase() === 'input') {
+      el.preventDefault();
+      target.select();
+      document.execCommand("copy");
+    }
+  });
+  // Copy 事件 加上 <i> ... </i>
+  iConBlock.addEventListener('copy', function(el) {
+    var text = window.getSelection().toString();
+    el.preventDefault();
+    el.clipboardData.setData('text/plain', '<i class="' + text + '" aria-hidden="true"></i>');
+  });
+}
+xhr.send();
+</script>
+<script>
+configObj = { "text": "We’re live on ProductHunt right now! Support us and get your exclusive LIFETIME DISCOUNT!", "bannerURL": "https://www.producthunt.com/posts/softr", "selectedBackgroundColor": "#6bffd3", "selectedTextColor": "#181818", "bannerHeight": "64px", "fontSize": "15px" };
+
+function createBanner(obj, pageSimulator) { var swBannerLink = obj.bannerURL; var swBannerTarget = "_blank"; var swBannerText = obj.text; var body = document.body; var swBanner = document.createElement('a'); var centerDiv = document.createElement('div'); var text = document.createElement('span');
+  swBanner.href = swBannerLink;
+  swBanner.target = swBannerTarget;
+  swBanner.style.display = "flex";
+  swBanner.style.justifyContent = "center";
+  swBanner.style.alignItems = "center";
+  swBanner.style.width = "100%";
+  swBanner.style.minHeight = "48px";
+  swBanner.style.maxHeight = "72px";
+  swBanner.style.paddingTop = "8px";
+  swBanner.style.paddingBottom = "8px";
+  swBanner.style.lineHeight = "18px";
+  swBanner.style.textAlign = "center";
+  swBanner.style.textDecoration = "none";
+  swBanner.style.height = obj.bannerHeight;
+  swBanner.style.fontSize = obj.fontSize;
+  text.innerHTML = swBannerText;
+  swBanner.style.backgroundColor = obj.selectedBackgroundColor;
+  swBanner.style.color = obj.selectedTextColor;
+  swBanner.id = 'sw-banner';
+  swBanner.classList.add('sw-banner');
+  centerDiv.classList.add('center');
+  centerDiv.append(text);
+  swBanner.append(centerDiv); if (!pageSimulator) { body.insertBefore(swBanner, body.firstChild); } else { pageSimulator.insertBefore(swBanner, pageSimulator.firstChild); } };
+document.addEventListener("DOMContentLoaded", function() { createBanner(configObj, null); });
+</script>
+<style>
+.pixel-burger {
+  border-style: solid;
+  border-width: 4px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  padding: 2rem 1.5rem;
+  font-family: "zpix", "Silver", "Cubic", "Kongtext";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.section-contianer {
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.avastar-contianer {
+  width: 4rem;
+  height: 4rem;
+  position: relative;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #1F1F39;
+  -webkit-clip-path: polygon(0 4px, 2px 4px, 2px 2px, 4px 2px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+  clip-path: polygon(0 4px, 2px 4px, 2px 2px, 4px 2px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+}
+
+.avastar-contianer:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: inherit;
+  -webkit-clip-path: polygon(0 2px, 2px 2px, 2px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, 100% 2px, 100% calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+  clip-path: polygon(0 2px, 2px 2px, 2px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, 100% 2px, 100% calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+  border-right: 2px solid #1F1F39;
+  border-bottom: 2px solid #1F1F39;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  opacity: 0.88;
+}
+
+.avastar-contianer:after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 2px;
+  height: 2px;
+  opacity: 0.88;
+  background-color: #1F1F39;
+}
+
+.avastar-contianer .avastar-img {
+  width: 100%;
+  height: 100%;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.82);
+  transition: all 0.25s ease-in-out;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  z-index: 1100;
+}
+
+#loading .loading-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 80px;
+  height: 120px;
+}
+
+.icon-list {
+  font-size: 0;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  width: 40%;
+  display: inline-block;
+  vertical-align: top
+}
+
+.icon-list .icon-list-item {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(#eee 2px, transparent 2px),
+    linear-gradient(90deg, #eee 2px, transparent 2px),
+    linear-gradient(#eee 1px, transparent 1px),
+    linear-gradient(90deg, #eee 1px, #ffffff 1px);
+  background-size: 4rem 4rem, 4rem 4rem, 0.5rem 0.5rem, 0.5rem 0.5rem;
+  background-position: -2px -2px, -2px -2px, -1px -1px,
+    -1px -1px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 6rem;
+  padding: 1.25rem 0.25rem;
+}
+
+.icon-list .icon-list-item>i {
+  color: #1F1F39;
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.icon-list .icon-list-item>input[type=text] {
+  color: #333F51;
+  display: block;
+  font-size: 1.25rem;
+  position: relative;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #D1D4D8;
+  -webkit-clip-path: polygon(0 4px, 2px 4px, 2px 2px, 4px 2px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+  clip-path: polygon(0 4px, 2px 4px, 2px 2px, 4px 2px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+  width: 100%;
+  height: calc(100% - 4px);
+  padding: 0.125rem 0.25rem;
+  background-clip: padding-box;
+}
+
+.icon-list .icon-list-item>input[type=text]:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: inherit;
+  -webkit-clip-path: polygon(0 2px, 2px 2px, 2px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, 100% 2px, 100% calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+  clip-path: polygon(0 2px, 2px 2px, 2px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, 100% 2px, 100% calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px));
+  border-right: 2px solid #D1D4D8;
+  border-bottom: 2px solid #D1D4D8;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  opacity: 0.88;
+}
+
+.icon-list .icon-list-item>input[type=text]:after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 2px;
+  height: 2px;
+  opacity: 0.88;
+  background-color: #D1D4D8;
+}
+
+.pixel-btn {
+  position: relative;
+  border: none;
+}
+
+.pixel-btn:before,
+.pixel-btn:after {
+  content: "";
+  position: absolute;
+  background-color: inherit;
+  height: 100%;
+  z-index: -1;
+  width: calc(100% - 8px);
+}
+
+.pixel-btn:before {
+  bottom: -4px;
+  right: 4px;
+  width: calc(100% - 8px);
+}
+
+.pixel-btn:after {
+  top: -4px;
+  left: 4px;
+}
+
+.pixel-burger {
+  margin-bottom: 0.5rem;
+  background-color: #fff;
+  color: #1F1F39;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: relative;
+  border-image-slice: 3;
+  border-image-width: 3;
+  border-image-repeat: stretch;
+  border-image-source: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8" ?><svg version="1.1" width="8" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M3 1 h1 v1 h-1 z M4 1 h1 v1 h-1 z M2 2 h1 v1 h-1 z M5 2 h1 v1 h-1 z M1 3 h1 v1 h-1 z M6 3 h1 v1 h-1 z M1 4 h1 v1 h-1 z M6 4 h1 v1 h-1 z M2 5 h1 v1 h-1 z M5 5 h1 v1 h-1 z M3 6 h1 v1 h-1 z M4 6 h1 v1 h-1 z" fill="rgb(31,31,57)" /></svg>');
+  border-image-outset: 2;
+  border-style: solid;
+  border-width: 3px;
+  transition: 0.125s all ease;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='33' height='31'%3E%3Cg data-name='Group 149'%3E%3Cpath fill='%23fff' d='M29 16h-2v2h-2v-2h2V8h-2V4h-2V2h-6v2h2v2h-2V4h-4v2h2v2h-2V6H9V4H7V2H3v6h2v2h2v2h2v2h2v2H9v4h2v2h8v-2h2v2h-2v4h6v-2h2v-2h2v-2h2v-4Zm-12-6h2v2h2v2h-2v-2h-2Zm8 0v2h-2v-2h-2V8h2v2Z' data-name='Path 122'/%3E%3Cpath stroke='rgba(0,0,0,0)' stroke-miterlimit='10' d='M21 30h-2v-2h-2v-4h-6v-2H9v-2H7v-2H5v-8H3V8H1V2h2v6h2v2h2v2h2v2h2v2H9v4h2v2h8v4h6v2h-2v2Zm4-4v-2h2v2Zm2-2v-2h2v2Zm2-2v-2h2v2Zm-10 0v-2h2v2Zm12-2v-4h-4V8h-2V4h-2V2h2v2h2v4h2v6h2v2h2v4Zm-6-2v-2h2v2Zm-6-4v-2h-2v-2h2v2h2v2Zm4-2v-2h-2V8h2v2h2v2ZM13 8V6H9V4H7V2H3V0h4v2h2v2h4v2h2v2Zm4-2V4h-4V2h4v2h2v2Zm4-4h-4V0h6v2Z' data-name='Union 52'/%3E%3C/g%3E%3C/svg%3E"), auto;
+}
+
+@media all and (-webkit-min-device-pixel-ratio: 0) and (-webkit-min-device-pixel-ratio: 0),
+all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+  .pixel-burger {
+    border-image-repeat: space;
+  }
+}
+
+@supports (-moz-appearance: meterbar) {
+  .pixel-burger {
+    border-image-repeat: stretch;
+  }
+}
+
+.pixel-burger:before {
+  content: "";
+  position: absolute;
+  width: calc(100% + 6px);
+  height: 100%;
+  bottom: -3px;
+  left: -3px;
+  box-shadow: inset 0 -9px 0 rgba(31, 31, 57, 0.36);
+  transition: 0.125s all ease;
+}
+
+.pixel-burger:after {
+  content: "";
+  position: absolute;
+  background-color: inherit;
+  width: calc(100% - 6px);
+  height: 3px;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.125s all ease;
+}
+
+.pixel-burger:hover {
+  background-color: #E8E9EB;
+  transform: translate3d(0, 2px, 0);
+}
+
+.pixel-burger:hover:before {
+  bottom: -3px;
+  box-shadow: inset 0 -6px 0 rgba(31, 31, 57, 0.24);
+}
+
+.pixel-burger:hover:after {
+  bottom: 0;
+}
+
+.pixel-burger:hover i {
+  top: calc(50% - 1.5px);
+}
+
+.pixel-burger:active {
+  background-color: #f3f3f4;
+  transform: translate3d(0, 4px, 0);
+}
+
+.pixel-burger:active:before {
+  bottom: -3px;
+  box-shadow: inset 0 -3px 0 rgba(31, 31, 57, 0.16);
+}
+
+.pixel-burger:active:after {
+  bottom: -3px;
+}
+
+.pixel-burger:active i {
+  top: calc(50% - 0);
+}
+
+.pixel-burger i {
+  display: block;
+  margin: 0 auto;
+  width: 66%;
+  height: 3px;
+  background-color: currentColor;
+  border: none;
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 3px);
+  transform: translate(-50%, -50%);
+  transition: 0.125s all ease;
+}
+
+.pixel-burger i:before {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: inherit;
+  display: block;
+  transform: translateY(-9px);
+}
+
+.pixel-burger i:after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: inherit;
+  display: block;
+  transform: translateY(6px);
+}
+</style>
+
+</html>

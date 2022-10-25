@@ -1,0 +1,57 @@
+// Size
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// Absolute Align @include abs-align();
+@mixin abs-align($dir: null) {
+  @if ($dir=='x') {
+    position: absolute;
+    // 水平置中
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  @else if ($dir=='y') {
+    position: absolute;
+    // 垂直置中
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+  }
+
+  @else {
+    position: absolute;
+    // 垂直、水平置中
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}
+
+
+
+@mixin opacity($opacity: 0.66) {
+  filter: alpha(opacity=$opacity * 100);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=#{$opacity * 100});
+  opacity: $opacity;
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &.mask-pixel-grid {
+    background-color: transparent;
+    background-repeat: repeat;
+    background-size: 4rem 4rem;
+    background-position: center;
+    // background-image: escape-svg($bg-grid-v1);
+    background-image: escape-svg($bg-grid-v3);
+    @include opacity(0.04);
+  }
+
+}

@@ -1,0 +1,118 @@
+
+@mixin minecraft_box($name: minecraft-head, $img: $minecraft_head_v1, $w: 128px, $h: 128px) {
+  .#{$name} {
+    position: relative;
+    width: $w;
+    height: $h;
+    display: inline-block;
+    transition: all ease-in-out 0.25s;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50%;
+
+    transform: translateY(0px) rotateX(-30deg) rotateY(35deg) rotateZ(0deg) rotate3d(0, 0, 0, 90deg);
+    animation: minecraft-rotate-3dy 6s infinite linear alternate-reverse forwards paused;
+
+    .#{$name}-item {
+      display: inline-block;
+      position: absolute;
+      background-image: $img;
+      width: $w;
+      height: $h;
+      background-size: 400% 300%;
+
+      &.#{$name}-item-front {
+        background-position: 33.3333333% 50%;
+        top: 0;
+        left: 0;
+        transform: translate3d(0, 0, 64px);
+      }
+
+      &.#{$name}-item-right {
+        background-position: 66.6666667% 50%;
+        top: 0;
+        left: 100%;
+        transform-origin: 0 50%;
+        transform: translate3d(0, 0, 64px) rotate3d(0, 1, 0, 90deg);
+
+        &:after {
+          content: "";
+          background-color: $black;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: 0.12;
+        }
+      }
+
+      &.#{$name}-item-top {
+        background-position: 33.333333% 0%;
+        bottom: 100%;
+        left: 0;
+        transform-origin: 0 100%;
+        transform: translate3d(0, 0, 64px) rotate3d(1, 0, 0, 90deg);
+
+        &:after {
+          content: "";
+          background-color: $white;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: 0.12;
+        }
+      }
+
+      &.#{$name}-item-left {
+        background-position: 0% 50%;
+        top: 0;
+        right: 100%;
+        transform-origin: 100% 0;
+        transform: translate3d(0, 0, 64px) rotate3d(0, 1, 0, -90deg);
+
+        &:after {
+          content: "";
+          background-color: $black;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: 0.12;
+        }
+      }
+
+      &.#{$name}-item-bottom {
+        background-position: 33.333333% 100%;
+        top: 0%;
+        left: 0;
+        transform-origin: 0 100%;
+        transform: translate3d(0, 0, -#{$w - 64}) rotate3d(1, 0, 0, -90deg);
+      }
+
+      &.#{$name}-item-back {
+        background-position: 100% 50%;
+        top: 0;
+        left: 0;
+        transform-origin: 0 50%;
+        transform: translate3d(0, 0, -#{$w - 64}) rotate3d(1, 0, 0, 360deg);
+      }
+    }
+  }
+}
+
+@keyframes minecraft-rotate-3dy {
+  0% {
+    transform: translateY(0px) rotateX(-30deg) rotateY(35deg) rotateZ(0deg)
+      rotate3d(0, 0, 0, 90deg);
+  }
+  100% {
+    transform: translateY(0px) rotateX(-30deg) rotateY(-325deg) rotateZ(0deg)
+      rotate3d(0, 0, 0, 90deg);
+  }
+}
+.minecraft-people-sm {
+  @include minecraft_box($name: minecraft-head, $img: $minecraft_head_v1, $w: 64px, $h: 64px);
+}

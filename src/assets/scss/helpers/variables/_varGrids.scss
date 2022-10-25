@@ -52,17 +52,19 @@ $grid-breakpoints: (
 $container-max-widths: (
   sm: 680px,
   md: 920px,
-  lg: 1080px,
-  xl: 1280px,
-  xxl: none
+  lg: 1120px,
+  xl: 1320px,
+  xxl: 1480px
 ) !default;
 
 
 // Content Spacing
 $content-spacing: (
-  desktop: 2rem, 
-  tablet-and-mobile: 1.75rem,
-  mobile: 1.375rem) !default;
+  desktop: 2.5rem, 
+  desktop-tablet: 2.25rem,
+  tablet-and-mobile: 2rem,
+  mobile: 1.875rem
+  ) !default;
 
 
 // Header

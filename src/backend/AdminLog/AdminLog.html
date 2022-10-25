@@ -8,12 +8,9 @@
   <title>勞動力發展署 - 關鍵就業力課程</title>
   <link rel="stylesheet" type="text/css" href="../../assets/vendor/slim-icon/styles.css">
   <link rel="stylesheet" type="text/css" href="../../assets/css/all.css">
-  <script>
-    (function(d){var config={kitId:'soy4top',scriptTimeout:3000,async:true},h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)})(document);
-  </script>
 </head>
 
-<body class="user-admin" style="background: #f5f5f9">
+<body class="user-admin">
   <main id="backWeb" class="bt-wrapper">
     <!-- HEADER -->
     <header class="bt-header">
@@ -72,7 +69,7 @@
               </h2>
             </div>
             <div class="col-auto flex-nowrap">
-              <div class="d-flex align-items-center active show" data-kt-search-element="toggle" id="kt_header_search_toggle">
+              <div class="t-flex align-items-center active show" data-kt-search-element="toggle" id="kt_header_search_toggle">
               </div>
               <a class="col-auto btn btn--xxs btn--flush" href="javascript:;">
                 登出
@@ -252,8 +249,7 @@
             <a href="javascript:void(0);">首頁</a>
           </li>
           <li class="bt-breadcrumbs-item">
-            <a href="javascript:void(0);">系統管理</a>
-          </li>
+            <a href="javascript:void(0);">系統管理</a></li>
           <li class="bt-breadcrumbs-item active">帳號設定</li>
         </ol>
       </div>
@@ -401,19 +397,19 @@
                 </ul>
               </nav>
               <div class="t-table-cnt t-table-responsive table--dark">
-                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="t-table">
+                <table id="example" width="100%" border="0" cellspacing="0" cellpadding="0" data-table-arrows="true" data-tu-sort="true" class="t-table">
                   <thead>
                     <tr>
-                      <th scope="col">項次</th>
-                      <th scope="col">帳號 / 姓名</th>
-                      <th scope="col">類型</th>
-                      <th scope="col">紀錄時間</th>
-                      <th scope="col">IP</th>
-                      <th scope="col">訊息</th>
-                      <th scope="col">使用瀏覽器</th>
+                      <th class="js-disable-sort">項次</th>
+                      <th class="js-order-by-desc" >帳號 / 姓名</th>
+                      <th class="js-order-by-desc" >類型</th>
+                      <th class="js-order-by-desc">紀錄時間</th>
+                      <th class="js-order-by-desc">IP</th>
+                      <th class="js-order-by-desc">訊息</th>
+                      <th class="js-disable-sort">使用瀏覽器</th>
                     </tr>
                   </thead>
-                  <tbody id="rows">
+                  <tbody id="">
                     <tr>
                       <td data-th="項次" align="center" class="td-full">
                         1
@@ -443,172 +439,10 @@
                     </tr>
                     <tr>
                       <td data-th="項次" align="center" class="td-full">
-                        1
+                        2
                       </td>
                       <td data-th="帳號 / 姓名<" align="center">
-                        <font>AdminAdmin</font> <br>
-                        <strong class="">管理者帳號</strong>
-                      </td>
-                      <td data-th="類型" align="center">登入</td>
-                      <td data-th="紀錄時間" align="center">12021-10-23
-                        11:02:52</td>
-                      <td data-th="IP" class="td-full td-long" align="center">
-                        <div class="td-long-txt">
-                          180.176.213.45
-                        </div>
-                      </td>
-                      <td data-th="訊息" class="td-full td-long" align="center">
-                        <div class="td-long-txt">
-                          登入成功
-                        </div>
-                      </td>
-                      <td data-th="使用瀏覽器" class="td-full td-long" align="">
-                        <div class="td-long-txt">
-                          Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-th="項次" align="center" class="td-full">
-                        1
-                      </td>
-                      <td data-th="帳號 / 姓名<" align="center">
-                        <font>AdminAdmin</font> <br>
-                        <strong class="">管理者帳號</strong>
-                      </td>
-                      <td data-th="類型" align="center">登入</td>
-                      <td data-th="紀錄時間" align="center">12021-10-23
-                        11:02:52</td>
-                      <td data-th="IP" class="td-full td-long" align="center">
-                        <div class="td-long-txt">
-                          180.176.213.45
-                        </div>
-                      </td>
-                      <td data-th="訊息" class="td-full td-long" align="center">
-                        <div class="td-long-txt">
-                          登入成功
-                        </div>
-                      </td>
-                      <td data-th="使用瀏覽器" class="td-full td-long" align="">
-                        <div class="td-long-txt">
-                          Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-th="項次" align="center" class="td-full">
-                        1
-                      </td>
-                      <td data-th="帳號 / 姓名<" align="center">
-                        <font>AdminAdmin</font> <br>
-                        <strong class="">管理者帳號</strong>
-                      </td>
-                      <td data-th="類型" align="center">登入</td>
-                      <td data-th="紀錄時間" align="center">12021-10-23
-                        11:02:52</td>
-                      <td data-th="IP" class="td-full td-long" align="center">
-                        <div class="td-long-txt">
-                          180.176.213.45
-                        </div>
-                      </td>
-                      <td data-th="訊息" class="td-full td-long" align="center">
-                        <div class="td-long-txt">
-                          登入成功
-                        </div>
-                      </td>
-                      <td data-th="使用瀏覽器" class="td-full td-long" align="">
-                        <div class="td-long-txt">
-                          Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-th="項次" align="center" class="td-full">
-                        1
-                      </td>
-                      <td data-th="帳號 / 姓名<" align="center">
-                        <font>AdminAdmin</font> <br>
-                        <strong class="">管理者帳號</strong>
-                      </td>
-                      <td data-th="類型" align="center">登入</td>
-                      <td data-th="紀錄時間" align="center">12021-10-23
-                        11:02:52</td>
-                      <td data-th="IP" class="td-full td-long" align="center">
-                        <div class="td-long-txt">
-                          180.176.213.45
-                        </div>
-                      </td>
-                      <td data-th="訊息" class="td-full td-long" align="center">
-                        <div class="td-long-txt">
-                          登入成功
-                        </div>
-                      </td>
-                      <td data-th="使用瀏覽器" class="td-full td-long" align="">
-                        <div class="td-long-txt">
-                          Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-th="項次" align="center" class="td-full">
-                        1
-                      </td>
-                      <td data-th="帳號 / 姓名<" align="center">
-                        <font>AdminAdmin</font> <br>
-                        <strong class="">管理者帳號</strong>
-                      </td>
-                      <td data-th="類型" align="center">登入</td>
-                      <td data-th="紀錄時間" align="center">12021-10-23
-                        11:02:52</td>
-                      <td data-th="IP" class="td-full td-long" align="center">
-                        <div class="td-long-txt">
-                          180.176.213.45
-                        </div>
-                      </td>
-                      <td data-th="訊息" class="td-full td-long" align="center">
-                        <div class="td-long-txt">
-                          登入成功
-                        </div>
-                      </td>
-                      <td data-th="使用瀏覽器" class="td-full td-long" align="">
-                        <div class="td-long-txt">
-                          Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-th="項次" align="center" class="td-full">
-                        1
-                      </td>
-                      <td data-th="帳號 / 姓名<" align="center">
-                        <font>AdminAdmin</font> <br>
-                        <strong class="">管理者帳號</strong>
-                      </td>
-                      <td data-th="類型" align="center">登入</td>
-                      <td data-th="紀錄時間" align="center">12021-10-23
-                        11:02:52</td>
-                      <td data-th="IP" class="td-full td-long" align="center">
-                        <div class="td-long-txt">
-                          180.176.213.45
-                        </div>
-                      </td>
-                      <td data-th="訊息" class="td-full td-long" align="center">
-                        <div class="td-long-txt">
-                          登入成功
-                        </div>
-                      </td>
-                      <td data-th="使用瀏覽器" class="td-full td-long" align="">
-                        <div class="td-long-txt">
-                          Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-th="項次" align="center" class="td-full">
-                        1
-                      </td>
-                      <td data-th="帳號 / 姓名<" align="center">
-                        <font>AdminAdmin</font> <br>
+                        <font>2AdminAdmin</font> <br>
                         <strong class="">管理者帳號</strong>
                       </td>
                       <td data-th="類型" align="center">登入</td>

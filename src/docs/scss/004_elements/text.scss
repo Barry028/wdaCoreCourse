@@ -1,0 +1,37 @@
+.nes-text {
+
+  &.is-primary {
+    color: map-get($primary-colors, "normal");
+    -webkit-text-stroke: $text-weight map-get($primary-colors, "stroke");
+  }
+
+  &.is-secondary {
+    color: map-get($secondary-colors, "normal");
+    -webkit-text-stroke: $text-weight map-get($secondary-colors, "stroke");
+  }
+
+  &.is-success {
+    color: map-get($success-colors, "normal");
+    -webkit-text-stroke: $text-weight map-get($success-colors, "stroke");
+  }
+
+  &.is-warning {
+    color: map-get($warning-colors, "normal");
+    -webkit-text-stroke: $text-weight map-get($warning-colors, "stroke");
+  }
+
+  &.is-error {
+    color: map_get($error-colors, "normal");
+    -webkit-text-stroke: $text-weight map-get($error-colors, "stroke");
+  }
+
+  &.is-info {
+    color: map_get($info-colors, "normal");
+    -webkit-text-stroke: $text-weight map-get($info-colors, "stroke");
+  }
+
+  &.is-disabled {
+    color: map_get($disabled-colors, "normal");
+    -webkit-text-stroke: $text-weight map-get($disabled-colors, "stroke");
+  }
+}

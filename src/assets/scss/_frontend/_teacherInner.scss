@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+//==  Base -> Decoration
+//====================================================
 .mask-card-ruler {
   width: 20rem;
   height: 20rem;
@@ -303,7 +305,7 @@
 
     padding: 0.25rem 1rem;
     background-color: $grey-100;
-    border : 2px solid $grey-50;
+    border: 2px solid $grey-50;
     border-radius: $border-radius-sm;
     font-size: 0.75rem;
     margin-right: 0.5rem;
@@ -311,6 +313,7 @@
     display: flex;
     align-items: center;
     transition: $transition;
+
     &:after {
       content: '前台不顯示';
     }

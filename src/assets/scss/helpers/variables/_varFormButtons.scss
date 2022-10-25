@@ -64,7 +64,7 @@ $btn-timing:                  ease-in-out !default;
 // 																														box-shadow $btn-duration $btn-timing !default;
 
 $btn-transition:              color $btn-duration $btn-timing, 
-																														background-color $btn-duration $btn-timing, 
+																														background $btn-duration $btn-timing, 
 																														border-color $btn-duration $btn-timing, 
 																														box-shadow $btn-duration $btn-timing,
 																														transform $btn-duration $btn-timing !default;

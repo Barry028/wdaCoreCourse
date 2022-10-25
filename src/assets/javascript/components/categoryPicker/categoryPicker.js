@@ -14,13 +14,12 @@ const JsCategoryPicker = function(element, config) {
   ///////////////////////////////
   // **  Private variables  ** //
   ///////////////////////////////
-  var that = this;
-  var body = document.getElementsByTagName("BODY")[0];
+  const that = this;
+  const body = document.getElementsByTagName("BODY")[0];
 
   if (typeof element === "undefined" || element === null) return;
 
-
-  var defaultOptions = {
+  let defaultOptions = {
     data: config.data,
     dataArray: {},
     dataArraySub: {},
@@ -30,15 +29,15 @@ const JsCategoryPicker = function(element, config) {
     selectAllPreTxt: config.selectAllPrefix,
     lv1Active: config.lv1Active,
     lv2Active: config.lv2Active,
-    elHidden: document.getElementById(config.elHidden),
+    elHidden:  'elHidden',
     sl: config.selectedNum,
     id: config.id,
     title: config.title,
+    confirm: {},
   };
 
   element = document.getElementById(element);
-
-  var config = Object.assign({}, that.defaultOptions, config || {});
+  config = JsUtils.deepExtend({}, defaultOptions, config);
 
   const dataArray = config.dataArray;
   const dataArraySub = config.dataArraySub;
@@ -62,7 +61,7 @@ const JsCategoryPicker = function(element, config) {
   ////////////////////////////
   // ** Private methods  ** //
   ////////////////////////////
-  const _construct = function _construct() {
+  const _construct = function() {
     if (JsUtils.data(element).has('category')) {
       that = JsUtils.data(element).get('category');
     } else {
@@ -70,11 +69,10 @@ const JsCategoryPicker = function(element, config) {
     }
   };
 
-  const _init = function _init() {
+  const _init = function() {
     that.uid = JsUtils.getUniqueId('category_picker');
     _loadDate(data);
-
-    _openClick(element);
+    _inPutClick(element);
 
     JsUtils.data(element).set('category-picker', that);
   };
@@ -95,6 +93,7 @@ const JsCategoryPicker = function(element, config) {
       });
   };
 
+  // 產生選單
   const _build = function(data, id, title) {
 
     const dataArrayLen = dataArray.length;
@@ -170,7 +169,7 @@ const JsCategoryPicker = function(element, config) {
         lv2_liAll.className = "lv2 category-item";
         lv2_liAll.setAttribute("data-parents", lv2UlId);
         var lv2All_html =
-          '<input type="checkbox" id="' + lv2InputId + '_All">' +
+          '<input name="' + pickerID + prefix + 'ckeckbox" type="checkbox" id="' + lv2InputId + '_All">' +
           '<label class="t-checkbox-group" tabindex="0" for="' + lv2InputId + '_All">' +
           '' + lv2LiLabAll + '' +
           '</label>';
@@ -188,7 +187,7 @@ const JsCategoryPicker = function(element, config) {
           lv2_li.className = "lv2 category-item";
           lv2_li.setAttribute("data-parents", lv2UlId);
           var lv2_html =
-            '<input type="checkbox" id="' + lv2LiId + '">' +
+            '<input name="' + pickerID + prefix + 'ckeckbox" type="checkbox" id="' + lv2LiId + '">' +
             '<label class="t-checkbox-group" tabindex="0" for="' + lv2LiId + '">' +
             '' + lv2LiLab + '' +
             '</label>';
@@ -216,18 +215,20 @@ const JsCategoryPicker = function(element, config) {
     html += '       <div class="category-modal-cnt">';
     html += '           <div class="category-modal-header">';
     html += '               <h4 class="category-modal-header-txt">' + title + '</h4>';
-    html += '               <button id="' + pickerID + prefix + 'close" type="button" class="category-close" tabindex="0" aria-label="關閉' + title + '" title="關閉' + config.title + '"></button>';
+    html += '               <button id="' + pickerID + prefix + 'close" type="button" class="btn-close" tabindex="0" aria-label="關閉' + title + '" title="關閉' + config.title + '"></button>';
     html += '           </div>';
     html += '           <div id="' + pickerID + 'selectedCnt" class="category-modal-selected">';
     html += '               <span class="selected-txt"> 已選擇 ( <span id="' + pickerID + 'catNums" class="selectedNum">0</span> )</span>';
     html += '               <a class="selected-del-all" aria-label="清空全部標籤" title="清空全部標籤" tabindex="0">清空全部標籤</a>';
     html += '           </div>';
     html += '           <div class="category-modal-body">';
+    html += '             <form name="' + pickerID + prefix + '_form" action="" method="get" id="' + pickerID + prefix + '_form">';
     html += '               ' + lv1_ul_Html + ' ';
     html += '               ' + lv2_ul_Html + ' ';
+    html += '             </form>';
     html += '           </div>';
     html += '           <div class="category-modal-footer">';
-    html += '               <button class="btn btn--border--primary category-close-btn" tabindex="0" aria-label="關閉視窗" title="關閉視窗">關閉視窗</button>';
+    html += '               <button id="' + pickerID + prefix + 'footer-close" class="btn btn--border--primary category-close-btn" tabindex="0" aria-label="關閉視窗" title="關閉視窗">關閉視窗</button>';
     html += '               <button class="btn btn--primary category-confirm-btn" tabindex="0" aria-label="選擇完畢" title="選擇完畢">選擇完畢</button>';
     html += '           </div>';
     html += '       </div>';
@@ -242,22 +243,21 @@ const JsCategoryPicker = function(element, config) {
     newInput.type = 'hidden';
     newInput.id = elHidden;
     newInput.value = '';
-    JsUtils.insertAfter(newInput, document.getElementById(inputId))
-      // var groupByCategory = JsUtils.groupByProps(data, 'CTID');
+
+    JsUtils.insertBefore(newInput, document.getElementById(inputId))
   };
 
-  const _keydown = function(element) {
-    var element = document.getElementById(pickerID);
-    var focusableEls = JsUtils.makeArray(element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])'));
-    var firstFocusableEl = focusableEls[0];
-    var lastFocusableEl = focusableEls[focusableEls.length - 1];
-    let currentFocus = null;
-    firstFocusableEl.focus();
-
-    element.addEventListener('keydown', function(e) {
-      let lv1Cnt = element.getElementsByClassName('list-level-one')[0];
-      let lv2Cnt = element.getElementsByClassName('list-level-two--focus')[0];
-      console.log(e)
+  // 鍵盤事件
+  const _keydown = function() {
+    let elementPicker = document.getElementById(pickerID);
+    let focusableEls = JsUtils.makeArray(elementPicker.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])'));
+    let firstFocusableEl = focusableEls[0];
+    let lastFocusableEl = focusableEls[focusableEls.length - 1];
+    // let currentFocus = null;
+    // firstFocusableEl.focus();
+    elementPicker.addEventListener('keydown', function(e) {
+      let lv1Cnt = elementPicker.getElementsByClassName('list-level-one')[0];
+      let lv2Cnt = elementPicker.getElementsByClassName('list-level-two--focus')[0];
       switch (e.keyCode) {
         case 37: // 左
           if (e.target.className === 't-checkbox-group') {
@@ -278,7 +278,7 @@ const JsCategoryPicker = function(element, config) {
 
           break;
         case 27: // ESC
-          _close()
+          _close(pickerID)
           break;
         case 13: // ENTER
           if (e.target.className === 't-checkbox-group') {
@@ -309,20 +309,54 @@ const JsCategoryPicker = function(element, config) {
     });
   }
 
+
   // 開啟選單
-  const _openClick = function(element) {
+  const _inPutClick = function(element) {
+
+    let _openModal = function() {
+      let picker = document.getElementById(pickerID);
+      let hidden = document.getElementById(elHidden);
+      if (hidden.value !== '') {
+        let hiddenVal = hidden.value.split(",");
+        for (let i = 0; i < hiddenVal.length; i++) {
+          _select(hiddenVal[i])
+        }
+      }
+       console.dir(element)
+      _open();
+      _keydown();
+
+      setTimeout(() => picker.querySelector('button').focus(), 200);
+    };
+
     JsUtils.addEvent(element, 'click', function(event) {
       event.preventDefault();
-      _open(pickerID)
-      return this
+      _openModal()
     });
+
+    element.addEventListener('keydown', function(event) {
+
+      switch (event.keyCode) {
+        case 13: // ENTER
+          if (event.target.id === element.id) {
+            _openModal()
+            event.preventDefault();
+          }
+          break;
+        case 32: // 空白
+          if (event.target.id === element.id) {
+            _openModal()
+            event.preventDefault();
+          }
+          break;
+      }
+    });
+
   };
 
   // 確認按鈕
   const _confirm = function(inputId) {
-    console.log(pickerID);
     var picker = document.getElementById(pickerID);
-    console.log(picker);
     const confirmBtn = picker.getElementsByClassName('category-confirm-btn')[0];
     const selectedCnt = document.getElementById(pickerID + 'selectedCnt');
     const input = document.getElementById(inputId);
@@ -341,7 +375,7 @@ const JsCategoryPicker = function(element, config) {
         let newValgroup = [];
         let newParenID = [];
         let newGroupID = [];
-        
+
         selectedCnt.querySelectorAll('.selected-label').forEach(function(item, index) {
           input.value = '';
           inputHidden.value = '';
@@ -351,18 +385,19 @@ const JsCategoryPicker = function(element, config) {
           newValgroup.push(name);
           newParenID.push(parenID);
           newGroupID.push(group);
-          console.log(newValgroup);
-          console.log(newParenID);
-          console.log(inputHidden);
+          // console.log(newValgroup);
+          // console.log(newParenID);
+          // console.log(inputHidden);
         });
 
         inputHidden.value += newParenID;
         input.value += newValgroup;
       }
-      _close();
+      _close(pickerID);
     });
   };
 
+  // 事件
   const _handlers = function() {
     const pickerLv1Cnt = document.getElementById(prefix + "lv1");
     const pickerSubCnt = document.getElementById(prefix + "lv2");
@@ -370,7 +405,7 @@ const JsCategoryPicker = function(element, config) {
     const checkedBoxInpsLen = checkedBoxInps.length;
     const selectedCnt = document.getElementById(pickerID + "selectedCnt");
 
-    // picker Lv1 Cnt click
+    // Picker Lv1 Cnt Click
     JsUtils.addEvent(pickerLv1Cnt, 'click', function(event) {
       event.preventDefault();
       const targetItem = event.target;
@@ -386,20 +421,29 @@ const JsCategoryPicker = function(element, config) {
       }
     });
 
-    // close click
+    // Close Click
     const closeBtn = document.getElementById(pickerID + prefix + 'close');
     JsUtils.addEvent(closeBtn, 'click', function(event) {
       event.preventDefault();
-      _close(closeBtn)
+      console.log(pickerID)
+      _close(pickerID);
+      return this;
+    });
+
+    // Close Footer Click
+    const closeBtnFooter = document.getElementById(pickerID + prefix + 'footer-close');
+    JsUtils.addEvent(closeBtnFooter, 'click', function(event) {
+      event.preventDefault();
+      _close(pickerID);
       return this
     });
 
-    // input Lv2 Cnt checked
+    // inPut Lv2 Cnt Checked
     for (let i = 0; i < checkedBoxInpsLen; i++) {
       JsUtils.addEvent(checkedBoxInps[i], 'change', function(event) {
         const picker = document.getElementById(pickerID);
         const targetItem = event.target;
-        // const lv1TarId = targetItem.parentElement.getAttribute("data-targets");
+        // Const lv1TarId = targetItem.parentElement.getAttribute("data-targets");
         const liParId = targetItem.parentElement.getAttribute("data-parents");
         const thisID = targetItem.id;
         const thisText = targetItem.nextElementSibling.textContent;
@@ -422,97 +466,129 @@ const JsCategoryPicker = function(element, config) {
           picker.querySelector('[data-targets=' + liParId + '] .category-item-txt').classList.remove('category-item-txt--has')
         }
 
+        _delAllClcik();
         _labelClcik();
         _update();
 
       });
     }
 
-
     // .indeterminate = true
     // 上方標籤區域 label click funcs
-    const _labelClcik = function() {
-      let picker = document.getElementById(pickerID);
-      let labels = picker.getElementsByClassName("selected-label-close")
-      for (let i = 0; i < labels.length; i++) {
-        JsUtils.addEvent(labels[i], 'click', function(event) {
-          event.preventDefault();
-          const targetItem = event.target;
-          let liTems = targetItem.parentElement;
-          let pId = liTems.attributes['data-paren-id'].nodeValue;
-          let gId = liTems.attributes['data-group'].nodeValue;
-          if (/All/gi.test(pId)) {
-            checkAll(pId);
-            _update();
-            return _del(this_label, lv2_Select)
-          } else {
-            let this_label = event.target.parentElement;
-            let lv2_Select = this_label.getAttribute("data-paren-id");
-            _update();
-            if (picker.querySelectorAll('[data-group=' + gId + ']').length == 1) {
-              picker.querySelector('[data-targets=' + gId + '] .category-item-txt').classList.remove('category-item-txt--has')
-            }
-            return _del(this_label, lv2_Select)
-          }
-        });
-      }
-    }
-
     // 第二層選單 全選項目設定
-    // selectAll
     if (selectAll) {
       let pickerSubUl = pickerSubCnt.getElementsByTagName('ul');
       let pickerSubUlLen = pickerSubUl.length;
       let labels = document.getElementsByClassName("selected-label-close")
-        // 右邊選單全選設定
+
+      // 右邊選單全選設定
       for (let i = 0; i < pickerSubUlLen; i++) {
         JsUtils.addEvent(pickerSubUl[i].firstElementChild, 'change', function(event) {
           event.preventDefault();
           const targetItem = event.target;
           if (targetItem.tagName === "INPUT") {
-            checkAll(targetItem)
+            _checkAll(targetItem)
             _update()
           }
         });
       }
+    }
+  };
 
-      var checkAll = function checkAll(el) {
-        const picker = document.getElementById(pickerID);
 
-        if (typeof el === 'string') {
-          var el = picker.querySelector('#' + el);
-          var parId = el.parentElement.getAttribute("data-parents");
-          var labs = document.querySelectorAll('[data-group="' + parId + '"]');
-          el.click()
-          _update()
-        }
-        const thisUl = JsUtils.parents(el, '.list-level-two')[0];
-        const thisLi = thisUl.getElementsByTagName('li');
-        const thisLen = thisLi.length;
-        for (let x = 1; x < thisLen; x++) {
-          var checkBox = thisLi[x];
-          var allInput = JsUtils.children(checkBox, 'input')[0];
-          if (el.type === "checkbox" && el.checked) {
-            var parId = el.parentElement.getAttribute("data-parents");
-            var labs = document.querySelectorAll('[data-group="' + parId + '"]');
-            labs.forEach(function(element, index) {
-              var parID = element.getAttribute("data-paren-id");
-              if (!/All/gi.test(parID)) {
-                element.remove();
-              }
-            });
-            allInput.indeterminate = true;
-            allInput.checked = true;
-            allInput.disabled = true;
-            _update()
-          } else {
-            allInput.indeterminate = false;
-            allInput.checked = false;
-            allInput.disabled = false;
-            let inputID = allInput.id;
-            _update()
+  const _labelClcik = function() {
+    let picker = document.getElementById(pickerID);
+    let labels = picker.getElementsByClassName("selected-label-close");
+    for (let i = 0; i < labels.length; i++) {
+      JsUtils.addEvent(labels[i], 'click', function(event) {
+        event.preventDefault();
+        const targetItem = event.target;
+        let liTems = targetItem.parentElement;
+        let pId = liTems.attributes['data-paren-id'].nodeValue;
+        let gId = liTems.attributes['data-group'].nodeValue;
+        let this_label = event.target.parentElement;
+        let lv2_Select = this_label.getAttribute("data-paren-id");
+        if (/All/gi.test(pId)) {
+          _checkAll(pId);
+          _del(this_label, lv2_Select);
+          _update();
+        } else {
+          _update();
+          if (picker.querySelectorAll('[data-group=' + gId + ']').length == 1) {
+            picker.querySelector('[data-targets=' + gId + '] .category-item-txt').classList.remove('category-item-txt--has')
           }
+          return _del(this_label, lv2_Select)
         }
+      });
+    };
+  };
+
+  const _delAllClcik = function() {
+    let picker = document.getElementById(pickerID);
+    let labels = picker.getElementsByClassName("selected-label-close");
+    let delAll = picker.getElementsByClassName("selected-del-all")[0];
+    for (let i = 0; i < labels.length; i++) {
+      JsUtils.addEvent(delAll, 'click', function(event) {
+        let labels = picker.getElementsByClassName("selected-label-close");
+        if (labels.length === 0 || labels.length == null) {
+          return
+        }
+        event.preventDefault();
+        let liTems = labels[0].parentElement;
+        let pId = liTems.attributes['data-paren-id'].nodeValue;
+        let gId = liTems.attributes['data-group'].nodeValue;
+        let this_label = liTems;
+        let lv2_Select = this_label.getAttribute("data-paren-id");
+        if (/All/gi.test(pId)) {
+          _checkAll(pId);
+          _update();
+          _del(this_label, lv2_Select);
+        } else {
+          _update();
+          if (picker.querySelectorAll('[data-group=' + gId + ']').length == 1) {
+            picker.querySelector('[data-targets=' + gId + '] .category-item-txt').classList.remove('category-item-txt--has')
+          }
+          return _del(this_label, lv2_Select)
+        }
+      });
+    };
+  };
+
+  const _checkAll = function(el) {
+    const picker = document.getElementById(pickerID);
+
+    if (typeof el === 'string') {
+      var el = picker.querySelector('#' + el);
+      var parId = el.parentElement.getAttribute("data-parents");
+      var labs = document.querySelectorAll('[data-group="' + parId + '"]');
+      el.click()
+      _update()
+    }
+    const thisUl = JsUtils.parents(el, '.list-level-two')[0];
+    const thisLi = thisUl.getElementsByTagName('li');
+    const thisLen = thisLi.length;
+    for (let x = 1; x < thisLen; x++) {
+      let checkBox = thisLi[x];
+      let allInput = JsUtils.children(checkBox, 'input')[0];
+      if (el.type === "checkbox" && el.checked) {
+        let parId = el.parentElement.getAttribute("data-parents");
+        let labs = document.querySelectorAll('[data-group="' + parId + '"]');
+        labs.forEach(function(element, index) {
+          let parID = element.getAttribute("data-paren-id");
+          if (!/All/gi.test(parID)) {
+            element.remove();
+          }
+        });
+        allInput.indeterminate = true;
+        allInput.checked = true;
+        allInput.disabled = true;
+        _update()
+      } else {
+        allInput.indeterminate = false;
+        allInput.checked = false;
+        allInput.disabled = false;
+        let inputID = allInput.id;
+        _update()
       }
     }
   };
@@ -531,28 +607,45 @@ const JsCategoryPicker = function(element, config) {
     }
   };
 
-  const _open = function() {
+  const _select = function(id) {
     let picker = document.getElementById(pickerID);
-    picker.classList.add("show");
-    _keydown(picker);
+    let selected = document.getElementById(id);
+    console.log(selected)
+    if (selected.checked === false) {
+      selected.click();
+    };
   };
 
-  const _close = function() {
+  const _open = function() {
+    that._show = true;
     let picker = document.getElementById(pickerID);
+    body.classList.add("modal-open");
+    picker.classList.add("show");
+    _keydown();
+  };
+
+  const _close = function( ) {
+    that._show = false; 
+    let picker = document.getElementById(pickerID);
+    let hidden = document.getElementById(elHidden);
+    console.log(that)
     picker.classList.remove("show");
+    body.classList.remove("modal-open");
     element.focus();
   };
 
   const _del = function(select, label) {
     let picker = document.getElementById(pickerID);
-    console.log(label)
-    if (label) {
-      picker.querySelector('[data-paren-id="' + label + '"]').remove()
-      picker.querySelector('#' + label).checked = false;
+    let labels = picker.querySelectorAll('[data-paren-id="' + label + '"]');
+    if (labels.length !== 0 || labels != null) {
+      for (let i = 0; i < labels.length; i++) {
+        picker.querySelector('#' + label).checked = false;
+        labels[i].remove();
+      }
     } else {
 
     }
-    _update()
+    _update();
   };
 
   const _getOption = function(name) {
@@ -597,37 +690,31 @@ const JsCategoryPicker = function(element, config) {
     return _close();
   };
 
-  that.getElement = function() {
-    return that.element;
-  };
-
   that.destroy = function() {
     return _destroy();
   };
 
   // Event API
   that.on = function(name, handler) {
-    console.log(this)
+    // console.log(this)
     return JsEventHandler.on(that.element, name, handler);
   }
 
   that.one = function(name, handler) {
-    console.log(this)
+    // console.log(this)
     return JsEventHandler.one(that.element, name, handler);
   }
 
   that.off = function(name) {
-    console.log(this)
+    // console.log(this)
     return JsEventHandler.off(that.element, name);
   }
 
   that.trigger = function(name, event) {
-    console.log(this)
+    // console.log(this)
     return JsEventHandler.trigger(that.element, name, event, the, event);
   }
 }
-
-
 
 // Static
 JsCategoryPicker.getInstance = function(element) {
@@ -640,14 +727,14 @@ JsCategoryPicker.getInstance = function(element) {
 
 // Create
 JsCategoryPicker.createInstances = function() {
-  var selector = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '[data-tu-category="true"]';
-  var body = document.getElementsByTagName("BODY")[0]; // Initialize Menus
+  let selector = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '[data-tu-category="true"]';
+  let body = document.getElementsByTagName("BODY")[0]; // Initialize Menus
 
-  var elements = body.querySelectorAll(selector);
-  var category;
+  let elements = body.querySelectorAll(selector);
+  let category;
 
   if (elements && elements.length > 0) {
-    for (var i = 0, len = elements.length; i < len; i++) {
+    for (let i = 0, len = elements.length; i < len; i++) {
       category = new JsCategoryPicker(elements[i]);
     }
   }

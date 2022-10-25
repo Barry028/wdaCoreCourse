@@ -7,19 +7,14 @@
   <meta charset="UTF-8">
   <title>勞動力發展署 - 關鍵就業力課程</title>
   <link rel="stylesheet" type="text/css" href="../../assets/vendor/slim-icon/styles.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/vendor/swiper/swiper-bundle.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/vendor/icon-turbotech/style.css">
   <!-- <link rel="stylesheet" type="text/css" href="../../assets/vendor/bootstrap/dist/css/bootstrap.min.css"> -->
   <link rel="stylesheet" type="text/css" href="../../assets/css/all.css">
-  <script>
-    (function(d){var config={kitId:'soy4top',scriptTimeout:3000,async:true},h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)})(document);
-  </script>
 </head>
 
 <body>
   <main id="web" class="t-wrapper">
     <!-- Header -->
-    <header id="tHeader" class="t-header">
+    <header data-tu-an="blur fade bottom once" id="tHeader" class="t-header">
       <section class="t-header-top">
         <div class="container">
           <div class="row">
@@ -50,9 +45,19 @@
       <section class="t-header-main">
         <nav class="navbar navbar-expand-md">
           <div class="container">
+            <button class="navbar-toggler navbar-toggler-left" type="button" aria-label="主要選單" aria-expanded="false" aria-controls="navBar" data-bs-toggle="collapse" data-bs-target="#navBar">
+              <div class="t-menu-icon-wrapper">
+                <div class="t-menu-icon-line"></div>
+              </div>
+              <!--               <i class="svg-icon svg-icon-2hx">
+                <svg>
+                  <use href="#ic-burger"></use>
+                </svg>
+              </i> -->
+            </button>
             <!-- <img src="../../assets/images/wda-logo.svg" alt="aa" id="imas"> -->
             <!-- <canvas id="output"></canvas> -->
-            <div class=" t-header-brand">
+            <div class="t-header-brand">
               <!-- <img src=""  alt="勞動部勞動力發展署" width="164" height="26"> -->
               <a class="t-header-logo" href="../index/index.html">
                 <picture class="t-header-logo-sub" id="a1">
@@ -68,19 +73,55 @@
                 </picture>
               </a>
             </div>
-            <nav class="t-header-nav-bar ml-auto">
+            <nav id="navBar" class="t-header-nav-bar ml-auto collapse navbar-collapse">
               <a class="t-header-nav-bar-link" href="javascript:;">最新訊息</a>
               <a class="t-header-nav-bar-link" href="javascript:;">課程需求刊登</a>
               <a class="t-header-nav-bar-link" href="javascript:;">課程介紹</a>
-              <a class="t-header-nav-bar-link" href="javascript:;">師資介紹</a>
+              <a class="t-header-nav-bar-link t-hight-light" href="javascript:;">師資介紹</a>
             </nav>
-            <a class="t-header-nav-bar-hightlight btn btn--primary" href="javascript:;">登入</a>
+            <button class="btn btn--flush menu-dropdown" data-tu-menu-trigger="click" data-tu-menu-placement="bottom-end">
+              <picture class="t-symbol t-rounded t-avastar">
+                <img class="" src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/emoji/Memoji-21@2x.webp" alt="使用者" class="t-lazy-load" width="48" height="48">
+                <source type="image/png" srcset="../../assets/images/emoji/Memoji-21@2x.png" />
+                <source type="image/webp" srcset="../../assets/images/emoji/Memoji-21@2x.webp" />
+              </picture>
+            </button>
+            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded t-user-menu" data-tu-menu="true">
+              <div class="menu-item">
+                <div class="menu-content t-flex align-items-center justify-content-between t-user-menu-header">
+                  <div class="symbol symbol-50px t-avastar">
+                    <picture class="t-symbol t-rounded">
+                      <img class="" src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/emoji/Memoji-21@2x.webp" alt="使用者" class="t-lazy-load" width="48" height="48">
+                      <source type="image/png" srcset="../../assets/images/emoji/Memoji-21@2x.png" />
+                      <source type="image/webp" srcset="../../assets/images/emoji/Memoji-21@2x.webp" />
+                    </picture>
+                  </div>
+                  <div class="flex-column ml-2">
+                    <div class="t-fw-bold t-flex align-items-center">
+                      林小本
+                      <span class="t-badge t-badge-light-success">Pro</span>
+                    </div>
+                    <a href="#" class="t-fw-400">max@kt.com</a>
+                  </div>
+                </div>
+                <div class="t-separator"></div>
+                <div class="menu-item">
+                  <a href="" class="menu-link px-5">
+                    My Profile
+                  </a>
+                </div>
+              </div>
+              </button>
+            </div>
+            <!-- <a class="btn btn--sm btn--soft--primary" href="javascript:;">
+              會員登入
+            </a> -->
           </div>
         </nav>
       </section>
     </header>
     <!-- breadcrumbs -->
-    <section id="tBreadcrumbs" class="t-breadcrumbs-section">
+    <section class="t-breadcrumbs-section">
       <div class="container">
         <div class="row justify-content-between align-items-center">
           <ul class="t-breadcrumbs">
@@ -95,11 +136,11 @@
       </div>
     </section>
     <!-- searchBar -->
-    <section id="tSearchBar" class="t-search-bar-section t-bg-v1">
+    <section class="t-search-bar-section">
       <div class="container">
         <div class="row justify-content-between align-items-center">
           <div class="col-sm-12">
-            <div class="t-tab t-tab-line-top">
+            <div class="t-tab t-tab-line-bottom">
               <input id="item_1" type="radio" name="tabsV1" class="hide" checked="">
               <input id="item_2" type="radio" name="tabsV1" class="hide">
               <div id="tab-nav-v1" class="t-tab-nav" data-scroll="x">
@@ -110,53 +151,73 @@
                   專長 / 領域
                 </label>
               </div>
-              <div class="t-tab-contents tab-sliding">
+              <div class="t-tab-contents">
                 <div id="tab_content_1" class="t-tab-content">
                   <form action="" method="post" class="t-form t-txt-right">
-                    <div class="t-form-inline w-100 t-flex t-search-inner align-items-center">
-                      <div class="t-form-group">
-                        <label for="">關鍵字</label>
-                        <input id="s_keyWordr" type="text" class="t-form-control" placeholder="姓名、別名、專長/領域、曾開授課程">
-                      </div>
-                      <div class="t-form-group">
-                        <label for="s_coursesrPicker">授課單元</label>
-                        <input id="s_coursesrPicker" type="text" class="t-form-control" placeholder="授課單元">
-                      </div>
-                      <div class="t-form-group">
-                        <label for="s_courseAreasPicker">授課區域</label>
-                        <input id="s_courseAreasPicker" type="text" class="t-form-control" placeholder="授課區域授課區">
+                    <div class="t-search-inner">
+                      <div class="t-form-inline">
+                        <div class="t-form-group">
+                          <label for="">關鍵字</label>
+                          <div class="t-input-group">
+                            <input id="s_keyWordr" type="text" class="t-form-control" placeholder="姓名、別名、專長/領域、曾開授課程">
+                            <i class="svg-icon">
+                              <svg>
+                                <use href="#ic-search-status"></use>
+                              </svg>
+                            </i>
+                          </div>
+                        </div>
+                        <div class="t-form-group">
+                          <label for="s_coursesrPicker">授課單元</label>
+                          <div class="t-input-group">
+                            <input id="s_coursesrPicker" type="text" class="t-form-control" placeholder="授課單元"><i class="svg-icon">
+                              <svg>
+                                <use href="#ic-save-2"></use>
+                              </svg>
+                            </i>
+                          </div>
+                        </div>
+                        <div class="t-form-group">
+                          <label for="s_courseAreasPicker">授課區域</label>
+                          <div class="t-input-group">
+                            <input id="s_courseAreasPicker" type="text" class="t-form-control" placeholder="授課區域授課區">
+                            <i class="svg-icon">
+                              <svg>
+                                <use href="#ic-map"></use>
+                              </svg>
+                            </i>
+                          </div>
+                        </div>
+                        <div class="t-form-group">
+                          <button type="button" class="btn btn--primary btn--block btn--lg t-btn-search">
+                            搜尋師資
+                            <i class="svg-icon svg-icon-2x" aria-hidden="true">
+                              <svg>
+                                <use href="#ic-search"></use>
+                              </svg>
+                            </i>
+                          </button>
+                        </div>
                       </div>
                       <div class="t-form-group mb-0">
-                        <button type="button" class="btn btn--primary btn--block btn--lg">
-                          <i class="svg-icon svg-icon-2x t-v-align-bottom" aria-hidden="true">
-                            <svg>
-                              <use href="#ic-search"></use>
-                            </svg>
-                          </i>
-                          搜尋師資
-                        </button>
-                      </div>
-                    </div>
-                    <div class="t-form-inline mt-3">
-                      <div class="t-form-group mb-0">
-                        <button type="reset" class="btn btn--md">
-                          <i class="svg-icon svg-icon-1x t-v-align-bottom" aria-hidden="true">
-                            <svg>
-                              <use href="#ic-reset"></use>
-                            </svg>
-                          </i>
-                          清空條件
-                        </button>
-                      </div>
-                      <div class="t-form-group mb-0">
-                        <button type="reset" class="btn btn--md">
-                          <i class="svg-icon svg-icon-1x t-v-align-bottom" aria-hidden="true">
-                            <svg>
-                              <use href="#ic-filter"></use>
-                            </svg>
-                          </i>
-                          其他條件搜尋
-                        </button>
+                        <div class="t-form-btn-bt-row">
+                          <button type="reset" class="btn btn--md btn--light">
+                            <i class="svg-icon" aria-hidden="true">
+                              <svg>
+                                <use href="#ic-reset"></use>
+                              </svg>
+                            </i>
+                            清空條件
+                          </button>
+                          <button type="button" class="btn btn--md btn--light">
+                            <i class="svg-icon" aria-hidden="true">
+                              <svg>
+                                <use href="#ic-filter"></use>
+                              </svg>
+                            </i>
+                            其他條件搜尋
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </form>
@@ -177,12 +238,22 @@
         <div class="row t-flex flex-md-row align-items-top justify-content-sm-between " id="tTeachersList2">
           <div class="col-sm-9">
             <div class="teachers-list-cnt">
-              <div id="tools" class="teachers-list-tools t-flex justify-content-between align-items-center">
-                <a class="t-link" href="javascript:;">全部師資 <strong>(1,234)</strong></a>
-                <div class="t-form-inline mt-2">
+              <div id="coreJobFilter" class="search-list-tools">
+                <ul class="search-filter-list-lt">
+                  <li class="search-filter-item active" data-filter="all">
+                    全部師資
+                    <strong>(1,234)</strong>
+                  </li>
+                </ul>
+                <div class="search-filter-list-rt">
                   <div class="t-form-group mb-0">
-                    <select class="t-form-control" name="pages" id="s_selects">
-                      <option value="0">第 1 / 10 頁</option>
+                    <select class="t-form-control" name="pages" id="s_selects_pages">
+                      <option selected="" value="1">第 1 / 6 頁</option>
+                      <option value="2">第 2 / 6 頁</option>
+                      <option value="3">第 3 / 6 頁</option>
+                      <option value="4">第 4 / 6 頁</option>
+                      <option value="5">第 5 / 6 頁</option>
+                      <option value="6">第 6 / 6 頁</option>
                     </select>
                   </div>
                   <div class="t-form-group mb-0">
@@ -190,6 +261,20 @@
                       <option value="0">依推薦符合度排序</option>
                     </select>
                   </div>
+                  <a class="t-filter-icon active" href="javascript:;" data-bs-toggle="tooltip" data-bs-placement="top" data-original-title="列表模式" aria-label="列表模式">
+                    <i class="svg-icon svg-icon-2x">
+                      <svg>
+                        <use href="#ic-list"></use>
+                      </svg>
+                    </i>
+                  </a>
+                  <a class="t-filter-icon" href="javascript:;" data-bs-toggle="tooltip" data-bs-placement="top" data-original-title="摘要模式" aria-label="摘要模式">
+                    <i class="svg-icon">
+                      <svg>
+                        <use href="#ic-list-sm"></use>
+                      </svg>
+                    </i>
+                  </a>
                 </div>
               </div>
               <div class="teachers-list-items-small-areas-cnt teachers-list-items-small-areas-cnt-pei" id="AreaPei">
@@ -476,7 +561,7 @@
           <div class="col-md">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <span class="d-flex align-items-center">
+                <span class="t-flex align-items-center">
                   <picture class="t-footer-logos">
                     <source src="../../assets/images/wda_logo_circle.svg" data-src="../../assets/images/10Ratio3.3333_v1.svg">
                     <img alt="勞動力發展署 - 關鍵就業力課程" src="../../assets/images/wda_logo_circle.svg" width="20" height="20" />
@@ -504,75 +589,647 @@
   <a href="javascript:;" id="tuScrolltop" class="tu-scrolltop">
     <i class="js-go-top--arrow" aria-hidden="true"></i>
   </a>
-  <!-- SVG Symbols -->
-  <svg hidden version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-      <symbol id="ic-search" viewBox="0 0 24 24">
-        <path fill="currentColor" d="m21.7 18.9-3.1-3.1c-.7 1.1-1.7 2.1-2.8 2.8l3.1 3.1c.4.4 1 .4 1.4 0l1.4-1.4c.4-.4.4-1 0-1.4Z" />
-        <path fill="currentColor" d="M11 20c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9Zm0-16c-3.9 0-7 3.1-7 7s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7Zm-3 7c0-1.7 1.3-3 3-3 .6 0 1-.4 1-1s-.4-1-1-1c-2.8 0-5 2.2-5 5 0 .6.4 1 1 1s1-.4 1-1Z" opacity=".36" />
-      </symbol>
-      <symbol id="ic-arrow-r" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M14.4 11H3c-.6 0-1 .4-1 1s.4 1 1 1h11.4v-2Z" />
-        <path fill="currentColor" d="M14.4 20V4l7.3 7.3c.4.4.4 1 0 1.4L14.4 20Z" opacity=".36" />
-      </symbol>
-      <symbol id="ic-filter" viewBox="0 0 24 24">
-        <g fill="currentColor">
-          <path d="M16.2 2H7.8C4.2 2 2 4.2 2 7.8v8.4C2 19.8 4.2 22 7.8 22h8.4c3.6 0 5.8-2.2 5.8-5.8V7.8C22 4.2 19.8 2 16.2 2Z" opacity=".4" />
-          <path d="M15.6 19.2a.8.8 0 0 1-.8-.7v-3.9a.8.8 0 0 1 .8-.8.8.8 0 0 1 .7.8v3.9a.8.8 0 0 1-.7.7Zm0-11a.8.8 0 0 1-.8-.7v-2a.8.8 0 0 1 .8-.8.8.8 0 0 1 .7.8v2a.8.8 0 0 1-.7.7ZM8.4 19.3a.8.8 0 0 1-.7-.8v-2a.8.8 0 0 1 .7-.7.8.8 0 0 1 .8.8v1.9a.7.7 0 0 1-.8.8Zm0-9.1a.8.8 0 0 1-.7-.8V5.5a.8.8 0 0 1 .7-.8.8.8 0 0 1 .8.8v3.9a.7.7 0 0 1-.8.8Z" />
-          <path d="M15.6 7.3a2.7 2.7 0 1 0 2.7 2.8 2.7 2.7 0 0 0-2.7-2.8Zm-7.2 3.9a2.7 2.7 0 1 0 2.7 2.8 2.7 2.7 0 0 0-2.7-2.8Z" />
-        </g>
-      </symbol>
-      <symbol id="ic-send" viewBox="0 0 24 24">
-        <g fill="currentColor">
-          <path d="m9.5 4.2 8.6 4.3c3.8 2 3.8 5 0 7l-8.6 4.3c-5.7 2.8-8.1.5-5.2-5.3l.9-1.7a1.8 1.8 0 0 0 0-1.6l-1-1.7c-2.8-5.8-.4-8.2 5.3-5.3Z" opacity=".4" />
-          <path d="M14.8 12.8H9.4a.8.8 0 0 1-.7-.8.8.8 0 0 1 .7-.8h5.4a.8.8 0 0 1 .8.8.8.8 0 0 1-.8.8Z" />
-        </g>
-      </symbol>
-      <symbol id="ic-reset" viewBox="0 0 24 24">
-        <g fill="currentColor">
-          <path d="M16.2 2H7.8C4.2 2 2 4.2 2 7.8v8.4C2 19.8 4.2 22 7.8 22h8.4c3.6 0 5.8-2.2 5.8-5.8V7.8C22 4.2 19.8 2 16.2 2Z" opacity=".4" />
-          <path d="M16.8 9a.7.7 0 0 0-1-.1.8.8 0 0 0-.3 1A4.3 4.3 0 1 1 12 8a5.3 5.3 0 0 1 .6 0l-.6.5a.7.7 0 0 0-.2 1 .8.8 0 0 0 .7.3.8.8 0 0 0 .4-.1l2-1.4a.6.6 0 0 0 0-.2.5.5 0 0 0 .1 0v-.2l.1-.2a.3.3 0 0 0 0-.1.3.3 0 0 0 0-.1.8.8 0 0 0 0-.2H15v-.1l-1.7-2a.7.7 0 0 0-1 0 .8.8 0 0 0-.2 1l.3.4H12a5.8 5.8 0 1 0 5.7 5.7 5.7 5.7 0 0 0-1-3.2Z" />
-        </g>
-      </symbol>
-      <symbol id="ic-eye" viewBox="0 0 24 24">
-        <g fill="currentColor">
-          <path d="M21.3 9.2c-2.4-3.7-5.7-5.8-9.3-5.8A9.7 9.7 0 0 0 7 5a13.4 13.4 0 0 0-4.3 4.3 5.8 5.8 0 0 0 0 5.6c2.4 3.7 5.7 5.8 9.3 5.8a9.7 9.7 0 0 0 5-1.5 13.4 13.4 0 0 0 4.3-4.3 5.8 5.8 0 0 0 0-5.6ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Z" opacity=".4" />
-          <path d="M12 9.1a2.9 2.9 0 1 0 2.9 2.9A2.9 2.9 0 0 0 12 9.1Z" />
-        </g>
-      </symbol>
-      <symbol id="ic-images" viewBox="0 0 24 24">
-        <g fill="currentColor">
-          <path d="M22 8v6l-2-1a2 2 0 0 0-2 0l-5 3a2 2 0 0 1-2 0h-1a2 2 0 0 0-2 0l-5 3a7 7 0 0 1-1-3V8c0-4 2-6 6-6h8c4 0 6 2 6 6Z" opacity=".4" />
-          <path d="M11 8a2 2 0 1 1-2-2 2 2 0 0 1 2 2Zm11 6v2c0 4-2 6-6 6H8c-3 0-5-1-5-3l5-3a2 2 0 0 1 2 0h1a2 2 0 0 0 2 0l5-4a2 2 0 0 1 2 0Z" />
-        </g>
-      </symbol>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 155.2">
-        <path fill="#fff" d="M347.4 0 230.7 82.8l23.3 27c2.6 2.8 5.9 5 9.6 6L400 155.2V0h-52.6z" opacity=".3" />
-        <path fill="#fff" d="M128 0 90.3 94.4l64.3 30a20 20 0 0 0 20-1.8l56.2-39.8L159.1 0h-31z" opacity=".2" />
-        <path d="m159 0 71.7 82.8L347.4 0z" class="st2" />
-        <path fill="#fff" d="m0 153.2 71.4-28.6a20 20 0 0 0 11-11.1l7.7-19L0 52.3v100.8z" opacity=".3" />
-        <path d="M0 0v52.4l90.2 42L128 0z" class="st2" />
-      </svg>
-    </defs>
+ <!-- SVG Symbols (Outlines) -->
+  <svg id="symbol" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden="true">
+    <!-- <i class="svg-icon"><svg><use href="#ic-search-status"></use></svg></i> -->
+    <symbol id="ic-search-status" viewBox="0 0 24 24">
+      <title>search-status</title>
+      <g fill="currentColor">
+        <path d="m20.81 21.8-1.86-1.86a.708.708 0 0 1 0-.99.7.7 0 0 1 .99 0l1.861 1.86a.708.708 0 0 1 0 .99.738.738 0 0 1-.5.2.7.7 0 0 1-.491-.2ZM8.501 13.75a.755.755 0 0 1-.75-.75.754.754 0 0 1 .75-.75h3a.756.756 0 0 1 .75.75.757.757 0 0 1-.75.75Zm0-3a.754.754 0 0 1-.75-.75.754.754 0 0 1 .75-.75h6a.755.755 0 0 1 .75.75.755.755 0 0 1-.75.75Z" />
+        <path d="M21 11.5A9.5 9.5 0 1 1 11.5 2a9.5 9.5 0 0 1 9.5 9.5Z" opacity=".4" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-save-2"></use></svg></i> -->
+    <symbol id="ic-save-2" viewBox="0 0 24 24">
+      <title>save</title>
+      <g fill="currentColor">
+        <path d="M12.89 5.88H5.11A3.12 3.12 0 0 0 2 8.99v11.36c0 1.45 1.04 2.07 2.31 1.36l3.93-2.19a1.738 1.738 0 0 1 1.51 0l3.93 2.19c1.27.71 2.31.09 2.31-1.36V8.99a3.1 3.1 0 0 0-3.1-3.11Z" opacity=".4" />
+        <path d="M22 5.11v11.36c0 1.45-1.04 2.06-2.31 1.36L16 15.77V8.99a3.12 3.12 0 0 0-3.11-3.11H8v-.77A3.12 3.12 0 0 1 11.11 2h7.78A3.12 3.12 0 0 1 22 5.11Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-ruler"></use></svg></i> -->
+    <symbol id="ic-user-outline" viewBox="0 0 24 24">
+      <title>ruler&pen</title>
+      <g fill="currentColor" data-name="ruler&amp;pen">
+        <path d="M14 22a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3ZM4 21l-1-2a3 3 0 0 1 0-1V5a3 3 0 0 1 2-3 3 3 0 0 1 3 3v13a4 4 0 0 1 0 1l-1 2a2 2 0 0 1-2 1 2 2 0 0 1-1-1Z" opacity=".4" />
+        <path d="M11 19v-2h4a1 1 0 0 1 1 1 1 1 0 0 1-1 1Zm5-4h-5v-2h5a1 1 0 0 1 1 1 1 1 0 0 1-1 1Zm-5-4V9h3a1 1 0 0 1 1 1 1 1 0 0 1-1 1ZM3 8V6h5v2Zm8-1V5h5a1 1 0 0 1 1 1 1 1 0 0 1-1 1Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-user-outline"></use></svg></i> -->
+    <symbol id="ic-user-outline" viewBox="0 0 24 24">
+      <title>USER</title>
+      <g fill="currentColor">
+        <path d="M12 23a3 3 0 0 1-2-1l-2-2a2 2 0 0 0-1 0H6a4 4 0 0 1-4-4V5a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v11a4 4 0 0 1-4 4h-1a2 2 0 0 0-1 0l-2 2a3 3 0 0 1-2 1ZM6 3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h1a4 4 0 0 1 2 1l2 2a1 1 0 0 0 2 0l2-2a4 4 0 0 1 2-1h1a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z" />
+        <path d="M9 16a3 3 0 0 1-1-2 3 3 0 0 1 1-3 6 6 0 0 1 3-1 6 6 0 0 1 3 1 3 3 0 0 1 1 3 3 3 0 0 1-1 2 6 6 0 0 1-3 1 6 6 0 0 1-3-1Zm1-3a1 1 0 0 0-1 1 1 1 0 0 0 1 1 4 4 0 0 0 2 0 4 4 0 0 0 2 0 1 1 0 0 0 1-1 1 1 0 0 0-1-1 4 4 0 0 0-2-1 4 4 0 0 0-2 1Zm2-3a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-1 2 3 3 0 0 1-2 1Zm-1-3a1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1 1 1 0 0 0-1 1Z" opacity=".4" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-note-outline"></use></svg></i> -->
+    <symbol id="ic-note-outline" viewBox="0 0 24 24">
+      <title>NOTE</title>
+      <g fill="currentColor">
+        <path d="M13.1 1.8a11.2 11.2 0 0 1 2.6.3l1.6.4c2.4.5 3.9 1.4 4.7 2.7s1 3 .4 5.4l-1 4.2a8.1 8.1 0 0 1-2 4 5 5 0 0 1-3.6 1.4H15a11.3 11.3 0 0 1-1.7-.4l-1.7-.4C9.2 19 7.8 18 7 16.7s-1-3-.4-5.4l1-4.2a11.1 11.1 0 0 1 .7-2.3 5 5 0 0 1 4.8-3Zm2.7 16.9c2.3 0 3.5-1.2 4.1-4.2l1-4.2c.5-2 .4-3.3-.2-4.3S19 4.4 17 4l-1.7-.4a9.7 9.7 0 0 0-2.2-.3 3.4 3.4 0 0 0-3.4 2.1 9.7 9.7 0 0 0-.7 2l-1 4.3c-.4 1.9-.4 3.2.2 4.2s1.8 1.6 3.7 2l1.7.5a9.8 9.8 0 0 0 1.5.2h.7Z" />
+        <path d="m3 17.5-1.2-4c-.7-2.2-.7-3.9 0-5.2s2-2.4 4.2-3l1.6-.6a10.3 10.3 0 0 1 1.3-.3.7.7 0 0 1 .7.2.8.8 0 0 1 0 .8 9.6 9.6 0 0 0-.6 2l-1 4.3c-.4 1.9-.4 3.2.2 4.2s1.8 1.6 3.7 2l1.7.5a9.6 9.6 0 0 0 1.5.2.8.8 0 0 1 .7.6.7.7 0 0 1-.3.8 10 10 0 0 1-2.6 1.2l-1.5.5a9.9 9.9 0 0 1-3 .6c-3.4 0-4.7-2.8-5.3-4.8ZM6.6 6.6C4.7 7.2 3.5 8 3 9s-.5 2.3.1 4.2L4.5 17a6.9 6.9 0 0 0 1.6 3 3.1 3.1 0 0 0 2.3.8 8.3 8.3 0 0 0 2.5-.5l1.6-.5.1-.1-1-.2C9.2 18.9 7.8 18 7 16.7s-1-3-.4-5.4l1-4.2q0-.5.2-.9Zm7.9 7.3-3-.8a.7.7 0 0 1-.5-.9.7.7 0 0 1 1-.5l2.8.7a.8.8 0 0 1 .6 1 .8.8 0 0 1-.7.5.7.7 0 0 1-.2 0Zm3-3.4-5-1.2a.7.7 0 0 1-.5-1 .8.8 0 0 1 1-.5L17.6 9a.7.7 0 0 1 .5 1 .8.8 0 0 1-.7.5.7.7 0 0 1-.2 0Z" opacity=".4" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-direct-outline"></use></svg></i> -->
+    <symbol id="ic-direct-outline" viewBox="0 0 24 24">
+      <title>DIRECT</title>
+      <g fill="currentColor">
+        <path d="M15 22.8H9c-2.8 0-4.6-.6-6-1.9S1.3 17.8 1.3 15V9c0-2.8.6-4.6 1.9-6s3-1.7 5.8-1.7h6c2.8 0 4.6.6 6 1.9s1.8 3.1 1.8 5.9v6c0 2.8-.6 4.6-1.9 6s-3.1 1.8-5.9 1.8Zm-6-20c-2.3 0-3.9.4-4.8 1.4S2.7 6.7 2.7 9v6c0 2.3.5 3.9 1.5 4.8s2.5 1.4 4.8 1.4h6c2.3 0 3.9-.4 4.8-1.4s1.4-2.5 1.4-4.8V9c0-2.3-.4-3.9-1.4-4.8S17.3 2.7 15 2.7Z" />
+        <path d="M10.2 17.8a2.7 2.7 0 0 1-2.4-1.6l-1-1.8a1.2 1.2 0 0 0-1-.6H2a.8.8 0 0 1-.7-.8.8.8 0 0 1 .7-.7h3.8a2.7 2.7 0 0 1 2.4 1.5l1 1.8a1.2 1.2 0 0 0 1 .7h3.6a1.2 1.2 0 0 0 1-.7l1-1.8a2.7 2.7 0 0 1 2.4-1.6H22a.8.8 0 0 1 .7.8.8.8 0 0 1-.7.7h-3.8a1.2 1.2 0 0 0-1 .7l-1 1.8a2.7 2.7 0 0 1-2.4 1.6Zm-.7-7a.8.8 0 0 1-.8-.8.8.8 0 0 1 .8-.8h5a.8.8 0 0 1 .8.8.8.8 0 0 1-.8.8Zm.8-3a.8.8 0 0 1-.7-.8.8.8 0 0 1 .7-.7h3.4a.7.7 0 0 1 .7.7.8.8 0 0 1-.7.7Z" opacity=".4" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-brifecase-outline"></use></svg></i> -->
+    <symbol id="ic-brifecase-outline" viewBox="0 0 24 24">
+      <title>BRIFECASE</title>
+      <g fill="currentColor">
+        <path d="M16 22.8H8c-2 0-3.5-.5-4.4-1.3a4.5 4.5 0 0 1-1.3-3l-.8-8a4.6 4.6 0 0 1 1-3.8c.8-1 2.3-1.5 4.5-1.5h10c2.2 0 3.7.5 4.6 1.5a4.6 4.6 0 0 1 .8 3.8l-.7 8a4.5 4.5 0 0 1-1.3 3c-1 .8-2.4 1.3-4.4 1.3ZM3.8 18.4a3 3 0 0 0 .8 2 5 5 0 0 0 3.4.9h8a5 5 0 0 0 3.4-.9 3 3 0 0 0 .8-2l.8-8a3.2 3.2 0 0 0-.6-2.7c-.6-.6-1.7-1-3.4-1H7c-1.7 0-2.9.4-3.4 1a3.2 3.2 0 0 0-.6 2.6Z" />
+        <path d="M9.6 15.9a2.3 2.3 0 0 1-.3-1.2 17.2 17.2 0 0 1-7.1-2.8.7.7 0 0 1-.2-1 .8.8 0 0 1 1-.2 15.6 15.6 0 0 0 6.2 2.5V13c0-.6 0-1 .4-1.4s.8-.4 1.4-.4h2c.6 0 1 0 1.4.4s.3.8.3 1.4v.1a15.8 15.8 0 0 0 6.5-2.7.8.8 0 0 1 1 .2.8.8 0 0 1-.1 1 17.3 17.3 0 0 1-7.4 3 2.3 2.3 0 0 1-.3 1.2 2.8 2.8 0 0 1-2.4 1 2.8 2.8 0 0 1-2.4-1Zm1.1-2.9v1a2.1 2.1 0 0 0 .2 1c0 .2.5.2 1.1.2s1 0 1.1-.2a2.2 2.2 0 0 0 .1-1v-1.3h-2.5v.3Zm4.5-7v-.8a3.6 3.6 0 0 0-.2-1.8c-.3-.4-1-.6-2.2-.6h-1.6c-1.2 0-2 .2-2.2.6a3.6 3.6 0 0 0-.3 1.8V6a.8.8 0 0 1-.7.7.8.8 0 0 1-.8-.7v-.8c0-1.8 0-4 4-4h1.6c4 0 4 2.2 4 4V6a.8.8 0 0 1-.8.7.7.7 0 0 1-.7-.7Z" opacity=".4" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-seeker-outline"></use></svg></i> -->
+    <symbol id="ic-seeker-outline" viewBox="0 0 24 24">
+      <title>SEEKER</title>
+      <g fill="currentColor">
+        <path d="M11.5 21.8A10.2 10.2 0 0 1 1.2 11.4 10.2 10.2 0 0 1 11.6 1.2a.8.8 0 0 1 .8.8.8.8 0 0 1-.8.8 8.8 8.8 0 0 0-6.2 14.9 8.8 8.8 0 0 0 15-6.2.8.8 0 0 1 1.4 0 10.2 10.2 0 0 1-10.2 10.3Z" />
+        <path d="m21.5 22.5-2-2a.8.8 0 0 1 0-1 .8.8 0 0 1 1 0l2 2a.8.8 0 0 1 0 1 .8.8 0 0 1-.5.2.7.7 0 0 1-.5-.2ZM14 10.1a2.1 2.1 0 0 1-1-1.8 2.1 2.1 0 0 1 1-1.7 4.5 4.5 0 0 1 2.4-.7 4.5 4.5 0 0 1 2.5.7 2.1 2.1 0 0 1 1 1.7 2.1 2.1 0 0 1-1 1.8 4.5 4.5 0 0 1-2.5.7 4.5 4.5 0 0 1-2.4-.7Zm.6-2.6a1 1 0 0 0-.6.8 1 1 0 0 0 .6.9 3.4 3.4 0 0 0 1.8.5 3.4 3.4 0 0 0 1.9-.5 1 1 0 0 0 .5-.9 1 1 0 0 0-.5-.8 3.4 3.4 0 0 0-1.9-.4 3.4 3.4 0 0 0-1.8.4Zm1.7-2.2A2.5 2.5 0 0 1 14 2.8 2.5 2.5 0 0 1 16.5.4a2.5 2.5 0 0 1 2.4 2.4 2.5 2.5 0 0 1-2.4 2.5Zm.1-1.1a1.4 1.4 0 0 0 1.3-1.4 1.4 1.4 0 0 0-1.4-1.3A1.4 1.4 0 0 0 15 2.9a1.4 1.4 0 0 0 1.3 1.3.7.7 0 0 1 .1 0Z" opacity=".4" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-bill-outline"></use></svg></i> -->
+    <symbol id="ic-bill-outline" viewBox="0 0 24 24">
+      <title>BILL</title>
+      <g fill="currentColor">
+        <path d="m9.7 21.5-5.2-4a3.9 3.9 0 0 1-1.6-3V3.2H2a.8.8 0 0 1-.8-.7.8.8 0 0 1 .8-.7h20a.8.8 0 0 1 .8.7.8.8 0 0 1-.8.8h-1v11.2a3.9 3.9 0 0 1-1.5 3l-5.2 4a3.8 3.8 0 0 1-2.3.7 3.9 3.9 0 0 1-2.3-.7Zm-5.3-7a2.4 2.4 0 0 0 1 1.9l5.2 3.9a2.4 2.4 0 0 0 1.4.4 2.4 2.4 0 0 0 1.4-.4l5.2-4a2.4 2.4 0 0 0 1-1.8V3.2H4.4Z" />
+        <path d="M8 13.8a.8.8 0 0 1-.8-.8.8.8 0 0 1 .8-.7h8a.8.8 0 0 1 .8.7.8.8 0 0 1-.8.7Zm0-5a.8.8 0 0 1-.8-.8.8.8 0 0 1 .8-.7h8a.8.8 0 0 1 .8.7.8.8 0 0 1-.8.8Z" opacity=".4" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-programming-arrow-outline"></use></svg></i> -->
+    <symbol id="ic-programming-arrow-outline" viewBox="0 0 24 24">
+      <title>PROGRAMMING-ARROW</title>
+      <g fill="currentColor">
+        <path d="M18.3 16V6.5A1.2 1.2 0 0 0 17 5.3h-3l1.5 1.1a.8.8 0 0 1 0 1 .8.8 0 0 1-.5.4.7.7 0 0 1-.5-.2l-3-2.5a.7.7 0 0 1-.2-.6.8.8 0 0 1 .2-.6l3-2.5a.7.7 0 0 1 1 .1.8.8 0 0 1 0 1L14 3.9h3a2.8 2.8 0 0 1 2.7 2.7V16a.7.7 0 0 1-.7.8.8.8 0 0 1-.8-.8Zm-14 0V9a.8.8 0 0 1 .7-.8.8.8 0 0 1 .8.8v7a.8.8 0 0 1-.8.8.8.8 0 0 1-.8-.8Z" opacity=".4" />
+        <path d="M15.3 19a3.8 3.8 0 0 1 3.7-3.8 3.8 3.8 0 0 1 3.8 3.8 3.8 3.8 0 0 1-3.8 3.7 3.8 3.8 0 0 1-3.8-3.7Zm1.4 0a2.3 2.3 0 0 0 2.3 2.3 2.3 2.3 0 0 0 2.3-2.3 2.3 2.3 0 0 0-2.3-2.3 2.3 2.3 0 0 0-2.3 2.3ZM1.3 19A3.8 3.8 0 0 1 5 15.2 3.8 3.8 0 0 1 8.8 19 3.8 3.8 0 0 1 5 22.7 3.8 3.8 0 0 1 1.2 19Zm1.4 0A2.3 2.3 0 0 0 5 21.3 2.3 2.3 0 0 0 7.3 19 2.3 2.3 0 0 0 5 16.7 2.3 2.3 0 0 0 2.7 19ZM1.3 5.2a4 4 0 0 1 4-4 4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4Zm1.6 0a2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5 2.5 2.5 0 0 0-2.5 2.5Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-home-outline"></use></svg></i> -->
+    <symbol id="ic-home-outline" viewBox="0 0 24 24">
+      <title>HOME</title>
+      <g fill="currentColor">
+        <path d="M11.6 1.3a5 5 0 0 1 2.8.8l6.2 4.3a5.5 5.5 0 0 1 2.1 4.1v7.3a5 5 0 0 1-5 5H6.3a5 5 0 0 1-5-5v-7.4a5.5 5.5 0 0 1 2-4l5.4-4.2a5 5 0 0 1 3-1Zm6.2 20a3.5 3.5 0 0 0 3.4-3.5v-7.3a4 4 0 0 0-1.4-2.8l-6.2-4.4a3.5 3.5 0 0 0-2-.5 3.5 3.5 0 0 0-2.1.6L4 7.6a4 4 0 0 0-1.3 2.8v7.4a3.5 3.5 0 0 0 3.4 3.4Z" />
+        <path d="M12 18.8h-1.5A3.8 3.8 0 0 1 6.8 15v-3a3.8 3.8 0 0 1 3.7-3.8h3a3.8 3.8 0 0 1 3.8 3.8v3a3.8 3.8 0 0 1-3.8 3.8Zm1.5-1.6a2.3 2.3 0 0 0 2.3-2.2v-.8h-3v3ZM8.3 15a2.2 2.2 0 0 0 2.2 2.3h.8v-3h-3Zm7.5-2.2V12a2.3 2.3 0 0 0-2.3-2.2h-.7v3Zm-4.5 0v-3h-.8A2.2 2.2 0 0 0 8.3 12v.8Z" opacity=".4" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-corp-outline"></use></svg></i> -->
+    <symbol id="ic-corp-outline" viewBox="0 0 24 24">
+      <title>CORP</title>
+      <g fill="currentColor">
+        <path d="M13 22.8H5A3.4 3.4 0 0 1 1.3 19v-8A3.4 3.4 0 0 1 5 7.2h4.3V5A3.4 3.4 0 0 1 13 1.2h6A3.4 3.4 0 0 1 22.8 5v14a3.4 3.4 0 0 1-3.8 3.8Zm6-1.6c1.6 0 2.2-.6 2.2-2.2V5c0-1.6-.6-2.3-2.2-2.3h-6c-1.6 0-2.2.7-2.2 2.3v14c0 1.6.6 2.2 2.2 2.2h.3V18a1.8 1.8 0 0 1 1.7-1.8h2a1.8 1.8 0 0 1 1.8 1.8v3.3ZM14.7 18v3.3h2.5V18a.3.3 0 0 0-.2-.3h-2a.3.3 0 0 0-.3.3Zm-12-7v8c0 1.6.7 2.3 2.3 2.3h4.8a4 4 0 0 1-.5-1.7v-11H5c-1.6 0-2.3.7-2.3 2.3Z" />
+        <path d="M5.3 17v-4a.8.8 0 0 1 .7-.7.8.8 0 0 1 .8.7v4a.8.8 0 0 1-.8.8.8.8 0 0 1-.8-.8Zm12-4V8a.7.7 0 0 1 .7-.7.8.8 0 0 1 .8.7v5a.8.8 0 0 1-.8.8.8.8 0 0 1-.8-.8Zm-4 0V8a.7.7 0 0 1 .7-.7.7.7 0 0 1 .7.7v5a.7.7 0 0 1-.7.8.8.8 0 0 1-.8-.8ZM5 8.8a.8.8 0 0 1-.8-.8V6A2.8 2.8 0 0 1 7 3.3h3.1a.7.7 0 0 1 .6.3.7.7 0 0 1 .1.6 3.4 3.4 0 0 0 0 .8v3a.8.8 0 0 1-.8.8ZM5.8 6v1.3h3.5V4.7H7A1.2 1.2 0 0 0 5.7 6Z" opacity=".4" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-brifecase-timer-outline"></use></svg></i> -->
+    <symbol id="ic-brifecase-timer-outline" viewBox="0 0 24 24">
+      <title>BRIFECASE-TIMER</title>
+      <g fill="currentColor">
+        <path d="M7.3 14.3a17.2 17.2 0 0 1-5.1-2.4.8.8 0 0 1-.2-1 .8.8 0 0 1 1-.2 15.8 15.8 0 0 0 4.5 2A4.8 4.8 0 0 1 12 9.5a4.8 4.8 0 0 1 4.5 3.3 15.4 15.4 0 0 0 4.7-2.3.8.8 0 0 1 1 .2.8.8 0 0 1-.1 1 17 17 0 0 1-5.4 2.6A4.8 4.8 0 0 1 12 19a4.8 4.8 0 0 1-4.7-4.6Zm1.5-.1a3.3 3.3 0 0 0 3.2 3.3 3.3 3.3 0 0 0 3.3-3.3A3.3 3.3 0 0 0 12 11a3.3 3.3 0 0 0-3.2 3.2Zm1.6 1.4a.7.7 0 0 1 .2-1l.8-.5a.2.2 0 0 0 .1-.2v-1a.8.8 0 0 1 .8-.7.8.8 0 0 1 .7.8v.9a1.7 1.7 0 0 1-.9 1.5l-.7.4a.7.7 0 0 1-.4.1.7.7 0 0 1-.6-.3ZM15.3 6v-.8a3.6 3.6 0 0 0-.3-1.8c-.3-.4-1-.6-2.2-.6h-1.6c-1.2 0-1.9.2-2.2.6a3.6 3.6 0 0 0-.2 1.8V6a.8.8 0 0 1-.8.8.8.8 0 0 1-.7-.8v-.8c0-1.8 0-4 3.9-4h1.6c4 0 4 2.2 4 4V6a.8.8 0 0 1-.8.8.7.7 0 0 1-.7-.8Z" opacity=".4" />
+        <path d="M16 22.8H8c-2 0-3.5-.5-4.4-1.3a4.5 4.5 0 0 1-1.3-3l-.8-8a4.6 4.6 0 0 1 1-3.8c.8-1 2.3-1.5 4.5-1.5h10c2.2 0 3.7.5 4.6 1.5a4.6 4.6 0 0 1 .8 3.8l-.7 8a4.5 4.5 0 0 1-1.3 3c-1 .8-2.4 1.3-4.4 1.3ZM3.8 18.4a3 3 0 0 0 .8 2 5 5 0 0 0 3.4.9h8a5 5 0 0 0 3.4-.9 3 3 0 0 0 .8-2l.8-8a3.2 3.2 0 0 0-.6-2.7c-.6-.6-1.7-1-3.4-1H7c-1.7 0-2.9.4-3.4 1a3.2 3.2 0 0 0-.6 2.6Z" />
+      </g>
+    </symbol>
   </svg>
-  <!-- Vendor -->
-  <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SVG Symbols (Shades) -->
+  <svg id="Shades" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden="true">
+    <!-- <i class="svg-icon"><svg><use href="#ic-filter"></use></svg></i> -->
+    <symbol id="ic-filter" viewBox="0 0 24 24">
+      <title>FILTER</title>
+      <g fill="currentColor">
+        <path d="M16.2 2H7.8C4.2 2 2 4.2 2 7.8v8.4C2 19.8 4.2 22 7.8 22h8.4c3.6 0 5.8-2.2 5.8-5.8V7.8C22 4.2 19.8 2 16.2 2Z" opacity=".4" />
+        <path d="M15.6 19.2a.8.8 0 0 1-.8-.7v-3.9a.8.8 0 0 1 .8-.8.8.8 0 0 1 .7.8v3.9a.8.8 0 0 1-.7.7Zm0-11a.8.8 0 0 1-.8-.7v-2a.8.8 0 0 1 .8-.8.8.8 0 0 1 .7.8v2a.8.8 0 0 1-.7.7ZM8.4 19.3a.8.8 0 0 1-.7-.8v-2a.8.8 0 0 1 .7-.7.8.8 0 0 1 .8.8v1.9a.7.7 0 0 1-.8.8Zm0-9.1a.8.8 0 0 1-.7-.8V5.5a.8.8 0 0 1 .7-.8.8.8 0 0 1 .8.8v3.9a.7.7 0 0 1-.8.8Z" />
+        <path d="M15.6 7.3a2.7 2.7 0 1 0 2.7 2.8 2.7 2.7 0 0 0-2.7-2.8Zm-7.2 3.9a2.7 2.7 0 1 0 2.7 2.8 2.7 2.7 0 0 0-2.7-2.8Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-reset"></use></svg></i> -->
+    <symbol id="ic-reset" viewBox="0 0 24 24">
+      <title>RESET</title>
+      <g fill="currentColor">
+        <path d="M16.2 2H7.8C4.2 2 2 4.2 2 7.8v8.4C2 19.8 4.2 22 7.8 22h8.4c3.6 0 5.8-2.2 5.8-5.8V7.8C22 4.2 19.8 2 16.2 2Z" opacity=".4" />
+        <path d="M16.8 9a.7.7 0 0 0-1-.1.8.8 0 0 0-.3 1A4.3 4.3 0 1 1 12 8a5.3 5.3 0 0 1 .6 0l-.6.5a.7.7 0 0 0-.2 1 .8.8 0 0 0 .7.3.8.8 0 0 0 .4-.1l2-1.4a.6.6 0 0 0 0-.2.5.5 0 0 0 .1 0v-.2l.1-.2a.3.3 0 0 0 0-.1.3.3 0 0 0 0-.1.8.8 0 0 0 0-.2H15v-.1l-1.7-2a.7.7 0 0 0-1 0 .8.8 0 0 0-.2 1l.3.4H12a5.8 5.8 0 1 0 5.7 5.7 5.7 5.7 0 0 0-1-3.2Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-resume"></use></svg></i> -->
+    <symbol id="ic-resume" viewBox="0 0 24 24">
+      <title>RESUME</title>
+      <path fill="currentColor" d="M20 14h-2v-4h2c.6 0 1 .4 1 1v2c0 .6-.4 1-1 1Zm1 5v-2c0-.6-.4-1-1-1h-2v4h2c.6 0 1-.4 1-1Zm0-12V5c0-.6-.4-1-1-1h-2v4h2c.6 0 1-.4 1-1Z" />
+      <path fill="currentColor" d="M17 22H3c-.6 0-1-.4-1-1V3c0-.6.4-1 1-1h14c.6 0 1 .4 1 1v18c0 .6-.4 1-1 1ZM10 7a2 2 0 0 0-2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2 2 2 0 0 0-2-2Zm3.3 9c.7 0 1.2-.7 1-1.3a4.6 4.6 0 0 0-4.2-2.7c-2 0-3.6 1.1-4.2 2.7-.3.6.3 1.3 1.5 1.3h5.9Z" opacity=".6" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-page"></use></svg></i> -->
+    <symbol id="ic-page" viewBox="0 0 24 24">
+      <title>PAGE</title>
+      <path fill="currentColor" d="M19 22H5c-.6 0-1-.4-1-1V3c0-.6.4-1 1-1h9l6 6v13c0 .6-.4 1-1 1Zm-6.5-4c0-.6.1-.5-.5-.5H8.5c-.6 0-.5-.1-.5.5s-.1.5.5.5L12 18c.6 0 .5.6.5 0Zm4-5c0-.6.1-.5-.5-.5H8.5c-.6 0-.5-.1-.5.5s-.1.5.5.5h7c.6 0 1 .1 1-.5Zm-4-5c0-.6.1-.5-.5-.5H8c-.6 0-.5-.1-.5.5s-.1.5.5.5h4c.6 0 .5.1.5-.5Z" opacity=".3" />
+      <rect width="6" height="2" x="7" y="17" fill="currentColor" rx="1" />
+      <rect width="10" height="2" x="7" y="12" fill="currentColor" rx="1" />
+      <rect width="6" height="2" x="7" y="7" fill="currentColor" rx="1" />
+      <path fill="currentColor" d="M15 8h5l-6-6v5c0 .6.4 1 1 1Z" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-seeker"></use></svg></i> -->
+    <symbol id="ic-seeker" viewBox="0 0 24 24">
+      <title>SEEKERS</title>
+      <path fill="currentColor" d="M3 6c-.6 0-1-.4-1-1V3c0-.6.4-1 1-1h2c.6 0 1 .4 1 1s-.4 1-1 1H4v1c0 .6-.4 1-1 1Zm19-1V3c0-.6-.4-1-1-1h-2c-.6 0-1 .4-1 1s.4 1 1 1h1v1c0 .6.4 1 1 1s1-.4 1-1ZM6 21c0-.6-.4-1-1-1H4v-1c0-.6-.4-1-1-1s-1 .4-1 1v2c0 .6.4 1 1 1h2c.6 0 1-.4 1-1Zm16 0v-2c0-.6-.4-1-1-1s-1 .4-1 1v1h-1c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1Zm-6-10V9a4 4 0 0 0-4-4 4 4 0 0 0-4 4v2c-.8 0-1.5.7-1.5 1.5S7.2 14 8 14v1a4 4 0 0 0 4 4 4 4 0 0 0 4-4v-1c.8 0 1.5-.7 1.5-1.5S16.8 11 16 11Zm-2.6 4c.3 0 .6.3.5.6A2 2 0 0 1 12 17a2 2 0 0 1-1.9-1.3c-.1-.3.1-.7.5-.7h2.8Z" opacity=".4" />
+      <path fill="currentColor" d="m9.2 12.9-.1-.3c-.1-.4.2-.9.6-1 .4-.1.9.2 1 .6v.3l-1.5.4Zm5.6 0 .1-.3a.9.9 0 0 0-.6-1 .9.9 0 0 0-1 .6v.3l1.5.4ZM16 7.3l.7-1-1.3-.1-1-.5c-.6-.5-1.4-.7-2.2-.8-2.3-.1-4.1 1.9-4.1 4.2v2.3c.8-.7 1.3-1.6 1.5-2.4 1.4.1 3.8-.3 4.9-.7.2 1.1.8 2.2 1.6 3.1V9l-.3-1.5.2-.2Z" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-date"></use></svg></i> -->
+    <symbol id="ic-date" viewBox="0 0 24 24">
+      <title>DATE</title>
+      <path fill="currentColor" d="M19 3.4c-.6 0-1 .4-1 1v4h-4v-4c0-.6-.4-1-1-1s-1 .4-1 1v4H8v-4c0-.6-.4-1-1-1s-1 .4-1 1v4H2v-4c0-.6-.4-1-1-1s-1 .4-1 1v15c0 .6.4 1 1 1h18c.6 0 1-.4 1-1v-15c0-.6-.4-1-1-1Zm-1 7v3h-4v-3h4Zm-6 0v3H8v-3h4Zm0 5v3H8v-3h4Zm-6-5v3H2v-3h4Zm-4 5h4v3H2v-3Zm12 3v-3h4v3h-4Z" opacity=".3" />
+      <path fill="currentColor" d="M19 .4H1c-.6 0-1 .4-1 1v3c0 .6.4 1 1 1h18c.6 0 1-.4 1-1v-3c0-.6-.4-1-1-1Z" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-arrow-double"></use></svg></i> -->
+    <symbol id="ic-arrow-double" viewBox="0 0 24 24">
+      <title>ARROW DOUBLE</title>
+      <path fill="currentColor" d="M9.6 11.4 5.5 7.2A1 1 0 0 1 7 5.8l5.5 5.6c.4.4.4 1 0 1.4L7 18.3a1 1 0 0 1-1.5-1.6l4.1-4.1a1 1 0 0 0 0-1.2Z" opacity=".5" />
+      <path fill="currentColor" d="m15.6 11.4-4.2-4.2A1 1 0 0 1 13 5.8l5.6 5.6c.4.4.4 1 0 1.4L13 18.4a1 1 0 0 1-1.5-1.6l4.2-4.1a1 1 0 0 0 0-1.2Z" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-redo"></use></svg></i> -->
+    <symbol id="ic-redo" viewBox="0 0 24 24">
+      <title>REDO</title>
+      <g fill="currentColor">
+        <path d="M7.8 2h8.4C19.8 2 22 4.2 22 7.8v8.4c0 3.6-2.2 5.8-5.8 5.8H7.8C4.2 22 2 19.8 2 16.2V7.8C2 4.2 4.2 2 7.8 2Z" opacity=".4" />
+        <path d="M17.5 9.2 16 7.6a.8.8 0 0 0-1.1 1l.3.4h-5.1a3.8 3.8 0 1 0 0 7.6H15a.8.8 0 1 0 0-1.5h-5a2.3 2.3 0 0 1 0-4.6h5.2l-.3.2a.8.8 0 0 0 0 1.1.7.7 0 0 0 1 0l1.6-1.6a.8.8 0 0 0 0-1Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-lovely"></use></svg></i> -->
+    <symbol id="ic-lovely" viewBox="0 0 24 24">
+      <title>lovely</title>
+      <g fill="currentColor">
+        <path d="M19.9 8v.5a4.5 4.5 0 0 0-4.6.9 4.4 4.4 0 0 0-3-1.2A4.5 4.5 0 0 0 8 12.7a8.7 8.7 0 0 0 2.8 6.3 1 1 0 0 1-.3 0C7.8 18 2 14.2 2 8a5 5 0 0 1 9-3 5 5 0 0 1 8.9 3Z" opacity=".4" />
+        <path d="M18 9.6a3.3 3.3 0 0 0-2.6 1.3 3.3 3.3 0 0 0-6 2 6.1 6.1 0 0 0 .3 2A9 9 0 0 0 15 20a1.3 1.3 0 0 0 .7 0 9 9 0 0 0 5.3-5.2 6.2 6.2 0 0 0 .3-2A3.3 3.3 0 0 0 18 9.6Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-edit"></use></svg></i> -->
+    <symbol id="ic-edit" viewBox="0 0 24 24">
+      <title>EDIT</title>
+      <g fill="currentColor">
+        <path d="M15.5 3h-8C4.1 3 2 5 2 8.5v8C2 19.9 4 22 7.5 22h8c3.4 0 5.5-2 5.5-5.5v-8C21 5.1 19 3 15.5 3Z" opacity=".4" />
+        <path d="M7.2 16.8a1.9 1.9 0 0 1-.5-1.6l.4-3a3 3 0 0 1 .8-1.5l5.4-5.4c0 .3.2.5.3.8a7.4 7.4 0 0 0 .4.8 4.4 4.4 0 0 0 .4.5 3.5 3.5 0 0 0 .3.6 1 1 0 0 0 .2.1 7.2 7.2 0 0 0 1 1 1 1 0 0 0 0 .1 5.2 5.2 0 0 0 .6.4l.6.4a8.2 8.2 0 0 0 .8.4l.7.3-5.3 5.4a3 3 0 0 1-1.5.8l-3 .4h-.3a1.8 1.8 0 0 1-1.3-.5Zm12.3-7.2a7.5 7.5 0 0 1-5-5.1.4.4 0 0 1 0-.4L15.6 3C17.5 1 19.2 1.2 21 3a4 4 0 0 1 1.4 2.7A3.8 3.8 0 0 1 21 8.4l-1 1a.4.4 0 0 1-.4.2Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-calendar-add"></use></svg></i> -->
+    <symbol id="ic-calendar-add" viewBox="0 0 24 24">
+      <title>CALENDAR-ADD</title>
+      <g fill="currentColor">
+        <path d="M16.2 21.8a4 4 0 0 1 0-5.6 4 4 0 0 1 5.6 0 4 4 0 0 1 0 5.6A4 4 0 0 1 19 23a4 4 0 0 1-2.8-1.2Zm.6-2.8a.7.7 0 0 0 .7.8h.8v.8a.8.8 0 0 0 .8.7.7.7 0 0 0 .5-.2.7.7 0 0 0 .2-.5v-.8h.7a.7.7 0 0 0 .6-.2.7.7 0 0 0 .2-.6.7.7 0 0 0-.8-.7h-.7v-.7a.8.8 0 0 0-.7-.8.8.8 0 0 0-.8.8v.7h-.8a.8.8 0 0 0-.7.7Zm-9-.8a1 1 0 0 1-.3-.7 1 1 0 0 1 .3-.7 1 1 0 0 1 .3-.2 1 1 0 0 1 1.1.2 1 1 0 0 1 .3.7 1 1 0 0 1-.3.7 1 1 0 0 1-.7.3 1 1 0 0 1-.7-.3Zm3.5-3.5a1 1 0 0 1-.3-.7 1 1 0 0 1 .3-.7 1 1 0 0 1 1.4 0 1 1 0 0 1 .3.7 1 1 0 0 1-.3.7 1 1 0 0 1-.7.3 1 1 0 0 1-.7-.3Zm-3.5 0a1 1 0 0 1-.3-.7 1 1 0 0 1 .3-.7 1 1 0 0 1 .9-.3.6.6 0 0 1 .2 0 .7.7 0 0 1 .2.2h.1a1 1 0 0 1 .3.8 1 1 0 0 1-.3.7l-.1.1a.8.8 0 0 1-.2.1.7.7 0 0 1-.2 0 1.5 1.5 0 0 1-.2.1 1 1 0 0 1-.7-.3ZM3.5 8.3a.5.5 0 0 1-.5-.5 4.2 4.2 0 0 1 4.3-4.2V2a.8.8 0 0 1 .7-.8.8.8 0 0 1 .8.8v1.5h6.5V2a.8.8 0 0 1 .7-.8.8.8 0 0 1 .8.8v1.6A4.2 4.2 0 0 1 21 7.8a.5.5 0 0 1-.5.5Z" />
+        <path d="M21 10.8v1.8a1 1 0 0 1-1.1 1 6.1 6.1 0 0 0-.9-.1 5.5 5.5 0 0 0-5.5 5.5 6.2 6.2 0 0 0 .4 1.7 1 1 0 0 1-1 1.3H8c-3.5 0-5-2-5-5v-6.2a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1Z" opacity=".4" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-messages"></use></svg></i> -->
+    <symbol id="ic-messages" viewBox="0 0 24 24">
+      <title>MESSAGES</title>
+      <g fill="currentColor">
+        <path d="M18 10.8v4a6 6 0 0 1 0 .7c-.3 2.7-1.9 4-4.8 4h-.4a.8.8 0 0 0-.6.4L11 21.5a1.1 1.1 0 0 1-2 0l-1.2-1.6a1 1 0 0 0-.6-.3h-.4c-3.2 0-4.8-.8-4.8-4.8v-4c0-3 1.4-4.5 4-4.8a6 6 0 0 1 .8 0h6.4Q18 6 18 10.8Z" opacity=".4" />
+        <path d="M18 14.8v-4Q18 6 13.2 6H6.8A6.2 6.2 0 0 0 6 6c.3-2.6 1.9-4 4.8-4h6.4Q22 2 22 6.8v4c0 3-1.4 4.5-4 4.7a5.8 5.8 0 0 0 0-.7ZM12.5 13a1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1ZM9 13a1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1Zm-3.5 0a1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-forward"></use></svg></i> -->
+    <symbol id="ic-forward" viewBox="0 0 24 24">
+      <title>FORWARD</title>
+      <g fill="currentColor">
+        <path d="M16.2 2H7.8C4.2 2 2 4.2 2 7.8v8.4C2 19.8 4.2 22 7.8 22h8.4c3.6 0 5.8-2.2 5.8-5.8V7.8C22 4.2 19.8 2 16.2 2Z" opacity=".4" />
+        <path d="M17.5 8.7 16 7a.8.8 0 0 0-1.1 1l.3.4h-5.1a3.8 3.8 0 1 0 0 7.6H15a.8.8 0 1 0 0-1.5h-5a2.3 2.3 0 1 1 0-4.6h5.2l-.3.2a.8.8 0 0 0 0 1.1.7.7 0 0 0 1 0l1.6-1.6a.8.8 0 0 0 0-1Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-print"></use></svg></i> -->
+    <symbol id="ic-print" viewBox="0 0 24 24">
+      <title>PRINT</title>
+      <g fill="currentColor">
+        <path d="M11 22a3 3 0 0 1-3-3v-3.3H7a.8.8 0 0 1-.8-.7.8.8 0 0 1 .8-.7h10a.8.8 0 0 1 .8.7.8.8 0 0 1-.8.8h-1V19a3 3 0 0 1-3 3ZM7 11.7a.8.8 0 0 1-.8-.7.8.8 0 0 1 .8-.8h3a.8.8 0 0 1 .8.8.8.8 0 0 1-.8.7ZM7 7V5a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v2Z" />
+        <path d="M18 7H6a2.7 2.7 0 0 0-3 3v5a2.7 2.7 0 0 0 3 3h2v-3h8v3h2a2.7 2.7 0 0 0 3-3v-5a2.7 2.7 0 0 0-3-3Zm-8 4.8H7a.8.8 0 0 1 0-1.6h3a.8.8 0 0 1 0 1.6Z" opacity=".4" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-medal-star"></use></svg></i> -->
+    <symbol id="ic-medal-star" viewBox="0 0 24 24">
+      <title>MEDAL-STAR</title>
+      <g fill="currentColor">
+        <path d="M19 9a7 7 0 0 1-6 7 6.2 6.2 0 0 1-2 0 7 7 0 1 1 8-7Z" opacity=".4" />
+        <path d="M5.5 21 5 19.7a1 1 0 0 0-.7-.7l-1.7-.4a1 1 0 0 1-.4-1.7l3.9-3.9a7 7 0 0 0 4.8 3 6 6 0 0 0 1 .1l-4.8 5.5a1 1 0 0 1-.7.3 1 1 0 0 1-1-.7Zm11.3.5L12 16a6 6 0 0 0 1 0 7 7 0 0 0 4.8-3.1l4 3.9a1 1 0 0 1-.6 1.7l-1.6.4a1 1 0 0 0-.7.7l-.4 1.5a1 1 0 0 1-1 .7 1 1 0 0 1-.7-.3ZM12 16Zm1.3-4-1-.6a.7.7 0 0 0-.6 0l-1 .6c-.7.4-1.2 0-1-.7l.3-1a.7.7 0 0 0-.2-.7L9 8.8c-.5-.5-.4-1 .3-1.1l1-.2a.7.7 0 0 0 .6-.3l.5-1.2c.3-.7.9-.7 1.2 0l.6 1.2a.7.7 0 0 0 .5.3l1 .2c.7.1.9.6.4 1l-.9 1a.7.7 0 0 0-.1.5l.2 1c.1.6 0 1-.4 1a1.2 1.2 0 0 1-.6-.2Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-3d-square"></use></svg></i> -->
+    <symbol id="ic-3d-square" viewBox="0 0 24 24">
+      <title>3D-SQUARE</title>
+      <g fill="currentColor">
+        <path d="M16.2 2.3H7.8C4.2 2.3 2 4.5 2 8.1v8.4c0 3.7 2.2 5.8 5.8 5.8h8.4c3.6 0 5.8-2.1 5.8-5.8V8.2c0-3.7-2.2-5.9-5.8-5.9Z" opacity=".4" />
+        <path d="M12.8 17.8a.8.8 0 0 1-.4-.7v-3.3a1.5 1.5 0 0 1 .8-1.3l3.5-1.8a.9.9 0 0 1 .9 0 .8.8 0 0 1 .4.8v3.3a1.5 1.5 0 0 1-.8 1.3L13.7 18a1 1 0 0 1-.4 0 .8.8 0 0 1-.5 0Zm-2.5 0-3.5-1.7a1.5 1.5 0 0 1-.8-1.3v-3.3a.8.8 0 0 1 .4-.7.9.9 0 0 1 .8 0l3.5 1.7a1.5 1.5 0 0 1 .9 1.3v3.3a.8.8 0 0 1-.4.7.8.8 0 0 1-.5.2.9.9 0 0 1-.4-.1Zm1-6-3.7-2a.9.9 0 0 1-.4-.8.9.9 0 0 1 .4-.8l3.8-2a1.4 1.4 0 0 1 1.2 0l3.8 2a.9.9 0 0 1 .5.8.9.9 0 0 1-.5.8l-3.8 2a1.3 1.3 0 0 1-.6.1 1.3 1.3 0 0 1-.6-.1Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-book-en"></use></svg></i> -->
+    <symbol id="ic-book-en" viewBox="0 0 24 24">
+      <title>BOOK-EN</title>
+      <g fill="currentColor">
+        <path d="M12 21.3V18h2.4a.6.6 0 0 0 .4-.2.5.5 0 0 0 .2-.3.5.5 0 0 0-.2-.4.6.6 0 0 0-.4-.2H12v-3.6h2a.6.6 0 0 0 .3-.1.5.5 0 0 0 .2-.4.5.5 0 0 0-.2-.4.6.6 0 0 0-.4-.2H12V9.1h2.2a.6.6 0 0 0 .4-.2.5.5 0 0 0 .2-.4.5.5 0 0 0-.2-.4.6.6 0 0 0-.4-.1H12V5.3a1 1 0 0 0 .5-.1l.3-.2a18.7 18.7 0 0 1 7-2.3h.2a2 2 0 0 1 2 2v12a2 2 0 0 1-1.7 2H20a25.7 25.7 0 0 0-7.5 2.5 1 1 0 0 1-.5.1Z" opacity=".4" />
+        <path d="M12 21.3a.9.9 0 0 1-.5 0 25.4 25.4 0 0 0-7.4-2.5h-.4a2 2 0 0 1-1.7-2V4.6a2 2 0 0 1 2-2h.2A18.7 18.7 0 0 1 11.3 5h.2a1 1 0 0 0 .5.2V8H9.6a.6.6 0 0 0-.4.1.5.5 0 0 0-.2.4v9a.5.5 0 0 0 .2.3.5.5 0 0 0 .4.2H12v3.3Zm0-4.4h-1a.6.6 0 0 1-.5-.1.5.5 0 0 1-.1-.4v-2.6a.5.5 0 0 1 .1-.3.6.6 0 0 1 .4-.2H12V17Zm0-4.7h-1a.6.6 0 0 1-.5-.1.5.5 0 0 1-.1-.4v-2a.5.5 0 0 1 .1-.5.6.6 0 0 1 .4-.1H12v3.1Zm6.5-4.6a.5.5 0 0 1-.3-.1L17 6.7l-1.2.8a.5.5 0 0 1-.3 0 .5.5 0 0 1-.3 0A.5.5 0 0 1 15 7V3.9a20.1 20.1 0 0 1 4-1.1V7a.5.5 0 0 1-.5.5Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-book-ch"></use></svg></i> -->
+    <symbol id="ic-book-ch" viewBox="0 0 24 24">
+      <title>BOOK-CH</title>
+      <g fill="currentColor">
+        <path d="M12 21.3v-6.8l.3-.2a4.2 4.2 0 0 0 3 1.4.5.5 0 0 0 .6-.5.5.5 0 0 0-.5-.5 3.3 3.3 0 0 1-2.4-1.2 5.7 5.7 0 0 0 1.2-3h1.2a.5.5 0 0 0 .5-.6.5.5 0 0 0-.5-.5h-2.9v-.6a.5.5 0 0 0-.5-.5v-3a1 1 0 0 0 .5-.1l.3-.2a18.7 18.7 0 0 1 7-2.3h.2a2 2 0 0 1 2 2v12a2 2 0 0 1-1.7 2H20a25.6 25.6 0 0 0-7.5 2.5 1 1 0 0 1-.5.1Zm0-8.2v-2.7h1.2a4.8 4.8 0 0 1-1.2 2.7Z" opacity=".4" />
+        <path d="M12 21.3a.9.9 0 0 1-.5 0 25.4 25.4 0 0 0-7.4-2.5h-.4a2 2 0 0 1-1.7-2V4.6a2 2 0 0 1 2-2h.2A18.8 18.8 0 0 1 11.3 5h.2a1 1 0 0 0 .5.2v3a.5.5 0 0 0-.5.5v.6H8.6a.5.5 0 0 0-.5.5.5.5 0 0 0 .5.5H12v2.7a4.5 4.5 0 0 1-3.4 1.6.5.5 0 0 0-.5.5.5.5 0 0 0 .5.5 5.4 5.4 0 0 0 3.4-1.2v6.8Zm6.5-13.7a.5.5 0 0 1-.3-.1L17 6.7l-1.2.8a.5.5 0 0 1-.3 0 .5.5 0 0 1-.3 0A.5.5 0 0 1 15 7V3.9a20.2 20.2 0 0 1 4-1.1V7a.5.5 0 0 1-.5.5Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-data"></use></svg></i> -->
+    <symbol id="ic-data" viewBox="0 0 24 24">
+      <title>DATA</title>
+      <g fill="currentColor">
+        <path d="M17.2 22a1.2 1.2 0 0 1-1.2-1.2v-1.6a1.2 1.2 0 0 1 1.2-1.2h3.6a1.2 1.2 0 0 1 1.2 1.2v1.6a1.2 1.2 0 0 1-1.2 1.2Zm0-7.5a1.2 1.2 0 0 1-1.2-1.2v-1.6a1.2 1.2 0 0 1 1.2-1.2h3.6a1.2 1.2 0 0 1 1.2 1.2v1.6a1.2 1.2 0 0 1-1.2 1.2ZM4 8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2Zm13.2-1A1.2 1.2 0 0 1 16 5.8V4.2A1.2 1.2 0 0 1 17.2 3h3.6A1.2 1.2 0 0 1 22 4.2v1.6A1.2 1.2 0 0 1 20.8 7Z" />
+        <path d="M16 13.3a.8.8 0 0 0 0-1.6h-2.8v-6H16a.8.8 0 0 0 .8-.7.8.8 0 0 0-.8-.8H9a.8.8 0 0 0-.8.8.8.8 0 0 0 .8.8h2.8V18a2.7 2.7 0 0 0 2.7 2.8H16a.8.8 0 0 0 0-1.6h-1.5a1.3 1.3 0 0 1-1.3-1.2v-4.8Z" opacity=".4" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-cup"></use></svg></i> -->
+    <symbol id="ic-cup" viewBox="0 0 24 24">
+      <title>CUP</title>
+      <g fill="currentColor">
+        <path d="M6 22A.8.8 0 015.3 21.2.8.8 0 016 20.5H7V20.3A2 2 0 019 18.3H11.2V16A6.6 6.6 0 0012 16 6.7 6.7 0 0012.8 16V18.3H15A2 2 0 0117 20.3V20.5H18A.8.8 0 0118.8 21.2.8.8 0 0118 22ZM19 9V6A4 4 0 0018.6 4.3H19.1A2.5 2.5 0 0121.7 6.8 5.5 5.5 0 0120.2 10.5 4.9 4.9 0 0118.5 11.6 6.8 6.8 0 0019 9ZM3.8 10.5A5.5 5.5 0 012.3 6.8 2.5 2.5 0 014.8 4.3H5.4A3.9 3.9 0 005 6V9A6.8 6.8 0 005.5 11.6 4.9 4.9 0 013.8 10.5ZM13.2 11.4 12.3 11A.9.9 0 0011.7 11L10.8 11.4A.6.6 0 019.9 10.7L9.9 9.7A.8.8 0 009.8 9.2L9.2 8.5A.6.6 0 019.5 7.3L10.5 7.1A.8.8 0 0010.9 6.8L11.4 6A.6.6 0 0112.6 6L13.1 6.8A.8.8 0 0013.5 7.1L14.5 7.3A.6.6 0 0114.8 8.5L14.2 9.2A.8.8 0 0014.1 9.7L14.1 10.7C14.1 11.1 13.9 11.4 13.5 11.4A.9.9 0 0113.2 11.4Z" opacity=".4" />
+        <path d="M15 2H9a4 4 0 00-4 4v3a7 7 0 0014 0V6a4 4 0 00-4-4Zm-.2 6.4-.6.8a.8.8 0 00-.1.5v1a.6.6 0 01-1 .7l-.8-.4a1 1 0 00-.6 0l-.9.4a.6.6 0 01-1-.7l.1-1a.8.8 0 00-.1-.5l-.6-.8a.6.6 0 01.3-1l1-.3a.8.8 0 00.4-.3l.5-.8a.6.6 0 011.2 0l.5.8a.8.8 0 00.4.3l1 .2a.6.6 0 01.3 1.1Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-diamond"></use></svg></i> -->
+    <symbol id="ic-diamond" viewBox="0 0 24 24">
+      <title>DIAMOND</title>
+      <g fill="currentColor">
+        <path d="m21.2 13.2-6.8 7.6a3.1 3.1 0 0 1-4.8 0l-6.8-7.6a3.5 3.5 0 0 1-.6-3.4L3 8h18l.8 1.8a3.5 3.5 0 0 1-.6 3.4Z" />
+        <path d="M21 8H3l1.8-4a2.9 2.9 0 0 1 2.9-1.9h8.6a2.9 2.9 0 0 1 3 2Z" opacity=".4" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-archive-book"></use></svg></i> -->
+    <symbol id="ic-archive-book" viewBox="0 0 24 24">
+      <title>ARCHIVE-BOOK</title>
+      <g fill="currentColor">
+        <path d="M21 7v10c0 3-1.5 5-5 5H8c-3.5 0-5-2-5-5V7c0-3 1.5-5 5-5h8c3.5 0 5 2 5 5Z" opacity=".4" />
+        <path d="M9 18.8a.8.8 0 0 1-.7-.8.8.8 0 0 1 .7-.7h8.5a.8.8 0 0 1 .8.7.8.8 0 0 1-.8.8Zm4.3-4a.8.8 0 0 1-.8-.8.8.8 0 0 1 .8-.7h4.2a.8.8 0 0 1 .8.7.8.8 0 0 1-.8.8Zm-4.8-5V2h7v7.9a.5.5 0 0 1-.8.3l-2.4-2.1a.5.5 0 0 0-.6 0l-2.4 2.1a.5.5 0 0 1-.3.2.5.5 0 0 1-.5-.5Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-language-ch"></use></svg></i> -->
+    <symbol id="ic-language-ch" viewBox="0 0 24 24">
+      <title>LANGUAGE-CH</title>
+      <g fill="currentColor">
+        <path d="M16.2 2H7.8C4.2 2 2 4.2 2 7.8v8.4C2 19.8 4.2 22 7.8 22h8.4c3.6 0 5.8-2.2 5.8-5.8V7.8C22 4.2 19.8 2 16.2 2Z" opacity=".4" />
+        <path d="M17 16a4.8 4.8 0 0 1-3.6-1.7 8.5 8.5 0 0 0 1.8-4.6H17a.8.8 0 0 0 0-1.5h-2.5c-.1 0 0 0 0 0h-1.8v-1a.8.8 0 0 0-1.5 0v1H7a.8.8 0 0 0 0 1.5h6.7A6.9 6.9 0 0 1 7 16a.8.8 0 0 0 0 1.5 8 8 0 0 0 5.4-2.1 6.3 6.3 0 0 0 4.6 2 .8.8 0 0 0 .7-.7.7.7 0 0 0-.7-.7Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-language-en"></use></svg></i> -->
+    <symbol id="ic-language-en" viewBox="0 0 24 24">
+      <title>LANGUAGE-EN</title>
+      <g fill="currentColor">
+        <path d="M16.2 2H7.8C4.2 2 2 4.2 2 7.8v8.4C2 19.8 4.2 22 7.8 22h8.4c3.6 0 5.8-2.2 5.8-5.8V7.8C22 4.2 19.8 2 16.2 2Z" opacity=".4" />
+        <path d="M14.6 12.4h-4a.8.8 0 0 0-.6.2.6.6 0 0 0-.2.4v3a.6.6 0 0 0 .2.5.8.8 0 0 0 .6.2h4.6a.8.8 0 0 1 .6.2.6.6 0 0 1 .2.4.6.6 0 0 1-.2.5.8.8 0 0 1-.6.2H8.7a.8.8 0 0 1-.5-.2.6.6 0 0 1-.2-.4V6.6a.6.6 0 0 1 .2-.4.8.8 0 0 1 .5-.2H15a.9.9 0 0 1 .5.2.6.6 0 0 1 .3.4.6.6 0 0 1-.3.5.8.8 0 0 1-.5.2h-4.3a.8.8 0 0 0-.6.2.6.6 0 0 0-.2.4v2.6a.6.6 0 0 0 .2.4.8.8 0 0 0 .6.2h4a.8.8 0 0 1 .5.2.6.6 0 0 1 .3.4.6.6 0 0 1-.3.5.8.8 0 0 1-.5.2Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-eye"></use></svg></i> -->
+    <symbol id="ic-eye" viewBox="0 0 24 24">
+      <title>EYE</title>
+      <g fill="currentColor">
+        <path d="M21.3 9.2c-2.4-3.7-5.7-5.8-9.3-5.8A9.7 9.7 0 0 0 7 5a13.4 13.4 0 0 0-4.3 4.3 5.8 5.8 0 0 0 0 5.6c2.4 3.7 5.7 5.8 9.3 5.8a9.7 9.7 0 0 0 5-1.5 13.4 13.4 0 0 0 4.3-4.3 5.8 5.8 0 0 0 0-5.6ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Z" opacity=".4" />
+        <path d="M12 9.1a2.9 2.9 0 1 0 2.9 2.9A2.9 2.9 0 0 0 12 9.1Z" data-name="Vector" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-eye-slash"></use></svg></i> -->
+    <symbol id="ic-eye-slash" viewBox="0 0 24 24">
+      <title>eye-slash</title>
+      <g fill="currentColor">
+        <path d="m7.3 19.3 3.5-3.4a3.8 3.8 0 0 0 1.2.1 4 4 0 0 0 4-4 3.9 3.9 0 0 0-.1-1.2L19.6 7a14.9 14.9 0 0 1 1.7 2.1 5.8 5.8 0 0 1 0 5.7 13.4 13.4 0 0 1-4.2 4.3 9.7 9.7 0 0 1-5.1 1.5 9.5 9.5 0 0 1-4.7-1.3Zm-1.6-1a14.3 14.3 0 0 1-3-3.5 5.8 5.8 0 0 1 0-5.6A13.4 13.4 0 0 1 7 4.9a9.8 9.8 0 0 1 5-1.5 10 10 0 0 1 6.3 2.3l-3.4 3.4A4 4 0 0 0 12 8a4 4 0 0 0-4 4 4 4 0 0 0 1 2.9l-3.3 3.4Z" opacity=".4" />
+        <path d="M2.2 21.8a.8.8 0 0 1 0-1.1l7.3-7.3a2.8 2.8 0 0 1-.4-1.4A2.9 2.9 0 0 1 12 9.1a2.8 2.8 0 0 1 1.4.4l7.3-7.3a.8.8 0 0 1 1 0 .7.7 0 0 1 0 1.1L3.4 21.8a.8.8 0 0 1-.5.2.8.8 0 0 1-.6-.2Zm9.6-7 3-3a.5.5 0 0 1 0 .2 2.9 2.9 0 0 1-2.8 2.9.5.5 0 0 1-.2 0Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-business-plan"></use></svg></i> -->
+    <symbol id="ic-business-plan" viewBox="0 0 28 28">
+      <title>BUSINESS-PLAN</title>
+      <path fill="none" d="M0 0h28v28H0z" />
+      <path fill="currentColor" d="M11.1 13.3h-.9a.4.4 0 1 1 0-.9h2.2a.9.9 0 0 0 0-1.7h-.8v-1a.9.9 0 0 0-1.8 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4Zm0 0h-.9a.4.4 0 1 1 0-.9h2.2a.9.9 0 0 0 0-1.7h-.8v-1a.9.9 0 0 0-1.8 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4Zm0 0h-.9a.4.4 0 1 1 0-.9h2.2a.9.9 0 0 0 0-1.7h-.8v-1a.9.9 0 0 0-1.8 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4Zm12-5.3a.9.9 0 0 0-.9.9v2.7H17V6.2h2.7a.9.9 0 0 0 0-1.8H5.3a.9.9 0 0 0-.9 1V23a.9.9 0 0 0 1 .9H23a.9.9 0 0 0 .9-.9V9a.9.9 0 0 0-.9-1Zm-.9 14.2H17V17h5.3Zm0-7H16a.9.9 0 0 0-.9.8v6.2H6.2v-16h9v6.2a.9.9 0 0 0 .8 1h6.2Zm-12-2.8h2.2a.9.9 0 0 0 0-1.7h-.8v-1a.9.9 0 0 0-1.8 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4h-.9a.4.4 0 1 1 0-.9Zm1 1h-1a.4.4 0 1 1 0-1h2.2a.9.9 0 0 0 0-1.7h-.8v-1a.9.9 0 0 0-1.8 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4Zm0 0h-1a.4.4 0 1 1 0-1h2.2a.9.9 0 0 0 0-1.7h-.8v-1a.9.9 0 0 0-1.8 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4Zm0 0h-1a.4.4 0 1 1 0-1h2.2a.9.9 0 0 0 0-1.7h-.8v-1a.9.9 0 0 0-1.8 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4Zm0 0h-1a.4.4 0 1 1 0-1h2.2a.9.9 0 0 0 0-1.7h-.8v-1a.9.9 0 0 0-1.8 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4Zm0 0h-1a.4.4 0 1 1 0-1h2.2a.9.9 0 0 0 0-1.7h-.8v-1a.9.9 0 0 0-1.8 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4Zm12-5.4a.9.9 0 0 0-1 .9v2.7H17V6.2h2.7a.9.9 0 0 0 0-1.8H5.3a.9.9 0 0 0-.9 1V23a.9.9 0 0 0 1 .9H23a.9.9 0 0 0 .9-.9V9a.9.9 0 0 0-.9-1Zm-1 14.2H17V17h5.3Zm0-7H16a.9.9 0 0 0-.9.8v6.2H6.2v-16h9v6.2a.9.9 0 0 0 .8 1h6.2Zm-12-2.8h2.2a.9.9 0 0 0 0-1.7h-.8v-1a.9.9 0 0 0-1.8 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4h-.9a.4.4 0 1 1 0-.9Zm1 1h-1a.4.4 0 1 1 0-1h2.2a.9.9 0 0 0 0-1.7h-.8v-1a.9.9 0 0 0-1.8 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4Zm0 0h-1a.4.4 0 1 1 0-1h2.2a.9.9 0 0 0 0-1.7h-.8v-1a.9.9 0 0 0-1.8 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4Zm0 0h-1a.4.4 0 1 1 0-1h2.2a.9.9 0 0 0 0-1.7h-.8v-1a.9.9 0 0 0-1.8 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4Zm0 0h-1a.4.4 0 1 1 0-1h2.2a.9.9 0 0 0 0-1.7h-.8v-1a.9.9 0 0 0-1.8 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4Zm16-8.7-3.5-3.6a1 1 0 0 0-.6-.2H1.8a.9.9 0 0 0-1 .9v24.9a.9.9 0 0 0 1 .8h24.9a.9.9 0 0 0 .8-.8V5.3a1 1 0 0 0-.2-.6Zm-1.4 21H2.7v-23h19.5v2.6a.9.9 0 0 0 1 1h2.6ZM22.2 9v2.7H17V6.2h2.7a.9.9 0 0 0 0-1.8H5.3a.9.9 0 0 0-.9 1V23a.9.9 0 0 0 1 .9H23a.9.9 0 0 0 .9-.9V9a.9.9 0 1 0-1.8 0Zm0 13.3H17V17h5.3Zm0-7H16a.9.9 0 0 0-.9.8v6.2H6.2v-16h9v6.2a.9.9 0 0 0 .8 1h6.2Zm-12-2.8h2.2a.9.9 0 0 0 0-1.7h-.9v-1a.9.9 0 0 0-1.7 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4h-.9a.4.4 0 1 1 0-.9Zm1 1h-1a.4.4 0 1 1 0-1h2.2a.9.9 0 0 0 0-1.7h-.9v-1a.9.9 0 0 0-1.7 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4Zm0 0h-1a.4.4 0 1 1 0-1h2.2a.9.9 0 0 0 0-1.7h-.9v-1a.9.9 0 0 0-1.7 0v1a2.2 2.2 0 0 0 .4 4.4h1a.4.4 0 0 1 0 .9H8.8a.9.9 0 0 0 0 1.8h.9v.9a.9.9 0 0 0 1.8 0v-1a2.2 2.2 0 0 0-.5-4.4Z" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-sitemap"></use></svg></i> -->
+    <symbol id="ic-sitemap" viewBox="0 0 32 32">
+      <title>SITEMAP</title>
+      <g fill="currentColor">
+        <path d="M7.6 22.6H1.9a1 1 0 0 0-.9.9v3.8a1 1 0 0 0 1 .9h5.6a1 1 0 0 0 .9-1v-3.7a1 1 0 0 0-1-1ZM18.8 22.6h-5.6a1 1 0 0 0-1 .9v3.8a1 1 0 0 0 1 .9h5.6a1 1 0 0 0 1-1v-3.7a1 1 0 0 0-1-1ZM5.7 18.8h7.5a1 1 0 0 0 1-1v-3.7a1 1 0 0 0-1-1H5.7a1 1 0 0 0-1 1V18a1 1 0 0 0 1 1ZM17.9 14.1V18a1 1 0 0 0 1 1h7.4a1 1 0 0 0 1-1V14a1 1 0 0 0-1-1h-7.5a1 1 0 0 0-1 1ZM11.3 9.4h9.4a1 1 0 0 0 1-.9V4.8a1 1 0 0 0-1-1h-9.4a1 1 0 0 0-1 1v3.7a1 1 0 0 0 1 1ZM30 22.6h-5.6a1 1 0 0 0-.9.9v3.8a1 1 0 0 0 1 .9H30a1 1 0 0 0 .9-1v-3.7a1 1 0 0 0-1-1Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-share"></use></svg></i> -->
+    <symbol id="ic-share" viewBox="0 0 24 24">
+      <title>SHARE</title>
+      <g fill="currentColor">
+        <path d="M8 21a.7.7 0 0 1-.4-1 .7.7 0 0 1 1-.3 7.5 7.5 0 0 0 2 .7 7.6 7.6 0 0 0 2.8 0 7.5 7.5 0 0 0 2-.6.7.7 0 0 1 1 .3.7.7 0 0 1-.4 1 9 9 0 0 1-4 .9 9 9 0 0 1-4-1Zm-4.3-8.2A.7.7 0 0 1 3 12a9 9 0 0 1 3.8-6.5.7.7 0 0 1 1 .2.7.7 0 0 1-.1 1A7.6 7.6 0 0 0 4.5 12a.7.7 0 0 1-.8.7Zm16.7 0a.7.7 0 0 1-.8-.7 7.6 7.6 0 0 0-3.2-5.5.7.7 0 0 1-.2-1 .7.7 0 0 1 1-.2 9.1 9.1 0 0 1 3.9 6.5.7.7 0 0 1-.7.8Z" opacity=".4" />
+        <path d="M16.1 16.7a2.8 2.8 0 0 1 2.8-2.8 2.8 2.8 0 0 1 2.9 2.8 2.8 2.8 0 0 1-2.9 2.8 2.8 2.8 0 0 1-2.8-2.8Zm-13.9 0A2.8 2.8 0 0 1 5 13.9 2.8 2.8 0 0 1 8 16.7 2.8 2.8 0 0 1 5 19.5a2.8 2.8 0 0 1-2.8-2.8Zm7-11.9A2.8 2.8 0 0 1 12 2 2.8 2.8 0 0 1 15 4.8 2.8 2.8 0 0 1 12 7.7a2.8 2.8 0 0 1-2.8-2.9Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-send"></use></svg></i> -->
+    <symbol id="ic-send" viewBox="0 0 24 24">
+      <title>SEND</title>
+      <path fill="currentColor" d="M15.4 8.6 10.7 15a1 1 0 0 0 0 1l2.5 5.3a1 1 0 0 0 .9.6 1 1 0 0 0 .9-.6l7-18a1 1 0 0 0-.3-1.1l-6.3 6.3Z" />
+      <path fill="currentColor" d="m20.7 2-18 7a1 1 0 0 0-.1 1.8l5.3 2.5a1 1 0 0 0 1 0l6.5-4.7 6.3-6.3a1 1 0 0 0-1-.2Z" opacity=".3" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-dim"></use></svg></i> -->
+    <symbol id="ic-dim" viewBox="0 0 24 24">
+      <title>DIM</title>
+      <rect width="20" height="20" x="2" y="2" fill="currentColor" opacity=".3" rx="5" />
+      <rect width="12" height="2" x="6" y="10.9" fill="currentColor" rx="1" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-add"></use></svg></i> -->
+    <symbol id="ic-add" viewBox="0 0 24 24">
+      <title>ADD</title>
+      <rect width="20" height="20" x="2" y="2" fill="currentColor" opacity=".3" rx="5" />
+      <rect width="12" height="2" x="10.9" y="17.8" fill="currentColor" rx="1" transform="rotate(-90 10.9 17.8)" />
+      <rect width="12" height="2" x="6" y="10.9" fill="currentColor" rx="1" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-love"></use></svg></i> -->
+    <symbol id="ic-love" viewBox="0 0 24 24">
+      <title>LOVE</title>
+      <path fill="currentColor" d="M18.4 4.7A5 5 0 0 0 12 5.9a5 5 0 0 0-6.4-1.2 5.3 5.3 0 0 0-2.3 6.2C4 14.9 9.7 20 12 20c2.3 0 7.9-5.1 8.7-9.1a5.3 5.3 0 0 0-2.3-6.2Z" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-more"></use></svg></i> -->
+    <symbol id="ic-more" viewBox="0 0 24 24">
+      <title>MORE</title>
+      <rect width="4" height="4" x="10" y="10" fill="currentColor" rx="2" />
+      <rect width="4" height="4" x="17" y="10" fill="currentColor" rx="2" />
+      <rect width="4" height="4" x="3" y="10" fill="currentColor" rx="2" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-more-sq"></use></svg></i> -->
+    <symbol id="ic-more-sq" viewBox="0 0 24 24">
+      <title>MORE</title>
+      <rect width="20" height="20" x="2" y="2" fill="currentColor" opacity=".3" rx="4" />
+      <rect width="2.6" height="2.6" x="11" y="11" fill="currentColor" rx="1.3" />
+      <rect width="2.6" height="2.6" x="15" y="11" fill="currentColor" rx="1.3" />
+      <rect width="2.6" height="2.6" x="7" y="11" fill="currentColor" rx="1.3" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-character-b"></use></svg></i> -->
+    <symbol id="ic-character-b" viewBox="0 0 24 24">
+      <title>CHARACTER BOTTOM</title>
+      <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-character-t"></use></svg></i> -->
+    <symbol id="ic-character-t" viewBox="0 0 24 24">
+      <title>CHARACTER TOP</title>
+      <path d="M12.5657 11.3657L16.75 15.55C17.1642 15.9643 17.8358 15.9643 18.25 15.55C18.6642 15.1358 18.6642 14.4643 18.25 14.05L12.7071 8.50716C12.3166 8.11663 11.6834 8.11663 11.2929 8.50715L5.75 14.05C5.33579 14.4643 5.33579 15.1358 5.75 15.55C6.16421 15.9643 6.83579 15.9643 7.25 15.55L11.4343 11.3657C11.7467 11.0533 12.2533 11.0533 12.5657 11.3657Z" fill="currentColor" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-arrow-l-d"></use></svg></i> -->
+    <symbol id="ic-arrow-l-d" viewBox="0 0 24 24">
+      <title>ARROW LEFT</title>
+      <rect width="13" height="2" x="6" y="11" fill="currentColor" opacity=".5" rx="1" />
+      <path fill="currentColor" d="m8.6 11.4 4.2-4.2a1 1 0 0 0-1.6-1.5l-5.5 5.6a1 1 0 0 0 0 1.4l5.5 5.6a1 1 0 0 0 1.6-1.6l-4.2-4.1a.8.8 0 0 1 0-1.2Z" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-arrow-r-d"></use></svg></i> -->
+    <symbol id="ic-arrow-r-d" viewBox="0 0 24 24">
+      <title>ARROW RIGHT</title>
+      <rect width="13" height="2" x="18" y="13" opacity=".5" fill="currentColor" rx="1" transform="rotate(-180 18 13)" />
+      <path fill="currentColor" d="m15.4 12.6-4.2 4.2a1 1 0 0 0 1.6 1.4l5.5-5.5c.4-.4.4-1 0-1.4l-5.6-5.6a1 1 0 0 0-1.4 1.5l4.1 4.2c.3.3.3.9 0 1.2Z" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-arrow-l"></use></svg></i> -->
+    <symbol id="ic-arrow-l" viewBox="0 0 24 24">
+      <title>ARROW LEFT</title>
+      <path d="M9.60001 11H21C21.6 11 22 11.4 22 12C22 12.6 21.6 13 21 13H9.60001V11Z" fill="currentColor" />
+      <path opacity="0.3" d="M9.6 20V4L2.3 11.3C1.9 11.7 1.9 12.3 2.3 12.7L9.6 20Z" fill="currentColor" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-arrow-r"></use></svg></i> -->
+    <symbol id="ic-arrow-r" viewBox="0 0 24 24">
+      <title>ARROW RIGHT</title>
+      <path fill="currentColor" d="M14.4 11H3c-.6 0-1 .4-1 1s.4 1 1 1h11.4v-2Z" />
+      <path fill="currentColor" d="M14.4 20V4l7.3 7.3c.4.4.4 1 0 1.4L14.4 20Z" opacity=".36" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-moneys"></use></svg></i> -->
+    <symbol id="ic-moneys" viewBox="0 0 24 24">
+      <title>MONEYS</title>
+      <g fill="currentColor">
+        <path d="M19.3 8v5c0 3.1-1.8 4.5-4.4 4.5H6.1a5.8 5.8 0 0 1-1.3-.2 3.9 3.9 0 0 1-.7-.2c-1.5-.5-2.4-1.8-2.4-4V7.9c0-3 1.8-4.4 4.4-4.4H15c2.2 0 3.8 1 4.3 3.1a7.2 7.2 0 0 1 .1 1.3Z" opacity=".4" />
+        <path d="M22.3 11v5c0 3.1-1.8 4.5-4.4 4.5H9.1a5.6 5.6 0 0 1-2-.4 3.5 3.5 0 0 1-2.3-2.8 5.8 5.8 0 0 0 1.3.2H15c2.6 0 4.4-1.4 4.4-4.4V7.9a6.3 6.3 0 0 0-.1-1.3c1.9.4 3.1 1.8 3.1 4.3Z" />
+        <path d="M13.1 10.5a2.6 2.6 0 1 1-2.6-2.6 2.6 2.6 0 0 1 2.6 2.6ZM4.8 8.3A.8.8 0 0 0 4 9v3a.8.8 0 0 0 .8.8.8.8 0 0 0 .7-.8V9a.7.7 0 0 0-.7-.8ZM16.2 8.3a.8.8 0 0 0-.7.7v3a.8.8 0 0 0 .7.8.8.8 0 0 0 .8-.8V9a.7.7 0 0 0-.8-.8Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-cost"></use></svg></i> -->
+    <symbol id="ic-cost" viewBox="0 0 24 24">
+      <title>COST</title>
+      <path fill="currentColor" d="M12.5 22c-.6 0-1-.4-1-1V3c0-.6.4-1 1-1s1 .4 1 1v18c0 .6-.4 1-1 1Z" opacity=".3" />
+      <path fill="currentColor" d="M17.8 14.7a4 4 0 0 1-.6 2.2c-.4.7-1 1.2-1.9 1.5-.8.4-1.8.6-2.9.6-1.3 0-2.4-.3-3.3-.8-.6-.4-1.1-.8-1.5-1.5-.4-.6-.6-1.2-.6-1.8l.3-.9c.2-.2.5-.4.9-.4.3 0 .5.1.7.3l.5.8.6 1.1.8.7c.4.2.8.3 1.4.3.8 0 1.5-.2 2-.6.5-.4.8-.9.8-1.4 0-.4-.1-.8-.4-1.1a2 2 0 0 0-1.1-.6l-1.7-.5c-1-.2-1.8-.5-2.4-.8a4 4 0 0 1-1.6-1.2c-.4-.5-.6-1.2-.6-2 0-.7.2-1.4.6-2 .4-.6 1-1 1.8-1.3a7.6 7.6 0 0 1 4.9-.2c.6.2 1.1.5 1.5.8.4.3.7.7.9 1.1.2.4.3.7.3 1.1l-.3.9c-.2.3-.5.4-.9.4l-.7-.2-.5-.8c-.2-.5-.5-.9-.9-1.2-.4-.3-.9-.4-1.7-.4-.7 0-1.3.2-1.7.5-.4.3-.7.7-.7 1.1l.2.7.6.5c.2.1.5.3.8.3l1.3.4 2.1.6 1.6.8c.4.3.8.7 1 1.2.2.5.4 1.1.4 1.8Z" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-question"></use></svg></i> -->
+    <symbol id="ic-question" viewBox="0 0 24 24">
+      <title>QUESTION</title>
+      <rect width="20" height="20" x="2" y="2" fill="currentColor" opacity=".3" rx="10" />
+      <path fill="currentColor" d="M11.3 13.7a2.4 2.4 0 0 1 .6-1.7l.7-.6.7-.7c.2-.2.3-.5.3-.8 0-.3-.1-.5-.3-.8-.2-.3-.6-.4-1.2-.4s-1 .2-1.3.5c-.2.3-.3.6-.3 1v.4H8.8V10a2.7 2.7 0 0 1 1.5-2.5c.5-.2 1.2-.4 2-.4.9 0 1.7.2 2.2.7.6.4.9 1 .9 1.8 0 .5 0 .9-.2 1.2l-.5.7-.8.7-.8.7c-.2.3-.3.5-.3.9v.4h-1.5v-.6Zm-.1 1.5h1.7V17h-1.7v-1.8Z" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-list-sm"></use></svg></i> -->
+    <symbol id="ic-list-sm" viewBox="0 0 24 24">
+      <title>LIST</title>
+      <g fill="currentColor">
+        <path d="M4.1 21C2.6 21 2 20.7 2 20v-2c0-.7.6-1 2.1-1h15.8c1.5 0 2.1.3 2.1 1v2c0 .7-.6 1-2.1 1Zm0-14C2.6 7 2 6.7 2 6V4c0-.7.6-1 2.1-1h15.8c1.5 0 2.1.3 2.1 1v2c0 .7-.6 1-2.1 1Z" opacity=".4" />
+        <path d="M19.9 10H4.1c-1.5 0-2.1.3-2.1 1v2c0 .7.6 1 2.1 1h15.8c1.5 0 2.1-.3 2.1-1v-2c0-.7-.6-1-2.1-1Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-grid"></use></svg></i> -->
+    <symbol id="ic-grid" viewBox="0 0 24 24">
+      <title>GRID</title>
+      <g fill="currentColor">
+        <path d="M4.2 22C2.6 22 2 21.4 2 19.8v-4c0-1.7.6-2.3 2.2-2.3h4c1.7 0 2.3.6 2.3 2.2v4c0 1.7-.6 2.3-2.2 2.3Zm15.6-11.5h-4c-1.7 0-2.3-.6-2.3-2V4c0-1.4.6-2 2.2-2h4c1.7 0 2.3.6 2.3 2v4.5c0 1.4-.6 2-2.2 2Z" opacity=".4" />
+        <path d="M15.7 22c-1.6 0-2.2-.6-2.2-2.2v-4c0-1.7.6-2.3 2.2-2.3h4c1.7 0 2.3.6 2.3 2.2v4c0 1.7-.6 2.3-2.2 2.3ZM8.3 10.5h-4c-1.7 0-2.3-.6-2.3-2V4c0-1.4.6-2 2.2-2h4c1.7 0 2.3.6 2.3 2v4.5c0 1.4-.6 2-2.2 2Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-list"></use></svg></i> -->
+    <symbol id="ic-list" viewBox="0 0 24 24">
+      <title>LIST</title>
+      <g fill="currentColor">
+        <path d="M19.9 13.5H4.1c-1.5 0-2.1.6-2.1 2.2v4c0 1.7.6 2.3 2.1 2.3h15.8c1.5 0 2.1-.6 2.1-2.2v-4c0-1.7-.6-2.3-2.1-2.3Z" opacity=".4" />
+        <path d="M19.9 2H4.1C2.6 2 2 2.6 2 4.2v4c0 1.7.6 2.3 2.1 2.3h15.8c1.5 0 2.1-.6 2.1-2.2v-4c0-1.7-.6-2.3-2.1-2.3Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-close"></use></svg></i> -->
+    <symbol id="ic-close" viewBox="0 0 24 24">
+      <title>CLOSE</title>
+      <g fill="currentColor">
+        <path d="M9.2 8.4a.7.7 0 0 1 .5.2L12 11l2.3-2.3a.8.8 0 0 1 1 0 .7.7 0 0 1 .3.6.7.7 0 0 1-.2.5L13 12l2.3 2.3a.7.7 0 0 1 .2.5.7.7 0 0 1-.2.6.8.8 0 0 1-1.1 0L12 13l-2.3 2.3a.8.8 0 0 1-1 0 .7.7 0 0 1-.3-.6.7.7 0 0 1 .2-.5L11 12 8.6 9.7a.7.7 0 0 1-.2-.5.7.7 0 0 1 .2-.6.7.7 0 0 1 .6-.2Z" data-name="Union 178" />
+        <path d="M15 22.8H9c-2.8 0-4.6-.6-6-1.9S1.3 17.8 1.3 15V9c0-2.8.6-4.6 1.9-6S6.2 1.3 9 1.3h6c2.8 0 4.6.6 6 1.9s1.8 3.1 1.8 5.9v6c0 2.8-.6 4.6-1.9 6s-3.1 1.8-5.9 1.8Zm-6-20c-2.3 0-3.9.4-4.8 1.4S2.7 6.7 2.7 9v6c0 2.3.5 3.9 1.5 4.8s2.5 1.4 4.8 1.4h6c2.3 0 3.9-.4 4.8-1.4s1.4-2.5 1.4-4.8V9c0-2.3-.4-3.9-1.4-4.8S17.3 2.7 15 2.7Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-prize"></use></svg></i> -->
+    <symbol id="ic-prize" viewBox="0 0 24 24">
+      <title>PRIZE</title>
+      <path fill="currentColor" d="M14 18v-2h-4v2l-1 2h6l-1-2Z" />
+      <path fill="currentColor" d="M20 4h-3V3c0-.6-.4-1-1-1H8c-.6 0-1 .4-1 1v1H4c-.6 0-1 .4-1 1v4a4 4 0 0 0 4 4l3 3h4l3-3a4 4 0 0 0 4-4V5c0-.6-.4-1-1-1ZM5 9V6h2v5a2 2 0 0 1-2-2Zm14 0a2 2 0 0 1-2 2V6h2v3Zm-2 12v1H7v-1c0-.6.4-1 1-1h8c.6 0 1 .4 1 1ZM10 9c-.6 0-1-.4-1-1V5c0-.6.4-1 1-1s1 .4 1 1v3c0 .6-.4 1-1 1Zm0 4c-.6 0-1-.4-1-1v-1c0-.6.4-1 1-1s1 .4 1 1v1c0 .6-.4 1-1 1Z" opacity=".3" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-user"></use></svg></i> -->
+    <symbol id="ic-user" viewBox="0 0 24 24">
+      <title>USER</title>
+      <g fill="currentColor">
+        <path d="M22 12A10 10 0 1 1 12 2a10 10 0 0 1 10 10Z" opacity=".4" />
+        <path d="M12 7a3.7 3.7 0 0 0 0 7.4h.1A3.7 3.7 0 0 0 12 7ZM18.8 19.4A10 10 0 0 1 12 22a10 10 0 0 1-6.8-2.6A4.3 4.3 0 0 1 7.1 17a9.6 9.6 0 0 1 9.8 0 4.2 4.2 0 0 1 1.9 2.4Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-info"></use></svg></i> -->
+    <symbol id="ic-info" viewBox="0 0 24 24">
+      <title>INFO</title>
+      <rect width="20" height="20" x="2" y="2" fill="currentColor" opacity=".3" rx="10" />
+      <rect width="7" height="2" x="11" y="17" fill="currentColor" rx="1" transform="rotate(-90 11 17)" />
+      <rect width="2" height="2" x="11" y="9" fill="currentColor" rx="1" transform="rotate(-90 11 9)" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-burger"></use></svg></i> -->
+    <symbol id="ic-burger" viewBox="0 0 24 24">
+      <title>BURGER</title>
+      <g id="menu" transform="translate(-684 -380)">
+        <path d="M18,.75H0A.75.75,0,0,1-.75,0,.75.75,0,0,1,0-.75H18a.75.75,0,0,1,.75.75A.75.75,0,0,1,18,.75Z" transform="translate(687 387)" fill="currentColor" />
+        <path d="M-9919.249,5444.5a.751.751,0,0,1-.752-.751.751.751,0,0,1,.752-.75h18a.75.75,0,0,1,.749.75.75.75,0,0,1-.749.751Z" transform="translate(10606.25 -5051.75)" fill="currentColor" opacity="0.34" />
+        <path d="M18,.75H0A.75.75,0,0,1-.75,0,.75.75,0,0,1,0-.75H18a.75.75,0,0,1,.75.75A.75.75,0,0,1,18,.75Z" transform="translate(687 397)" fill="currentColor" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-search"></use></svg></i> -->
+    <symbol id="ic-search" viewBox="0 0 24 24">
+      <title>SEARCH</title>
+      <path fill="currentColor" d="m21.7 18.9-3.1-3.1c-.7 1.1-1.7 2.1-2.8 2.8l3.1 3.1c.4.4 1 .4 1.4 0l1.4-1.4c.4-.4.4-1 0-1.4Z" />
+      <path fill="currentColor" d="M11 20c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9Zm0-16c-3.9 0-7 3.1-7 7s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7Zm-3 7c0-1.7 1.3-3 3-3 .6 0 1-.4 1-1s-.4-1-1-1c-2.8 0-5 2.2-5 5 0 .6.4 1 1 1s1-.4 1-1Z" opacity=".36" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-zoom-in"></use></svg></i> -->
+    <symbol id="ic-zoom-in" viewBox="0 0 24 24">
+      <title>zoom-in</title>
+      <g fill="currentColor">
+        <path d="M20 11a9 9 0 1 1-9-9 9 9 0 0 1 9 9Z" opacity=".4" />
+        <path d="M19.7 22.3c-.4 0-1.2-.4-1.6-1.7a2 2 0 0 1 .2-1.8A2 2 0 0 1 20 18a2 2 0 0 1 2 1 2 2 0 0 1-.3 2.1 2.2 2.2 0 0 1-1.8 1.2 1.2 1.2 0 0 1-.2 0Zm-9.5-8.8v-1.8H8.5a.8.8 0 0 1-.8-.7.8.8 0 0 1 .8-.7h1.7V8.4a.8.8 0 0 1 .8-.7.8.8 0 0 1 .7.7v1.8h1.8a.8.8 0 0 1 .7.7.8.8 0 0 1-.7.8h-1.8v1.7a.8.8 0 0 1-.7.7.8.8 0 0 1-.8-.7Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-search-out"></use></svg></i> -->
+    <symbol id="ic-search-out" viewBox="0 0 24 24">
+      <title>SEARCH</title>
+      <rect width="8.2" height="2" x="17" y="15.1" fill="currentColor" opacity=".5" rx="1" transform="rotate(45 17 15.1)" />
+      <path fill="currentColor" d="M11 19a8 8 0 0 1-8-8 8 8 0 0 1 8-8 8 8 0 0 1 8 8 8 8 0 0 1-8 8Zm0-14c-3.5 0-6 2.5-6 6s2.5 6 6 6 6-2.5 6-6-2.5-6-6-6Z" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-images"></use></svg></i> -->
+    <symbol id="ic-images" viewBox="0 0 24 24">
+      <g fill="currentColor">
+        <path d="M22 8v6l-2-1a2 2 0 0 0-2 0l-5 3a2 2 0 0 1-2 0h-1a2 2 0 0 0-2 0l-5 3a7 7 0 0 1-1-3V8c0-4 2-6 6-6h8c4 0 6 2 6 6Z" opacity=".4" />
+        <path d="M11 8a2 2 0 1 1-2-2 2 2 0 0 1 2 2Zm11 6v2c0 4-2 6-6 6H8c-3 0-5-1-5-3l5-3a2 2 0 0 1 2 0h1a2 2 0 0 0 2 0l5-4a2 2 0 0 1 2 0Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-briefcase"></use></svg></i> -->
+    <symbol id="ic-briefcase" viewBox="0 0 24 24">
+      <title>BRIEFCASE</title>
+      <g fill="currentColor">
+        <path d="M21 7c-.8-1-2.2-1.4-4.2-1.4h-.3c0-1.7 0-3.8-3.7-3.8h-1.6c-3.7 0-3.7 2-3.7 3.7h-.3c-2 0-3.4.6-4.3 1.5a4.5 4.5 0 0 0-.8 3.6v1.1a.2.2 0 0 0 .1 0 15 15 0 0 0 1.5 1 17.2 17.2 0 0 0 5.5 1.8c0 1 .5 2 2.7 2s2.6-1 2.7-2a16.8 16.8 0 0 0 5.7-2l.2-.2a12.8 12.8 0 0 0 1.3-.8l.1-.4v-.7a4.4 4.4 0 0 0-.8-3.4Zm-8 6.8c0 1 0 1.3-1.1 1.3s-1.3-.2-1.3-1.3v-1.2h2.5ZM9 5.6c0-1.8 0-2.4 2.2-2.4h1.6c2.3 0 2.3.6 2.3 2.3H8.9Z" />
+        <path d="M20.5 12.3h-.2a17 17 0 0 1-5.7 2.2c-.1 1-.5 2-2.7 2s-2.6-1-2.7-2a16.7 16.7 0 0 1-5.5-1.9l-.5-.2a15 15 0 0 1-1-.7l.6 6.5c.2 2 1 4 5.4 4h7.6c4.4 0 5.2-2 5.4-4l.7-6.8a12.5 12.5 0 0 1-1.4.9Z" opacity=".4" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-star"></use></svg></i> -->
+    <symbol id="ic-star" viewBox="0 0 24 24">
+      <title>收藏</title>
+      <g fill="currentColor">
+        <path d="M11.1 4.5C11.5 3.8 12.5 3.8 12.9 4.5L15 8.2C15.2 8.4 15.4 8.6 15.7 8.6L19.8 9.5C20.6 9.7 20.9 10.6 20.4 11.2L17.5 14.4C17.3 14.6 17.2 14.9 17.3 15.1L17.7 19.4C17.8 20.1 17 20.7 16.3 20.4L12.4 18.7C12.1 18.6 11.9 18.6 11.6 18.7L7.7 20.4C7 20.7 6.2 20.1 6.3 19.4L6.7 15.1C6.8 14.9 6.7 14.6 6.5 14.4L3.6 11.2C3.1 10.6 3.4 9.7 4.2 9.5L8.3 8.6C8.6 8.6 8.8 8.4 9 8.2L11.1 4.5Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-map"></use></svg></i> -->
+    <symbol id="ic-map" viewBox="0 0 24 24">
+      <title>MAP</title>
+      <g fill="currentColor">
+        <path d="M7.8 22a6 6 0 0 1-.7 0 6 6 0 0 1-1.7-.4C3.2 20.8 2 18.9 2 16.2V7.8C2 4.2 4.2 2 7.8 2h8.4c2.7 0 4.6 1.2 5.4 3.3a6 6 0 0 1 .4 1.8 5.6 5.6 0 0 1 0 .7v8.4a6.1 6.1 0 0 1-1 3.7 4 4 0 0 1-1.1 1 6.1 6.1 0 0 1-3.7 1.1Z" opacity=".4" />
+        <path d="m5.4 21.6.3-.4L21.6 5.3a6 6 0 0 1 .4 1.8L15 14l6 5.9a4 4 0 0 1-1.1 1L14 15.1 7.1 22a6 6 0 0 1-1.7-.4Zm2.3-9.4A4.7 4.7 0 0 1 6 8a3.1 3.1 0 0 1 3.1-2.4A3.1 3.1 0 0 1 12.2 8a4.6 4.6 0 0 1-1.7 4.3 2 2 0 0 1-1.4.6 2 2 0 0 1-1.4-.6Zm.5-3.7a1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1 1 1 0 0 0-1 1Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-gps"></use></svg></i> -->
+    <symbol id="ic-gps" viewBox="0 0 24 24">
+      <title>GPS</title>
+      <g fill="currentColor">
+        <path d="M20 12a8 8 0 1 1-8-8 8 8 0 0 1 8 8Z" opacity=".4" />
+        <path d="M15.1 12A3.1 3.1 0 1 1 12 8.9a3.1 3.1 0 0 1 3.1 3.1ZM12.8 2v2a6 6 0 0 0-.8 0 6 6 0 0 0-.7 0V2a.8.8 0 0 1 .7-.8.8.8 0 0 1 .8.8ZM4 12a6.2 6.2 0 0 0 0 .8H2a.8.8 0 0 1-.8-.8.8.8 0 0 1 .8-.8h2a6.2 6.2 0 0 0 0 .8ZM12.8 20v2a.8.8 0 0 1-.8.7.8.8 0 0 1-.8-.7v-2a6 6 0 0 0 .8 0 6 6 0 0 0 .7 0ZM22.8 12a.8.8 0 0 1-.8.8h-2a6.2 6.2 0 0 0 0-.8 6.2 6.2 0 0 0 0-.8h2a.8.8 0 0 1 .8.8Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-route"></use></svg></i> -->
+    <symbol id="ic-route" viewBox="0 0 24 24">
+      <title>ROUTE</title>
+      <g fill="currentColor">
+        <path fill="currentColor" d="M16.2 2H7.8C4.2 2 2 4.2 2 7.8v8.4C2 19.8 4.2 22 7.8 22h8.4c3.6 0 5.8-2.2 5.8-5.8V7.8C22 4.2 19.8 2 16.2 2Z" opacity=".4" />
+        <path fill="currentColor" d="M17.4 9 15 16.7a2 2 0 0 1-3.6 0l-.7-2a1.9 1.9 0 0 0-1.3-1.2l-2-.7a2 2 0 0 1 0-3.7L15 6.6a2 2 0 0 1 2.4 2.5Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-location"></use></svg></i> -->
+    <symbol id="ic-location" viewBox="0 0 24 24">
+      <title>LOCATION</title>
+      <g fill="currentColor">
+        <path d="M20.6 8.4A8.6 8.6 0 0 0 12 1.7a8.6 8.6 0 0 0-8.6 6.7c-1.2 5.2 2 9.6 4.8 12.3a5.4 5.4 0 0 0 7.6 0c2.8-2.7 6-7 4.8-12.3Z" opacity=".4" />
+        <path d="M15.2 10.3A3.1 3.1 0 1 1 12 7.2a3.1 3.1 0 0 1 3.2 3.1Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-filter"></use></svg></i> -->
+    <symbol id="ic-filter" viewBox="0 0 24 24">
+      <title>FILTER</title>
+      <g fill="currentColor">
+        <path d="M17.6 21.3V12h-1a.9.9 0 0 1-.8-1 .9.9 0 0 1 .9-.8h2.7a.9.9 0 0 1 .9.9.9.9 0 0 1-1 .9h-.9v9.3a.9.9 0 0 1-.9.9.9.9 0 0 1-.9-.9Zm-13 0V12h-1a.9.9 0 0 1-.9-1 .9.9 0 0 1 1-.8h2.6a.9.9 0 0 1 1 .9.9.9 0 0 1-1 .9h-1v9.3a.9.9 0 0 1-.8.9.9.9 0 0 1-1-.9Zm13-14V2.8a.9.9 0 0 1 1-.9.9.9 0 0 1 .8.9v4.6a.9.9 0 0 1-.9 1 .9.9 0 0 1-.9-1Zm-13 0V2.8a.9.9 0 0 1 .9-.9.9.9 0 0 1 .9.9v4.6a.9.9 0 0 1-1 1 .9.9 0 0 1-.8-1Z" opacity=".4" />
+        <path d="M11.1 21.3v-4.6a.9.9 0 0 1 .9-1 .9.9 0 0 1 .9 1v4.6a.9.9 0 0 1-.9.9.9.9 0 0 1-.9-.9Zm-1-7.5a.9.9 0 0 1-.9-.9.9.9 0 0 1 1-.9h.9V2.7a.9.9 0 0 1 .9-.9.9.9 0 0 1 .9.9V12h1a.9.9 0 0 1 .9 1 .9.9 0 0 1-1 .8Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-routing"></use></svg></i> -->
+    <symbol id="ic-routing" viewBox="0 0 24 24">
+      <title>ROUTING</title>
+      <g fill="currentColor">
+        <path d="M17 21.4c-1.1-1-2.4-2.8-2-4.8.9-3.5 6.1-3.5 7 0 .4 2-1 3.8-2 4.8a2.1 2.1 0 0 1-1.5.6 2.1 2.1 0 0 1-1.5-.6Zm.5-4.2a1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1 1 1 0 0 0-1 1ZM4 9.4C3 8.4 1.6 6.6 2 4.6 3 1.1 8 1.1 9 4.6c.4 2-.8 3.8-2 4.8a2.1 2.1 0 0 1-1.4.6A2.1 2.1 0 0 1 4 9.4Zm.5-4.2a1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1 1 1 0 0 0-1 1Z" opacity=".4" />
+        <path d="M9.3 19.8A2.7 2.7 0 0 1 6.8 18a2.7 2.7 0 0 1 .7-3l8-7a1.2 1.2 0 0 0 .4-1.4 1.2 1.2 0 0 0-1.2-.8H12a.8.8 0 0 1-.8-.8.8.8 0 0 1 .8-.7h2.7A2.7 2.7 0 0 1 17.3 6a2.7 2.7 0 0 1-.8 3l-8 7a1.2 1.2 0 0 0-.3 1.4 1.2 1.2 0 0 0 1.1.8H12a.8.8 0 0 1 .8.8.8.8 0 0 1-.8.8Zm8.2-2.6a1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1Zm-13-12a1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-education"></use></svg></i> -->
+    <symbol id="ic-education" viewBox="0 0 24 24">
+      <title>EDUCATION</title>
+      <g fill="currentColor">
+        <path d="M18.38 12.84v4.93a3.43 3.43 0 0 1-2.18 3.03l-3.19 1.06a3.65 3.65 0 0 1-2.02 0L7.8 20.8a3.41 3.41 0 0 1-2.18-3.03l.01-4.93 4.42 2.88a3.91 3.91 0 0 0 3.94 0Z" opacity=".4" />
+        <path d="M19.98 6.46 14 2.53a3.91 3.91 0 0 0-3.94 0L4.03 6.46a3.19 3.19 0 0 0 0 5.34l1.6 1.04 4.42 2.88a3.91 3.91 0 0 0 3.94 0l4.39-2.88 1.37-.9V15a.75.75 0 0 0 1.5 0v-4.92a3.17 3.17 0 0 0-1.27-3.62Z" />
+      </g>
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-briefcase"></use></svg></i> -->
+    <symbol id="ic-loading" width="34px" height="34px" viewBox="0 0 128 128" xml:space="preserve">
+      <title>LOADING</title>
+      <g fill="currentColor">
+        <path class="circle-preloader-0" d="M75.4 126.63a11.43 11.43 0 0 1-2.1-22.65 40.9 40.9 0 0 0 30.5-30.6 11.4 11.4 0 1 1 22.27 4.87h.02a63.77 63.77 0 0 1-47.8 48.05v-.02a11.38 11.38 0 0 1-2.93.37z" />
+        <animateTransform attributeName="transform" type="rotate" from="0 64 64" to="360 64 64" dur="1200ms" repeatCount="indefinite"></animateTransform>
+      </g>
+    </symbol>
+    <!-- Socails -->
+    <!-- <i class="svg-icon"><svg><use href="#ic-youtube"></use></svg></i> -->
+    <symbol id="ic-youtube" viewBox="0 0 24 24">
+      <title>YOUTUBE</title>
+      <path fill="currentColor" d="M21 6.3c-.5-1-1.1-1.1-2.3-1.2L11.9 5l-6.8.1c-1.2.1-1.8.2-2.3 1.2-.6 1-.8 2.6-.8 5.6 0 2.9.3 4.6.8 5.6s1.1 1.1 2.3 1.2l6.8.1 6.8-.1c1.2-.1 1.8-.3 2.3-1.2.6-1 .8-2.6.8-5.6 0-2.9-.3-4.6-.8-5.6ZM9.9 15.7V8.2l4.6 2.8c.8.5.8 1.5 0 2l-4.6 2.7Z" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-facebook"></use></svg></i> -->
+    <symbol id="ic-facebook" viewBox="0 0 24 24">
+      <title>FACEBOOK</title>
+      <path fill="currentColor" d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" opacity=".3" />
+      <path fill="currentColor" d="M13.6 9.4a1.2 1.2 0 0 1 1.2-1.2H16v-3h-2.4a3.5 3.5 0 0 0-3.5 3.6v3H7.8v2.9H10v7.1c1.2.2 2.4.3 3.5 0v-7.1H16l1.2-3h-3.6V9.4Z" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-twitter"></use></svg></i> -->
+    <symbol id="ic-twitter" viewBox="0 0 24 24">
+      <title>TWITEER</title>
+      <path fill="currentColor" d="M19 4.4a4.4 4.4 0 0 0-7.2 1.2c-.8 1.8.1 3.9-.6 5.7-1.1 3-3.4 5.6-6.3 6.6-.4.1-1.1.3-1.8.3-.5.1-.7.8-.2 1A12.3 12.3 0 0 0 20.2 7.8v-.6a8 8 0 0 0 1.7-1.9.8.8 0 0 0-.5-1.2c-.9.1-1.7.1-2.4.3Z" opacity=".3" />
+      <path fill="currentColor" d="M11.5 8.3c-3.2-.2-5.9-1.5-8.2-3.8-.4-.4-1-.2-1.1.3-.6 1.8.2 3.6 1.7 4.8a5 5 0 0 1-1.2-.2c-.3-.1-.7.2-.6.6a4.3 4.3 0 0 0 3.3 3.4l-1.1.2c-.4 0-.6.5-.4.8a4 4 0 0 0 3.6 2.1c1.3 0 2.6 0 3.7-.7 1.5-.9 2.7-2.6 2.6-4.4.1-1.4-.7-3-2.3-3.1Z" />
+    </symbol>
+    <!-- <i class="svg-icon"><svg><use href="#ic-instagram"></use></svg></i> -->
+    <symbol id="ic-instagram" viewBox="0 0 24 24">
+      <title>INSTAGRAM</title>
+      <path fill="currentColor" d="M22 8.2v7.5c0 3.4-2.8 6.3-6.3 6.3H8.2A6.3 6.3 0 0 1 2 15.7V8.2C2 4.8 4.8 2 8.2 2h7.5A6.1 6.1 0 0 1 22 8.2Zm-10-.9a4.7 4.7 0 0 0-4.6 4.6c0 2.5 2.1 4.6 4.6 4.6 2.5 0 4.6-2.1 4.6-4.6 0-2.6-2.1-4.6-4.6-4.6ZM17.9 5c-.6 0-1 .4-1 1s.4 1 1 1 1-.4 1-1c0-.5-.5-1-1-1Z" opacity=".3" />
+      <path fill="currentColor" d="M12 17.5a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2Zm0-9.2c-2 0-3.6 1.6-3.6 3.6s1.6 3.6 3.6 3.6 3.6-1.6 3.6-3.6S14 8.3 12 8.3Z" />
+    </symbol>
+  </svg>
+  <!-- popper -->
+  <script src="../../assets/vendor/@popperjs/core/dist/umd/popper.js"></script>
+  <!-- Bootstrap v5.2.0  -->
+  <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <!-- fslightbox -->
+  <script src="../../assets/vendor/fslightbox/fslightbox.js"></script>
   <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <!-- Utils -->
-  <script src="../../assets/javascript/js-template.js"></script>
-  <script src="../../assets/javascript/expansions.js"></script>
-  <script src="../../assets/javascript/polyfills/turboframe_polyfills_bundle.min.js"></script>
   <script src="../../assets/javascript/turboframes_justJavascript/turboframe_JsEventHandler.js"></script>
   <script src="../../assets/javascript/turboframes_justJavascript/turboframe_JsUtils.js"></script>
   <!-- Custom -->
   <script src="../../assets/javascript/custom.js"></script>
   <!-- Components -->
+  <script src="../../assets/javascript/components/JsHeader.js"></script>
   <script src="../../assets/javascript/components/JsImagePlaceholder.js"></script>
   <script src="../../assets/javascript/components/JsDarkMode.js"></script>
   <script src="../../assets/javascript/components/JsTuScrolltop.js"></script>
-  <script src="../../assets/javascript/components/categoryPicker/categoryPicker.js"></script>
-  <!-- observer -->
   <script src="../../assets/javascript/observer/JsImagesLazyLoad.js"></script>
+  <script src="../../assets/javascript/components/categoryPicker/categoryPicker.js"></script>
+  <script src="../../assets/javascript/observer/JsObserverAnimations.js"></script>
+  <script src="../../assets/javascript/components/JsMenu.js"></script>
+  <script src="../../assets/javascript/components/JsAlerts.js"></script>
+
   <script src="../../assets/javascript/observer/JsBuildNav.js"></script>
   <script src="../../assets/javascript/observer/JsScrollStickyObserver.js"></script>
   <script>
@@ -675,9 +1332,6 @@
     navItemClasPre: ["pei", "tao", "chung", "nam", "kao", "ano"]
   });
 
-
-
-
   // Go Top
   const scrEl = document.getElementById("tu_scrolltop")
   const scrollTop = new JsTuScrolltop(scrEl, {
@@ -686,152 +1340,6 @@
   });
 
 
-
-  // Scroll Fixed Header 未封裝 判斷滾動方向
-  headerScrollFunc('tHeader');
-
-  function headerScrollFunc(id) {
-
-    const header = document.getElementById(id);
-    const options = {
-      fixClass: 'is-fix',
-      hideClass: 'is-hide',
-      showClass: 'is-show',
-      showDelay: 500
-    };
-    if (!header) { return false }
-    options.startPosi = 0;
-    options.upFlg = false;
-    options.setTimeoutFlg = false;
-    options.setTimeoutId = 0;
-
-    window.addEventListener('resize', function() {
-      headerFix(options);
-    });
-    window.addEventListener('scroll', function() {
-      headerFix(options);
-    });
-
-
-    function headerFix(options) {
-
-      const headerBasePosi = 0;
-      const headerFixPosi = header.clientHeight;
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const fixClass = options.fixClass;
-      const showClass = options.showClass;
-      const hideClass = options.hideClass;
-
-      if (scrollTop > options.startPosi) {
-        options.upFlg = false;
-        clearTimeout(options.setTimeoutId);
-        options.setTimeoutFlg = false;
-
-        if (scrollTop > headerFixPosi) {
-          header.classList.add(fixClass);
-        }
-        const pageHeight = document.documentElement.scrollHeight;
-        const scrollBottom = window.innerHeight + scrollTop;
-        if (pageHeight <= scrollBottom) {
-          headerShow(hideClass, showClass);
-        } else {
-          if (header.classList.contains(showClass)) {
-            headerHide(hideClass, showClass);
-          }
-        }
-      } else {
-        options.upFlg = true;
-        if (scrollTop <= headerBasePosi) {
-          header.classList.remove(fixClass, showClass, hideClass);
-        } else {
-          if (!options.setTimeoutFlg) {
-            options.setTimeoutFlg = true;
-            options.setTimeoutId = setTimeout(function() {
-              if (options.upFlg && header.classList.contains(fixClass)) {
-                headerShow(hideClass, showClass);
-              }
-            }, options.showDelay);
-          }
-        }
-      }
-      options.startPosi = scrollTop;
-    }
-
-    function headerShow(hideClass, showClass) {
-      header.classList.remove(hideClass);
-      header.classList.add(showClass);
-    }
-
-    function headerHide(hideClass, showClass) {
-      header.classList.remove(showClass);
-      header.classList.add(hideClass);
-    }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // // 未完成
-  // document.addEventListener("DOMContentLoaded", function() {
-  //   var citysJson = "https://assets.codepen.io/2845599/citys.json";
-  //   var zipCode = "https://assets.codepen.io/2845599/zipCode.json";
-  //   var citysJsonFive = "https://cdn.jsdelivr.net/gh/Barry028/TurboFrame@main/src/json/taiwan_zipCode.json";
-  //   const data = {
-  //     imgUrl: '../../assets/images',
-  //     list: ['Apple', 'Banana', 'Cat'],
-  //   };
-  //   var picker = new JsCategoryPicker('s_areaPicker', {
-  //     // elHid: '.areaVal', // Input Hidden
-  //     id: 'areaPicker', // Picker ID
-  //     data: citysJson, // 代入縣市資訊
-  //     // omitNum: 5, // 幾個選項以上 顯示單位 
-  //     // unit: '地區', // 5 個選項以上顯示 已選擇幾個的單位
-  //     // selectedNum: 10, // 可選擇幾個標籤
-  //     dataArray: ["CTID", "CTNAME"], // 只接受兩個 目前還沒寫擴充
-  //     dataArraySub: ["ZIPCODE", "ZIPNAME"], // 只接受兩個 目前還沒寫擴充
-  //     prefix: 'city_',
-  //     prefixSub: 'dist_',
-
-  //     selectAll: true, // 二層選單是否要開啟第一個全選 預設 false
-  //     title: '地區類別選單',
-  //     // confirm: function(res) {
-  //     //   // 回傳 Input hidden
-  //     //   if (res.length) {
-  //     //     for (var k in res) {
-  //     //       $('.areaVal').eq(k).val(res[k].value);
-  //     //       $('.areaVal').eq(k).attr('name', 'area[' + res[k].uid + ']');
-  //     //     }k
-  //     //   } else {
-  //     //     $('.areaVal').val('');
-  //     //     $('.areaVal').attr('name', 'area[]');
-  //     //   }
-  //     // }
-  //   });
-  //   // console.log(citysJson)
-
-  // });
 
   window.addEventListener("load", function(event) {
 

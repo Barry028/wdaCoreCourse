@@ -9,15 +9,12 @@
   <link rel="stylesheet" type="text/css" href="../../assets/vendor/slim-icon/styles.css">
   <!-- <link rel="stylesheet" type="text/css" href="../../assets/vendor/swiper/swiper-bundle.css"> -->
   <link rel="stylesheet" type="text/css" href="../../assets/css/all.css">
-  <script>
-    (function(d){var config={kitId:'soy4top',scriptTimeout:3000,async:true},h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)})(document);
-  </script>
 </head>
 
 <body class="t-bg-mesh-primary">
   <main id="web" class="t-wrapper">
     <!-- Header -->
-    <header id="tHeader" class="t-header">
+    <header data-tu-an="blur fade bottom once" id="tHeader" class="t-header">
       <section class="t-header-top">
         <div class="container">
           <div class="row">
@@ -48,9 +45,19 @@
       <section class="t-header-main">
         <nav class="navbar navbar-expand-md">
           <div class="container">
+            <button class="navbar-toggler navbar-toggler-left" type="button" aria-label="主要選單" aria-expanded="false" aria-controls="navBar" data-bs-toggle="collapse" data-bs-target="#navBar">
+              <div class="t-menu-icon-wrapper">
+                <div class="t-menu-icon-line"></div>
+              </div>
+              <!--               <i class="svg-icon svg-icon-2hx">
+                <svg>
+                  <use href="#ic-burger"></use>
+                </svg>
+              </i> -->
+            </button>
             <!-- <img src="../../assets/images/wda-logo.svg" alt="aa" id="imas"> -->
             <!-- <canvas id="output"></canvas> -->
-            <div class=" t-header-brand">
+            <div class="t-header-brand">
               <!-- <img src=""  alt="勞動部勞動力發展署" width="164" height="26"> -->
               <a class="t-header-logo" href="../index/index.html">
                 <picture class="t-header-logo-sub" id="a1">
@@ -66,13 +73,49 @@
                 </picture>
               </a>
             </div>
-            <nav class="t-header-nav-bar ml-auto">
+            <nav id="navBar" class="t-header-nav-bar ml-auto collapse navbar-collapse">
               <a class="t-header-nav-bar-link" href="javascript:;">最新訊息</a>
               <a class="t-header-nav-bar-link" href="javascript:;">課程需求刊登</a>
               <a class="t-header-nav-bar-link" href="javascript:;">課程介紹</a>
-              <a class="t-header-nav-bar-link" href="javascript:;">師資介紹</a>
+              <a class="t-header-nav-bar-link t-hight-light" href="javascript:;">師資介紹</a>
             </nav>
-            <a class="t-header-nav-bar-hightlight btn btn--primary" href="javascript:;">登入</a>
+            <button class="btn btn--flush menu-dropdown" data-tu-menu-trigger="click" data-tu-menu-placement="bottom-end">
+              <picture class="t-symbol t-rounded t-avastar">
+                <img class="" src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/emoji/Memoji-21@2x.webp" alt="使用者" class="t-lazy-load" width="48" height="48">
+                <source type="image/png" srcset="../../assets/images/emoji/Memoji-21@2x.png" />
+                <source type="image/webp" srcset="../../assets/images/emoji/Memoji-21@2x.webp" />
+              </picture>
+            </button>
+            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded t-user-menu" data-tu-menu="true">
+              <div class="menu-item">
+                <div class="menu-content t-flex align-items-center justify-content-between t-user-menu-header">
+                  <div class="symbol symbol-50px t-avastar">
+                    <picture class="t-symbol t-rounded">
+                      <img class="" src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 26'></svg>" data-src="../../assets/images/emoji/Memoji-21@2x.webp" alt="使用者" class="t-lazy-load" width="48" height="48">
+                      <source type="image/png" srcset="../../assets/images/emoji/Memoji-21@2x.png" />
+                      <source type="image/webp" srcset="../../assets/images/emoji/Memoji-21@2x.webp" />
+                    </picture>
+                  </div>
+                  <div class="flex-column ml-2">
+                    <div class="t-fw-bold t-flex align-items-center">
+                      林小本
+                      <span class="t-badge t-badge-light-success">Pro</span>
+                    </div>
+                    <a href="#" class="t-fw-400">max@kt.com</a>
+                  </div>
+                </div>
+                <div class="t-separator"></div>
+                <div class="menu-item">
+                  <a href="" class="menu-link px-5">
+                    My Profile
+                  </a>
+                </div>
+              </div>
+              </button>
+            </div>
+            <!-- <a class="btn btn--sm btn--soft--primary" href="javascript:;">
+              會員登入
+            </a> -->
           </div>
         </nav>
       </section>
@@ -107,7 +150,7 @@
             </i>
             回上頁(課程師資介紹)
           </button>
-          <!-- 人才試搜 Start -->
+          <!-- 課程師資介紹 Start -->
           <a name="academic_info" id="academic_info"></a>
           <div id="Info" class="t-info-item" data-profile="academic_info">
             <div class="t-form-legend-info t-inline-flex">
@@ -115,50 +158,58 @@
             </div>
             <div class="t-panel">
               <div class="t-panel-main">
-                <div class="mask mask-brand-wda-logo-backgrounds brand-wda-logo-backgrounds"></div>
-                <div class="t-panel-item-img-container" data-overlay="gallery">
-                  <a data-fslightbox="gallery" href="../../assets/images/avatars/avatar-5.png">
-                    <picture class="t-panel-img t-img-overlay">
-                     <source src="../../assets/images/avatars/avatar-5.png" data-src="../../assets/images/10Ratio3.3333_v1.svg">
+                <div class="mask mask-card-ruler"></div>
+                <div class="mask mask-brand-wda-logo-backgrounds"></div>
+                <div class="t-panel-item-img-container">
+                  <a class="t-panel-img t-img-overlay" data-fslightbox="gallery" href="../../assets/images/avatars/avatar-5.png">
+                    <picture>
+                      <source src="../../assets/images/avatars/avatar-5.png" data-src="../../assets/images/10Ratio3.3333_v1.svg">
                       <img src="../../assets/images/avatars/avatar-5.png" alt="王大明" class="t-lazy-load" width="160" height="188">
                     </picture>
                   </a>
                 </div>
+                <!-- View -->
                 <div class="t-panel-item-cnt">
                   <dl class="t-definition-list">
                     <dt class="t-definition-term" hidden>
                       教師姓名
                     </dt>
                     <dd class="t-definition-description ml-0">
-                      <h4 data-grad-under="info" class="t-panel-title">
-                        <big>王大明</big>
+                      <h4 data-grad-under="info" class="t-panel-title">王大明
                       </h4>
-                      <h5 data-grad-under="grey" class="t-panel-sub-title ml-2">
+                      <h5 data-grad-under="secondary" class="t-panel-sub-title">
                         Dai-Meng Wang
                       </h5>
                     </dd>
                   </dl>
-                  <h6 class="mt-4 mb-2">前一年度授課總時數：
-                    <big class="t-fc-primary t-fw-700">72</big> 小時
+                  <h6 class="t-panel-main-txt">
+                    前一年度授課總時數：
+                    <big>72</big> 小時
                   </h6>
                   <ul class="t-list-txts mb-2">
                     <li class="t-list-txts-item">
-                      DC： <big class="t-fc-primary t-fw-500">18</big> 小時
+                      DC： <big class="t-fw-500">18</big> 小時
                     </li>
                     <li class="t-list-txts-item">
-                      BC： <big class="t-fc-primary t-fw-500">32</big> 小時
+                      BC： <big class="t-fw-500">32</big> 小時
                     </li>
                     <li class="t-list-txts-item">
-                      KC： <big class="t-fc-primary t-fw-500">22</big> 小時
+                      KC： <big class="t-fw-500">22</big> 小時
                     </li>
                   </ul>
+                  <!-- <div class="t-io">
+                    <input id="infoTel" class="t-io-input" type="checkbox">
+                    <label class="t-io-label" for="infoTel">
+                      前台不顯示
+                    </label>
+                  </div> -->
                   <dl class="t-definition-list">
-                    <dt class="t-definition-term t-relative ">
-                      電子郵件
+                    <dt class="t-definition-term t-relative">
+                      電子郵件 (工作)
                     </dt>
                     <dd class="t-definition-description">
-                      <label class="t-badge t-badge-danger t-fs-12">工作</label>
-                      <a href="mailto:barrylin0208@gmail.com" title="barrylin0208@gmail.com" data-under="secondary">barrylin0208@gmail.com</a>
+                      <a data-tu-inlineEdit="true" data-tu-inlineEdit-label="電子郵件" data-tu-inlineEdit-name="userInfo" data-tu-inlineEdit-id="UserMailWork" data-tu-inlineEdit-placeholder="請輸入您的電子郵件 " href="mailto:barrylin0208@gmail.com" title="barrylin0208@gmail.com" data-under="primary">
+                        barrylin0208@gmail.com</a>
                     </dd>
                   </dl>
                   <dl class="t-definition-list">
@@ -166,14 +217,15 @@
                       電子郵件
                     </dt>
                     <dd class="t-definition-description">
-                      <a href="mailto:barrylin0208@gmail.com" title="barrylin0208@gmail.com" data-under="secondary">lx00@ms64.hinet.net </a>
+                      <a data-tu-inlineEdit="true" data-tu-inlineEdit-label="電子郵件" data-tu-inlineEdit-name="userInfo" data-tu-inlineEdit-id="UserMail" data-tu-inlineEdit-placeholder="請輸入您的電子郵件" href="mailto:lx00@ms64.hinet.net" title="lx00@ms64.hinet.net" data-under="primary">
+                        lx00@ms64.hinet.net</a>
                     </dd>
                   </dl>
                   <dl class="t-definition-list">
                     <dt class="t-definition-term">
                       聯絡手機
                     </dt>
-                    <dd class="t-definition-description">
+                    <dd data-tu-inlineEdit="true" data-tu-inlineEdit-label="聯絡手機" data-tu-inlineEdit-name="userInfo" data-tu-inlineEdit-id="UserPhone" data-tu-inlineEdit-placeholder="請輸入您的聯絡手機" class="t-definition-description">
                       0988-888111
                     </dd>
                   </dl>
@@ -181,7 +233,7 @@
                     <dt class="t-definition-term">
                       出生日期
                     </dt>
-                    <dd class="t-definition-description">
+                    <dd data-tu-inlineEdit="true" data-tu-inlineEdit-label="出生日期" data-tu-inlineEdit-name="UserBirth" data-tu-inlineEdit-id="UserBirth" data-tu-inlineEdit-placeholder="請輸入您的出生日期" class="t-definition-description">
                       1966-08-06
                     </dd>
                   </dl>
@@ -189,7 +241,7 @@
                     <dt class="t-definition-term">
                       聯絡地址
                     </dt>
-                    <dd class="t-definition-description">
+                    <dd data-tu-inlineEdit="true" data-tu-inlineEdit-label="聯絡地址" data-tu-inlineEdit-name="userInfo" data-tu-inlineEdit-id="userAdress" data-tu-inlineEdit="true" data-tu-inlineEdit-placeholder="請輸入您的聯絡地址" class="t-definition-description">
                       新北市平溪區 (226) 南山里南山坪4號
                     </dd>
                   </dl>
@@ -197,7 +249,7 @@
               </div>
             </div>
           </div>
-          <!-- 人才試搜 End -->
+          <!-- 課程師資介紹 End -->
           <!-- 學歷背景 Start -->
           <a name="academic_education" id="academic_education"></a>
           <div id="Education" class="t-info-item" data-profile="academic_education">
@@ -686,7 +738,7 @@
           <div class="col-md">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <span class="d-flex align-items-center">
+                <span class="t-flex align-items-center">
                   <picture class="t-footer-logos">
                     <source src="../../assets/images/wda_logo_circle.svg" data-src="../../assets/images/10Ratio3.3333_v1.svg">
                     <img alt="勞動力發展署 - 關鍵就業力課程" src="../../assets/images/wda_logo_circle.svg" width="20" height="20" />
@@ -708,7 +760,6 @@
   </main>
   <!-- ChangeMode -->
   <div class="t-float-change-mode" id="tuChangeMode">
-    <svg xmlns="http://www.w3.org/8000/svg" viewBox="0 0 64 64"></svg>
   </div>
   <!-- Scrolltop -->
   <a href="javascript:;" id="tuScrolltop" class="tu-scrolltop">
@@ -1297,12 +1348,14 @@
   <!-- Custom -->
   <script src="../../assets/javascript/custom.js"></script>
   <!-- Components -->
-  <script src="../../assets/javascript/components/JsImagePlaceholder.js"></script>
+  <script src="../../assets/javascript/components/JsHeader.js"></script>
   <script src="../../assets/javascript/components/JsDarkMode.js"></script>
   <script src="../../assets/javascript/components/JsTuScrolltop.js"></script>
   <script src="../../assets/javascript/observer/JsImagesLazyLoad.js"></script>
   <script src="../../assets/javascript/components/categoryPicker/categoryPicker.js"></script>
-  <script src="../../assets/javascript/components/canvasBlur.js"></script>
+  <script src="../../assets/javascript/observer/JsObserverAnimations.js"></script>
+  <script src="../../assets/javascript/components/JsMenu.js"></script>
+  <script src="../../assets/javascript/components/JsAlerts.js"></script>
   <script>
   // darkmode
   var darkmodeBtns = JSTU.Gid("changeMode");

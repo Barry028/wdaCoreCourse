@@ -1,0 +1,72 @@
+
+
+
+
+<div class="t-form-check">
+                      <input class="t-rad-inp" type="radio" id="test-0031112">
+                      <label class="t-rad-lab" for="test-0031112">
+                        <i class="t-radio" aria-label="true"></i>
+                        <span class="t-check-txt">確認會員服務</span>
+                      </label>
+                    </div>
+                    <div class="t-form-check t-form-check--md">
+                      <input class="t-rad-inp" type="radio" id="test-003111">
+                      <label class="t-rad-lab" for="test-003111">
+                        <i class="t-radio" aria-label="true"></i>
+                        <span class="t-check-txt">確認會員服務</span>
+                      </label>
+                    </div>
+                    <div class="t-form-check t-form-check--lg">
+                      <input class="t-rad-inp" type="radio" id="test-002111">
+                      <label class="t-rad-lab" for="test-002111">
+                        <i class="t-radio" aria-label="true"></i>
+                        <span class="t-check-txt">確認會員服務</span>
+                      </label>
+                    </div>
+
+
+
+   <div class="t-form-check-item">
+                    <input class="t-chk-inp" type="checkbox" id="test-004">
+                    <label class="t-chk-lab" for="test-004">
+                      <span class="t-check-txt">確認會員服務</span>
+                    </label>
+                  </div>
+                  <div class="t-form-check-item">
+                    <input class="t-chk-inp" type="checkbox" disabled id="test-005">
+                    <label class="t-chk-lab" for="test-005">
+                      <span class="t-check-txt">確認會員服務</span>
+                    </label>
+                  </div>
+                  <ul class="t-check-list">
+                    <li class="t-check-list-item">
+                      <input id="a1111" type="checkbox" class="t-chk-inp" disabled>
+                      <label for="a1111"class="t-chk-lab" >
+                        <i class="t-checkbox"></i>
+                        123
+                      </label>
+                    </li>
+                  </ul>
+                  <div class="t-form-group">
+                    <div class="t-form-check">
+                      <input class="t-chk-inp" type="checkbox" disabled id="test-001">
+                      <label class="t-chk-lab" for="test-001">
+                        <i class="t-checkbox" aria-label="true"></i>
+                        <span class="t-check-txt">確認會員服務</span>
+                      </label>
+                    </div>
+                    <div class="t-form-check t-form-check--md">
+                      <input class="t-chk-inp" type="checkbox" disabled id="test-003">
+                      <label class="t-chk-lab" for="test-003">
+                        <i class="t-checkbox" aria-label="true"></i>
+                        <span class="t-check-txt">確認會員服務</span>
+                      </label>
+                    </div>
+                    <div class="t-form-check t-form-check--lg">
+                      <input class="t-chk-inp" type="checkbox" disabled id="test-002">
+                      <label class="t-chk-lab" for="test-002">
+                        <i class="t-checkbox" aria-label="true"></i>
+                        <span class="t-check-txt">確認會員服務</span>
+                      </label>
+                    </div>
+                  </div>

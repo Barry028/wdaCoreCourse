@@ -85,7 +85,13 @@ function scssTask() {
         // // cssnano(),
         // cssnano({ preset: '' }),
         // autoprefixer({ browsers: ['last 4 version'] }),
-        postcssPresetEnv( /* pluginOptions */ )
+        postcssPresetEnv({
+          stage: 3,
+          features: {
+            'nesting-rules': true
+          },
+          browsers: 'last 1 versions',
+        })
       ]))
     .pipe(sass().on('error', sass.logError))
     // .pipe(purgecss({

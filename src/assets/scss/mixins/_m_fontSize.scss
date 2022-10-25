@@ -1,7 +1,7 @@
 @charset "utf-8";
 
-//  Mixins > font Size
-// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+//  Mixins > Font Size
+// ====================================================
 
 
 @mixin font-scale($params) {
@@ -87,4 +87,36 @@ $font-lock-max:    1000px !default;
 //   @include font-size(16px, 18px, $screen-xs-min, $screen-sm-min);
 //   @include font-size(18px, 20px, $screen-sm-min, $screen-md-min, $last: true);
 // }
+
+$min_width: 320px;
+$max_width: 1800px;
+
+$min_font: 15px;
+$max_font: 20px;
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin font-size-rwd($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $unit_1: unit($min-vw);
+  $unit_2: unit($max-vw);
+  $unit_3: unit($min-font-size);
+  $unit_4: unit($max-font-size);
+
+  @if $unit_1 == $unit_2 and $unit_1 == $unit_3 and $unit_1 == $unit_4 {
+    & {
+      font-size: $min-font-size;
+
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
 

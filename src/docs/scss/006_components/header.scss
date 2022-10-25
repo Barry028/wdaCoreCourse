@@ -1,0 +1,24 @@
+.pixel-header {
+  position: relative;
+  // border-bottom: #{$border-size * 1} solid $grey-100;
+  // background-color: $white;
+  padding-top: 1.5rem;
+
+
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: 0.5rem 2rem 0;
+
+    .nav-brand .brand-logo .brand-logo-img {
+      height: 4rem;
+      padding: .625rem 0;
+    }
+
+  }
+
+
+}

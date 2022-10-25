@@ -1,0 +1,61 @@
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.t-invisible {
+  visibility: hidden;
+}
+
+@keyframes toastIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.toastIn {
+  animation-name: toastIn;
+}
+
+@keyframes toastOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+.toastOut {
+  animation-name: toastOut;
+}
+
+.spinner {
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 50%;
+  background: conic-gradient(trasparent 10%, $white);
+  -webkit-mask: radial-gradient(farthest-side, trasparent calc(100% - 0.5rem), $dark 0);
+  animation: spinner 1.5s infinite linear;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spinner {
+  100% {
+    transform: rotate(1turn);
+  }
+}

@@ -1,0 +1,98 @@
+  .pixel-aside-nav {
+
+    &[data-nav-type="float"] {
+
+
+      position: fixed;
+      right: 2rem;
+      top: 20%;
+      // padding: .5rem;
+      width: 12rem;
+      z-index: 999;
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        background-color: #FF01FB;
+        left: -0.75rem;
+        top: -0.75rem;
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        z-index: -2;
+        @include opacity(0.4);
+        @include pixel-borders($corner-size: 1, $border-size: 4px, $border-color: #FFC1FF);
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        background-color: $primary;
+        left: 0.125rem;
+        top: 0.125rem;
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        z-index: -1;
+        @include pixel-borders($corner-size: 1, $border-size: 4px, $border-color: $tiffany);
+        @include opacity(0.4);
+      }
+
+
+      // @include compact-rounded-corners-before($color: lighten($tiffany, 0%),
+      //   $opacity: 0.6,
+      //   $l: 0.5rem,
+      //   $t: 0.5625rem);
+    }
+
+    .pixel-aside-nav-menu {
+      padding: .5rem 1rem;
+      position: relative;
+      display: block;
+      background-color: $dark;
+      @include pixel-borders($corner-size: 1, $border-size: 4px, $border-color: $grey);
+
+
+      .pixel-nav-item {
+        position: relative;
+        $disc: (0, 0, 0, 1, 1, 0, 0, 0),
+          (0, 0, 1, 1, 1, 1, 0, 0), (0, 1, 1, 1, 1, 1, 1, 0),
+          (0, 1, 1, 1, 1, 1, 1, 0), (0, 0, 1, 1, 1, 1, 0, 0),
+          (0, 0, 0, 1, 1, 0, 0, 0);
+
+        &.active {
+          .pixel-nav-link {
+            color: $primary;
+
+            &::before {
+              @include pixelize(2px, $disc, $primary);
+            }
+          }
+        }
+
+        .pixel-nav-link {
+          position: relative;
+          display: block;
+          color: $white;
+          font-size: 1rem;
+          padding: 0.25rem 1rem 0.25rem 1.5rem;
+          text-decoration: none;
+          transition: $transition-base;
+          @include pixel-text-stroke(1px, currentColor);
+          @include pixel-text-shadow($primary-800, 3px);
+          @include list-before("disc", $disc);
+          user-select: none;
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: calc(50% - #{$border-size * 2});
+            left: -0.375rem;
+            transition: $transition-base;
+            @include pixelize(2px, $disc, $white);
+          }
+        }
+      }
+    }
+  }

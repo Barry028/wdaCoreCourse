@@ -1,8 +1,3 @@
-  
-
-
-
-
   // JsYoutubeThumb API Youtube 截圖
   const JsYoutubeThumb = (function() {
 
@@ -184,37 +179,61 @@
     }, 250);
   }
 
-document.addEventListener("DOMContentLoaded", function() {
-  // Darkmode
-  const darkmodeBtns = document.getElementById("tuChangeMode");
-  const darkmode = new JsDarkMode(darkmodeBtns, {
-    dark_linearGradient: "#fcf81c,#d5ef0d,#b7ff4a",
-    light_linearGradient: "#97e6ff,#1b449c,#006bfc",
+
+  document.addEventListener("DOMContentLoaded", function() {
+    // Darkmode
+    const darkmodeBtns = document.getElementById("tuChangeMode");
+    const darkmode = new JsDarkMode(darkmodeBtns, {
+      dark_linearGradient: "#fcf81c,#d5ef0d,#b7ff4a",
+      light_linearGradient: "#97e6ff,#1b449c,#006bfc",
+    });
+
+    // Go Top
+    const scrEl = document.getElementById("tuScrolltop")
+    const scrollTop = new JsTuScrolltop(scrEl, {
+      offset: 300,
+      speed: 100
+    });
+
+
+    const tuHeader = new JsHeader('tHeader', {
+      // subFixedID: 'tuJobFilter',
+      fixClass: 'is-fix',
+      hideClass: 'is-hide',
+      showClass: 'is-show',
+      showDelay: 100,
+      ignorePageElID: 'detailHeader'
+    });
+
+    const scrollAnimation = new JsObserverAnimations({
+      root: null,
+      element: '[data-tu-an]',
+      enableCallback: false,
+      callback: 'data-tu-an',
+      class: 'tu-an-inview',
+      initClass: 'tu-an-init',
+      threshold: 0.1,
+      offset: {
+        top: -64,
+        bottom: -150,
+      },
+      direction: 'vertical',
+      repeat: true,
+      mirror: false,
+      startEvent: 'DOMContentLoaded',
+    })
+
+    // setTimeout(function() {}, 2000)
+    const imagesLazyLoad = JsImagesLazyLoad("img[data-src]");
+
+    let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    let tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+    // console.log(tooltipTriggerList)
   });
 
-  // Go Top
-  const scrEl = document.getElementById("tuScrolltop")
-  const scrollTop = new JsTuScrolltop(scrEl, {
-    offset: 300,
-    speed: 100
+  window.addEventListener("load", function(event) {
+
   });
-
-  setTimeout(function() {}, 2000)
-  // imagesLazyLoad 
-  const imagesLazyLoad = JsImagesLazyLoad("img[data-src]");
-  
-  // JsImagePlaceholder("img.js-placeholder",{
-  //   bgColor: '#d7d3dc',
-  //   textColor: '#52406b'
-  // });
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
-
-
-});
-
-window.addEventListener("load", function(event) {
-
-});

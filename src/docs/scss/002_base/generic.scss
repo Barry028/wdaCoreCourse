@@ -1,0 +1,206 @@
+// Override reboot.scss
+
+
+html {
+  cursor: $cursor-url;
+  font-size: $font-size-html-base;
+
+  &.js-font-scale {
+    &-up {
+      &-1st {
+        font-size: #{$font-size-html-base + 1px};
+      }
+
+      &-2nd {
+        font-size: #{$font-size-html-base + 2px};
+      }
+
+      &-3rd {
+        font-size: #{$font-size-html-base + 3px};
+      }
+
+      &-4th {
+        font-size: #{$font-size-html-base + 4px};
+      }
+    }
+
+    &-down {
+      &-1st {
+        font-size: #{$font-size-html-base - 1px};
+      }
+
+      &-2nd {
+        font-size: #{$font-size-html-base - 2px};
+      }
+
+      &-3rd {
+        font-size: #{$font-size-html-base - 3px};
+      }
+
+      &-4th {
+        font-size: #{$font-size-html-base - 4px};
+      }
+    }
+  }
+
+  // scroll-behavior: smooth;
+  @media (max-width: $screen-lg-min) {
+    font-size: $font-size-html-lg;
+  }
+
+  @media (max-width: $screen-md-min) {
+    font-size: $font-size-html-md;
+  }
+
+  @media (max-width: $screen-sm-min) {
+    font-size: $font-size-html-sm;
+  }
+
+  @media (max-width: $screen-xs-min) {
+    font-size: $font-size-html-xs;
+  }
+}
+
+body {
+  font-family: $font-base;
+  font-size: $font-size;
+  line-height: 2;
+  color: $dark;
+  background-color: $white;
+  overflow-x: hidden;
+}
+
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+
+h1,
+h2,
+h3 {
+  font-weight: $font-heading-bolder;
+  line-height: $font-heading-line-height;
+  -webkit-text-stroke: $text-weight-bold;
+  // -webkit-text-stroke: $text-stroke-bolder;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: $font-heading-bold;
+  line-height: $font-heading-line-height;
+    -webkit-text-stroke: $text-weight-bold;
+  // -webkit-text-stroke: $text-stroke-bold;
+}
+
+
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+h4 {
+  font-size: $h4-font-size;
+}
+
+h5 {
+  font-size: $h5-font-size;
+}
+
+h6 {
+  font-size: $h6-font-size;
+}
+
+p {
+  font-size: $para-font-size;
+      -webkit-text-stroke: $text-weight;
+}
+
+span {
+  font-size: $span-font-size;
+}
+
+
+hr {
+  margin: 1rem 0;
+  border: 0;
+  color: $border;
+  background-color: currentcolor;
+  height: 1px;
+
+  &[data-hr-width="2"] {
+    height: 2px;
+  }
+
+  &[data-hr-style="dashed"] {
+    background: repeating-linear-gradient(to right, currentcolor 0px, currentcolor 4px, transparent 0px, transparent 10px);
+  }
+
+  &[data-hr-style="twill"] {
+    padding: .25rem;
+    background: repeating-linear-gradient(135deg, currentcolor 0px, currentcolor 1px, transparent 1px, transparent 6px);
+  }
+
+  &[data-hr-style="dotted"] {
+    background: radial-gradient(currentcolor 2px, transparent 2px);
+    background-size: 6px 4px;
+    padding: 0.125rem;
+  }
+
+  &[data-hr-title] {
+    position: relative;
+    overflow: visible;
+
+    &:before {
+      content: attr(data-hr-title);
+      background-color: $white;
+      position: absolute;
+      padding: .5rem;
+      font-size: .75rem;
+      color: $dark;
+      white-space: nowrap;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+:not(label):not(a)> {
+
+  span,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    cursor: $cursor-text-url;
+  }
+}
+
+label {
+  cursor: inherit;
+  margin-bottom: 0;
+}
+
+a,
+button {
+  cursor: $cursor-click-url;
+}

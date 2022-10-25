@@ -1,0 +1,149 @@
+
+$color-black:       $dark !default;
+$color-white:       $white !default;
+
+
+$base-color:                      $dark                               !default;
+$background-color:                $white                              !default;
+
+$border-size:                     0.25rem                             !default;
+
+// Buttons
+$button-shadow-size:              0.25rem                             !default;
+$button-padding-y:                0.25rem                             !default;
+$button-padding-x:                0.75rem                             !default;
+$button-shadow-color:             rgba($dark, 0.12)                   !default;
+$button-shadow-size:              $shadow-size                        !default;
+$button-shadow-size--hover:       0.3625rem                           !default;
+$button-shadow-size--focus:       0.5rem                              !default;
+$button-padding:                  $button-padding-y 
+                                  (#{$button-shadow-size + $button-shadow-size})
+                                  (#{$button-shadow-size + $button-shadow-size})
+                                  $button-padding-x                   !default;
+
+$button-padding--active:          ($button-padding-y + $button-shadow-size) 
+                                  $button-padding-x 
+                                  $button-padding-y 
+                                  ($button-padding-x + $button-shadow-size)  !default;
+$variable-prefix:                 pixel-;
+// Input
+$placeholder:                     $lightgrey                                    !default;
+$border-size:                     $button-shadow-size                             !default;
+$shadow-size:                     $button-shadow-size                             !default;
+
+$input-padding-y:             $button-padding-y                             !default;
+$input-padding-x:             $button-padding-x                             !default;
+
+$transition-fast:             0.125s all steps(4, end)                  !default;
+$transition-base:             0.250s all steps(4, end)                  !default;
+$transition-slow:             0.425s all steps(4, end)                  !default;
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval:        8%                      !default;
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold:    204                     !default;
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark:               $dark                   !default;
+$yiq-text-light:              $white                  !default;
+$min-contrast-ratio:          1.5                     !default;
+// Customize the light and dark text colors for use in our color contrast function.
+$color-contrast-dark:         $dark                   !default;
+$color-contrast-light:        $white                  !default;
+$theme-colors-rgb:            map-loop($theme-colors, to-rgb, "$value") !default;
+
+
+
+$default-colors: (
+  normal: $default, 
+  hover:  $default-400, 
+  active: $default-600, 
+  shadow: $button-shadow-color,
+  stroke: $default-600 
+) !default;
+
+$disabled-colors: (
+  normal: $default-200, 
+  shadow: $button-shadow-color
+) !default;
+
+$primary-colors: (
+  normal: $primary, 
+  hover:  $primary-400, 
+  active: $primary-600, 
+  shadow: $button-shadow-color,
+  stroke: $primary-600
+) !default;
+
+$secondary-colors: (
+  normal: $secondary, 
+  hover:  $secondary-400, 
+  active: $secondary-600, 
+  shadow: $button-shadow-color,
+  stroke: $secondary-600
+) !default;
+
+$success-colors: (
+  normal: $success,
+  hover:  $success-400, 
+  active: $success-600, 
+  shadow: $button-shadow-color,
+  stroke: $success-600
+) !default;
+
+$warning-colors: (
+  normal: $warning, 
+  hover:  $warning-400, 
+  active: $warning-600, 
+  shadow: $button-shadow-color,
+  stroke: $warning-600
+) !default;
+
+$error-colors: (
+  normal: $danger, 
+  hover:  $danger-400, 
+  active: $danger-600, 
+  shadow: $button-shadow-color,
+  stroke: $danger-600
+) !default;
+
+$info-colors: (
+  normal: $info, 
+  hover:  $info-400, 
+  active: $info-600, 
+  shadow: $button-shadow-color,
+  stroke: $info-600
+) !default;
+
+
+// Svg 
+$escaped-characters: (
+  ("<", "%3c"),
+  (">", "%3e"),
+  ("#", "%23"),
+  ("(", "%28"),
+  (")", "%29"),
+) !default;
+
+// Bit CheckBox
+$form-check-font-size:              1rem !default;
+$form-check-box-size:               2.5rem !default;
+$form-check-box-border-size:        1.5rem !default;
+$form-check-box-inner-width:        2.5rem !default;
+$form-check-box-inner-height:       2.0rem !default;
+$form-check-box-inner-offset-left:  0.25rem !default;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

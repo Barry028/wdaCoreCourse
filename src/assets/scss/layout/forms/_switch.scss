@@ -1,13 +1,13 @@
-//
+@charset "utf-8";
 //  Layout -> switch 
 // --------------------------------------------------
-.form-switch {
+.t-form-switch {
 
-  .form-check-input[type=checkbox] {
+  .t-form-check-input[type=checkbox] {
     display: none;
   }
 
-  .form-check-label {
+  .t-form-check-label {
     position: relative;
     display: block;
     cursor: pointer;
@@ -33,11 +33,11 @@
     }
   }
 
-  .form-check-input {
+  .t-form-check-input {
     &:checked {
 
-      &.disabled~.form-check-label,
-      &:disabled~.form-check-label {
+      &.disabled~.t-form-check-label,
+      &:disabled~.t-form-check-label {
         cursor: $cursor-disabled;
         @include opacity(0.65);
         box-shadow: none;;
@@ -45,16 +45,16 @@
 
       + {
 
-        .form-check-label,
-        .form-check-input+.form-check-label {
+        .t-form-check-label,
+        .t-form-check-input+.t-form-check-label {
           background: $info;
         }
       }
 
       + {
 
-        .form-check-label:before,
-        .form-check-input+.form-check-label:before {
+        .t-form-check-label:before,
+        .t-form-check-input+.t-form-check-label:before {
           content: attr(data-yes);
           font-size: .875rem;
           font-weight: 400;
@@ -66,16 +66,16 @@
           color: $white;
         }
 
-        .form-check-label:after,
-        .form-check-input+.form-check-label:after {
+        .t-form-check-label:after,
+        .t-form-check-input+.t-form-check-label:after {
           left: calc(100% - 0.25rem);
           transform: translate(-100%, -50%);
         }
       }
     }
 
-    &.disabled~.form-check-label,
-    &:disabled~.form-check-label {
+    &.disabled~.t-form-check-label,
+    &:disabled~.t-form-check-label {
       cursor: $cursor-disabled;
       @include opacity(0.65);
       box-shadow: none;;
@@ -83,8 +83,8 @@
 
     + {
 
-      .form-check-label:before,
-      .form-check-input+.form-check-label:before {
+      .t-form-check-label:before,
+      .t-form-check-input+.t-form-check-label:before {
         content: attr(data-no);
         font-size: .875rem;
         font-weight: 400;
@@ -97,13 +97,13 @@
     }
   }
 
-  .form-check-input:not(:disabled) {
-    .form-check-label:active:after {
+  .t-form-check-input:not(:disabled) {
+    .t-form-check-label:active:after {
       width: 3rem;
     }
   }
 
-  &:disabled~.form-check-label {
+  &:disabled~.t-form-check-label {
     cursor: $cursor-disabled;
     @include opacity(0.65);
     box-shadow: none;;
