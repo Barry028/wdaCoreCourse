@@ -81,7 +81,8 @@
   }
 }
 
-.t-brand-wda-logo-backgrounds-grey-rotate {  overflow: hidden;
+.t-brand-wda-logo-backgrounds-grey-rotate {  
+  overflow: hidden;
   &:before {
     content: '';
     position: absolute;
@@ -95,4 +96,19 @@
     background-size: 6.25rem;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='376' height='256'%3E%3Cpath d='m69.3 138 39.9 108h57.6L127 138Zm235.1 108s-3.8-18 13.6-53c13.7-27.4 14.7-55 14.7-55H275s4.6 15-18.9 63.2c-13.3 27.5-9.4 44.7-9.4 44.7Z' fill='%23b6b6b6'/%3E%3Cpath d='M317.7 246s3.8-18-13.6-53c-13.6-27.4-14.6-55-14.6-55H347s-4.5 15 19 63.2c13.3 27.5 9.4 44.7 9.4 44.7Z' fill='%23ddd'/%3E%3Cpath d='M311 209c2-4.9 4.2-10.2 7-16 13.7-27.4 14.7-55 14.7-55h-43.1s1 27.6 14.6 55a219 219 0 0 1 7 16' fill='%23bababa'/%3E%3Cpath d='M238.4 246h-56.6V138h56.6a54 54 0 0 1 0 108Zm-5-71h-16.3v31.3h16.4a15.6 15.6 0 0 0 0-31.3Z' fill='%23ddd'/%3E%3Cpath d='M137.5 138s4.2 13.8-8.8 37.9c-27.3 50.7-19.5 70-19.5 70h57.6s-3.3-24.5 19-63.1c15.2-26.6 9.4-44.8 9.4-44.8Z' fill='%23b6b6b6'/%3E%3Cpath d='M127 138 87 246H29.4l39.9-108Z' fill='%23ddd'/%3E%3Cpath d='M58.7 138s-4.1 13.8 8.8 37.9c27.4 50.7 19.5 70 19.5 70H29.4s3.3-24.5-19-63.1C-4.8 156.2 1 138 1 138Z' fill='%23bababa'/%3E%3Cpath d='M67.5 175.9a90.3 90.3 0 0 1-6.6-15.3l-31.5 85.3H87c.6-1.6 6.7-21.3-19.5-70' fill='%237c7c7c'/%3E%3Cg data-name='logo-background-grey'%3E%3Cpath data-name='p' d='m69.3 10 39.9 108h57.6L127 10Z' fill='%23b6b6b6'/%3E%3Cg data-name='g'%3E%3Cpath data-name='p8' d='M304.4 118s-3.8-18 13.6-53c13.7-27.4 14.7-55 14.7-55H275s4.6 15-18.9 63.2c-13.3 27.5-9.4 44.7-9.4 44.7Z' fill='%23b6b6b6'/%3E%3Cpath data-name='p7' d='M317.7 118s3.8-18-13.6-53c-13.6-27.4-14.6-55-14.6-55H347s-4.5 15 19 63.2c13.3 27.5 9.4 44.7 9.4 44.7Z' fill='%23ddd'/%3E%3Cpath data-name='p6' d='M311 81c2-4.9 4.2-10.2 7-16 13.7-27.4 14.7-55 14.7-55h-43.1s1 27.6 14.6 55a219 219 0 0 1 7 16' fill='%23bababa'/%3E%3Cpath data-name='p5' d='M238.4 118h-56.6V10h56.6a54 54 0 0 1 0 108Zm-5-71h-16.3v31.3h16.4a15.6 15.6 0 0 0 0-31.3Z' fill='%23ddd'/%3E%3Cpath data-name='p4' d='M137.5 10s4.2 13.8-8.8 37.9c-27.3 50.7-19.5 70-19.5 70h57.6s-3.3-24.5 19-63.1C201 28.2 195.1 10 195.1 10Z' fill='%23b6b6b6'/%3E%3Cpath data-name='p3' d='M127 10 87 118H29.4L69.3 10Z' fill='%23ddd'/%3E%3Cpath data-name='p2' d='M58.7 10s-4.1 13.8 8.8 37.9c27.4 50.7 19.5 70 19.5 70H29.4s3.3-24.5-19-63.1C-4.8 28.2 1 10 1 10Z' fill='%23bababa'/%3E%3Cpath data-name='p1' d='M67.5 47.9a90.3 90.3 0 0 1-6.6-15.3l-31.5 85.3H87c.6-1.6 6.7-21.3-19.5-70' fill='%237c7c7c'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
+}
+
+// .tt {
+//   @include shade-watermark($name, $sub-name, $grey-600);
+// }
+
+
+$name: "勞動力發展署";
+$sub-name: "關鍵就業力";
+// @include shade-watermark($name, $sub-name, $grey-600);
+@mixin shade-watermark($name, $sub-name, $color, $deg: -30, $font-family: sans-serif) {
+  background-repeat: repeat;
+  background-image: t-svg(
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' id='diagtext' width='100%25' height='100%25'%3E%3Cstyle type='text/css'%3Etext %7B fill:#{$color}; font-family: #{$font-family} ;%7D%3C/style%3E%3Cdefs%3E%3Cpattern id='twitterhandle' patternUnits='userSpaceOnUse' width='400' height='200'%3E%3Ctext y='30' font-size='40' id='name'%3E@#{$name}%3C/text%3E%3C/pattern%3E%3Cpattern xlink:href='%23twitterhandle'%3E%3Ctext y='120' x='200' font-size='28' id='occupation'%3E#{$sub-name}%3C/text%3E%3C/pattern%3E%3Cpattern id='combo' xlink:href='%23twitterhandle' patternTransform='rotate(#{$deg})'%3E%3Cuse y='6' xlink:href='%23name'/%3E%3Cuse xlink:href='%23occupation'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23combo)'/%3E%3C/svg%3E")
+    );
 }

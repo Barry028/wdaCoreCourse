@@ -7,10 +7,6 @@ $color_4: rgb(0, 0, 0, 0.5);
 
 .t-js-alert-wrapper {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   outline: 0;
   overflow-x: hidden;
   overflow-y: auto;
@@ -39,18 +35,13 @@ $color_4: rgb(0, 0, 0, 0.5);
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
   overflow: hidden;
-
+  @extend .t-brand-wda-logo-backgrounds-grey-rotate;
   &:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    @extend .brand-wda-logo-background-rotate;
     background-repeat: repeat;
     transform: rotate(15deg);
     opacity: 0.12;
-    width: 100%;
-    height: 100%;
+    width: 150%;
+    height: 150%;
     mix-blend-mode: luminosity;
   }
 }

@@ -29,7 +29,7 @@ const JsCategoryPicker = function(element, config) {
     selectAllPreTxt: config.selectAllPrefix,
     lv1Active: config.lv1Active,
     lv2Active: config.lv2Active,
-    elHidden:  'elHidden',
+    elHidden: 'elHidden',
     sl: config.selectedNum,
     id: config.id,
     title: config.title,
@@ -50,43 +50,37 @@ const JsCategoryPicker = function(element, config) {
   const data = config.data;
   const pickerID = config.id;
   const title = config.title || "地區類別選單";
-  const picker = document.getElementById(pickerID);
+
   const elHidden = config.elHidden || pickerID + 'Hidden';
-  // const picker = document.getElementById(pickerID);
-  // console.log(elHidden)
-  // console.log(element.id)
+
+
+  console.log(pickerID)
   const inputId = element.id;
 
 
   ////////////////////////////
   // ** Private methods  ** //
   ////////////////////////////
-  const _construct = function() {
-    if (JsUtils.data(element).has('category')) {
-      that = JsUtils.data(element).get('category');
-    } else {
-      _init();
-    }
-  };
-
-  const _init = function() {
-    that.uid = JsUtils.getUniqueId('category_picker');
-    _loadDate(data);
-    _inPutClick(element);
-
-    JsUtils.data(element).set('category-picker', that);
-  };
-
+  // Fetch Get data
   const _loadDate = function(data) {
     JsUtils.fetch(data, 'GET')
       .then((responseData) => {
+        console.log(responseData)
         return _build(responseData, pickerID, title);
+      })
+      .then(() => {
+        // console.log()
+        _inPutClick(element);
+
       })
       .then(() => {
         return _handlers();
       })
       .then(() => {
         return _confirm(inputId)
+      })
+      .then(() => {
+        _searchInput(element)
       })
       .catch((error) => {
         return console.log('資料載入失敗!!');
@@ -188,7 +182,7 @@ const JsCategoryPicker = function(element, config) {
           lv2_li.setAttribute("data-parents", lv2UlId);
           var lv2_html =
             '<input name="' + pickerID + prefix + 'ckeckbox" type="checkbox" id="' + lv2LiId + '">' +
-            '<label class="t-checkbox-group" tabindex="0" for="' + lv2LiId + '">' +
+            '<label class="t-checkbox-group"  for="' + lv2LiId + '">' +
             '' + lv2LiLab + '' +
             '</label>';
           lv2_li.innerHTML = lv2_html;
@@ -218,6 +212,8 @@ const JsCategoryPicker = function(element, config) {
     html += '               <button id="' + pickerID + prefix + 'close" type="button" class="btn-close" tabindex="0" aria-label="關閉' + title + '" title="關閉' + config.title + '"></button>';
     html += '           </div>';
     html += '           <div id="' + pickerID + 'selectedCnt" class="category-modal-selected">';
+    html += '               <input type="text" placeholder="Search" id="' + pickerID + 'Search">';
+    html += '               <ul class="t-options"></ul>';
     html += '               <span class="selected-txt"> 已選擇 ( <span id="' + pickerID + 'catNums" class="selectedNum">0</span> )</span>';
     html += '               <a class="selected-del-all" aria-label="清空全部標籤" title="清空全部標籤" tabindex="0">清空全部標籤</a>';
     html += '           </div>';
@@ -245,6 +241,22 @@ const JsCategoryPicker = function(element, config) {
     newInput.value = '';
 
     JsUtils.insertBefore(newInput, document.getElementById(inputId))
+  };
+
+  const _construct = function() {
+    if (JsUtils.data(element).has('category')) {
+      that = JsUtils.data(element).get('category');
+    } else {
+      _init();
+    }
+  };
+
+  const _init = function() {
+    that.uid = JsUtils.getUniqueId('category_picker');
+
+    _loadDate(data);
+
+    JsUtils.data(element).set('category-picker', that);
   };
 
   // 鍵盤事件
@@ -322,16 +334,20 @@ const JsCategoryPicker = function(element, config) {
           _select(hiddenVal[i])
         }
       }
-       console.dir(element)
+      // console.dir(element)
       _open();
-      _keydown();
 
-      setTimeout(() => picker.querySelector('button').focus(), 200);
+      setTimeout(() => {
+
+        picker.querySelector('button').focus();
+        _keydown();
+      }, 200);
     };
 
     JsUtils.addEvent(element, 'click', function(event) {
-      event.preventDefault();
+
       _openModal()
+      event.preventDefault();
     });
 
     element.addEventListener('keydown', function(event) {
@@ -352,6 +368,55 @@ const JsCategoryPicker = function(element, config) {
       }
     });
 
+  };
+
+  const _searchInput = function(element) {
+    let picker = document.getElementById(pickerID);
+    console.log(picker)
+    let options = picker.querySelector(".t-options");
+    let country = document.getElementsByClassName('t-checkbox-group');
+    let countriesLen = country.length;
+    let countries = [];
+    for (let i = 0; i < countriesLen; i++) {
+      countries.push(country[i].innerHTML)
+      console.dir(country[i])
+        // countries[i].value
+    }
+    let searchInput = picker.querySelector("#" + pickerID + "Search");
+    // console.log(countries)
+    let data = countries;
+    // console.log(searchInput)
+    searchInput.addEventListener("keyup", () => {
+      let arr = [];
+      let searchedVal = searchInput.value;
+      let regex = new RegExp(searchedVal);
+      arr = countries
+        .filter((data) =>
+          regex.test(data, searchedVal)
+        )
+        .map((data) =>
+          `<li onclick="updateName(this)">${data}</li>`
+        )
+        .join("");
+      options.innerHTML = arr ? arr :
+        '<p style="margin-top: 10px;">Oops! Country not found</p>';
+    });
+
+    function addCountry(selectedCountry) {
+      options.innerHTML = "";
+      countries.forEach((country) => {
+        let isSelected = country === selectedCountry ? "selected" : "";
+        let li = `<li onclick="updateName(this)" class="${isSelected}">${country}</li>`;
+        options.insertAdjacentHTML("beforeend", li);
+      });
+    }
+
+    function updateName(selectedLi) {
+      searchInput.value = "";
+      addCountry(selectedLi.textContent);
+      wrapper.classList.remove("active");
+      selectBtn.firstElementChild.textContent = selectedLi.textContent;
+    }
   };
 
   // 確認按鈕
@@ -399,6 +464,7 @@ const JsCategoryPicker = function(element, config) {
 
   // 事件
   const _handlers = function() {
+    console.log(picker)
     const pickerLv1Cnt = document.getElementById(prefix + "lv1");
     const pickerSubCnt = document.getElementById(prefix + "lv2");
     const checkedBoxInps = pickerSubCnt.getElementsByTagName("input");
@@ -495,7 +561,7 @@ const JsCategoryPicker = function(element, config) {
     }
   };
 
-
+  // 上方 Label
   const _labelClcik = function() {
     let picker = document.getElementById(pickerID);
     let labels = picker.getElementsByClassName("selected-label-close");
@@ -522,7 +588,7 @@ const JsCategoryPicker = function(element, config) {
       });
     };
   };
-
+  // 刪除事件
   const _delAllClcik = function() {
     let picker = document.getElementById(pickerID);
     let labels = picker.getElementsByClassName("selected-label-close");
@@ -553,7 +619,7 @@ const JsCategoryPicker = function(element, config) {
       });
     };
   };
-
+  // All 事件
   const _checkAll = function(el) {
     const picker = document.getElementById(pickerID);
 
@@ -592,7 +658,7 @@ const JsCategoryPicker = function(element, config) {
       }
     }
   };
-
+  // 更新 事件
   const _update = function() {
     const picker = document.getElementById(pickerID);
     const catNums = document.getElementById(pickerID + 'catNums');
@@ -606,7 +672,7 @@ const JsCategoryPicker = function(element, config) {
       }
     }
   };
-
+  // 比對 
   const _select = function(id) {
     let picker = document.getElementById(pickerID);
     let selected = document.getElementById(id);
@@ -624,8 +690,8 @@ const JsCategoryPicker = function(element, config) {
     _keydown();
   };
 
-  const _close = function( ) {
-    that._show = false; 
+  const _close = function() {
+    that._show = false;
     let picker = document.getElementById(pickerID);
     let hidden = document.getElementById(elHidden);
     console.log(that)
@@ -755,3 +821,93 @@ if (document.readyState === 'loading') {
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
   module.exports = JsCategoryPicker;
 }
+
+
+// var Gridnav = function(listelement) {
+//   var that = this;
+//   that.list = (typeof listelement) === 'string' ?
+//     document.querySelector(listelement) :
+//     listelement;
+//   if (!that.list) {
+//     throw Error('List item could not be found');
+//   }
+//   that.setcodes = function(amount) {
+//     that.codes = {
+//       39: 1,
+//       68: 1,
+//       65: -1,
+//       37: -1,
+//       87: -that.amount,
+//       38: -that.amount,
+//       83: that.amount,
+//       40: that.amount
+//     };
+//   }
+//   if (!that.list.getAttribute('data-kb-element')) {
+//     // that.element = that.list.firstElementChild.firstElementChild.tagName;
+//     // let focusableEls = JsUtils.makeArray(that.list.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])'));
+
+//   } else {
+//     that.element = that.list.getAttribute('data-kb-element').toUpperCase();
+//   }
+//   if (!that.list.getAttribute('data-kb-amount')) {
+//     that.amount = 6502;
+//     that.setcodes(that.amount);
+//   } else {
+//     that.amount = +that.list.getAttribute('data-kb-amount');
+//     that.setcodes(that.amount);
+//   }
+//   that.setcodes(that.amount);
+
+
+//   that.all = that.list.querySelectorAll('a[href]:not([disabled]), [tabindex="0"] ,button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]:not([hidden]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+
+//   // that.list.querySelectorAll(that.element);
+//   that.keynav = function(ev) {
+//     var t = ev.target;
+//     var c;
+//     var posx, posy;
+//     // console.log(that.all)
+//     // that.element = that.element[i];
+// for (var j = 0; j < that.all.length; j++) {
+//       if (t.tagName === that.all[j].tagName) {
+//         // console.log(that.all[j].tagName)
+//         // console.log(t)
+//         for (var i = 0; i < that.all.length; i++) {
+
+//           // console.log(that.all[i])
+//           if (that.all[i] === t) {
+//             c = i;
+//             posx = that.all[c].offsetLeft;
+//             posy = that.all[c].offsetTop;
+//             break;
+//           }
+//         }
+//         if (that.codes[ev.keyCode]) {
+//           var kc = that.codes[ev.keyCode];
+//           if (kc > -6502 && kc < 6502) {
+//             if (that.all[c + kc]) {
+//               that.all[c + kc].focus();
+//             }
+//           } else {
+//             var add = kc < 0 ? -1 : 1;
+//             while (that.all[i]) {
+//               if (that.all[i].offsetLeft === posx &&
+//                 that.all[i].offsetTop !== posy) {
+//                 that.all[i].focus();
+//                 break;
+//               }
+//               i += add;
+//             }
+//           }
+//         }
+//       }}
+
+//   }
+//   that.list.addEventListener('keyup', that.keynav);
+// };
+// Gridnav.lists = [];
+
+// [].forEach.call(document.querySelectorAll('.t-gridnav '), function(item, key) {
+//   Gridnav.lists[key] = new Gridnav(item);
+// });

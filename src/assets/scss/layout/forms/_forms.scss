@@ -3,21 +3,22 @@
 //  Layout -> Forms 
 // --------------------------------------------------
 .t-form {
-
   padding: 1.25rem 0;
   display: flex;
   width: 100%;
   flex-direction: column;
   flex-wrap: wrap;
 }
-.t-form-btn-bt-row{
-      display: flex;
-    gap: 0.5rem;
-    padding-top: 1rem;
+
+.t-form-btn-bt-row {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 1rem;
 }
+
 .t-form-input-field {
   .t-form-group {
-    >label {
+    > label {
       font-size: 0.75rem;
       position: absolute;
       pointer-events: none;
@@ -33,7 +34,7 @@
       padding: $field-input-control-padding;
 
       @include focus {
-        +label {
+        + label {
           color: $primary;
           left: $input-label-field-left * 1.625;
           right: auto;
@@ -47,8 +48,10 @@
   position: relative;
   display: flex;
   margin-bottom: $form-group-margin-bottom;
+  flex-direction: column;
+  width: 100%;
 
-  >label {
+  > label {
     font-size: $form-label-font-size;
     display: block;
     font-weight: $form-label-font-weight;
@@ -72,13 +75,16 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+
   // flex-wrap: wrap;
   flex-wrap: nowrap;
   gap: 0.5rem;
- 
+
   .t-form-group {
     // flex: 1 1 45%;
     flex: 1 1 auto;
+      flex-direction: row;
+  width: auto;
   }
 }
 
@@ -87,7 +93,7 @@
   align-items: center;
   flex-wrap: wrap;
 
-  >.t-form-group {
+  > .t-form-group {
     max-width: 100%;
     flex: 0 0 auto;
     width: auto;

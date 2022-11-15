@@ -1,7 +1,26 @@
 @charset "utf-8";
 
 //  Mixins > Text emboss
-// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// –––––––––––––  ––––––––––––––––––––––––––––––––––––––––––––
+
+
+// @include text-battle(#ffdd40,  #2f313a);
+@mixin text-battle($left-color: #ffdd40, $right-color: #2f313a) {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.3125rem;
+    width: 100%;
+    height: .625rem;
+    --left-color: #{$left-color};
+    --right-color: #{$right-color};
+    background: linear-gradient(40deg, var(--left-color) 0, var(--left-color) 60%, var(--right-color) 60.2%, var(--right-color));
+  }
+
+}
 
 // @include text-emboss($color: $primary, $depth: 2)
 @mixin text-emboss($color: $primary, $depth: 2) {
@@ -10,6 +29,7 @@
   // color: $color;
   text-shadow: 0 ($depth * 0.01em) ($depth * 0.01em) lighten($color, 15%), 0 ($depth * 0.01em) ($depth * 0em) darken($color, 10%), 0 ($depth * 0.02em) ($depth * 0em) darken($color, 11%), 0 ($depth * 0.03em) ($depth * 0.01em) darken($color, 12%), 0 ($depth * 0.04em) ($depth * 0.02em) darken($color, 13%), 0 ($depth * 0.05em) ($depth * 0.03em) darken($color, 14%), 0 ($depth * 0.06em) ($depth * 0.03em) darken($color, 15%), 0 ($depth * 0.07em) ($depth * 0.02em) darken($color, 16%), 0 ($depth * 0.08em) ($depth * 0.01em) darken($color, 17%), 0 ($depth * 0.09em) ($depth * 0em) darken($color, 18%), 0 ($depth * 0.1em) ($depth * 0em) darken($color, 19%), 0 ($depth * 0.1em) ($depth * 0.04em) rgba($dark, 0.2), 0 ($depth * 0.1em) ($depth * 0.08em) rgba($dark, 0.4), 0 ($depth * 0.1em) ($depth * 0.12em) rgba($dark, 0.6), 0 ($depth * 0.14em) ($depth * 0.1em) rgba($dark, 0.2), 0 ($depth * 0.18em) ($depth * 0.1em) rgba($dark, 0.2);
 }
+
 // @include text-emboss-v2($color: $primary, $depth: 2)
 @mixin text-emboss-v2($color: $primary, $depth: 2) {
   font-weight: 700;

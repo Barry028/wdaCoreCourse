@@ -1,83 +1,4 @@
-// document.addEventListener("DOMContentLoaded", function() {
-
-
-// })
-
-document.addEventListener("DOMContentLoaded", function() {
-  const editItem = document.querySelectorAll('[data-tu-inlineEdit]');
-  const editBtn = document.querySelectorAll('[data-tu-inlineeditbtn="true"]')
-  const body = document.getElementsByTagName("BODY")[0];
-
-  JsUtils.each(editBtn, function(event) {
-
-    event.addEventListener("click", function(ev) {
-      ev.preventDefault();
-      let panel = JsUtils.parents(ev.target.parentElement, '.t-panel')[0];
-      console.dir(panel)
-      let inputEl = JsUtils.findAll(panel, '[data-tu-inlineEdit]');
-      console.dir(inputEl)
-
-      let inputLen = inputEl.length;
-      let form = document.createElement('form');
-      let frame = document.createDocumentFragment();
-      form.id = JsUtils.getUniqueId('JSedit');
-      form.className = 't-form';
-
-      console.dir(inputLen)
-      for (let i = 0; i < inputLen; i++) {
-        let text = inputEl[i].innerText;
-        let name = inputEl[i].getAttribute('data-tu-inlineEdit-name');
-        let id = inputEl[i].getAttribute('data-tu-inlineEdit-id');
-        let label = inputEl[i].getAttribute('data-tu-inlineEdit-label');
-        let placeholder = inputEl[i].getAttribute('data-tu-inlineEdit-placeholder');
-        console.log(text)
-        let formGroup = `                  
-        <div class="t-form-group">
-          <label class="t-fw-500" for="${id}">
-            ${label}
-          </label>
-          <div class="t-input-group">
-            <input autocomplete="off" 
-                    class="t-form-control 
-                    rounded--36" 
-                    id="${id}" 
-                    name="${name}" 
-                    placeholder="${placeholder}" 
-                    title="${placeholder}" 
-                    type="text"
-                    value="${text}">
-            <i class="svg-icon">
-              <svg>
-                <use href="#ic-mail"></use>
-              </svg>
-            </i>
-            <text class="
-              t-tooltip 
-              t-tooltip--v1 
-              t-tooltip-top-right"> ${placeholder} (您的電子信箱) </text>
-          </div>
-        </div>`;
-        form.innerHTML += formGroup;
-        // console.log(form)
-      }
-      frame.appendChild(form);
-
-      var panelEditCnt = JsUtils.find(panel, '.t-panel-edit-cnt');
-      var panelMainCnt = JsUtils.find(panel, '.t-panel-item-cnt');
-      if (panelEditCnt.querySelector('.t-form') === null ){
-        JsUtils.fade('fadeOut', panelMainCnt, 400, function () {
-          console.log('fadeOut');
-        });
-        panelEditCnt.appendChild(frame);  
-      }
-      // console.log(panelEditCnt.querySelector('.t-form'))
-      // panelMainCnt.classList.add('t-fade-out')
-    });
-  })
-
-
-})
-var inlineEditRowContents = {};
+var tuInlineEditRowContents = {};
 
 class StringEscaper {
   static replaceTag(tag) {
@@ -96,77 +17,114 @@ class StringEscaper {
 
 
 
+function tuInlineEdit(rowName, options) {
+  let tableRow = document.getElementById(rowName);
 
-function inlineEdit(rowName, options) {
-  var tableRow = document.getElementById(rowName);
-  inlineEditRowContents[rowName] = {};
-  for (var i = 0; i < tableRow.childElementCount; i++) {
-    var cell = tableRow.children[i];
-    inlineEditRowContents[rowName][i] = cell.innerHTML;
+  let cellSet = {};
+  tuInlineEditRowContents[rowName] = {};
+  let cell = JsUtils.findAll(tableRow, '[data-tu-inlinetype');
+  for (let i = 0; i < cell.length; i++) {
+
+    let cell = JsUtils.findAll(tableRow, '[data-tu-inlinetype')[i];
+    let cellArray = JsUtils.makeArray(JsUtils.findAll(tableRow, '[data-tu-inlinetype'))
+
+    if (cell.getAttribute('data-tu-inlineEditId') !== null) {
+      let elId = cell.getAttribute('data-tu-inlineEditId') || null;
+      cellSet.id = elId;
+    }
+
+    if (cell.getAttribute('data-tu-inlineEditLabel') !== null) {
+      let label = cell.getAttribute('data-tu-inlineEditLabel') || null;
+      cellSet.label = label;
+    }
+
+    if (cell.getAttribute('data-tu-inlineEditPlaceholder') !== null) {
+      let placeholder = cell.getAttribute('data-tu-inlineEditPlaceholder') || null;
+      cellSet.placeholder = placeholder;
+    }
+
+    tuInlineDefaultUpdateCell[rowName] = cell.innerHTML;
+
     if (options.hasOwnProperty("updateCell"))
-      options.updateCell(cell, i, rowName, options);
+      options.updateCell(cell, i, rowName, options, cellSet);
     else
-      inlineDefaultUpdateCell(cell, i, rowName, options);
+      tuInlineDefaultUpdateCell(cell, i, rowName, options, cellSet);
   }
 }
 
-function inlineDefaultUpdateCell(cell, i, rowName, options) {
-  var attributesFilter = ["inlineoptionsvalue", "inlineoptionstitle"];
-  var cellContent = "";
-  var key;
+function tuInlineDefaultUpdateCell(cell, i, rowName, options, cellSet) {
+  let attributesFilter = ["tuInlineoptionsvalue", "tuInlineoptionstitle"];
+  let cellContent = "";
+  let key;
   if (i === 0) {
-    cellContent += `<form id='${rowName}Form'></form>`;
+    cellContent += `<form id='${rowName}Form'>`;
   }
-  switch (cell.dataset.inlinetype) {
+  console.log(cell)
+  switch (cell.dataset.tuInlinetype) {
     case "plain":
-      cellContent += inlineEditRowContents[rowName][i];
+      cellContent += tuInlineEditRowContents[rowName][i];
       break;
     case "doneButton":
-      cellContent += `<input type='submit' value='Finish' form='${rowName}Form'/>`;
+      let saveIcon = '<i class="svg-icon"><svg><use href="#ic-save"></use></svg></i>'
+      cellContent += `<button class="btn btn--primary" type='submit' value='Finish' form='${rowName}Form'>儲存 ${saveIcon}</button>`;
       break;
     case "button":
-      cellContent += inlineEditRowContents[rowName][i];
+      cellContent += tuInlineEditRowContents[rowName][i];
       break;
     case "link":
-      cellContent += `<input type='text' value='${cell.innerText}' form='${rowName}Form'`;
+      cellContent += `<input 
+                      class="t-form-control"
+                      type='text' value='${JsUtils.trim(cell.innerText)}' 
+                      id="${cellSet.id}" 
+                      placeholder="${cellSet.placeholder}" 
+                      title="${cellSet.placeholder}" 
+                      form='${rowName}Form'`;
       for (key in cell.dataset) {
-        if (cell.dataset.hasOwnProperty(key) && key.substr(0, 6) == "inline" && attributesFilter.indexOf(key) == -1) {
-          cellContent += ` ${key.substr(6)}='${cell.dataset[key]}'`;
+        console.log(key)
+        console.log(cell)
+        if (cell.dataset.hasOwnProperty(key) && key.substr(0, 12) == "tuInline" && attributesFilter.indexOf(key) == -1) {
+          cellContent += ` ${key.substr(8)}='${cell.dataset[key]}'`;
         }
       }
       cellContent += "/>";
       break;
     case "text":
-      cellContent += `<input type='text' value='${inlineEditRowContents[rowName][i]}' form='${rowName}Form'`;
+      cellContent += `<input 
+                      type='text' value='${JsUtils.trim(cell.innerText)}' 
+                      id="${cellSet.id}" 
+                      placeholder="${cellSet.placeholder}" 
+                      title="${cellSet.placeholder}" 
+                      form='${rowName}Form'`;
       for (key in cell.dataset) {
-        if (cell.dataset.hasOwnProperty(key) && key.substr(0, 6) == "inline" && attributesFilter.indexOf(key) == -1) {
+
+        if (cell.dataset.hasOwnProperty(key) && key.substr(0, 6) == "tuInline" && attributesFilter.indexOf(key) == -1) {
           cellContent += ` ${key.substr(6)}='${cell.dataset[key]}'`;
         }
       }
       cellContent += "/>";
       break;
     case "date":
-      cellContent += `<input type='date' value='${inlineEditRowContents[rowName][i]}' form='${rowName}Form'`;
+      cellContent += `<input type='date' value='${tuInlineEditRowContents[rowName][i]}' form='${rowName}Form'`;
       for (key in cell.dataset) {
-        if (cell.dataset.hasOwnProperty(key) && key.substr(0, 6) == "inline" && attributesFilter.indexOf(key) == -1) {
+        if (cell.dataset.hasOwnProperty(key) && key.substr(0, 6) == "tuInline" && attributesFilter.indexOf(key) == -1) {
           cellContent += ` ${key.substr(6)}='${cell.dataset[key]}'`;
         }
       }
       cellContent += "/>";
       break;
     case "tel":
-      cellContent += `<input type='tel' value='${inlineEditRowContents[rowName][i]}' form='${rowName}Form'`;
+      cellContent += `<input type='tel' value='${tuInlineEditRowContents[rowName][i]}' form='${rowName}Form'`;
       for (key in cell.dataset) {
-        if (cell.dataset.hasOwnProperty(key) && key.substr(0, 6) == "inline" && attributesFilter.indexOf(key) == -1) {
+        if (cell.dataset.hasOwnProperty(key) && key.substr(0, 6) == "tuInline" && attributesFilter.indexOf(key) == -1) {
           cellContent += ` ${key.substr(6)}='${cell.dataset[key]}'`;
         }
       }
       cellContent += "/>";
       break;
     case "email":
-      cellContent += `<input type='email' value='${inlineEditRowContents[rowName][i]}' form='${rowName}Form'`;
+      cellContent += `<input type='email' value='${tuInlineEditRowContents[rowName][i]}' form='${rowName}Form'`;
       for (key in cell.dataset) {
-        if (cell.dataset.hasOwnProperty(key) && key.substr(0, 6) == "inline" && attributesFilter.indexOf(key) == -1) {
+        if (cell.dataset.hasOwnProperty(key) && key.substr(0, 6) == "tuInline" && attributesFilter.indexOf(key) == -1) {
           cellContent += ` ${key.substr(6)}='${cell.dataset[key]}'`;
         }
       }
@@ -175,17 +133,17 @@ function inlineDefaultUpdateCell(cell, i, rowName, options) {
     case "select":
       cellContent += "<select";
       for (key in cell.dataset) {
-        if (cell.dataset.hasOwnProperty(key) && key.substr(0, 6) == "inline" && attributesFilter.indexOf(key) == -1) {
+        if (cell.dataset.hasOwnProperty(key) && key.substr(0, 6) == "tuInline" && attributesFilter.indexOf(key) == -1) {
           cellContent += ` ${key.substr(6)}='${cell.dataset[key]}'`;
         }
       }
       cellContent += ">";
-      var optionsTitle = JSON.parse(cell.dataset.inlineoptionstitle);
-      var optionsValue = cell.dataset.hasOwnProperty("inlineoptionsvalue") ? JSON.parse(cell.dataset.inlineoptionsvalue) : [];
+      var optionsTitle = JSON.parse(cell.dataset.tuInlineoptionstitle);
+      var optionsValue = cell.dataset.hasOwnProperty("tuInlineoptionsvalue") ? JSON.parse(cell.dataset.tuInlineoptionsvalue) : [];
       for (var j = 0; j < optionsTitle.length; j++) {
         cellContent += "<option ";
         cellContent += ((optionsValue.length <= j) ? "" : `value='${optionsValue[j]}'`);
-        cellContent += ((inlineEditRowContents[rowName][i] == optionsTitle[j]) ? " selected='selected'" : "");
+        cellContent += ((tuInlineEditRowContents[rowName][i] == optionsTitle[j]) ? " selected='selected'" : "");
         cellContent += ">";
         cellContent += optionsTitle[j];
         cellContent += "</option>";
@@ -195,47 +153,49 @@ function inlineDefaultUpdateCell(cell, i, rowName, options) {
     case "textarea":
       cellContent += `<textarea form='${rowName}Form'`;
       for (key in cell.dataset) {
-        if (cell.dataset.hasOwnProperty(key) && key.substr(0, 6) == "inline" && attributesFilter.indexOf(key) == -1) {
+        if (cell.dataset.hasOwnProperty(key) && key.substr(0, 6) == "tuInline" && attributesFilter.indexOf(key) == -1) {
           cellContent += ` ${key.substr(6)}='${cell.dataset[key]}'`;
         }
       }
       cellContent += ">";
-      cellContent += inlineEditRowContents[rowName][i];
+      cellContent += tuInlineEditRowContents[rowName][i];
       cellContent += "</textarea>";
       break;
     default:
-      cellContent += inlineEditRowContents[rowName][i];
+      cellContent += tuInlineEditRowContents[rowName][i];
       break;
   }
-  cell.innerHTML = cellContent;
+
+  cellContent = JsUtils.trim(cellContent);
+  JsUtils.hide(cell)
+  cell.parentElement.innerHTML += cellContent;
+
   if (i === 0) {
-    // set the onsubmit function of the form of this row
+
     document.getElementById(rowName + "Form").onsubmit = function() {
       event.preventDefault();
       if (this.reportValidity()) {
         if (options.hasOwnProperty("finish"))
           options.finish(rowName, options);
         else
-          inlineDefaultFinish(rowName, options);
+          tuInlineDefaultFinish(rowName, options);
       }
     };
   }
 }
 
-function inlineDefaultFinish(rowName, options) {
+function tuInlineDefaultFinish(rowName, options) {
   var tableRow = document.getElementById(rowName);
   var rowData = {};
-  console.log(tableRow);
-  var bb = document.querySelectorAll('[data-inlineType]');
-  console.log(bb);
-  for (var i = 0; i < bb.length; i++) {
-    // var cell = document.querySelectorAll('[data-inlineType]')[i]
-    // console.log(cell)
-    var cell = bb[i];
+  // console.log(tableRow);
+  let cell = JsUtils.findAll(tableRow, '[data-tu-inlinetype');
+  // console.log(cell);
+  for (let i = 0; i < cell.length; i++) {
+    let cell = JsUtils.findAll(tableRow, '[data-tu-inlinetype')[i];
     // tableRow.children[i];
     console.log(cell)
     var getFromChildren = (i === 0) ? 1 : 0;
-    switch (cell.dataset.inlinetype) {
+    switch (cell.dataset.tuInlinetype) {
       case "plain":
         break;
       case "doneButton":
@@ -243,26 +203,27 @@ function inlineDefaultFinish(rowName, options) {
       case "button":
         break;
       case "link":
-        rowData[cell.dataset.inlinename] = cell.children[getFromChildren].value;
-        inlineEditRowContents[rowName][i] = `<a href='${cell.dataset.inlinelinkformat.replace("%link%", StringEscaper.safe_tags_replace(cell.children[getFromChildren].value))}'>${StringEscaper.safe_tags_replace(cell.children[getFromChildren].value)}</a>`;
+        rowData[cell.dataset.tuInlinename] = JsUtils.find(cell.parentElement,'.t-form-control').value;
+        console.dir(cell.dataset.tuInlinename)
+        tuInlineEditRowContents[rowName][i] = `<a href='${cell.dataset.tuInlinelinkformat.replace("%link%", StringEscaper.safe_tags_replace(JsUtils.find(cell.parentElement,'.t-form-control').value))}'>${StringEscaper.safe_tags_replace(cell.parentElement.children[getFromChildren].value)}</a>`;
         break;
       case "text":
       case "date":
       case "tel":
       case "email":
-        rowData[cell.dataset.inlinename] = cell.querySelector[getFromChildren].value;
-        inlineEditRowContents[rowName][i] = StringEscaper.safe_tags_replace(cell.querySelector[getFromChildren].value);
+        rowData[cell.dataset.tuInlinename] = cell.querySelector[getFromChildren].value;
+        tuInlineEditRowContents[rowName][i] = StringEscaper.safe_tags_replace(cell.querySelector[getFromChildren].value);
         break;
       case "select":
-        rowData[cell.dataset.inlinename] = cell.children[getFromChildren].selectedIndex;
-        rowData["_" + cell.dataset.inlinename + "Title"] = JSON.parse(cell.dataset.inlineoptionstitle)[cell.children[getFromChildren].selectedIndex];
-        rowData["_" + cell.dataset.inlinename + "Value"] = JSON.parse(cell.dataset.inlineoptionsvalue)[cell.children[getFromChildren].selectedIndex];
-        inlineEditRowContents[rowName][i] = JSON.parse(cell.dataset.inlineoptionstitle)[cell.children[getFromChildren].selectedIndex];
+        rowData[cell.dataset.tuInlinename] = cell.children[getFromChildren].selectedIndex;
+        rowData["_" + cell.dataset.tuInlinename + "Title"] = JSON.parse(cell.dataset.tuInlineoptionstitle)[cell.children[getFromChildren].selectedIndex];
+        rowData["_" + cell.dataset.tuInlinename + "Value"] = JSON.parse(cell.dataset.tuInlineoptionsvalue)[cell.children[getFromChildren].selectedIndex];
+        tuInlineEditRowContents[rowName][i] = JSON.parse(cell.dataset.tuInlineoptionstitle)[cell.children[getFromChildren].selectedIndex];
         break;
       case "textarea":
         // TODO textarea value is \n not <br/>
-        rowData[cell.dataset.inlinename] = cell.children[getFromChildren].value;
-        inlineEditRowContents[rowName][i] = cell.children[getFromChildren].value;
+        rowData[cell.dataset.tuInlinename] = cell.children[getFromChildren].value;
+        tuInlineEditRowContents[rowName][i] = cell.children[getFromChildren].value;
         break;
       default:
         break;
@@ -272,21 +233,30 @@ function inlineDefaultFinish(rowName, options) {
   // do whatever ajax magic
   if (options.hasOwnProperty("finishCallback"))
     options.finishCallback(rowData, rowName);
+    console.log(rowData)
+  // let cell = JsUtils.findAll(tableRow, '[data-tu-inlinetype');
+  for (let i = 0; i < cell.length; i++) {
+    // var cell = tableRow.querySelectorAll[i];
+    let cell = JsUtils.findAll(tableRow, '[data-tu-inlinetype')[i]
 
-  for (i = 0; i < tableRow.childElementCount; i++) {
-    var cell = tableRow.querySelectorAll[i];
     if (options.hasOwnProperty("finishCell")) {
       // return true invokes the default finishCell function
-      if (options.finishCell(cell, i, rowName, inlineEditRowContents[rowName][i]) === true) {
-        inlineDefaultFinishCell(cell, i, rowName);
+      if (options.finishCell(cell, i, rowName, tuInlineEditRowContents[rowName][i]) === true) {
+        tuInlineDefaultFinishCell(cell, i, rowName);
       }
     } else
-      inlineDefaultFinishCell(cell, i, rowName);
+      tuInlineDefaultFinishCell(cell, i, rowName);
   }
 }
 
-function inlineDefaultFinishCell(cell, i, rowName) {
+function tuInlineDefaultFinishCell(cell, i, rowName) {
   var cellContent = "";
-  cellContent += inlineEditRowContents[rowName][i];
+  // console.log(tuInlineEditRowContents)
+  cellContent += tuInlineEditRowContents[rowName][i];
+  // JsUtils.wrap(cell, cellContent)
+  JsUtils.show(cell, 'inherit')
+  console.log(cellContent)
+  // cell.parentElement.innerHTML += cellContent;
   cell.innerHTML = cellContent;
+  console.log(cellContent)
 };

@@ -195,34 +195,37 @@
       speed: 100
     });
 
-
-    const tuHeader = new JsHeader('tHeader', {
-      // subFixedID: 'tuJobFilter',
-      fixClass: 'is-fix',
-      hideClass: 'is-hide',
-      showClass: 'is-show',
-      showDelay: 100,
-      ignorePageElID: 'detailHeader'
-    });
-
-    const scrollAnimation = new JsObserverAnimations({
-      root: null,
-      element: '[data-tu-an]',
-      enableCallback: false,
-      callback: 'data-tu-an',
-      class: 'tu-an-inview',
-      initClass: 'tu-an-init',
-      threshold: 0.1,
-      offset: {
-        top: -64,
-        bottom: -150,
-      },
-      direction: 'vertical',
-      repeat: true,
-      mirror: false,
-      startEvent: 'DOMContentLoaded',
-    })
-
+    let tHeader = document.getElementById('tHeader');
+    if (tHeader.length !== 0) {
+      const tuHeader = new JsHeader('tHeader', {
+        // subFixedID: 'tuJobFilter',
+        fixClass: 'is-fix',
+        hideClass: 'is-hide',
+        showClass: 'is-show',
+        showDelay: 100,
+        ignorePageElID: 'detailHeader'
+      });
+    }
+    let scrollAni = document.querySelectorAll('[data-tu-an]');
+    if (scrollAni.length !== 0) {
+      const scrollAnimation = new JsObserverAnimations({
+        root: null,
+        element: '[data-tu-an]',
+        enableCallback: false,
+        callback: 'data-tu-an',
+        class: 'tu-an-inview',
+        initClass: 'tu-an-init',
+        threshold: 0.1,
+        offset: {
+          top: -64,
+          bottom: -150,
+        },
+        direction: 'vertical',
+        repeat: true,
+        mirror: false,
+        startEvent: 'DOMContentLoaded',
+      })
+    }
     // setTimeout(function() {}, 2000)
     const imagesLazyLoad = JsImagesLazyLoad("img[data-src]");
 

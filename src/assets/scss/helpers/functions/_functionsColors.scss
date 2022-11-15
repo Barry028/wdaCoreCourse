@@ -1,19 +1,19 @@
 @charset "utf-8";
 
-
-
 // Foundation for Sites
 // https://get.foundation
 // Licensed under MIT Open Source
 $black: #0f0f0f !default;
-$dark:  #121328 !default;
+$dark: #121328 !default;
 $white: #fff !default;
-$contrast-color-threshold:        55%;
+$contrast-color-threshold: 55%;
+
 // $contrast-color-threshold:        80%;
 // contrast-color($badge-bg-color, $dark, $white);
-@function contrast-color($color, $dark ,$white) {
-  @return if(lightness($color) < $contrast-color-threshold , $white, $dark);
+@function contrast-color($color, $dark, $white) {
+  @return if(lightness($color) < $contrast-color-threshold, $white, $dark);
 }
+
 @function contrast-ratio($background, $foreground: $color-contrast-light) {
   $l1: luminance($background);
   $l2: luminance(opaque($background, $foreground));
@@ -73,6 +73,7 @@ $contrast-color-threshold:        55%;
   @return 0.2126 * nth($rgba2, 1) + 0.7152 * nth($rgba2, 2) + 0.0722 * nth($rgba2, 3);
 }
 
+// @debug color-luminance($blue);
 // Return WCAG2.0 relative luminance
 // See https://www.w3.org/WAI/GL/wiki/Relative_luminance
 // See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
@@ -109,6 +110,8 @@ $contrast-color-threshold:        55%;
   @return $ratio;
 }
 
+// @debug color-contrast-t($white, $black);
+
 /// Checks the luminance of `$base`, and returns the color from `$colors` (list of colors) that has the most contrast.
 ///
 /// @param {Color} $base - Color to check luminance.
@@ -116,7 +119,7 @@ $contrast-color-threshold:        55%;
 /// @param {Number} $tolerance [$global-color-pick-contrast-tolerance] - Contrast tolerance.
 ///
 /// @returns {Color} the color from `$colors` (list of colors) that has the most contrast.
-@function color-pick-contrast($base , $colors: [($white, $black)], $tolerance: $global-color-pick-contrast-tolerance) {
+@function color-pick-contrast($base, $colors: [($white, $black)], $tolerance: $global-color-pick-contrast-tolerance) {
   $contrast: color-contrast-t($base, nth($colors, 1));
   $best: nth($colors, 1);
 
@@ -143,7 +146,7 @@ $contrast-color-threshold:        55%;
 /// @param {Percentage} $threshold [40%] - Threshold of lightness to check against.
 ///
 /// @returns {Color} A scaled color.
-@function luminance ($color, $scale: 5%, $threshold: 40%) {
+@function luminance($color, $scale: 5%, $threshold: 40%) {
   @if lightness($color) > $threshold {
     $scale: -$scale;
   }
@@ -167,17 +170,12 @@ $contrast-color-threshold:        55%;
   }
 }
 
-
-
 // A list of pre-calculated numbers of pow(divide((divide($value, 255) + .055), 1.055), 2.4). (from 0 to 255)
 // stylelint-disable-next-line scss/dollar-variable-default, scss/dollar-variable-pattern
 
-@function color-contrast($background, 
-  $color-contrast-dark: $color-contrast-dark, 
-  $color-contrast-light: $color-contrast-light,
-  $min-contrast-ratio: $min-contrast-ratio) {
-  $foregrounds: $color-contrast-light, 
-  $color-contrast-dark, $white, $dark;
+@function color-contrast($background, $color-contrast-dark: $color-contrast-dark, $color-contrast-light: $color-contrast-light, $min-contrast-ratio: $min-contrast-ratio) {
+  $foregrounds: $color-contrast-light, $color-contrast-dark, $white, $dark;
+
   $max-ratio: 0;
   $max-ratio-color: null;
 
@@ -240,6 +238,7 @@ $contrast-color-threshold:        55%;
 @function shift-color($color, $weight) {
   @return if($weight > 0, shade-color($color, $weight), tint-color($color, -$weight));
 }
+
 // /////////////////////////////////
 // // Calculate brightness value
 // /////////////////////////////////
@@ -274,7 +273,6 @@ $contrast-color-threshold:        55%;
 //   @return if(brightness_ratio($base, $color1) > brightness_ratio($base, $color2), $color2, $color1);
 // }
 
-   
 /////////////////////////////////
 //  text-contrast
 // (inverting the former contrast function)
@@ -308,4 +306,3 @@ $contrast-color-threshold:        55%;
     @error "given $key is not available in $foundation-palette";
   }
 }
-

@@ -6,7 +6,7 @@ const sampleCollection = [{
   <span class="t-fc-secondary">secondary</span>
   <span class="t-fc-success">Success</span>
   <span class="t-fc-warning">Warning</span>
-  <span class="t-fc-error">Error</span>
+  <span class="t-fc-danger">Danger</span>
   <span class="t-fc-info">Info</span>
   <span class="t-fc-disabled">Disabled</span>`,
 }, {
@@ -33,6 +33,25 @@ const sampleCollection = [{
   <span>Select your file</span>
   <input type="file">
 </label>`,
+}, {
+  title: 'Alerts',
+  showCode: false,
+  code: `<button id="successBtn" type="button" class="btn">基本 Normal</button>
+<button type="button" class="btn btn--primary">主要 Primary</button>
+<button type="button" class="btn btn--secondary">次要 Secondary</button>
+<button type="button" class="btn btn--tertiary">次次要 Tertiary</button>
+<button type="button" class="btn btn--quaternary">次次次要 Quaternary</button>
+<button type="button" class="btn btn--success">成功 Success</button>
+<button type="button" class="btn btn--warning">警報 Warning</button>
+<button type="button" class="btn btn--danger">錯誤 Error</button>
+<button type="button" class="btn btn--info">資訊 Info</button>
+<button type="button" class="btn btn--warning">警報 Warning</button>
+<button type="button" class="btn btn--dark">Dark Dark</button>
+<button type="button" class="btn btn--grey">Hrey Grey</button>
+<button type="button" class="btn btn--lightgrey">Lightgrey LightGrey</button>
+<button type="button" class="btn btn--neutral">Neutral Neutral</button>
+<button type="button" class="btn btn--light">Light light</button>
+<button type="button" class="btn is-disabled" disabled>禁用 Disabled</button>`,
 }, {
   title: 'radios',
   showCode: false,
@@ -652,7 +671,7 @@ const contributors = [
 ];
 
 new Vue({
-  el: '#pixelCaptain',
+  el: '#guideline',
   data() {
     return {
       collection: sampleCollection,

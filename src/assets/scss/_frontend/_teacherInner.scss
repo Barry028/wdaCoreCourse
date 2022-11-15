@@ -21,15 +21,15 @@
   .t-wrapper-inner {
     position: relative;
 
-    > * {
+    >* {
       position: relative;
     }
 
     .t-panel-heading {
-      > .svg-icon {
+      >.svg-icon {
         color: $primary;
 
-        > svg {}
+        >svg {}
       }
     }
 
@@ -64,15 +64,17 @@
           flex: 0 0 auto;
           padding: 1rem 0.75rem 1rem 0.75rem;
 
-          [data-tu-inlineEditBtn="true"] {
-            position: absolute;
-            right: 0.5rem;
-            top: 0.5rem;
-            z-index: 9;
+          &[data-tu-inlinetype="doneButton"] {
+            button {
+              position: absolute;
+              right: 0.5rem;
+              top: 0.5rem;
+              z-index: 9;
+            }
           }
 
-          > .svg-icon {
-            > svg {
+          >.svg-icon {
+            >svg {
               width: 2.25rem;
               height: 2.25rem;
               margin-bottom: 0.5rem;
@@ -99,7 +101,7 @@
           padding-left: 4rem;
 
           // width: 100%;
-       
+
         }
       }
 
@@ -158,8 +160,8 @@
 
 
     .t-info-item {
-      #edit-userInfo {
-        &.t-panel-heading {
+      #editUserInfo {
+        .t-panel-heading {
           @include sm-min {
             width: 0;
             padding: 0;
@@ -167,7 +169,7 @@
           }
         }
 
-        + .t-panel-main {
+        +.t-panel-main {
           padding-left: 2rem;
           padding-right: 2rem;
         }
@@ -280,7 +282,7 @@
     }
 
     &:checked {
-      + .t-eye-toggle-label {
+      +.t-eye-toggle-label {
         background-color: $tertiary-400;
 
         &:after {

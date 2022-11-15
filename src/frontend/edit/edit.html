@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css" href="../../assets/css/all.css">
 </head>
 
-<body class="t-bg-mesh-primary">
+<body class="t-watermark t-bg-mesh-primary">
   <main id="web" class="t-wrapper">
     <!-- Header -->
     <header data-tu-an="blur fade bottom once" id="tHeader" class="t-header">
@@ -154,29 +154,59 @@
             <div class="t-form-legend-info t-inline-flex">
               <h3 class="t-inline-flex">師資介紹</h3>
             </div>
-            <div class="t-panel">
-              <div id="edit-userInfo" class="t-panel-heading">
-                <a data-tu-inlineEditBtn="true" href="javascript:;" class="btn btn--primary">
+            <!-- panel -->
+            <div class="t-panel" id="editUserInfo">
+              <div class="t-panel-heading" data-tu-inlinetype="doneButton">
+                <button 
+                  class="btn btn--primary"
+                  type="button" 
+                  value='Edit' 
+                  data-tu-inlinetype="doneButton"
+                  data-tu-inlineEditBtn="true"
+                  data-tu-inlineEditLabel="編輯" 
+                  data-tu-inlineEditId="UserInfoEditBtn" 
+                  data-tu-inlineEditPlaceholder="編輯" 
+                  onclick="tuInlineEdit('editUserInfo', defaultSampleOptions)">
                   編輯
                   <i class="svg-icon">
                     <svg>
                       <use href="#ic-edit"></use>
                     </svg>
                   </i>
-                </a>
+                </button>
               </div>
-              <div class="t-panel-main a1">
+              <div class="t-panel-main">
                 <div class="mask mask-card-ruler"></div>
                 <div class="mask mask-brand-wda-logo-backgrounds"></div>
                 <div class="t-panel-item-img-container">
-                  <a class="t-panel-img t-img-overlay" data-fslightbox="gallery" href="../../assets/images/avatars/avatar-5.png">
+                  <!-- image upload Edit -->
+                  <!-- <div data-overlay="upload" class="t-corp-img-overlay t-image-input t-image-input-empty" data-tu-image-input="true" style="background-image : url(../../assets/images/avatars/avatar-5.png)">
+                    <div class="t-image-input-wrapper"></div>
+                    <label class="btn btn--in--icon t-pill btn--dark w-8 h-8" data-tu-image-input-action="change" data-bs-toggle="tooltip" data-bs-dismiss="click" title="上傳大頭照" aria-label="上傳大頭照">
+                      <i class="svg-icon ml-0 mr-0"><svg>
+                          <use href="#ic-edit"></use>
+                        </svg></i>
+                      <input type="file" name="avatar" accept=".png, .jpg, .jpeg, .svg">
+                      <input type="hidden" name="avatar_remove">
+                    </label>
+                    <button class="btn btn--in--icon t-pill btn--dark w-8 h-8" data-tu-image-input-action="cancel" data-bs-toggle="tooltip" data-bs-dismiss="click" title="取消" aria-label="取消">
+                      <i class="svg-icon ml-0 mr-0"><svg>
+                          <use href="#ic-close-circle"></use>
+                        </svg></i>
+                    </button>
+                    <label class="btn btn--in--icon t-pill btn--dark w-8 h-8" data-tu-image-input-action="remove" data-bs-toggle="tooltip" data-bs-dismiss="click" title="移除大頭照" aria-label="移除大頭照">
+                      <i class="svg-icon ml-0 mr-0"><svg>
+                          <use href="#ic-close"></use>
+                        </svg></i>
+                    </label>
+                  </div> -->
+                  <a class="t-panel-img t-img-overlay" data-fslightbox="gallery" href="../../assets/images/avatars/avatar-5.png" data-tu-image-input="true" style="background-image : url(../../assets/images/avatars/avatar-5.png)">
                     <picture>
                       <source src="../../assets/images/avatars/avatar-5.png" data-src="../../assets/images/10Ratio3.3333_v1.svg">
                       <img src="../../assets/images/avatars/avatar-5.png" alt="王大明" class="t-lazy-load" width="160" height="188">
                     </picture>
                   </a>
                 </div>
-
                 <!-- View -->
                 <div class="t-panel-item-cnt">
                   <dl class="t-definition-list">
@@ -226,7 +256,16 @@
                             </svg></i>
                         </label>
                       </div>
-                      <a data-tu-inlineEdit="true" data-tu-inlineEdit-label="電子郵件" data-tu-inlineEdit-name="userInfo" data-tu-inlineEdit-id="UserMailWork" data-tu-inlineEdit-placeholder="請輸入您的電子郵件 " href="mailto:barrylin0208@gmail.com" title="barrylin0208@gmail.com" data-under="primary">
+                      <a data-tu-inlineEdit="true" 
+                         data-tu-inlineType="link"
+                         data-tu-inlinename="userInfo"
+                         data-tu-inlineRequired="true" 
+                         data-tu-inlineEditLabel="電子郵件 (工作)" 
+                         data-tu-inlineEditId="UserMailWork" 
+                         data-tu-inlineEditPlaceholder="請輸入您的電子郵件" 
+                         href="mailto:barrylin0208@gmail.com" 
+                         title="barrylin0208@gmail.com" 
+                         data-under="primary">
                         barrylin0208@gmail.com</a>
                     </dd>
                   </dl>
@@ -244,7 +283,16 @@
                             </svg></i>
                         </label>
                       </div>
-                      <a data-tu-inlineEdit="true" data-tu-inlineEdit-label="電子郵件" data-tu-inlineEdit-name="userInfo" data-tu-inlineEdit-id="UserMail" data-tu-inlineEdit-placeholder="請輸入您的電子郵件" href="mailto:lx00@ms64.hinet.net" title="lx00@ms64.hinet.net" data-under="primary">
+                      <a data-tu-inlineEdit="true" 
+                         data-tu-inlineType="link"
+                         data-tu-inlinename="userEmail"
+                         data-tu-inlineRequired="true" 
+                         data-tu-inlineEditLabel="電子郵件" 
+                         data-tu-inlineEditId="UserMail" 
+                         data-tu-inlineEditPlaceholder="請輸入您的電子郵件" 
+                         href="mailto:lx00@ms64.hinet.net" 
+                         title="lx00@ms64.hinet.net" 
+                         data-under="primary">
                         lx00@ms64.hinet.net</a>
                     </dd>
                   </dl>
@@ -252,7 +300,13 @@
                     <dt class="t-definition-term">
                       聯絡手機
                     </dt>
-                    <dd data-tu-inlineEdit="true" data-tu-inlineEdit-label="聯絡手機" data-tu-inlineEdit-name="userInfo" data-tu-inlineEdit-id="UserPhone" data-tu-inlineEdit-placeholder="請輸入您的聯絡手機" class="t-definition-description">
+                    <dd 
+                      data-tu-inlineEdit="true" 
+                      data-tu-inlineEditLabel="聯絡手機" 
+                      data-tu-inlineEditName="userInfo"
+                      data-tu-inlineEditId="UserPhone" 
+                      data-tu-inlineEditPlaceholder="請輸入您的聯絡手機" 
+                    class="t-definition-description">
                       <div class="t-eye-toggle">
                         <input id="UserPhone" class="t-eye-toggle-input" type="checkbox">
                         <label class="t-eye-toggle-label" for="UserPhone">
@@ -266,10 +320,10 @@
                     </dd>
                   </dl>
                   <dl class="t-definition-list">
-                    <dt class="t-definition-term">
+                    <dt class="t-definition-term" data-inlineType="text" data-inlineName="user">
                       出生日期
                     </dt>
-                    <dd data-tu-inlineEdit="true" data-tu-inlineEdit-label="出生日期" data-tu-inlineEdit-name="UserBirth" data-tu-inlineEdit-id="UserBirth" data-tu-inlineEdit-placeholder="請輸入您的出生日期" class="t-definition-description">
+                    <dd data-tu-inlineEdit="true" data-tu-inlinetype="date" data-tu-inlineEdit-label="出生日期" data-tu-inlineEdit-name="UserBirth" data-tu-inlineEdit-id="UserBirth" data-tu-inlineEdit-placeholder="請輸入您的出生日期" class="t-definition-description">
                       <div class="t-eye-toggle">
                         <input id="UserBirth" class="t-eye-toggle-input" type="checkbox">
                         <label class="t-eye-toggle-label" for="UserBirth">
@@ -306,6 +360,42 @@
               </div>
             </div>
           </div>
+          <section>
+            <h1>
+              Element Attributes
+            </h1>
+            <table>
+              <tr>
+                <th>NPC Name</th>
+                <th>Work</th>
+                <th>Remarks</th>
+                <th>Action</th>
+                <th>Remove</th>
+              </tr>
+              <tr id="customFuncRow1">
+                <td data-inlineType="text" data-inlineName="name" data-inlineRequired="true">Zeus</td>
+                <td data-inlineType="text" data-inlineName="work" data-inlineRequired="true" data-inlinePlaceholder="(Required)"></td>
+                <td data-inlineType="text" data-inlineName="remark">Powerful entity that helps player</td>
+                <td data-inlineType="doneButton">
+                  <input type="button" value="Edit" onclick="inlineEdit('customFuncRow1', customFunctionsOptions)" />
+                </td>
+                <td data-inlineType="button">
+                  <input type="button" value="Remove" onclick="alert('Remove')" />
+                </td>
+              </tr>
+              <tr id="customFuncRow2">
+                <td data-inlineType="text" data-inlineName="name" data-inlineRequired="1">High Mage</td>
+                <td data-inlineType="text" data-inlineName="work" data-inlineRequired="1" data-inlinePlaceholder="(Required)">Town Hall</td>
+                <td data-inlineType="text" data-inlineName="remark" data-inlineSize="40">Teaches magic to player</td>
+                <td data-inlineType="doneButton">
+                  <input type="button" value="Edit" onclick="inlineEdit('customFuncRow2', customFunctionsOptions)" />
+                </td>
+                <td data-inlineType="button">
+                  <input type="button" value="Remove" onclick="alert('Remove')" />
+                </td>
+              </tr>
+            </table>
+          </section>
           <!-- 課程師資介紹 End -->
           <!-- 學歷背景 Start -->
           <a name="academic_education" id="academic_education"></a>
@@ -824,7 +914,6 @@
   </main>
   <!-- ChangeMode -->
   <div class="t-float-change-mode" id="tuChangeMode"></div>
-  
   <!-- Scrolltop -->
   <a href="javascript:;" id="tuScrolltop" class="tu-scrolltop">
     <i class="js-go-top--arrow" aria-hidden="true"></i>
@@ -922,6 +1011,12 @@
   </svg>
   <!-- SVG Symbols (Shades) -->
   <svg id="Shades" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden="true">
+    <symbol id="ic-save" viewBox="0 0 24 24">
+      <g fill="currentColor">
+        <path d="M12 5.3v16a1 1 0 0 0 .5 0v-.1a25.7 25.7 0 0 1 7.5-2.4h.3a2 2 0 0 0 1.7-2V4.6a2 2 0 0 0-2.2-2 18.8 18.8 0 0 0-7 2.3l-.3.2a1 1 0 0 1-.5.1Z" data-name="Vector" opacity=".4" />
+        <path d="M2 4.7v12a2 2 0 0 0 1.7 2h.4a25.5 25.5 0 0 1 7.4 2.5.9.9 0 0 0 .5.1v-16a1 1 0 0 1-.5-.1l-.2-.1a18.9 18.9 0 0 0-7-2.4h-.1a2 2 0 0 0-2.2 2ZM19 2.8V7a.5.5 0 0 1-.8.4L17 6.7l-1.2.8A.5.5 0 0 1 15 7V3.9a20.2 20.2 0 0 1 4-1.1Z" data-name="Vector" />
+      </g>
+    </symbol>
     <!-- <i class="svg-icon"><svg><use href="#ic-resume"></use></svg></i> -->
     <symbol id="ic-resume" viewBox="0 0 24 24">
       <title>RESUME</title>
@@ -1422,6 +1517,8 @@
   <!-- fslightbox -->
   <script src="../../assets/vendor/fslightbox/fslightbox.js"></script>
   <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <!-- pikaday -->
+  <script src="../../assets/javascript/vendors/pikaday.js"></script>
   <!-- Utils -->
   <script src="../../assets/javascript/turboframes_justJavascript/turboframe_JsEventHandler.js"></script>
   <script src="../../assets/javascript/turboframes_justJavascript/turboframe_JsUtils.js"></script>
@@ -1437,22 +1534,106 @@
   <script src="../../assets/javascript/observer/JsObserverAnimations.js"></script>
   <script src="../../assets/javascript/components/JsMenu.js"></script>
   <script src="../../assets/javascript/components/JsAlerts.js"></script>
+  <script src="../../assets/javascript/forms/JsUploadImages.js"></script>
   <script src="./index.js"></script>
+  <script type="text/javascript">
+  // document.addEventListener("DOMContentLoaded", function() {
+    function simpleRowDataParser(rowData) {
+      var str = "";
+      for (var key in rowData) {
+        if (rowData.hasOwnProperty(key))
+          str += key + ":" + rowData[key] + "\n";
+      }
+      return str;
+    }
+
+    function defaultSampleCallback(rowData, rowName) {
+              console.log(rowData , rowData)
+      alert(rowName + "\n" + simpleRowDataParser(rowData));
+    }
+
+    function selectCallback(rowData, rowName) {
+      var colors = ["FF", "CC", "99", "66", "33", "00"];
+      document.getElementById(rowName).children[3].style.backgroundColor = "#" + colors[rowData.red] + colors[rowData.green] + colors[rowData.blue];
+    }
+
+    var defaultSampleOptions = { "finishCallback": defaultSampleCallback };
+    var customFunctionsOptions = {
+      "updateCell": tuInlineDefaultUpdateCell,
+      "finish": tuInlineDefaultFinish,
+      "finishCallback": defaultSampleCallback,
+      "finishCell": tuInlineDefaultFinishCell
+    };
+    var sampleOptions = { "finishCallback": selectCallback };
+  // })
+  </script>
   <script>
+  // document.addEventListener("DOMContentLoaded", function() {
+  //   const editItem = document.querySelectorAll('[data-tu-inlineEdit]');
+  //   const editBtn = document.querySelectorAll('[data-tu-inlineeditbtn="true"]')
+  //   const body = document.getElementsByTagName("BODY")[0];
+
+  //   JsUtils.each(editBtn, function(event) {
+
+  //     event.addEventListener("click", function(ev) {
+  //       ev.preventDefault();
+  //       let panel = JsUtils.parents(ev.target.parentElement, '.t-panel')[0];
+  //       console.dir(panel)
+  //       let inputEl = JsUtils.findAll(panel, '[data-tu-inlineEdit]');
+  //       console.dir(inputEl)
+
+  //       let inputLen = inputEl.length;
+  //       let form = document.createElement('form');
+  //       let frame = document.createDocumentFragment();
+  //       form.id = JsUtils.getUniqueId('JSedit');
+  //       form.className = 't-form';
+
+  //       console.dir(inputLen)
+  //       for (let i = 0; i < inputLen; i++) {
+  //         let text = inputEl[i].innerText;
+  //         let name = inputEl[i].getAttribute('data-tu-inlineEdit-name');
+  //         let id = inputEl[i].getAttribute('data-tu-inlineEdit-id');
+  //         let label = inputEl[i].getAttribute('data-tu-inlineEdit-label');
+  //         let placeholder = inputEl[i].getAttribute('data-tu-inlineEdit-placeholder');
+  //         console.log(text)
+  //         let formGroup = `                  
+  //       <div class="t-form-group">
+  //         <label class="t-fw-500" for="${id}">
+  //           ${label}
+  //         </label>
+  //           <input autocomplete="off" 
+  //                   class="t-form-control" 
+  //                   id="${id}" 
+  //                   name="${name}" 
+  //                   placeholder="${placeholder}" 
+  //                   title="${placeholder}" 
+  //                   type="text"
+  //                   value="${text}">
+  //           <text class="
+  //             t-tooltip 
+  //             t-tooltip--v1 
+  //             t-tooltip-top-right"> ${placeholder} (您的電子信箱) </text>
+  //       </div>`;
+  //         form.innerHTML += formGroup;
+  //         // console.log(form)
+  //       }
+  //       frame.appendChild(form);
 
 
+  //       var panelEditCnt = JsUtils.find(panel, '.t-panel-edit-cnt');
+  //       var panelMainCnt = JsUtils.find(panel, '.t-panel-item-cnt');
+  //       if (panelEditCnt.querySelector('.t-form') === null) {
+  //         JsUtils.fade('fadeOut', panelMainCnt, 400, function() {
+  //           console.log('fadeOut');
+  //         });
+  //         panelEditCnt.appendChild(frame);
+  //       }
 
-  let el = document.querySelector('.t-link').textContent
-  console.log(el)
-  var arrPer = JsUtils.startsWith(el, '首', true)
-  console.log(arrPer)
-  var log = function() {
-    console.log.apply(console, arguments)
-  }
-
-  window.addEventListener("load", function(event) {
-
-  });
+  //       // console.log(panelEditCnt.querySelector('.t-form'))
+  //       // panelMainCnt.classList.add('t-fade-out')
+  //     });
+  //   })
+  // })
   </script>
 </body>
 

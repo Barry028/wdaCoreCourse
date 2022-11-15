@@ -51,7 +51,7 @@ const purgecss = require('gulp-purgecss');
 
 
 function webpFun() {
-  return gulp.src(['./src/assets/images/*.{jpg,png}',
+  return gulp.src(['./src/img/*.{jpg,png}',
     './src/assets/images/*/*.{jpg,png}',
   ])
     .pipe(webp())
@@ -82,16 +82,18 @@ function scssTask() {
     .pipe(sass()) // expanded nested compact compressed
     .pipe(
       postcss([
-        // // cssnano(),
+        // cssnano(),
         // cssnano({ preset: '' }),
         // autoprefixer({ browsers: ['last 4 version'] }),
-        postcssPresetEnv({
-          stage: 3,
+        postcssPresetEnv(
+        {
+          stage: 1,
           features: {
             'nesting-rules': true
           },
-          browsers: 'last 1 versions',
-        })
+          browsers: 'last 4 versions',
+        }
+        )
       ]))
     .pipe(sass().on('error', sass.logError))
     // .pipe(purgecss({

@@ -1,0 +1,280 @@
+@charset "UTF-8";
+/*** 列印表單 ***/
+.print-container {
+  font-size: 14px;
+  font-family: 微軟正黑體;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 100;
+  width: auto;
+  /* 如設為 100% 會被截掉部份內容 */
+  min-height: 100%;
+  background-color: #EEEEEE;
+  overflow-y: auto;
+  width: -webkit-fill-available;
+  max-width: 60%;
+  padding: 1rem;
+}
+
+/* 列印表單內 欄位自動換行*/
+.print-body table tr td {
+  white-space: normal;
+}
+
+.print-container .quickline {
+  width: 95%;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  border: 0px;
+  background-color: #FFFFFF;
+  padding: 0px;
+  color: #000000;
+  height: 25px;
+}
+
+.print-container .quickline span {
+  margin-right: 5px;
+}
+
+.print-container table,
+.print-container .table {
+  width: 100% !important;
+}
+
+.print-container table,
+.print-container .table {
+  margin: 0px;
+  border: 0px;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  font-size: 11px;
+  font-family: 微軟正黑體;
+}
+
+.print-container .grid table {
+  width: 98%;
+}
+
+.print-container th {
+  background-color: #FFFFFF !important;
+}
+
+.print-container th {
+  border: 1px solid #666666;
+  padding: 3px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.print-container th.nowrap {
+  background-color: #FFFFFF !important;
+}
+
+.print-container th.nowrap {
+  border: 1px solid #666666;
+  padding: 3px;
+  font-weight: bold;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.print-container td {
+  background-color: #FFFFFF;
+  border: 1px solid #666666;
+  padding: 3px;
+}
+
+.noboard td,
+.noboard th {
+  border: 0px !important;
+}
+
+.print-container .detail th {
+  width: 120px;
+}
+
+.print-container th.narrow {
+  width: 90px;
+}
+
+.print-container th.narrower {
+  width: 60px;
+}
+
+.print-container th.narrowest {
+  width: 30px;
+}
+
+.print-container th.w30 {
+  width: 30px;
+}
+
+.print-container th.w40 {
+  width: 40px;
+}
+
+.print-container th.w50 {
+  width: 50px;
+}
+
+.print-container th.w60 {
+  width: 60px;
+}
+
+.print-container th.w70 {
+  width: 70px;
+}
+
+.print-container th.w80 {
+  width: 80px;
+}
+
+.print-container th.w90 {
+  width: 90px;
+}
+
+.print-container th.w100 {
+  width: 100px;
+}
+
+.print-container .row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+/* Repor */
+body.report {
+  background-color: #FFFFFF !important;
+}
+
+@media screen {
+  .print-container div.print-btn {
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: #CCCCCC;
+    border: 1px solid #AAAAAA;
+    text-align: right;
+  }
+
+  .print-container div.print-btn button {
+    padding: 3px 20px;
+    margin: 5px 5px 5px 5px;
+  }
+
+  .print-container div.report-body {
+    width: 98%;
+    border: 0px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+    background-color: #FFFFFF;
+  }
+}
+.print-container .report-title {
+  border: 0px !important;
+}
+
+.print-container .report-title {
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.print-container .report-parms {
+  border: 0px !important;
+}
+
+.print-container .report-date {
+  border: 0px !important;
+}
+
+.print-container .report-date {
+  width: 100%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.print-container .report-sum {
+  font-weight: bold;
+}
+
+.print-container .report-footer {
+  border: 0px !important;
+}
+
+/* 查詢結果表格 */
+.grid {
+  width: 98% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.grid {
+  /* override bootstrape */
+  font-size: 11px;
+  font-family: 微軟正黑體;
+}
+
+.resultEmpty {
+  width: 98%;
+  font-size: 13px;
+  font-family: 微軟正黑體;
+  text-align: center;
+  color: #990000;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* override bootstrape */
+.print-container .text-left {
+  text-align: left;
+}
+
+.print-container .text-right {
+  text-align: right;
+}
+
+.print-container .text-center {
+  text-align: center;
+}
+
+.header-title1 {
+  font-size: 13px;
+  color: red;
+}
+
+@media print {
+  .print-container div.print-btn {
+    display: none;
+  }
+
+  .print-container div.print-btn button {
+    display: none;
+  }
+
+  .print-container div.report-body {
+    width: 100%;
+    border: 0px;
+    margin: 0px;
+    background-color: #FFFFFF;
+  }
+
+  .print-container {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+    padding: 16pt;
+  }
+
+  .print-container table {
+    page-break-before: avoid;
+  }
+}
+/*# sourceMappingURL=print.css.map */

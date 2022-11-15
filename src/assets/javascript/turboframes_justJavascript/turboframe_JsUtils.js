@@ -1,4 +1,6 @@
 "use strict";
+
+
 window.JsUtilsElementDataStore = {};
 window.JsUtilsElementDataStoreID = 0;
 window.JsUtilsDelegatedEventHandlers = {};
@@ -508,7 +510,7 @@ const JsUtils = (function() {
                 el.removeChild(el.firstChild);
             }
         },
-        // JsUtils.find() //e,要被刪除的子節點的父節點
+        // JsUtils.find() //
         find: function(parent, query) {
             if (parent !== null) {
                 return parent.querySelector(query);
@@ -1498,10 +1500,12 @@ const JsUtils = (function() {
                 return el.value;
             }
         },
-        // JsUtils.insertAfter(str, document.getElementById(" "))
-        insertAfter: function(newNode, refNode) {
-            return refNode.parentNode.insertBefore(newNode, refNode.nextSibling);
+        // JsUtils.insertAfter(el, div)
+        insertAfter: function(el, referenceNode) {
+            // console.log(referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling))
+           return referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
         },
+
         // JsUtils.insertBefore(str, document.getElementById(" "))
         insertBefore: function(newNode, refNode) {
             return refNode.parentNode.insertBefore(newNode, refNode);
@@ -1700,7 +1704,7 @@ const JsUtils = (function() {
             return strings.replace(new RegExp(search, "g"), replacement);
         },
 
-        contains: function(strings, target, str, separator) {
+        contains: function( target, str, separator) {
             return separator ?
                 (separator + target + separator).indexOf(separator + str + separator) > -1 : //需要判斷分隔符
                 target.indexOf(str) > -1; //不需判斷分隔符
