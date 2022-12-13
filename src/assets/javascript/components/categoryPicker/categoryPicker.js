@@ -212,7 +212,7 @@ const JsCategoryPicker = function(element, config) {
     html += '               <button id="' + pickerID + prefix + 'close" type="button" class="btn-close" tabindex="0" aria-label="關閉' + title + '" title="關閉' + config.title + '"></button>';
     html += '           </div>';
     html += '           <div id="' + pickerID + 'selectedCnt" class="category-modal-selected">';
-    html += '               <input type="text" placeholder="Search" id="' + pickerID + 'Search">';
+    // html += '               <input type="text" placeholder="Search" id="' + pickerID + 'Search">';
     html += '               <ul class="t-options"></ul>';
     html += '               <span class="selected-txt"> 已選擇 ( <span id="' + pickerID + 'catNums" class="selectedNum">0</span> )</span>';
     html += '               <a class="selected-del-all" aria-label="清空全部標籤" title="清空全部標籤" tabindex="0">清空全部標籤</a>';
@@ -370,54 +370,54 @@ const JsCategoryPicker = function(element, config) {
 
   };
 
-  const _searchInput = function(element) {
-    let picker = document.getElementById(pickerID);
-    console.log(picker)
-    let options = picker.querySelector(".t-options");
-    let country = document.getElementsByClassName('t-checkbox-group');
-    let countriesLen = country.length;
-    let countries = [];
-    for (let i = 0; i < countriesLen; i++) {
-      countries.push(country[i].innerHTML)
-      console.dir(country[i])
-        // countries[i].value
-    }
-    let searchInput = picker.querySelector("#" + pickerID + "Search");
-    // console.log(countries)
-    let data = countries;
-    // console.log(searchInput)
-    searchInput.addEventListener("keyup", () => {
-      let arr = [];
-      let searchedVal = searchInput.value;
-      let regex = new RegExp(searchedVal);
-      arr = countries
-        .filter((data) =>
-          regex.test(data, searchedVal)
-        )
-        .map((data) =>
-          `<li onclick="updateName(this)">${data}</li>`
-        )
-        .join("");
-      options.innerHTML = arr ? arr :
-        '<p style="margin-top: 10px;">Oops! Country not found</p>';
-    });
+  // const _searchInput = function(element) {
+  //   let picker = document.getElementById(pickerID);
+  //   console.log(picker)
+  //   let options = picker.querySelector(".t-options");
+  //   let country = document.getElementsByClassName('t-checkbox-group');
+  //   let countriesLen = country.length;
+  //   let countries = [];
+  //   for (let i = 0; i < countriesLen; i++) {
+  //     countries.push(country[i].innerHTML)
+  //     console.dir(country[i])
+  //       // countries[i].value
+  //   }
+  //   let searchInput = picker.querySelector("#" + pickerID + "Search");
+  //   // console.log(countries)
+  //   let data = countries;
+  //   // console.log(searchInput)
+  //   searchInput.addEventListener("keyup", () => {
+  //     let arr = [];
+  //     let searchedVal = searchInput.value;
+  //     let regex = new RegExp(searchedVal);
+  //     arr = countries
+  //       .filter((data) =>
+  //         regex.test(data, searchedVal)
+  //       )
+  //       .map((data) =>
+  //         `<li onclick="updateName(this)">${data}</li>`
+  //       )
+  //       .join("");
+  //     options.innerHTML = arr ? arr :
+  //       '<p style="margin-top: 10px;">Oops! Country not found</p>';
+  //   });
 
-    function addCountry(selectedCountry) {
-      options.innerHTML = "";
-      countries.forEach((country) => {
-        let isSelected = country === selectedCountry ? "selected" : "";
-        let li = `<li onclick="updateName(this)" class="${isSelected}">${country}</li>`;
-        options.insertAdjacentHTML("beforeend", li);
-      });
-    }
+  //   function addCountry(selectedCountry) {
+  //     options.innerHTML = "";
+  //     countries.forEach((country) => {
+  //       let isSelected = country === selectedCountry ? "selected" : "";
+  //       let li = `<li onclick="updateName(this)" class="${isSelected}">${country}</li>`;
+  //       options.insertAdjacentHTML("beforeend", li);
+  //     });
+  //   }
 
-    function updateName(selectedLi) {
-      searchInput.value = "";
-      addCountry(selectedLi.textContent);
-      wrapper.classList.remove("active");
-      selectBtn.firstElementChild.textContent = selectedLi.textContent;
-    }
-  };
+  //   function updateName(selectedLi) {
+  //     searchInput.value = "";
+  //     addCountry(selectedLi.textContent);
+  //     wrapper.classList.remove("active");
+  //     selectBtn.firstElementChild.textContent = selectedLi.textContent;
+  //   }
+  // };
 
   // 確認按鈕
   const _confirm = function(inputId) {

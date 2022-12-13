@@ -196,7 +196,7 @@
     });
 
     let tHeader = document.getElementById('tHeader');
-    if (tHeader.length !== 0) {
+    if (tHeader) {
       const tuHeader = new JsHeader('tHeader', {
         // subFixedID: 'tuJobFilter',
         fixClass: 'is-fix',

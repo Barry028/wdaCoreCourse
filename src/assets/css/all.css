@@ -24435,14 +24435,14 @@ input[type=button].btn--block {
   background-repeat: no-repeat;
   background-size: 200% 200%;
   background-position: center;
-  border-radius: 56%;
+  border-radius: 41%;
 }
 
 .t-card.t-card-v1 .t-card-img::before {
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
-  left: -1rem;
+  -webkit-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  transform: rotate(2deg);
+  left: 1rem;
   top: 0rem;
 }
 
@@ -24488,15 +24488,15 @@ input[type=button].btn--block {
   background-repeat: no-repeat;
   background-size: 200% 200%;
   background-position: center;
-  border-radius: 51%;
+  border-radius: 19%;
 }
 
 .t-card.t-card-v2 .t-card-img::before {
-  -webkit-transform: rotate(41deg);
-  -ms-transform: rotate(41deg);
-  transform: rotate(41deg);
-  left: -1rem;
-  top: -2rem;
+  -webkit-transform: rotate(62deg);
+  -ms-transform: rotate(62deg);
+  transform: rotate(62deg);
+  left: 0rem;
+  top: 2rem;
 }
 
 .t-card.t-card-v2 .t-card-img .t-card-img-icons {
@@ -24545,11 +24545,11 @@ input[type=button].btn--block {
 }
 
 .t-card.t-card-v3 .t-card-img::before {
-  -webkit-transform: rotate(66deg);
-  -ms-transform: rotate(66deg);
-  transform: rotate(66deg);
+  -webkit-transform: rotate(-62deg);
+  -ms-transform: rotate(-62deg);
+  transform: rotate(-62deg);
   left: 0rem;
-  top: 2rem;
+  top: 0rem;
 }
 
 .t-card.t-card-v3 .t-card-img .t-card-img-icons {
@@ -24594,15 +24594,15 @@ input[type=button].btn--block {
   background-repeat: no-repeat;
   background-size: 200% 200%;
   background-position: center;
-  border-radius: 11%;
+  border-radius: 30%;
 }
 
 .t-card.t-card-v4 .t-card-img::before {
-  -webkit-transform: rotate(-67deg);
-  -ms-transform: rotate(-67deg);
-  transform: rotate(-67deg);
-  left: 2rem;
-  top: 2rem;
+  -webkit-transform: rotate(7deg);
+  -ms-transform: rotate(7deg);
+  transform: rotate(7deg);
+  left: -1rem;
+  top: -2rem;
 }
 
 .t-card.t-card-v4 .t-card-img .t-card-img-icons {
@@ -25158,6 +25158,7 @@ input[type=button].btn--block {
   background-color: rgba(18, 19, 40, 0.48);
   z-index: 0;
   pointer-events: none;
+  position: absolute;
 }
 
 .category-picker .category-modal {

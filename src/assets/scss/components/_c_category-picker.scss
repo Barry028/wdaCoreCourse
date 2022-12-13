@@ -96,6 +96,7 @@
     @include overlay(0, $category-mask, 0.5px);
 
     pointer-events: none;
+    position: absolute;
   }
 
   .category-modal {

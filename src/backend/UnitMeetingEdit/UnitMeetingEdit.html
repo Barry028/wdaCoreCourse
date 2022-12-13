@@ -57,14 +57,14 @@
               </button>
               <a class="bt-header-logo" href="../UnitInedx/UnitInedx.html">
                 <picture class="bt-header-logo-main">
-                  <img src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 58'></svg>" data-src="../../assets/images/wda-branch-logo.svg" alt="關鍵就業力課程" class="t-lazy-load" width="300" height="58">
-                  <source type="image/svg+xml" srcset="../../assets/images/wda-branch-logo.svg" />
-                  <source type="image/webp" srcset="../../assets/images/wda-branch-logo.webp" />
+                  <img src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 58'></svg>" data-src="../../assets/images/wda-unit-logo.svg" alt="關鍵就業力課程" class="t-lazy-load" width="300" height="58">
+                  <source type="image/svg+xml" srcset="../../assets/images/wda-unit-logo.svg" />
+                  <source type="image/webp" srcset="../../assets/images/wda-unit-logo.webp" />
                 </picture>
               </a>
             </div>
             <div class="col ml-4 hidden-sm">
-              <h2 class="t-flex t-fs-15 t-inline-flex t-relative" data-grad-under="secondary">
+              <h2 class="t-flex t-fs-15 t-inline-flex t-relative" data-grad-under="tertiary">
                 彙管單位｜自強基金會｜林小本
               </h2>
             </div>
@@ -228,7 +228,7 @@
                   報表統計及匯出
                 </a>
               </li>
-              <button class="btn btn--soft--white btn--square">
+              <button class="btn btn--soft--white">
                 <i class="svg-icon mr-0">
                   <svg class="text-white">
                     <use href="#ic-search"></use>
@@ -248,9 +248,9 @@
             <a href="javascript:void(0);">首頁</a>
           </li>
           <li class="bt-breadcrumbs-item">
-            <a href="javascript:void(0);">系統管理</a>
+            <a href="javascript:void(0);">會議活動管理</a>
           </li>
-          <li class="bt-breadcrumbs-item active">帳號設定</li>
+          <li class="bt-breadcrumbs-item active">出席名單管理</li>
         </ol>
       </div>
     </section>
@@ -262,27 +262,27 @@
             <div class="t-panel bt-section-edit">
               <header class="bt-section-header t-flex align-items-baseline justify-content-between">
                 <div class="t-flex align-items-baseline">
-                  <h1 class="bt-section-heading">新增會議活動</h1>
+                  <h1 class="bt-section-heading">會議報名管理</h1>
                   <p class="bt-section-para">
-                    會議活動設定 > 新增會議活動
+                    會議活動管理 > 出席名單管理
                   </p>
                 </div>
                 <div class="t-flex">
                   <button type="reset" class="btn btn--soft--dark btn--sm mr-2">
-                    <i class="svg-icon t-v-align-bottom mr-2" aria-hidden="true">
+                    <i class="svg-icon mr-2" aria-hidden="true">
                       <svg>
                         <use href="#ic-arrow-l"></use>
                       </svg>
                     </i>
                     回上一頁
                   </button>
-                  <button type="button" class="btn btn--info btn--sm">
-                    <i class="svg-icon t-v-align-bottom mr-2" aria-hidden="true">
+                  <button type="button" class="btn btn--checked btn--sm">
+                    <i class="svg-icon mr-2" aria-hidden="true">
                       <svg>
                         <use href="#ic-save"></use>
                       </svg>
                     </i>
-                    儲存會議活動
+                    儲存出席名單
                   </button>
                 </div>
                 <!-- <p>* 為必填欄位。</p> -->
@@ -293,53 +293,168 @@
                   <div class="t-form-inline">
                     <div class="t-form-group">
                       <label data-required class="t-form-label" for="btMeetingDate">會議日期</label>
-                      <input type="text" id="btMeetingDate" name="meetingEdit" class="t-form-control ml-4" placeholder="YYY/MM/DD">
+                      <input type="text" id="btMeetingDate" name="meetingEdit" class="t-form-control ml-4" placeholder="YYY/MM/DD" value="2022/09/20" readonly disabled>
                       <input type="hidden" id="btMeetingDate_hidden" name="logs">
                     </div>
                     <div class="t-form-group">
                       <label data-required class="t-form-label" for="meetingSelect">會議類型</label>
-                      <select id="meetingSelect" name="meetingEdit" type="text" class="t-form-control ml-4" placeholder="會議類型">
+                      <select id="meetingSelect" name="meetingEdit" class="t-form-control ml-4" readonly disabled>
                         <option value="0">會議類型</option>
+                        <option selected value="1">回流訓</option>
                       </select>
                     </div>
                   </div>
                   <div class="t-form-inline">
                     <div class="t-form-group">
                       <label data-required class="t-form-label" for="btMeetingTimeStart">會議時間</label>
-                      <input type="text" class="t-form-control ml-4" name="meetingEdit" id="btMeetingTimeStart" placeholder="HH:MM" />
+                      <input type="text" class="t-form-control ml-4" name="meetingEdit" id="btMeetingTimeStart" placeholder="HH:MM" value="09:10" readonly disabled />
                     </div>
                     <div class="t-form-group">
                       <label data-required class="t-form-label" for="btMeetingTbtMeetingTimeEndimeStart">會議時間</label>
-                      <input type="text" class="t-form-control ml-4" name="meetingEdit" id="btMeetingTimeEnd" placeholder="HH:MM" />
+                      <input type="text" class="t-form-control ml-4" name="meetingEdit" id="btMeetingTimeEnd" placeholder="HH:MM" value="11:10" readonly disabled />
                     </div>
                   </div>
                   <div class="t-form-inline">
                     <div class="t-form-group">
                       <label data-required class="t-form-label" for="meetingName">會議名稱</label>
-                      <input id="meetingName" name="meetingEdit" type="text" class="t-form-control ml-4" placeholder="會議名稱">
+                      <input id="meetingName" name="meetingEdit" type="text" class="t-form-control ml-4" placeholder="會議名稱" value="共識聯聚會議 - 第一期 1-100 教師資格審查會議" readonly disabled>
                     </div>
                   </div>
-                  <div class="t-form-group">
+                  <div class="t-form-group flex-row">
                     <label data-required class="t-form-label" for="meetingArea">會議地點</label>
-                    <input id="meetingArea" name="meetingEdit" type="text" class="t-form-control ml-4" placeholder="會議地點">
+                    <input id="meetingArea" name="meetingEdit" type="text" class="t-form-control ml-4" placeholder="會議地點" value="Xxx 樓 A8 香格里拉會議室" readonly disabled>
+                  </div>
+                  <div class="t-form-group flex-row">
+                    <label data-required class="t-form-label" for="meetingArea">報名名單</label>
+                    <input id="meetingArea" name="meetingEdit" type="text" class="t-form-control ml-4" placeholder="報名名單" readonly disabled>
+                  </div>
+                  <div class="t-form-group flex-column">
+                    <div id="labelSearch" class="t-mention" contenteditable="true"></div>
+                    <div id="result" class="t-log">
+                    </div>
+                    <div class="t-panel mt-4">
+                      <div class="t-panel-heading">
+                        已報名名單
+                      </div>
+                      <div class="t-panel-main">
+                        <nav class="t-pagination-nav" aria-label="PageNavigation">
+                          <ul class="t-pagination">
+                            <li class="t-page-item prev">
+                              <a class="t-page-link" href="javascript:void(0);">
+                                <i class="svg-icon t-v-align-bottom" aria-hidden="true">
+                                  <svg>
+                                    <use href="#ic-arrow-l"></use>
+                                  </svg>
+                                </i>
+                              </a>
+                            </li>
+                            <li class="t-page-item">
+                              <a class="t-page-link" href="javascript:void(0);">1</a>
+                            </li>
+                            <li class="t-page-item">
+                              <a class="t-page-link" href="javascript:void(0);">2</a>
+                            </li>
+                            <li class="t-page-item active">
+                              <a class="t-page-link" href="javascript:void(0);">3</a>
+                            </li>
+                            <li class="t-page-item">
+                              <a class="t-page-link" href="javascript:void(0);">4</a>
+                            </li>
+                            <li class="t-page-item">
+                              <a class="t-page-link" href="javascript:void(0);">5</a>
+                            </li>
+                            <li class="t-page-item next">
+                              <a class="t-page-link" href="javascript:void(0);">
+                                <i class="svg-icon t-v-align-bottom" aria-hidden="true">
+                                  <svg>
+                                    <use href="#ic-arrow-r"></use>
+                                  </svg>
+                                </i>
+                              </a>
+                            </li>
+                          </ul>
+                        </nav>
+                        <div class="t-table-cnt t-table-responsive t-table-responsive--data">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="t-table">
+                            <thead>
+                              <tr>
+                                <th scope="col">項次</th>
+                                <th scope="col">會議名稱</th>
+                                <th scope="col">時間</th>
+                                <th scope="col">場地</th>
+                                <th scope="col">有出席</th>
+                                <th scope="col">通過測驗</th>
+                              </tr>
+                            </thead>
+                            <tbody id="rows">
+                              <tr>
+                                <td data-th="項次" align="center">
+                                  1
+                                </td>
+                                <td data-th="會議名稱" align="">
+                                  110 年度共通核心職能課程師資維持資格維持說明
+                                </td>
+                                <td class="t-white-space-nowrap" data-th="時間" align="">
+                                  <i class="svg-icon mr-2">
+                                    <svg>
+                                      <use href="#ic-eye"></use>
+                                    </svg>
+                                  </i>2022/09/20
+                                  <br>
+                                  <i class="svg-icon mr-2">
+                                    <svg>
+                                      <use href="#ic-calendar"></use>
+                                    </svg>
+                                  </i>14:00
+                                </td>
+                                <td data-th="場地" align="">
+                                  <i class="svg-icon mr-2">
+                                    <svg>
+                                      <use href="#ic-map"></use>
+                                    </svg>
+                                  </i>
+                                  Xxx 樓 A3 香格里拉會議室
+                                </td>
+                                <td data-th="有出席" align="">
+                                  <div class="t-form-check mb-0">
+                                    <input id="checked1" type="checkbox" class="chk-inp">
+                                    <label class="chk-lab" for="checked1">
+                                      <i class="checkbox"></i>
+                                    </label>
+                                  </div>
+                                </td>
+                                <td data-th="通過測驗" align="">
+                                  <div class="t-form-check mb-0">
+                                    <input id="checked2" type="checkbox" class="chk-inp">
+                                    <label class="chk-lab" for="checked2">
+                                      <i class="checkbox"></i>
+                                    </label>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="t-form-inline t-form-btns">
                     <div class="t-form-group mb-0">
                       <button type="reset" class="btn btn--soft--dark">
-                        <i class="svg-icon t-v-align-bottom" aria-hidden="true">
+                        <i class="svg-icon" aria-hidden="true">
                           <svg>
                             <use href="#ic-reset"></use>
                           </svg>
                         </i>
                         清空
                       </button>
-                      <button type="button" class="btn btn--info w-80">
-                        <i class="svg-icon svg-icon-2x t-v-align-bottom" aria-hidden="true">
+                      <button type="button" class="btn btn--checked">
+                        <i class="svg-icon" aria-hidden="true">
                           <svg>
                             <use href="#ic-save"></use>
                           </svg>
                         </i>
-                        儲存會議活動
+                        儲存出席名單
                       </button>
                     </div>
                   </div>
@@ -450,6 +565,14 @@
   <!-- SVG Symbols -->
   <svg hidden version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
+      <!-- <i class="svg-icon"><svg><use href="#ic-export"></use></svg></i> -->
+      <symbol id="ic-export" viewBox="0 0 24 24">
+        <title>export</title>
+        <g fill="currentColor">
+          <path d="M22 10.76a.86.86 0 0 0-.86-.86H2.86a.85.85 0 0 0-.86.86 9.56 9.56 0 0 0 10 10 9.57 9.57 0 0 0 10-10Z" opacity=".4" />
+          <path d="m12.53 3.46 2.85 2.84a.75.75 0 0 1-1.06 1.06L12.75 5.8v9.57a.75.75 0 1 1-1.5 0V5.8L9.69 7.37a.76.76 0 0 1-1.29-.53.74.74 0 0 1 .22-.53l2.85-2.84a.74.74 0 0 1 1.06-.01Z" />
+        </g>
+      </symbol>
       <symbol id="ic-setting" viewBox="0 0 24 24">
         <path opacity="0.3" d="M22.1 11.5V12.6C22.1 13.2 21.7 13.6 21.2 13.7L19.9 13.9C19.7 14.7 19.4 15.5 18.9 16.2L19.7 17.2999C20 17.6999 20 18.3999 19.6 18.7999L18.8 19.6C18.4 20 17.8 20 17.3 19.7L16.2 18.9C15.5 19.3 14.7 19.7 13.9 19.9L13.7 21.2C13.6 21.7 13.1 22.1 12.6 22.1H11.5C10.9 22.1 10.5 21.7 10.4 21.2L10.2 19.9C9.4 19.7 8.6 19.4 7.9 18.9L6.8 19.7C6.4 20 5.7 20 5.3 19.6L4.5 18.7999C4.1 18.3999 4.1 17.7999 4.4 17.2999L5.2 16.2C4.8 15.5 4.4 14.7 4.2 13.9L2.9 13.7C2.4 13.6 2 13.1 2 12.6V11.5C2 10.9 2.4 10.5 2.9 10.4L4.2 10.2C4.4 9.39995 4.7 8.60002 5.2 7.90002L4.4 6.79993C4.1 6.39993 4.1 5.69993 4.5 5.29993L5.3 4.5C5.7 4.1 6.3 4.10002 6.8 4.40002L7.9 5.19995C8.6 4.79995 9.4 4.39995 10.2 4.19995L10.4 2.90002C10.5 2.40002 11 2 11.5 2H12.6C13.2 2 13.6 2.40002 13.7 2.90002L13.9 4.19995C14.7 4.39995 15.5 4.69995 16.2 5.19995L17.3 4.40002C17.7 4.10002 18.4 4.1 18.8 4.5L19.6 5.29993C20 5.69993 20 6.29993 19.7 6.79993L18.9 7.90002C19.3 8.60002 19.7 9.39995 19.9 10.2L21.2 10.4C21.7 10.5 22.1 11 22.1 11.5ZM12.1 8.59998C10.2 8.59998 8.6 10.2 8.6 12.1C8.6 14 10.2 15.6 12.1 15.6C14 15.6 15.6 14 15.6 12.1C15.6 10.2 14 8.59998 12.1 8.59998Z" fill="currentColor" />
         <path d="M17.1 12.1C17.1 14.9 14.9 17.1 12.1 17.1C9.30001 17.1 7.10001 14.9 7.10001 12.1C7.10001 9.29998 9.30001 7.09998 12.1 7.09998C14.9 7.09998 17.1 9.29998 17.1 12.1ZM12.1 10.1C11 10.1 10.1 11 10.1 12.1C10.1 13.2 11 14.1 12.1 14.1C13.2 14.1 14.1 13.2 14.1 12.1C14.1 11 13.2 10.1 12.1 10.1Z" fill="currentColor" />
@@ -1025,7 +1148,6 @@
   </svg>
   <!-- ChangeMode -->
   <div class="t-float-change-mode" id="tuChangeMode">
-    <svg xmlns="http://www.w3.org/8000/svg" viewBox="0 0 64 64"></svg>
   </div>
   <!-- Scrolltop -->
   <a href="javascript:;" id="tuScrolltop" class="tu-scrolltop">
@@ -1051,6 +1173,7 @@
   <script src="../../assets/javascript/components/JsMenu.js"></script>
   <script src="../../assets/javascript/forms/JsInputMask.js"></script>
   <script src="./UnitMeetingEdit.js"></script>
+  <script src="./labelSearch.js"></script>
   <script>
   let meetingDate = new Pikaday({
     field: document.getElementById('btMeetingDate'),
@@ -1070,40 +1193,77 @@
       hidden.value = date;
     },
   });
-
-  // let dpMin, dpMax;
-  // dpMin = new AirDatepicker('#btMeetingTimeStatt', {
-  //   // range: true,
-  //   timepicker: true,
-  //   timeFormat: 'HH:mm',
-  //   onlyTimepicker: true,
-  //   minHours: 9,
-  //   maxHours: 18,
-  //   // minutesStep: 5,
-  //   // onSelect({ date }) {
-  //   //   dpMax.update({
-  //   //     minHours: date
-  //   //   })
-  //   // }
-  // });
-  // dpMax = new AirDatepicker('#btMeetingTimeEnd', {
-  //   // range: true,
-  //   timepicker: true,
-  //   timeFormat: 'HH:mm',
-  //   onlyTimepicker: true,
-  //   // minHours: 9,
-  //   maxHours: 18,
-  //   minutesStep: 5,
-  //   // onSelect({ date }) {
-  //   //   dpMin.update({
-  //   //     minHours: date,
-  //   //   })
-  //   // }
-  // })
-  // // });
-
   window.addEventListener("load", function(event) {
 
+  });
+  </script>
+  <script>
+  const closeLab = document.querySelectorAll('.t-selected-label-close');
+  JsUtils.each(closeLab, function(element) {
+
+
+    element.addEventListener('click', function(event) {
+      if (event.target.tagName = 'BUTTON') {
+
+        event.target.parentElement.remove()
+      }
+    });
+  });
+
+
+  const log = function(content) {
+    result.innerHTML = content;
+
+    setTimeout(() => {
+      result.innerHTML = '';
+    }, 2000);
+  };
+
+  labelSearch('labelSearch', {
+    // 請求地址，支持 Function 類型
+    url: 'https://assets.codepen.io/2845599/teacher-data_1.json',
+
+    // 按下回車鍵
+    pressEnter: function(event) {
+      event.preventDefault();
+      log('ERROR');
+    },
+
+    // 鼠標經過 @ 提示元素
+    onMouseOver: function(event, data, popover) {
+      if (!data) {
+        return;
+      }
+      let query = new URLSearchParams(data).toString();
+      // 此時自動會顯示加載中...
+      popover.innerHTML = '';
+      // 請求數據
+      fetch('https://assets.codepen.io/2845599/teacher-okr_1.json?' + query).then(res => res.json()).then(json => {
+        const jsonData = json && json.data;
+        if (jsonData) {
+          popover.innerHTML = `<div class="t-person-okr">
+                        <div class="t-person">
+                            <a href="?id=${jsonData.userid}" class="t-link">
+                                <img src="${jsonData.avatar}" class="t-avatar" alt="${jsonData.username}">
+                                <div class="t-info">
+                                    <h6 class="t-name">${jsonData.username}-${setTimeout(0)}</h6>
+                                    <span class="t-department">${jsonData.department}</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="t-bar">
+                            <div class="t-bar-l">
+                                <span class="t-dt">個人資訊</span>
+                                <i class="t-divide">|</i>
+                                <span class="t-range">2022 年 7 月 - 8 月 個人資訊</span>
+                            </div>
+                            <a href="?id=${jsonData.userid}&rid=9" class="t-bar-r"> 個人資訊 詳情 </a>
+                        </div>
+                        <ol class="t-okr">${jsonData.objectList.map(obj => `<li>${obj.content}</li>`).join('')}</ol>
+                    </div>`;
+        }
+      });
+    }
   });
   </script>
 </body>
